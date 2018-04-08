@@ -11,6 +11,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <?php include_once 'template/navbar.php' ?>
 
         <h1><br/><br/>This shows that this page is working correctly!</h1>
+        
+        <h2>Click here to redirect to the homepage: <a href="<?php echo base_url('homepage/index'); ?>">CLICK ME!</a></h2>
     </div>
 </body>
 </html>
