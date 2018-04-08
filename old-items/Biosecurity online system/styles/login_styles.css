@@ -1,0 +1,171 @@
+/*Fonts for Login page*/
+@font-face {
+    font-family: queenFont;
+    src: url("fonts/queen_of_clubs.otf");
+}
+
+@font-face {
+    font-family: ARDESTINE;
+    src: url("fonts/ARDESTINE.ttf");
+}
+
+html{height:100%;}
+
+.header > h2{
+    font-family: ARDESTINE;
+    font-size: 50px;
+    position: relative;
+    display: inline;
+}
+
+#dangTagline{
+	font-family: queenFont;
+	font-size: 100px;
+}
+
+.header > img{
+    display: inline;
+    height: 50px;
+    width: 50px;
+}
+
+/*Fonts for Login page*/
+
+body, html {
+    margin-bottom: 5px;
+}
+
+.bg { 
+    background-image: url("../images/login.jpg");    
+    height: 100%; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow-x:hidden;
+
+  	overflow-y:hidden;
+	
+}
+*[hidden]{
+	display:none;
+}
+
+* {
+	margin: 0px;
+	padding: 0px;
+}
+body {
+	font-size: 120%;
+	background: #000000;
+
+}
+
+.header {
+	width: 35%;
+	margin: 50px auto 0px;
+	margin-top: 80px;
+	color: white;
+	background: rgba(21,30,63,0.8);
+	text-align: center;
+	border: 1px solid #B0C4DE;
+	border-bottom: none;
+	border-radius: 10px 10px 0px 0px;
+	padding: 20px;
+	margin-top: 20px;
+}
+form input{ 
+	width: 100%;
+	height: 40px;
+	border-radius: 5px;
+	text-indent: 20px;
+ }
+form input, .btn{
+	margin-bottom: 20px;
+
+}
+form, .content {
+	width: 35%;
+	margin: 0px auto;
+	padding: 20px;
+	border: 1px solid #B0C4DE;
+	background: rgba(255,255,255,0.8);
+	border-radius: 0px 0px 10px 10px;
+
+}
+.registered-text{
+	color: #858280;
+}
+.sign-up{ 
+	color: #C16E70;
+ }
+
+ .btn {
+	width: 92%;
+	height: 45px;
+	padding: 0px;
+	font-size: 15px;
+	color: white;
+	background: #DC9E82;
+	border: none;
+	border-radius: 5px;
+	margin-bottom: 5px;
+}
+.error {
+	width: 92%; 
+	margin: 0px auto; 
+	padding: 10px; 
+	border: 1px solid #a94442; 
+	color: #a94442; 
+	background: #f2dede; 
+	border-radius: 5px; 
+	text-align: left;
+}
+.success {
+	color: #3c763d; 
+	background: #dff0d8; 
+	border: 1px solid #3c763d;
+	margin-bottom: 20px;
+}
+
+/*Form Container Fade Animation*/
+.container {
+    -webkit-animation: fadein 1.5s; /* Safari and Chrome */
+    -moz-animation: fadein 1.5s; /* Firefox */
+    -ms-animation: fadein 1.5s; /* Internet Explorer */
+    -o-animation: fadein 1.5s; /* Opera */
+    animation: fadein 1.5s;
+}
+    
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Firefox */
+@-moz-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Safari and Chrome */
+@-webkit-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}​
+
+/* Opera */
+@-o-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}​
+
+.navbar-form button{
+	padding-bottom: 5px;
+
+}
