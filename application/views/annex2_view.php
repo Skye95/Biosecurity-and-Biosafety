@@ -4,9 +4,9 @@
     <title>Biosafety and Biosecurity Online System - Annex 2</title>
     
     <style>
-        body {
+        /*body {
             padding-top: 82px;
-        }
+        }*/
         
         .btn-sample{
             position: fixed;

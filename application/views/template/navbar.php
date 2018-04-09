@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-fixed-top">
     <div class="container">
         <?php if ($this->session->userdata('isLogin')){ ?>
             <a class="navbar-brand" href="<?php echo base_url(); ?>index.php/home/index">Swinburne Biosafety and Biosecurity Online System</a>
