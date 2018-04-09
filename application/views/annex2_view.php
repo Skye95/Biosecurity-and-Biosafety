@@ -4,8 +4,17 @@
     <title>Biosafety and Biosecurity Online System - Annex 2</title>
     
     <style>
-        body {
+        /*body {
             padding-top: 68px;
+        }*/
+        
+        .btn-sample{
+            position: fixed;
+            margin-left: 60px;
+        }
+        
+        .approve_section{
+            display: none;
         }
     </style>
 </head>    
@@ -47,7 +56,7 @@
                    <hr>
                    
                    <div>
-                       <h6><strong>1.General Information</strong></h6>
+                       <h6 id="section_1"><strong>1.General Information</strong></h6>
                        
                        <div class="form-group">
                            Name of applicant: <input type="text" class="form-control" name="applicant_name" id="applicant_name" >
@@ -69,7 +78,7 @@
                    <hr>
                    
                    <div>
-                       <h6><strong>2.Experimental Parameters</strong></h6>
+                       <h6 id="section_2"><strong>2.Experimental Parameters</strong></h6>
                        <p>IBC assessment/recommendation on each of the following:</p>
                        
                        <div class="form-group">
@@ -108,7 +117,7 @@
                    <hr>
                    
                    <div>
-                       <h6><strong>3.Details of Principal Investigators(PI)</strong></h6>
+                       <h6 id="section_3"><strong>3.Details of Principal Investigators(PI)</strong></h6>
                        
                        <div class="form-group">
                            Experience and expertise: <input type="text" class="form-control" name="experience_expertise" id="experience_expertise" >
@@ -130,7 +139,7 @@
                    <hr>
                    
                    <div>
-                       <h6><strong>4.List of all Personnel involved in Project</strong></h6>
+                       <h6 id="section_4"><strong>4.List of all Personnel involved in Project</strong></h6>
                        <table class="table table-bordered">
                            <thead>
                                <tr>
@@ -169,10 +178,45 @@
                        </table>
                    </div>
                    
+                   <div>
+                       <div class="checkbox">
+                           <label><input type="checkbox" value="" disabled>IBC approved</label>
+                       </div>
+                       
+                       <div class="form-group">
+                           <label for="ibc_name">Name:</label>
+                           <input type="text" class="form-control">
+                       </div>
+                       <div class="form-group">
+                           <label for="ibc_date">Date:</label>
+                           <input type="date" class="form-control">
+                       </div>
+                   </div>
+                   
+                   
+                   <div class="approve_section">
+                       <div class="radio">
+                           <label><input type="radio" name="annex2_approval">Approve</label>
+                       </div>
+                       <div class="radio">
+                           <label><input type="radio" name="annex2_reject">Reject</label>
+                       </div>
+                   </div> 
+                   
+                   <div>
+                       <button type="submit" class="btn btn-default">Submit</button>
+                   </div>
+                   
                </form>
             </div>
             
             <div class="col-md-2">
+                <div class="btn-group-vertical btn-sample">
+                    <a href="#section_1" class="btn btn-success">Section 1</a>
+                    <a href="#section_2" class="btn btn-success">Section 2</a>
+                    <a href="#section_3" class="btn btn-success">Section 3</a>
+                    <a href="#section_4" class="btn btn-success">Section 4</a>
+                </div>   
             </div>
         </div>
         
