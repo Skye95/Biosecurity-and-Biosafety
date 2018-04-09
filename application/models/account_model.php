@@ -11,7 +11,8 @@ class account_model extends CI_Model
 	function get_account($email, $pass)
 	{
 		$this->db->where('account_email', $email);
-		$this->db->where('account_password', md5($pass));
+		$this->db->where('account_password', $pass);
+        $this->db->where('account_approved', 1);
         $query = $this->db->get('accounts');
 		return $query->result();
 	}

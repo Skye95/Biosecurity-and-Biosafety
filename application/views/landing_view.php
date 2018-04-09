@@ -7,6 +7,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     
     <style>
         body {
+            padding-top: 82px;
             background-image: url(<?php echo base_url('assets/images/login.jpg'); ?>);
             background-repeat: no-repeat;
             background-size: cover;
@@ -20,11 +21,42 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     
     <!-- Page Content -->
     <div class="container">
-        <h1><br/><br/>This shows that this page is working correctly!</h1>
-        
-        <h2>Click here to redirect to the homepage: <a href="<?php echo base_url(); ?>index.php/home/index">CLICK ME!</a></h2>
-        
-        <h2>Click here to redirect to the registration page: <a href="<?php echo base_url(); ?>index.php/registration/index">CLICK ME!</a></h2>
+        <div class="row">
+            <div class="col-xl-4">
+            </div>
+            <div class="col-xl-4 bg-white">
+            <?php echo form_open('landing/index'); ?>
+                <br/>
+                <legend>Login</legend>
+                <br/>
+                <div class="form-group">
+                    <label for="email_add">Email Address:</label>
+                    <input class="form-control" id="email_add" name="account_email" placeholder="Enter your email address here." type="text" value="<?php echo set_value('account_email'); ?>" />
+                    <span class="text-danger"><?php echo form_error('account_email'); ?></span>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input class="form-control" id="password" name="account_password" placeholder="Enter your password here." type="password" value="<?php echo set_value('account_password'); ?>" />
+                    <span class="text-danger"><?php echo form_error('account_password'); ?></span>
+                </div>
+                <div class="form-group text-center">
+                    <button name="submit" type="submit" class="btn btn-success">Login</button>
+                </div>
+            <?php echo form_close(); ?>
+            </div>
+            <div class="col-xl-4">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xl-4">
+            </div>
+            <div class="col-xl-4 text-center bg-white">
+            <?php echo $this->session->flashdata('msg'); ?>
+                <p>Need an Account? <a href="<?php echo base_url(); ?>index.php/registration/index">Register Here</a></p>
+            </div>
+            <div class="col-xl-4">
+            </div>
+        </div>
     </div>
 </body>
 </html>

@@ -20,7 +20,7 @@ class registration extends CI_Controller {
         
         # Submit form
         if($this->form_validation->run() == FALSE){
-            # fails to validate
+            # validation fails
             $this->load->template('registration_view');
         } else {
             $data = array(
@@ -44,7 +44,7 @@ class registration extends CI_Controller {
     # Validates fullname due to alpha limitation
     #
     public function fullname_check($str) {
-    if (!preg_match("/^([a-z0-9 ])+$/i", $str)) {
+    if (!preg_match('/^([a-z0-9 ])+$/i', $str)) {
         $this->form_validation->set_message('fullname_check', 'The %s field can only be alphanumerical');
         return FALSE;
     } else {
