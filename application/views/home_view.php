@@ -38,7 +38,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="row">
             <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
                 <div class="card h-50">
-                <a href="#"><img class="card-img-top" src="<?php echo base_url('..\assets\images\ApplicantForm\Application for Biosafety.jpg') ?>" alt=""></a>
+                <a href="#"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\Application for Biosafety.jpg') ?>" alt=""></a>
                     <div class="card-body">
                         <h4 class="card-title">
                             <a href="#">Application</a>
@@ -49,7 +49,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
                 <div class="card h-50">
-                <a href="#"><img class="card-img-top" src="<?php echo base_url('..\assets\images\ApplicantForm\Procurement of Biological Material.jpg') ?>" alt=""></a>
+                <a href="#"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\Procurement of Biological Material.jpg') ?>" alt=""></a>
                     <div class="card-body">
                         <h4 class="card-title">
                             <a href="#">Procurement of Biological Material</a>
@@ -60,7 +60,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
                 <div class="card h-50">
-                <a href="#"><img class="card-img-top" src="<?php echo base_url('..\assets\images\ApplicantForm\Notification of LMO.jpg') ?>" alt=""></a>
+                <a href="#"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\Notification of LMO.jpg') ?>" alt=""></a>
                     <div class="card-body">
                         <h4 class="card-title">
                             <a href="#">Notification of LMO and Biohazardous Material</a>
@@ -71,7 +71,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
                 <div class="card h-50">
-                <a href="#"><img class="card-img-top" src="<?php echo base_url('..\assets\images\ApplicantForm\LMO Biohazardous Mat.jpg') ?>" alt=""></a>
+                <a href="#"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\LMO Biohazardous Mat.jpg') ?>" alt=""></a>
                     <div class="card-body">
                         <h4 class="card-title">
                             <a href="#">LMO and Biohazardous Materials Database</a>
@@ -82,7 +82,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
                 <div class="card h-50">
-                <a href="#"><img class="card-img-top" src="<?php echo base_url('..\assets\images\ApplicantForm\Exporting of Biological Material.jpg') ?>" alt=""></a>
+                <a href="#"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\Exporting of Biological Material.jpg') ?>" alt=""></a>
                     <div class="card-body">
                         <h4 class="card-title">
                             <a href="#">Exporting of Biological Material</a>
@@ -93,7 +93,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
                 <div class="card h-50">
-                    <a href="#"><img class="card-img-top" src="<?php echo base_url('..\assets\images\ApplicantForm\Incident Accident Reporting.jpg') ?>" alt=""></a>
+                    <a href="#"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\Incident Accident Reporting.jpg') ?>" alt=""></a>
                     <div class="card-body">
                         <h4 class="card-title">
                             <a href="#">Incident Accident Reporting</a>
@@ -104,7 +104,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
                 <div class="card h-50">
-                <a href="#"><img class="card-img-top" src="<?php echo base_url('..\assets\images\ApplicantForm\Annual Report.jpg') ?>" alt=""></a>
+                <a href="#"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\Annual Report.jpg') ?>" alt=""></a>
                     <div class="card-body">
                         <h4 class="card-title">
                             <a href="#">Annual or Final Report</a>

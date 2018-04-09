@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Annex 2</title>
+    <title>Biosafety and Biosecurity Online System - Annex 2</title>
     
     <style>
         body {

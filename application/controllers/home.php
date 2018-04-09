@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class homepage extends CI_Controller {
+class home extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -24,6 +24,6 @@ class homepage extends CI_Controller {
 		# $this->load->view('landing_view');
         # Aethylwyne: Please check core/MY_Loader.php for inquiries
         #
-        $this->load->template('homepage_view');
+        $this->load->template('home_view');
 	}
 }
