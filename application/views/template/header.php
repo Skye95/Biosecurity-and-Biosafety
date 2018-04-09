@@ -1,3 +1,4 @@
+<meta charset="utf-8">
 <meta name="author" content="Aethylwyne, SKY, Casper"/>
 <meta name="description" content="Biosafety and Biosecurity Online System"/>
 <meta name="keywords" content="biosafety, biosecurity"/>
@@ -22,3 +23,13 @@
 <!-- All Webix plug-ins file
 <script src="./assets/webix/codebase/webix.js"></script>
 -->
+
+<style>
+    footer {
+        position: fixed;
+        height: 50px;
+        bottom: 0;
+        width: 100%;
+        padding-top: 12px;
+    }
+</style>

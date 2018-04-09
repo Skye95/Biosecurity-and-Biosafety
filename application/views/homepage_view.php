@@ -3,7 +3,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
     <title>Swinburne Biosafety and Biosecurity Online System - Homepage</title>
     
     <style>
@@ -38,18 +37,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         <div class="row">
             <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
-                <div class="card h-100">
+                <div class="card h-50">
                 <a href="#"><img class="card-img-top" src="<?php echo base_url('..\assets\images\ApplicantForm\Application for Biosafety.jpg') ?>" alt=""></a>
                     <div class="card-body">
                         <h4 class="card-title">
                             <a href="#">Application</a>
                         </h4>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur eum quasi sapiente nesciunt? Voluptatibus sit, repellat sequi itaque deserunt, dolores in, nesciunt, illum tempora ex quae? Nihil, dolorem!</p>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur eum quasi sapiente nesciunt? Voluptatibus sit, repellat sequi itaq</p>
                     </div>
                 </div>
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
-                <div class="card h-100">
+                <div class="card h-50">
                 <a href="#"><img class="card-img-top" src="<?php echo base_url('..\assets\images\ApplicantForm\Procurement of Biological Material.jpg') ?>" alt=""></a>
                     <div class="card-body">
                         <h4 class="card-title">
@@ -60,18 +59,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </div>
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
-                <div class="card h-100">
+                <div class="card h-50">
                 <a href="#"><img class="card-img-top" src="<?php echo base_url('..\assets\images\ApplicantForm\Notification of LMO.jpg') ?>" alt=""></a>
                     <div class="card-body">
                         <h4 class="card-title">
                             <a href="#">Notification of LMO and Biohazardous Material</a>
                         </h4>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos quisquam, error quod sed cumque, odio distinctio velit nostrum temporibus necessitatibus et facere atque iure perspiciatis mollitia recusandae vero vel quam!</p>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos quisquam, error quod sed cumque, odio distinctio velit nostrum t</p>
                     </div>
                 </div>
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
-                <div class="card h-100">
+                <div class="card h-50">
                 <a href="#"><img class="card-img-top" src="<?php echo base_url('..\assets\images\ApplicantForm\LMO Biohazardous Mat.jpg') ?>" alt=""></a>
                     <div class="card-body">
                         <h4 class="card-title">
@@ -82,7 +81,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </div>
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
-                <div class="card h-100">
+                <div class="card h-50">
                 <a href="#"><img class="card-img-top" src="<?php echo base_url('..\assets\images\ApplicantForm\Exporting of Biological Material.jpg') ?>" alt=""></a>
                     <div class="card-body">
                         <h4 class="card-title">
@@ -93,18 +92,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </div>
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
-                <div class="card h-100">
+                <div class="card h-50">
                     <a href="#"><img class="card-img-top" src="<?php echo base_url('..\assets\images\ApplicantForm\Incident Accident Reporting.jpg') ?>" alt=""></a>
                     <div class="card-body">
                         <h4 class="card-title">
                             <a href="#">Incident Accident Reporting</a>
                         </h4>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque earum nostrum suscipit ducimus nihil provident, perferendis rem illo, voluptate atque, sit eius in voluptates, nemo repellat fugiat excepturi! Nemo, esse.</p>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque earum nostrum suscipit ducimus nihil provident, perferendis rem il</p>
                     </div>
                 </div>
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
-                <div class="card h-100">
+                <div class="card h-50">
                 <a href="#"><img class="card-img-top" src="<?php echo base_url('..\assets\images\ApplicantForm\Annual Report.jpg') ?>" alt=""></a>
                     <div class="card-body">
                         <h4 class="card-title">
