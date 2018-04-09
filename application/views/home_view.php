@@ -6,7 +6,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <title>Swinburne Biosafety and Biosecurity Online System - Homepage</title>
     
     <style>
-        /*body {
+        body {
             padding-top: 54px;
         }
 
@@ -14,7 +14,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             body {
                 padding-top: 56px;
             }
-        }*/
+        }
 
         .portfolio-item {
             margin-bottom: 30px;
@@ -41,7 +41,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <a href="annex2"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\Application for Biosafety.jpg') ?>" alt=""></a>
                     <div class="card-body">
                         <h4 class="card-title">
-                            <a href="annex2">Application</a>
+                            <a href="<?php echo base_url(); ?>index.php/annex2/index">">Application</a>
                         </h4>
                         <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur eum quasi sapiente nesciunt? Voluptatibus sit, repellat sequi itaq</p>
                     </div>
