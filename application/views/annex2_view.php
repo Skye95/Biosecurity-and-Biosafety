@@ -2,16 +2,17 @@
 <html>
 <head>
     <title>Annex 2</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" />
+    
+    <style>
+        body {
+            padding-top: 68px;
+        }
+    </style>
 </head>    
 <body>
+    <?php include_once 'template/navbar.php' ?>
     
     <div class="container">
-        
         <div class="row">
             <div class="col-md-1">
             </div>
@@ -168,9 +169,6 @@
                        </table>
                    </div>
                    
-                  
-                   
-                   
                </form>
             </div>
             
@@ -180,10 +178,5 @@
         
         
     </div>
-
-    <!-- jQuery – required for Bootstrap's JavaScript plugins) -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/jquery.min.js"></script>
-    <!-- All Bootstrap plug-ins file -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
 </html>
