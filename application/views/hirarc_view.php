@@ -66,7 +66,7 @@
                    
                    <div>
                        
-                       <table class="table table-bordered">
+                       <table class="table table-bordered" id="section_1">
                            <thead>
                                 <tr>
                                    <th class="tblTitle" colspan="10"><h8 id="section_1"><strong>Section 1 - Person Completing Form Details</strong></h8></th>
@@ -123,7 +123,7 @@
                    </div>
                    
                    <div>
-                       <table class="table table-bordered">
+                       <table class="table table-bordered" id="hirarcTb">
                            <thead>
                                <tr>
                                    <th class="tblTitle" colspan="10">HIRARC</th>
@@ -372,15 +372,15 @@
                    
                    <br>
                    
+                   <input type="submit" class="btn btn-primary" name="submit" value="Submit">
+                   
                </form>
             </div>
             
             <div class="col-md-2">
                 <div class="btn-group-vertical btn-sample">
                     <a href="#section_1" class="btn btn-success">Section 1</a>
-                    <a href="#section_2" class="btn btn-success">Section 2</a>
-                    <a href="#section_3" class="btn btn-success">Section 3</a>
-                    <a href="#section_4" class="btn btn-success">Section 4</a>
+                    <a href="#hirarcTb" class="btn btn-success">Section 2</a>
                 </div>   
             </div>
         </div>
