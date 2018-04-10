@@ -10,18 +10,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             padding-top: 54px;
         }
 
-        @media (min-width: 992px) {
-            body {
-                padding-top: 56px;
-            }
-        }
-
         .portfolio-item {
             margin-bottom: 30px;
         }
 
-        .pagination {
-            margin-bottom: 30px;
+        .card-img-top {
+            height: auto;
+            width: 100%;
         }
     </style>
 </head>
@@ -33,83 +28,83 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <!-- Page Content -->
     <div class="container">
         <!-- Page Heading -->
-        <h1 class="my-4">Lorem ipsum dolor sit amet</h1>
+        <h2 class="my-4 text-center">Welcome, <?php echo $this->session->userdata('account_name'); ?></h2>
 
         <div class="row">
-            <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
-                <div class="card h-50">
-                <a href="annex2"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\Application for Biosafety.jpg') ?>" alt=""></a>
+            <div class="col-lg-3 col-md-4 col-sm-6 col-6 portfolio-item">
+                <div class="card card-block h-50 justify-content-center align-items-center">
+                    <a href="annex2"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\Application for Biosafety.jpg') ?>" alt=""></a>
                     <div class="card-body">
-                        <h4 class="card-title">
-                            <a href="<?php echo base_url(); ?>index.php/annex2/index">">Application</a>
-                        </h4>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur eum quasi sapiente nesciunt? Voluptatibus sit, repellat sequi itaq</p>
+                        <h5 class="card-title">
+                            <a href="<?php echo base_url(); ?>index.php/annex2/index">Application</a>
+                        </h5>
+                        <p class="card-text"></p>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
-                <div class="card h-50">
-                <a href="#"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\Procurement of Biological Material.jpg') ?>" alt=""></a>
+            <div class="col-lg-3 col-md-4 col-sm-6 col-6 portfolio-item">
+                <div class="card card-block h-50 justify-content-center align-items-center">
+                    <a href="#"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\Procurement of Biological Material.jpg') ?>" alt=""></a>
                     <div class="card-body">
-                        <h4 class="card-title">
+                        <h5 class="card-title">
                             <a href="#">Procurement of Biological Material</a>
-                        </h4>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
+                        </h5>
+                        <p class="card-text"></p>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
-                <div class="card h-50">
-                <a href="#"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\Notification of LMO.jpg') ?>" alt=""></a>
+            <div class="col-lg-3 col-md-4 col-sm-6 col-6 portfolio-item">
+                <div class="card card-block h-50 justify-content-center align-items-center">
+                    <a href="#"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\Notification of LMO.jpg') ?>" alt=""></a>
                     <div class="card-body">
-                        <h4 class="card-title">
+                        <h5 class="card-title">
                             <a href="#">Notification of LMO and Biohazardous Material</a>
-                        </h4>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos quisquam, error quod sed cumque, odio distinctio velit nostrum t</p>
+                        </h5>
+                        <p class="card-text"></p>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
-                <div class="card h-50">
-                <a href="#"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\LMO Biohazardous Mat.jpg') ?>" alt=""></a>
+            <div class="col-lg-3 col-md-4 col-sm-6 col-6 portfolio-item">
+                <div class="card card-block h-50 justify-content-center align-items-center">
+                    <a href="#"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\LMO Biohazardous Mat.jpg') ?>" alt=""></a>
                     <div class="card-body">
-                        <h4 class="card-title">
+                        <h5 class="card-title">
                             <a href="#">LMO and Biohazardous Materials Database</a>
-                        </h4>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
+                        </h5>
+                        <p class="card-text"></p>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
-                <div class="card h-50">
-                <a href="#"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\Exporting of Biological Material.jpg') ?>" alt=""></a>
+            <div class="col-lg-3 col-md-4 col-sm-6 col-6 portfolio-item">
+                <div class="card card-block h-50 justify-content-center align-items-center">
+                    <a href="#"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\Exporting of Biological Material.jpg') ?>" alt=""></a>
                     <div class="card-body">
-                        <h4 class="card-title">
+                        <h5 class="card-title">
                             <a href="#">Exporting of Biological Material</a>
-                        </h4>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
+                        </h5>
+                        <p class="card-text"></p>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
-                <div class="card h-50">
+            <div class="col-lg-3 col-md-4 col-sm-6 col-6 portfolio-item">
+                <div class="card card-block h-50 justify-content-center align-items-center">
                     <a href="#"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\Incident Accident Reporting.jpg') ?>" alt=""></a>
                     <div class="card-body">
-                        <h4 class="card-title">
+                        <h5 class="card-title">
                             <a href="#">Incident Accident Reporting</a>
-                        </h4>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque earum nostrum suscipit ducimus nihil provident, perferendis rem il</p>
+                        </h5>
+                        <p class="card-text"></p>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
-                <div class="card h-50">
-                <a href="#"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\Annual Report.jpg') ?>" alt=""></a>
+            <div class="col-lg-3 col-md-4 col-sm-6 col-6 portfolio-item">
+                <div class="card card-block h-50 justify-content-center align-items-center">
+                    <a href="#"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\Annual Report.jpg') ?>" alt=""></a>
                     <div class="card-body">
-                        <h4 class="card-title">
+                        <h5 class="card-title">
                             <a href="#">Annual or Final Report</a>
-                        </h4>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
+                        </h5>
+                        <p class="card-text"></p>
                     </div>
                 </div>
             </div>

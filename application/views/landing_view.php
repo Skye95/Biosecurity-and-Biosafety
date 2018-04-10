@@ -13,6 +13,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             background-size: cover;
             background-position: center;
         }
+        
+        .vertical-center {
+            min-height: 75%;
+            min-height: 75vh;
+            display: flex;
+            align-items: center;
+        }
     </style>
 </head>
 <body>
@@ -20,42 +27,45 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <?php include_once 'template/navbar.php' ?>
     
     <!-- Page Content -->
-    <div class="container">
-        <div class="row">
-            <div class="col-xl-4">
-            </div>
-            <div class="col-xl-4 bg-white">
-            <?php echo form_open('landing/index'); ?>
-                <br/>
-                <legend>Login</legend>
-                <br/>
-                <div class="form-group">
-                    <label for="email_add">Email Address:</label>
-                    <input class="form-control" id="email_add" name="account_email" placeholder="Enter your email address here." type="text" value="<?php echo set_value('account_email'); ?>" />
-                    <span class="text-danger"><?php echo form_error('account_email'); ?></span>
+    <div class="vertical-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-3 col-sm-2 col-1">
                 </div>
-                <div class="form-group">
-                    <label for="password">Password:</label>
-                    <input class="form-control" id="password" name="account_password" placeholder="Enter your password here." type="password" value="<?php echo set_value('account_password'); ?>" />
-                    <span class="text-danger"><?php echo form_error('account_password'); ?></span>
+                <div class="col-lg-6 col-md-6 col-sm-8 col-10 bg-white">
+                    <?php echo form_open('landing/index'); ?>
+                        <br/>
+                        <legend>Login</legend>
+                        <br/>
+                        <div class="form-group">
+                            <label for="email_add">Email Address:</label>
+                            <input class="form-control" id="email_add" name="account_email" placeholder="Enter your email address here." type="text" value="<?php echo set_value('account_email'); ?>" />
+                            <span class="text-danger"><?php echo form_error('account_email'); ?></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password:</label>
+                            <input class="form-control" id="password" name="account_password" placeholder="Enter your password here." type="password" value="<?php echo set_value('account_password'); ?>" />
+                            <span class="text-danger"><?php echo form_error('account_password'); ?></span>
+                        </div>
+                        <div class="form-group text-center">
+                            <button name="submit" type="submit" class="btn btn-success">Login</button>
+                        </div>
+                    <?php echo form_close(); ?>
                 </div>
-                <div class="form-group text-center">
-                    <button name="submit" type="submit" class="btn btn-success">Login</button>
+                <div class="col-lg-3 col-md-3 col-sm-2 col-1">
                 </div>
-            <?php echo form_close(); ?>
             </div>
-            <div class="col-xl-4">
+            <div class="row">
+                <div class="col-lg-3 col-md-3 col-sm-2 col-1">
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-8 col-10 text-center bg-white">
+                <?php echo $this->session->flashdata('msg'); ?>
+                    <p>Need an Account? <a href="<?php echo base_url(); ?>index.php/registration/index">Register Here</a></p>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-2 col-1">
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-xl-4">
-            </div>
-            <div class="col-xl-4 text-center bg-white">
-            <?php echo $this->session->flashdata('msg'); ?>
-                <p>Need an Account? <a href="<?php echo base_url(); ?>index.php/registration/index">Register Here</a></p>
-            </div>
-            <div class="col-xl-4">
-            </div>
+            <br/>
         </div>
     </div>
 </body>
