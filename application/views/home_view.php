@@ -69,7 +69,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <a href="#"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\LMO Biohazardous Mat.jpg') ?>" alt=""></a>
                     <div class="card-body">
                         <h5 class="card-title">
-                            <a href="#">LMO and Biohazardous Materials Database</a>
+                            <a href="<?php echo base_url(); ?>index.php/inventory/index">LMO and Biohazardous Materials Database</a>
                         </h5>
                         <p class="card-text"></p>
                     </div>

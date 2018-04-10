@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 10, 2018 at 02:19 PM
+-- Generation Time: Apr 10, 2018 at 05:02 PM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.3
 
@@ -23,6 +23,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE DATABASE IF NOT EXISTS biosafety_and_biosecurity;
+USE biosafety_and_biosecurity;
 
 -- --------------------------------------------------------
 
@@ -776,6 +777,7 @@ CREATE TABLE `notification` (
   `notification_id` int(10) UNSIGNED NOT NULL,
   `account_id` int(10) UNSIGNED NOT NULL,
   `notification_description` varchar(500) NOT NULL,
+  `notification_date` datetime DEFAULT CURRENT_TIMESTAMP,
   `notification_read` int(1) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
