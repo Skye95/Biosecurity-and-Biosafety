@@ -8,13 +8,13 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Notifications</a>
+                        <a class="nav-link" href="#"><i class="fa fa-bell fa-lg fa-fw"></i> Notifications</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Settings</a>
+                        <a class="nav-link" href="#"><i class="fa fa-user fa-lg fa-fw"></i> My Account</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo base_url(); ?>index.php/landing/logout">Logout</a>
+                        <a class="nav-link" href="<?php echo base_url(); ?>index.php/landing/logout"><i class="fa fa-sign-out fa-lg fa-fw"></i> Log Out</a>
                     </li>
                 </ul>
             </div>

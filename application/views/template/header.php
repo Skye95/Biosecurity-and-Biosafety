@@ -9,6 +9,7 @@
 <!-- Bootstrap -->
 <!-- <link href="<?php echo base_url('assets/css/bootstrap.min.css'); ?>" rel="stylesheet" /> -->
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" />
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
 <!-- Webix
 <link href="./assets/webix/codebase/webix.css" rel="stylesheet" />
 -->
@@ -31,5 +32,10 @@
         bottom: 0;
         width: 100%;
         padding-top: 12px;
+    }
+    
+    i {
+        margin-left: 10px;
+        color: white;
     }
 </style>
