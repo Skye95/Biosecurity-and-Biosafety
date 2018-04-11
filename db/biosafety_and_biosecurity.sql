@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 11, 2018 at 05:20 AM
+-- Generation Time: Apr 11, 2018 at 07:04 PM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.3
 
@@ -289,6 +289,9 @@ CREATE TABLE `biohazardousmaterial` (
   `project_supervisor_name` varchar(100) DEFAULT NULL,
   `project_supervisor_department` varchar(100) DEFAULT NULL,
   `project_supervisor_email_address` varchar(100) DEFAULT NULL,
+  `project_alt_person` varchar(100) DEFAULT NULL,
+  `project_alt_department` varchar(100) DEFAULT NULL,
+  `project_alt_email` varchar(100) DEFAULT NULL,
   `project_personnel_name` varchar(100) DEFAULT NULL,
   `project_personnel_role` varchar(100) DEFAULT NULL,
   `proposed_work_known` int(1) NOT NULL,
