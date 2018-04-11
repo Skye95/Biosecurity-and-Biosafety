@@ -248,7 +248,7 @@
 					<div>
                        <h6><strong>Applicant:</strong></h6>
                        <div class="form-group">
-						  Date <input type="text" class="form-control" name="applicant_signature_date" id="applicant_signature_date">
+						  Date <input type="date" class="form-control" name="applicant_signature_date" id="applicant_signature_date">
                        </div>
 					   <div class="form-group">
                           Name as in Identity Card/Passport:<input type="text" class="form-control" name="applicant_name" id="applicant_name" >
@@ -263,7 +263,7 @@
 					<div>
                        <h6><strong>Head of organization/ Authorized Representative:</strong></h6>
                        <div class="form-group">
-					      Date <input type="text" class="form-control" name="representative_signature_date" id="representative_signature_date">
+					      Date <input type="date" class="form-control" name="representative_signature_date" id="representative_signature_date">
                        </div>
 					   <div class="form-group">
                           Name as in Identity Card/Passport:<input type="text" class="form-control" name="representative_name" id="representative_name" >
