@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Biosafety and Biosecurity Online System - Hazard Identification, Risk Assesment, Risk Control (HIRARC) Form</title>
+    <title>Biosafety and Biosecurity Online System - Application for Biosafety Clearance for use of exempt dealings</title>
     
     <style>
         body {
@@ -77,8 +77,8 @@
                    <table class="table table-bordered" id="section_1">
                        <thead>
                            <tr>
-                               <td width="20px" class="reddata">1</td>
-                               <td>Title of Project</td>
+                               <th width="20px" class="reddata">1</th>
+                               <th>Title of Project</th>
                            </tr>
                        </thead>
                        <tbody>
@@ -91,8 +91,8 @@
                    <table class="table table-bordered">
                        <thead>
                            <tr>
-                               <td width="10px" class="reddata" id="section_2">2</td>
-                               <td colspan="2">Researchers involved in the conduct of the project</td>
+                               <th width="10px" class="reddata" id="section_2">2</th>
+                               <th colspan="2">Researchers involved in the conduct of the project</th>
                            </tr>
                        </thead>
                        <tbody>
@@ -124,8 +124,8 @@
                    <table class="table table-bordered">
                        <thead>
                            <tr>
-                               <td width="10px" class="reddata" id="section_3">3</td>
-                               <td colspan="2">Additional people to be included in correspondence regarding this dealing<br>(e.g. Research Assistants, Biosafety Officer, Facility Managers)</td>
+                               <th width="10px" class="reddata" id="section_3">3</th>
+                               <th colspan="2">Additional people to be included in correspondence regarding this dealing<br>(e.g. Research Assistants, Biosafety Officer, Facility Managers)</th>
                            </tr>
                        </thead>
                        <tbody>
@@ -154,8 +154,8 @@
                    <table class="table table-bordered">
                        <thead>
                            <tr>
-                               <td width="10px" class="reddata" id="section_4">4</td>
-                               <td colspan="2">Exemption Category</td>
+                               <th width="10px" class="reddata" id="section_4">4</th>
+                               <th colspan="2">Exemption Category</th>
                            </tr>
                        </thead>
                        <tbody>
@@ -243,8 +243,8 @@
                    <table class="table table-bordered">
                        <thead>
                            <tr>
-                               <td width="10px" class="reddata" id="section_5">5</td>
-                               <td colspan="2">Project Summary - briefly describe the project, including background, aims and methods. (This should be written in plain English)</td>
+                               <th width="10px" class="reddata" id="section_5">5</th>
+                               <th colspan="2">Project Summary - briefly describe the project, including background, aims and methods. (This should be written in plain English)</th>
                            </tr>
                        </thead>
                        <tbody>
@@ -257,8 +257,8 @@
                    <table class="table table-bordered">
                        <thead>
                            <tr>
-                               <td width="10px" class="reddata" id="section_6">6</td>
-                               <td colspan="2">What are the possible hazard(s) or risk(s) involved? If your work involves an exempt dealing - clarify why it is exempt.</td>
+                               <th width="10px" class="reddata" id="section_6">6</th>
+                               <th colspan="2">What are the possible hazard(s) or risk(s) involved? If your work involves an exempt dealing - clarify why it is exempt.</th>
                            </tr>
                        </thead>
                        <tbody>
@@ -271,8 +271,8 @@
                    <table class="table table-bordered">
                        <thead>
                            <tr>
-                               <td width="10px" class="reddata" id="section_7">7</td>
-                               <td colspan="2">What are the possible hazard(s) or risk(s) involved? If your work involves an exempt dealing - clarify why it is exempt.</td>
+                               <th width="10px" class="reddata" id="section_7">7</th>
+                               <th colspan="2">Provide a list of the SOPs and Risk Assessments to be used. (Attach all to application)</th>
                            </tr>
                        </thead>
                        <tbody>
@@ -310,8 +310,8 @@
                    <table class="table table-bordered">
                        <thead>
                            <tr>
-                               <td width="10px" class="reddata" id="section_9">9</td>
-                               <td>Biosafety Officer(s)/ Lab Manager notification</td>
+                               <th width="10px" class="reddata" id="section_9">9</th>
+                               <th>Biosafety Officer(s)/ Lab Manager notification</th>
                            </tr>
                        </thead>
                        <tbody>
@@ -322,9 +322,9 @@
                                            <td>
                                                Has/have the Biosafety Officer(s)/Lab Manager responsible for the facilities where the dealing is to be conducted been made aware of this application? &nbsp;&nbsp;
                                                
-                                               <label class="checkbox-inline"><input type="checkbox" value="" name="officer notified">Yes</label>
+                                               <label class="checkbox-inline"><input type="checkbox" value="" name="officer_notified">Yes</label>
                                                
-                                               <label class="checkbox-inline"><input type="checkbox" value="" name="officer notified">No</label>
+                                               <label class="checkbox-inline"><input type="checkbox" value="" name="officer_notified">No</label>
 
                                            </td>
                                        </tr>
