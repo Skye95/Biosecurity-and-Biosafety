@@ -13,6 +13,12 @@ class inventory_model extends CI_Model
         $query = $this->db->select('*')->from('inventory')->get();
 		return $query->result();
 	}
+    
+    function get_all_storage()
+	{
+        $query = $this->db->select('*')->from('storage')->get();
+		return $query->result();
+	}
 	
 	# Retrieves Inventory by ID
 	function get_inventory_by_id($id)
@@ -21,11 +27,25 @@ class inventory_model extends CI_Model
         $query = $this->db->get('inventory');
 		return $query->result();
 	}
+    
+    # Retrieves Storage by ID
+	function get_storage_by_id($id)
+	{
+		$this->db->where('storage_id', $id);
+        $query = $this->db->get('storage');
+		return $query->result();
+	}
 	
 	# Insert New Inventory
 	function insert_new_inventory($data)
     {
 		return $this->db->insert('inventory', $data);
+	}
+    
+    # Insert New Storage
+	function insert_new_storage($data)
+    {
+		return $this->db->insert('storage', $data);
 	}
 }
 ?>

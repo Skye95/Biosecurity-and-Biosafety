@@ -13,15 +13,13 @@ class inventory extends CI_Controller {
     
 	public function index()
 	{
-        $data['inventory'] = $this->inventory_model->get_all_inventory();
+        $data['storage'] = $this->inventory_model->get_all_storage();
         $this->load->template('inventory_view', $data);
 	}
     
-    /*
-    function load_inventory() {
+    public function index2() {
         $data['inventory'] = $this->inventory_model->get_all_inventory();
-        $this->load->template('inventory_view');
+        $this->load->template('inventory_view', $data);
     }
-    */
 }
 ?>

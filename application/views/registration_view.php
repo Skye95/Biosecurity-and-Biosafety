@@ -20,6 +20,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             display: flex;
             align-items: center;
         }
+        
+        button {
+            margin-right: 12px;
+        }
     </style>
 </head>
 <body>

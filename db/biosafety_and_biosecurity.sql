@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 10, 2018 at 05:02 PM
+-- Generation Time: Apr 11, 2018 at 05:20 AM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.3
 
@@ -641,12 +641,20 @@ CREATE TABLE `inventory` (
   `biohazard_type` varchar(100) NOT NULL,
   `biohazard_name` varchar(100) NOT NULL,
   `biohazard_id` varchar(100) NOT NULL,
-  `date_received` datetime DEFAULT NULL,
+  `date_received` date DEFAULT NULL,
   `log_in_personnel` varchar(100) NOT NULL,
   `keeper_name` varchar(100) NOT NULL,
-  `remarks` varchar(500) NOT NULL,
+  `remarks` varchar(500) DEFAULT NULL,
   `popularity` int(10) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `inventory`
+--
+
+INSERT INTO `inventory` (`inventory_id`, `program`, `program_type`, `unit_convenor`, `project_investigator`, `unit_name`, `experiment_title`, `project_title`, `project_reference_no`, `biohazard_type`, `biohazard_name`, `biohazard_id`, `date_received`, `log_in_personnel`, `keeper_name`, `remarks`, `popularity`) VALUES
+(1, 'Msc\r\n', 'Research\r\n', 'Chua Jia Ni\r\n', NULL, NULL, NULL, 'SSBC: Biohazard.2018.01: Optimizing Bacteria Growth Condition\r\n', NULL, 'Microorganism\r\n', 'E. coli ABC\r\n', 'B.BSL1.R.1.1\r\n', '2018-04-09', 'Chua Jia Ni\r\n', 'Chua Jia Ni\r\n', 'Sample data being test.\r\nPlease see.', NULL),
+(2, 'Biotech\r\n', 'Teaching\r\n', 'Chua Jia Ni\r\n', NULL, 'BCH 007:\r\n', 'Bacteria Isolation\r\n', NULL, NULL, 'Living modified bacteria\r\n', 'E. coli DEF\r\n', 'L.BSL1.T.1.1\r\n', '2018-04-11', 'Chua Jia Ni\r\n', 'Chua Jia Ni\r\n', 'Let’s say once you render this table the description for the test is way too big and is pushing the other columns away and making them smaller than you think they should be.  The quickest way to fix this is to simply give column sizes to your table headers.', NULL);
 
 -- --------------------------------------------------------
 
@@ -776,6 +784,7 @@ CREATE TABLE `materialriskassessment` (
 CREATE TABLE `notification` (
   `notification_id` int(10) UNSIGNED NOT NULL,
   `account_id` int(10) UNSIGNED NOT NULL,
+  `notification_type` varchar(20) DEFAULT 'admin',
   `notification_description` varchar(500) NOT NULL,
   `notification_date` datetime DEFAULT CURRENT_TIMESTAMP,
   `notification_read` int(1) UNSIGNED NOT NULL
@@ -1010,16 +1019,25 @@ CREATE TABLE `pc2` (
 
 CREATE TABLE `storage` (
   `storage_id` int(10) UNSIGNED NOT NULL,
+  `biohazard_id` varchar(20) NOT NULL,
   `biohazard_name` varchar(100) NOT NULL,
-  `risk_group` varchar(100) NOT NULL,
+  `risk_group` varchar(20) NOT NULL,
   `location` varchar(100) NOT NULL,
   `biohazard_source` varchar(100) NOT NULL,
-  `date_created` datetime DEFAULT NULL,
+  `date_created` date DEFAULT NULL,
   `storage_location` varchar(100) NOT NULL,
   `keeper_name` varchar(100) NOT NULL,
   `log_in_personnel` varchar(100) NOT NULL,
   `popularity` int(10) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `storage`
+--
+
+INSERT INTO `storage` (`storage_id`, `biohazard_id`, `biohazard_name`, `risk_group`, `location`, `biohazard_source`, `date_created`, `storage_location`, `keeper_name`, `log_in_personnel`, `popularity`) VALUES
+(1, 'B.BSL1.R.1.1', 'E. coli ABC\r\n', '1\r\n', 'Wind Cave\r\n', 'Soil\r\n', '2018-04-03', 'Freezer Room\r\n', 'Chua Jia Ni\r\n', 'Chua Jia Ni\r\n', NULL),
+(2, 'L.BSL1.T.1.1', 'E. coli DEF\r\n', '1\r\n', '123 Company\r\n', 'E. coli\r\n', '2018-04-07', 'Micro Lab\r\n', 'Chua Jia Ni\r\n', 'Chua Jia Ni\r\n', NULL);
 
 -- --------------------------------------------------------
 
@@ -1323,7 +1341,7 @@ ALTER TABLE `incidentaccidentreport`
 -- AUTO_INCREMENT for table `inventory`
 --
 ALTER TABLE `inventory`
-  MODIFY `inventory_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `inventory_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `materialriskassessment`
@@ -1365,7 +1383,7 @@ ALTER TABLE `pc2`
 -- AUTO_INCREMENT for table `storage`
 --
 ALTER TABLE `storage`
-  MODIFY `storage_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `storage_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `swp`

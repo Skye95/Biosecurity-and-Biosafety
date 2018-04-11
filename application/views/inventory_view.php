@@ -9,6 +9,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         body {
             padding-top: 82px;
         }
+        
+        button {
+            margin-right: 12px;
+        }
     </style>
 </head>
 <body>
@@ -17,8 +21,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     
     <!-- Page Content -->
     <div class="container">
-        <h2>Inventory</h2>
+        <div class="text-center">
+            <a href="<?php echo base_url(); ?>index.php/inventory/index"><button class="btn btn-info">Storage Database</button></a>
+            <a href="<?php echo base_url(); ?>index.php/inventory/index2"><button class="btn btn-info">Inventory Database</button></a>
+        </div>
         <br/>
+        <?php if(isset($inventory)) { ?>
         <div class="table-responsive">
             <table class="table table-hover">
                 <tr>
@@ -55,6 +63,38 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <?php endforeach; ?>
             </table>
         </div>
+        <?php } else { ?>
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <tr>
+                    <th></th>
+                    <th>Biohazard Material ID</th>
+                    <th>Name of Biohazard Material</th>
+                    <th>Risk Group</th>
+                    <th>Location of Collection / Supplier</th>
+                    <th>Source of Biohazard Material</th>
+                    <th>Date Created</th>
+                    <th>Storage Location</th>
+                    <th>Keeper</th>
+                    <th>Log In Personnel</th>
+                </tr>
+                <?php foreach($storage as $row): ?>
+                <tr>
+                    <td><?php echo $row->storage_id; ?></td>
+                    <td><?php echo $row->biohazard_id; ?></td>
+                    <td><?php echo $row->biohazard_name; ?></td>
+                    <td><?php echo $row->risk_group; ?></td>
+                    <td><?php echo $row->location; ?></td>
+                    <td><?php echo $row->biohazard_source; ?></td>
+                    <td><?php echo $row->date_created; ?></td>
+                    <td><?php echo $row->storage_location; ?></td>
+                    <td><?php echo $row->keeper_name; ?></td>
+                    <td><?php echo $row->log_in_personnel; ?></td>
+                </tr>
+                <?php endforeach; ?>
+            </table>
+        </div>
+        <?php } ?>
         <br/>
     </div>
 </body>
