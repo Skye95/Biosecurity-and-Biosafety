@@ -49,7 +49,7 @@
                    <h3 class="centering">Application for biosafety clearance for use of</h3>
                    <h3 class="centering">Biohazard materials</h3>
                    
-                   <table class="table table-bordered blackborder">
+                   <table class="table table-bordered">
                        <thead class="tblTitle2">
                            <tr>
                                <th>DATE RECEIVED</th>
@@ -110,13 +110,13 @@
                        </thead>
                        <tbody>
                            <tr>
-                               <td colspan="2">Name: <div class="form-group"><input type="text" class="form-control" name="contact_person_name"></div></td>
+                               <td colspan="2">Name: <div class="form-group"><input type="text" class="form-control" name="project_alt_person"></div></td>
                            </tr>
                            <tr>
-                               <td colspan="2">Department: <div class="form-group"><input type="text" class="form-control" name="contact_person_department"></div></td>
+                               <td colspan="2">Department: <div class="form-group"><input type="text" class="form-control" name="project_alt_department"></div></td>
                            </tr>
                            <tr>
-                               <td colspan="2">Email (MUST be Swinburne email address): <div class="form-group"><input type="email" class="form-control" name="contact_person_email"></div></td>
+                               <td colspan="2">Email (MUST be Swinburne email address): <div class="form-group"><input type="email" class="form-control" name="project_alt_email"></div></td>
                            </tr>
                        </tbody>
                    </table>
