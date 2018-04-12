@@ -130,25 +130,53 @@
                        </thead>
                        <tbody>
                            <tr>
-                               <td width="90px">Title: <input type="text" class="form-control" name="project_add_title"></td>
-                               <td>Name: <input type="text" class="form-control" name="project_add_name"></td>
-                               <td>Current qualifications (please include all): <input type="text" class="form-control" name="project_add_qualification"></td>
-                           </tr>
-                           <tr>
-                               <td colspan="2">Department: <input type="text" class="form-control" name="project_add_department"></td>
-                               <td colspan="1">Campus: <input type="text" class="form-control" name="project_add_campus"></td>
-                           </tr>
-                           <tr>
-                               <td colspan="3">Full postal address (including internal mail details): <input type="text" class="form-control" name="project_add_postal_address"></td>
-                           </tr>
-                           <tr>
-                               <td colspan="2">Phone: <input type="tel" class="form-control" name="project_supervisor_telephone"></td>
-                               <td>Fax: <input type="text" class="form-control" name="project_add_fax"></td>
-                           </tr>
-                           <tr>
-                               <td colspan="3">Email (MUST be staff email address): <input type="email" class="form-control" name="project_add_email_address"></td>
+                               <td colspan="2">
+                                   <table class="table table-bordered">
+                                       <tr>
+                                           <td width="90px">Title: <input type="text" class="form-control" name="project_add_title"></td>
+                                           <td>Name: <input type="text" class="form-control" name="project_add_name"></td>
+                                           <td>Current qualifications (please include all): <input type="text" class="form-control" name="project_add_qualification"></td>
+                                       </tr>
+                                       <tr>
+                                           <td colspan="2">Department: <input type="text" class="form-control" name="project_add_department"></td>
+                                           <td colspan="1">Campus: <input type="text" class="form-control" name="project_add_campus"></td>
+                                       </tr>
+                                       <tr>
+                                           <td colspan="3">Full postal address (including internal mail details): <input type="text" class="form-control" name="project_add_postal_address"></td>
+                                       </tr>
+                                       <tr>
+                                           <td colspan="2">Phone: <input type="tel" class="form-control" name="project_supervisor_telephone"></td>
+                                           <td>Fax: <input type="text" class="form-control" name="project_add_fax"></td>
+                                       </tr>
+                                       <tr>
+                                           <td colspan="3">Email (MUST be staff email address): <input type="email" class="form-control" name="project_add_email_address"></td>
+                                       </tr>
+                                   </table>
+                               </td>
                            </tr>
                        </tbody>
+                   </table>
+                   
+                   <table class="table table-bordered">
+                       <tr>
+                           <td width="90px">Title: <input type="text" class="form-control" name="project_add_title"></td>
+                           <td>Name: <input type="text" class="form-control" name="project_add_name"></td>
+                           <td>Current qualifications (please include all): <input type="text" class="form-control" name="project_add_qualification"></td>
+                       </tr>
+                       <tr>
+                           <td colspan="2">Department: <input type="text" class="form-control" name="project_add_department"></td>
+                           <td colspan="1">Campus: <input type="text" class="form-control" name="project_add_campus"></td>
+                       </tr>
+                       <tr>
+                           <td colspan="3">Full postal address (including internal mail details): <input type="text" class="form-control" name="project_add_postal_address"></td>
+                       </tr>
+                       <tr>
+                           <td colspan="2">Phone: <input type="tel" class="form-control" name="project_supervisor_telephone"></td>
+                           <td>Fax: <input type="text" class="form-control" name="project_add_fax"></td>
+                       </tr>
+                       <tr>
+                           <td colspan="3">Email (MUST be staff email address): <input type="email" class="form-control" name="project_add_email_address"></td>
+                       </tr>
                    </table>
                    
                    <table class="table table-bordered">
