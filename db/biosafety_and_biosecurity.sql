@@ -118,6 +118,7 @@ CREATE TABLE `annex3` (
   `incident_cause_checklist_unknown` int(1) NOT NULL,
   `incident_cause_checklist_maintenance_staff` int(1) NOT NULL,
   `incident_cause_checklist_supervision` int(1) NOT NULL,
+  `incident_cause_checklist_method` int(1) NOT NULL,
   `incident_cause_checklist_none` int(1) NOT NULL,
   `incident_cause_checklist_none_description` varchar(500) DEFAULT NULL,
   `incident_LMO_rDNA_release` int(1) NOT NULL,
