@@ -53,34 +53,34 @@
                            <tbody>
                                <tr>
                                    <th class="tbheader1">1.01  Name (as per I.C./Passport):</th>
-                                   <td><input type="text" name="personnel_name" class="form-control"></td>
+                                   <td><input type="text" name="victim_name" class="form-control"></td>
                                    <th class="tbheader1">1.05  Employment Designation:</th>
-                                   <td><input type="text" name="personnel_staff_student_no" class="form-control"></td>
+                                   <td><input type="text" name="victim_employment_designation" class="form-control"></td>
                                </tr>
                                <tr>
                                    <th class="tbheader1">1.02   Gender:</th>
                                    <td>
 										<div class="checkbox">
-											<label><input type="checkbox" name="SWP_approved_by" value="1"> MALE</label>
+											<label><input type="checkbox" name="victim_gender" value="1"> MALE</label>
 										</div>
 										<div class="checkbox">
-											<label><input type="checkbox" name="SWP_declined_by" value="0"> FEMALE</label>
+											<label><input type="checkbox" name="victim_gender" value="0"> FEMALE</label>
 										</div>
 								   </td>
                                    <th class="tbheader1">1.06   Unit/Faculty:</th>
-                                   <td><input type="text" name="personnel_staff_student_no" class="form-control"></td>
+                                   <td><input type="text" name="victim_faculty" class="form-control"></td>
                                </tr>
                                <tr>
                                    <th class="tbheader1">1.03  Age:</th>
-                                   <td><input type="number" name="personnel_name" class="form-control"></td>
+                                   <td><input type="number" name="victim_age" class="form-control"></td>
                                    <th class="tbheader1">1.07   Doc ID:</th>
-                                   <td><input type="text" name="country" class="form-control" value="OHS/F/4.20.X" disabled></td>
+                                   <td><input type="text" name="doc_id" class="form-control" value="OHS/F/4.20.X" disabled></td>
                                </tr>
                                <tr>
                                    <th class="tbheader1">1.04   Citizenship:</th>
-                                   <td><input type="text" name="personnel_name" class="form-control"></td>
+                                   <td><input type="text" name="victim_citizenship" class="form-control"></td>
                                    <th class="tbheader1">1.08   Review Date:</th>
-                                   <td><input type="date" name="personnel_staff_student_no" class="form-control"></td>
+                                   <td><input type="date" name="review_date" class="form-control"></td>
                                </tr>							   
                            </tbody>
                        </table>
@@ -96,7 +96,7 @@
                            <tbody>
                                <tr>
                                    <th class="tbheader1">2.1 Date of incident:</th>
-                                   <td colspan="4"><input type="text" class="form-control" name="SWP_location"></td>
+                                   <td colspan="4"><input type="text" class="form-control" name="incident_date"></td>
 							   </tr>
                                <tr>
                                    <th class="tbheader1">2.2 Time:</th>
@@ -104,44 +104,44 @@
                                </tr>
 							   <tr>
                                    <th class="tbheader1">2.3 Room/Area:</th>
-                                   <td colspan="4"><input type="text" class="form-control" name="SWP_location"></td>
+                                   <td colspan="4"><input type="text" class="form-control" name="incident_location"></td>
                                </tr>
                                <tr>
                                    <th class="tbheader1">2.4 Type of Incident:</th>
                                    <td colspan="1">										
 								   <div class="checkbox">
-											<label><input type="checkbox" name="SWP_approved_by" value="1"> Slips, Trips and Falls</label>
+											<label><input type="checkbox" name="incident_type" value="1"> Slips, Trips and Falls</label>
 									</div>
 									<div class="checkbox">
-											<label><input type="checkbox" name="SWP_approved_by" value="1"> Unsafe Act</label>
+											<label><input type="checkbox" name="incident_type" value="2"> Unsafe Act</label>
 									</div>
 									<div class="checkbox">
-											<label><input type="checkbox" name="SWP_approved_by" value="1"> Burns/Fire</label>
+											<label><input type="checkbox" name="incident_type" value="3"> Burns/Fire</label>
 									</div>
 									<div class="checkbox">
-											<label><input type="checkbox" name="SWP_approved_by" value="1"> Repetitive strain injury</label>
+											<label><input type="checkbox" name="incident_type" value="4"> Repetitive strain injury</label>
 									</div>
 									<div class="checkbox">
-											<label><input type="checkbox" name="SWP_approved_by" value="1"> Cuts/Laceration</label>
+											<label><input type="checkbox" name="incident_type" value="5"> Cuts/Laceration</label>
 									</div>
 									
 									</td>
                                    
                                    <td colspan="2">
 									<div class="checkbox">
-											<label><input type="checkbox" name="SWP_approved_by" value="1"> Bump/Crash/Impact injury</label>
+											<label><input type="checkbox" name="incident_type" value="6"> Bump/Crash/Impact injury</label>
 									</div>
 									<div class="checkbox">
-											<label><input type="checkbox" name="SWP_approved_by" value="1"> Chemical/Biological Spillage</label>
+											<label><input type="checkbox" name="incident_type" value="7"> Chemical/Biological Spillage</label>
 									</div>
 									<div class="checkbox">
-											<label><input type="checkbox" name="SWP_approved_by" value="1"> Occupational Health/Illness</label>
+											<label><input type="checkbox" name="incident_type" value="8"> Occupational Health/Illness</label>
 									</div>
 									<div class="checkbox">
-											<label><input type="checkbox" name="SWP_approved_by" value="1"> Unsafe Workplace Condition</label>
+											<label><input type="checkbox" name="incident_type" value="9"> Unsafe Workplace Condition</label>
 									</div>
 									
-									<div> Others (specify):<input type="text" name="personnel_staff_student_no" class="form-control"></div>
+									<div> Others (specify):<input type="text" name="incident_type_description" class="form-control"></div>
 								   
 								   
 								   </td>
@@ -150,25 +150,25 @@
                                    <th class="tbheader1">2.5 Any Injuries?:</th>
                                    <td>
 										<div class="checkbox">
-                                        <label><input type="checkbox"  name="SWP_lab_trained" value=""> Yes </label>
-                                        <label><input type="checkbox"  name="SWP_lab_trained" value=""> No </label>
+                                        <label><input type="checkbox"  name="incident_injury" value="1"> Yes </label>
+                                        <label><input type="checkbox"  name="incident_injury" value="0"> No </label>
 										</div>
 								   </td>
                                    <th class="tbheader1">2.6 Requires physician/hospital visit?:</th>
                                    <td>
 								   		<div class="checkbox">
-                                        <label><input type="checkbox"  name="SWP_lab_trained" value=""> Yes </label>
-                                        <label><input type="checkbox"  name="SWP_lab_trained" value=""> No  </label>
+                                        <label><input type="checkbox"  name="incident_physician_or_hospital" value="1"> Yes </label>
+                                        <label><input type="checkbox"  name="incident_physician_or_hospital" value="0"> No  </label>
 										</div>
 								   </td>
                                </tr>
                                <tr>
                                    <th class="tbheader1">2.7 Details of incident:</th>
-                                   <td colspan="4"><input type="text" class="form-control" name="SWP_unit_title"></td>
+                                   <td colspan="4"><input type="text" class="form-control" name="incident_details"></td>
                                </tr>
                                <tr>
                                    <th class="tbheader1">2.8 Actions Taken:</th>
-                                   <td colspan="4"><input type="text" class="form-control" name="SWP_project_title"></td>
+                                   <td colspan="4"><input type="text" class="form-control" name="incident_actions"></td>
                                </tr>                               
                            </tbody>
                        </table>
@@ -191,15 +191,15 @@
                            </tr>
                            <tr>
                                    <th class="tbheader1">Reported by:</th>
-                                   <td style="width:80%"><input type="text" class="form-control" name="SWP_project_title"></td>
+                                   <td style="width:80%"><input type="text" class="form-control" name="reporter_name"></td>
                            </tr>
 						   <tr>
                                    <th class="tbheader1">Designation:</th>
-                                   <td style="width:80%"><input type="text" class="form-control" name="SWP_project_title"></td>
+                                   <td style="width:80%"><input type="text" class="form-control" name="reporter_designation"></td>
                            </tr>
 						   <tr>
                                    <th class="tbheader1">Date:</th>
-                                   <td style="width:80%"><input type="date" class="form-control" name="SWP_project_title"></td>
+                                   <td style="width:80%"><input type="date" class="form-control" name="reporter_date"></td>
                            </tr>
                        </tbody>
                    </table>
@@ -216,23 +216,23 @@
                                    <th class="tbheader1">4.1 Any victim?:</th>
                                    <td>
 										<div class="checkbox">
-                                        <label><input type="checkbox"  name="SWP_lab_trained" value=""> Yes </label>
-                                        <label><input type="checkbox"  name="SWP_lab_trained" value=""> No </label>
+                                        <label><input type="checkbox"  name="investigation_victim" value="1"> Yes </label>
+                                        <label><input type="checkbox"  name="investigation_victim" value="0"> No </label>
 										</div>
 								   </td>
                                    <th class="tbheader1">4.3 Victim’s citizenship:</th>
                                    <td>
-										<input type="text" class="form-control" name="SWP_project_title">
+										<input type="text" class="form-control" name="investigation_victim_citizenship">
 								   </td>
                                </tr>
 							   <tr>
                                    <th class="tbheader1">4.2 Victim’s age:</th>
                                    <td>
-										<input type="text" class="form-control" name="SWP_project_title">
+										<input type="text" class="form-control" name="investigation_victim_age">
 								   </td>
                                    <th class="tbheader1">4.4 Victim’s job description:</th>
                                    <td>
-										<input type="text" class="form-control" name="SWP_project_title">
+										<input type="text" class="form-control" name="investigation_victim_job_description">
 								   </td>
                                </tr>
 							   
@@ -241,7 +241,7 @@
                                </tr> 
                            <tr>
                                <td colspan="4">
-										<textarea rows="6"  name="comment" class="form-control" ></textarea>
+										<textarea rows="6" maxlength="500" name="investigation_findings" class="form-control" ></textarea>
 							   </td>
                            </tr>
                            </tbody>
@@ -254,128 +254,67 @@
                                <th class="tblTitle" colspan="4"><h8><strong>CORRECTIVE/PREVENTIVE ACTION</strong></h8></th>
                            </tr>
                        </thead>
-<table class="table table-bordered">
-						   <tr>
-                               <th colspan="4"class="tbheader1">A. List of Exempted Living Modified Organism (LMO) to be Exported</th>
-							   <th colspan="1" class="tbheader1"> 
-								<div class="checkbox"><label><input type="checkbox" name="LMO_list" value=""> Not Applicable</label>
-								</div>
-							   </th>
-                           </tr>
+						<table class="table table-bordered">
+
                            <tbody style="width:100%">
                                <tr style="width:25%">
-                                   <th>Name</th>
-                                   <th>Risk Level</th>
-                                   <th>Category A or B Substances</th>
-                                   <th>Quantity</th>
-                                   <th>Volume (g or mL)</th>                                  
+                                   <th>Number</th>
+                                   <th>Action</th>
+                                   <th>By Whom</th>
+                                   <th>Timeline/Completion Date</th>                                                                     
                                </tr>
                                <tr style="width:25%">
-                                   <th><input type="text" class="form-control" name="LMO_name"></th>
-                                   <th><input type="text" class="form-control" name="LMO_risk_level"></th>
-                                   <th><input type="text" class="form-control" name="LMO_category"></th>
-                                   <th><input type="number" class="form-control" name="LMO_quantity"></th>
-                                   <th><input type="text" class="form-control" name="LMO_volume"></th>
+                                   <th><input type="text" class="form-control" name="investigation_preventive_no"></th>
+                                   <th><input type="text" class="form-control" name="investigation_preventive_action"></th>
+                                   <th><input type="text" class="form-control" name="investigation_preventive_by_whom"></th>
+                                   <th><input type="date" class="form-control" name="investigation_preventive_timeline"></th>
                                </tr>
                                <tr style="width:25%">
-                                   <th><input type="text" class="form-control" name="LMO_name"></th>
-                                   <th><input type="text" class="form-control" name="LMO_risk_level"></th>
-                                   <th><input type="text" class="form-control" name="LMO_category"></th>
-                                   <th><input type="number" class="form-control" name="LMO_quantity"></th>
-                                   <th><input type="text" class="form-control" name="LMO_volume"></th>
+                                   <th><input type="text" class="form-control" name="investigation_preventive_no"></th>
+                                   <th><input type="text" class="form-control" name="investigation_preventive_action"></th>
+                                   <th><input type="text" class="form-control" name="investigation_preventive_by_whom"></th>
+                                   <th><input type="date" class="form-control" name="investigation_preventive_timeline"></th>
                                </tr>
                                <tr style="width:25%">
-                                   <th><input type="text" class="form-control" name="LMO_name"></th>
-                                   <th><input type="text" class="form-control" name="LMO_risk_level"></th>
-                                   <th><input type="text" class="form-control" name="LMO_category"></th>
-                                   <th><input type="number" class="form-control" name="LMO_quantity"></th>
-                                   <th><input type="text" class="form-control" name="LMO_volume"></th>
+                                   <th><input type="text" class="form-control" name="investigation_preventive_no"></th>
+                                   <th><input type="text" class="form-control" name="investigation_preventive_action"></th>
+                                   <th><input type="text" class="form-control" name="investigation_preventive_by_whom"></th>
+                                   <th><input type="date" class="form-control" name="investigation_preventive_timeline"></th>
                                </tr>
                                <tr style="width:25%">
-                                   <th><input type="text" class="form-control" name="LMO_name"></th>
-                                   <th><input type="text" class="form-control" name="LMO_risk_level"></th>
-                                   <th><input type="text" class="form-control" name="LMO_category"></th>
-                                   <th><input type="number" class="form-control" name="LMO_quantity"></th>
-                                   <th><input type="text" class="form-control" name="LMO_volume"></th>
+                                   <th><input type="text" class="form-control" name="investigation_preventive_no"></th>
+                                   <th><input type="text" class="form-control" name="investigation_preventive_action"></th>
+                                   <th><input type="text" class="form-control" name="investigation_preventive_by_whom"></th>
+                                   <th><input type="date" class="form-control" name="investigation_preventive_timeline"></th>
                                </tr>
                                <tr style="width:25%">
-                                   <th><input type="text" class="form-control" name="LMO_name"></th>
-                                   <th><input type="text" class="form-control" name="LMO_risk_level"></th>
-                                   <th><input type="text" class="form-control" name="LMO_category"></th>
-                                   <th><input type="number" class="form-control" name="LMO_quantity"></th>
-                                   <th><input type="text" class="form-control" name="LMO_volume"></th>
+                                   <th><input type="text" class="form-control" name="investigation_preventive_no"></th>
+                                   <th><input type="text" class="form-control" name="investigation_preventive_action"></th>
+                                   <th><input type="text" class="form-control" name="investigation_preventive_by_whom"></th>
+                                   <th><input type="date" class="form-control" name="investigation_preventive_timeline"></th>
                                </tr>
                                <tr style="width:25%">
-                                   <th><input type="text" class="form-control" name="LMO_name"></th>
-                                   <th><input type="text" class="form-control" name="LMO_risk_level"></th>
-                                   <th><input type="text" class="form-control" name="LMO_category"></th>
-                                   <th><input type="number" class="form-control" name="LMO_quantity"></th>
-                                   <th><input type="text" class="form-control" name="LMO_volume"></th>
-                               </tr>							   
+                                   <th><input type="text" class="form-control" name="investigation_preventive_no"></th>
+                                   <th><input type="text" class="form-control" name="investigation_preventive_action"></th>
+                                   <th><input type="text" class="form-control" name="investigation_preventive_by_whom"></th>
+                                   <th><input type="date" class="form-control" name="investigation_preventive_timeline"></th>
+                               </tr>
+                           <tr>
+                               <td colspan="4">
+                                   <table class="table table-bordered">
+                                       <tr>
+                                           <td>Report/Investigated By: <input type="text" class="form-control" name="investigated_by"></td>
+                                           <td>Reviewed By: <input type="text" class="form-control" name="reviewed_by"></td>
+                                       </tr>                                       
+                                   </table>
+                               </td>
+                           </tr>							   
                            </tbody>
                        </table>
                    </table>
                    
 				   <hr>
-                   <table width="920" class="table table-bordered">
-                       <thead>
-                           <tr>
-                               <th class="tblTitle" colspan="4"><h8 id="section_6"><strong>SECTION 6 – For Office Use Only</strong></h8></th>
-                           </tr>
-                       </thead>
-                       <tbody>
-                           <tr>
-                               <td>
-                                <div class="checkbox">
-                                     <label><input type="checkbox" name="notification_approved_by" value="">Approved By:</label>
-                                </div>
-                                <div class="checkbox">
-                                     <label><input type="checkbox" name="notification_declined_by" value="">Declined By:</label>
-                                </div>
-                               </td>
-                               <td style="width:450px">
-                                   <input type="text" class="form-control" name="notification_reviewed_by" placeholder="Reviewed by:">
-                               </td>
-                           </tr>
-                           <tr>
-                               <td><input type="text" class="form-control" name="signature_verified_by" placeholder="Signature:"></td>
-							   <td><input type="text" class="form-control" name="signature_verified_by" placeholder="Signature:"></td>
-                           </tr>
-                           <tr>
-                               <td><input type="text" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" name="notification_approve_decline_date" placeholder="Date:"></td>
-                               <td><input type="text" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" name="notification_reviewed_by_date" placeholder="Date:"></td>
-                           </tr>
-                           <tr>
-                               <td>
-                                   <input type="text" class="form-control" name="notification_approve_decline_remarks" placeholder="Remarks:">
-                               </td>
-                               <td>
-                                   <input type="text" class="form-control" name="notification_reviewed_by_remarks" placeholder="Remarks:">
-                               </td>
-                           </tr>
-                       </tbody>
-                   </table>
-				   
-				   <hr>
-				   <div>                      
-                       <table class="table table-bordered">
-                           <thead>
-                                <tr>
-                                   <th class="tblTitle" colspan="10"><h8 id="section_7"><strong>SECTION 7 – Follow-up of the Exported Biological Material (For Office Use Only)</strong></h8></th>
-                               </tr>
-                           </thead>
-                           <tbody>
-                               <tr>
-                                   <th>7.01   Delivered date:</th>
-                                   <td><input type="date" class="form-control" name="delivered_date"></td>
-                               </tr>
-                               <tr>
-                                   <th>7.02   Any incident or accident occurs during the exporting?:</th>
-                                   <td><input type="text" class="form-control" name="incident_accident_report"></td>
-                               </tr>              
-                           </tbody>
-                       </table>
-                   </div>
+                   
                     <div>
                        <div class="checkbox">
                            <label><input type="checkbox" value="application_approved" disabled>Approved</label>
@@ -392,9 +331,6 @@
                     <a href="#section_2" class="btn btn-success">Section 2</a>
                     <a href="#section_3" class="btn btn-success">Section 3</a>
                     <a href="#section_4" class="btn btn-success">Section 4</a>
-                    <a href="#section_5" class="btn btn-success">Section 5</a>
-					<a href="#section_6" class="btn btn-success">Section 6</a>
-					<a href="#section_7" class="btn btn-success">Section 7</a>
                 </div>   
             </div>
         </div>               
