@@ -257,6 +257,7 @@ CREATE TABLE `annualfinalreport` (
   `personnel_extra_department` varchar(500) DEFAULT NULL,
   `personnel_extra_campus` varchar(500) DEFAULT NULL,
   `personnel_extra_postal_address` varchar(500) DEFAULT NULL,
+  `personnel_extra_telephone` int(20) NOT NULL,
   `personnel_extra_fax` varchar(100) DEFAULT NULL,
   `personnel_extra_email_address` varchar(500) DEFAULT NULL,
   `project_summary` varchar(500) NOT NULL,

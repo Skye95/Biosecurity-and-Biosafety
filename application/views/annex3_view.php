@@ -185,10 +185,10 @@
 											<label><input type="checkbox" name="incident_cause_checklist_supervision" value="1"> Lack of attention / supervision</label>
 									</div>
 									<div class="checkbox">
-											<label><input type="checkbox" name="" value=""> Incorrect method / work practices</label>
+											<label><input type="checkbox" name="" value="incident_cause_checklist_none"> Incorrect method / work practices</label>
 									</div>
 									<div class="checkbox">
-											<label><input type="checkbox" name="incident_cause_checklist_none" value="1"> None of the above*</label>
+											<label><input type="checkbox" name="" value="1"> None of the above*</label>
 									</div>															   
 								   </td>
                                </tr>
