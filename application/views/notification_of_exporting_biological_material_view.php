@@ -257,11 +257,13 @@
                        </thead>
                        <tbody>
                            <tr>
-                               <td colspan="2">
-							       •	I, hereby declare that the information I have provided in this form for Notification of Exporting Biological Material is true and correct.
-								   <br>
-								   •	Swinburne University of Technology Sarawak Campus collects, uses and destroys personal data in accordance with our Privacy Collection Notice at <a href="http://www.swinburne.edu.my/privacy/">http://www.swinburne.edu.my/privacy</a>
+                               <td colspan="2">							   
+								<ul>
+                                      <li>I, hereby declare that the information I have provided in this form for Notification of Exporting Biological Material is true and correct.
+								   
+                                      <li>Swinburne University of Technology Sarawak Campus collects, uses and destroys personal data in accordance with our Privacy Collection Notice at <a href="http://www.swinburne.edu.my/privacy/">http://www.swinburne.edu.my/privacy</a>
 								        and Employee's Privacy Collection Notice at <a style="color:blue;">Blackboard>My.Swinburne>Student & Corporate Services> Human Resources>Employee's Privacy Collection Notice.</a>
+								</ul>
 							   </td>                               
                            </tr>
                            <tr>
@@ -351,11 +353,17 @@
                            </tbody>
                        </table>
                    </div>
+				   
+				   <hr>
+				   
                     <div>
                        <div class="checkbox">
                            <label><input type="checkbox" value="application_approved" disabled>Approved</label>
                        </div>
 					</div>
+					
+					<hr>
+					
                    <input type="submit" class="btn btn-primary" name="submit" value="Submit">
                    
                </form>
