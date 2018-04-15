@@ -926,10 +926,14 @@
                         </div>
                         
                         <div id="part_e">
+                            <h8><strong>Part E: The Premises</strong></h8>
+                            
                             <ol type="1" start="21">
-                                Please provide information for all of the facilities being used for the contained use activities in the table below.<br>
+                               <li>
+                                   Please provide information for all of the facilities being used for the contained use activities in the table below.<br>
                                 <p><em>Note 1: For a Research and Development collaboration involving more than one IBC, please provide proof of collaboration (such as letter of authorization) to use the premises.</em></p>
                                 <p>Note 2: *For notifications with more than one premises, use additional columns provided.</p>
+                               </li>   
                             </ol>
                             
                             <div>
