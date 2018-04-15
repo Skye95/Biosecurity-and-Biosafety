@@ -7,6 +7,38 @@
             body {
                 padding-top: 82px;
             }
+            
+            .file-input-wrapper {
+                height: 30px;
+                margin: 2px;
+                overflow: hidden;
+                position: relative;
+                width: 118px;
+                background-color: #fff;
+                cursor: pointer;
+            }
+            .file-input-wrapper > input[type="file"] {
+                font-size: 40px;
+                position: absolute;
+                top: 0;
+                right: 0;
+                opacity: 0;
+                cursor: pointer;
+            }
+            .file-input-wrapper > .btn-file-input {
+                background-color: #494949;
+                border-radius: 4px;
+                color: #fff;
+                display: inline-block;
+                height: 34px;
+                margin: 0 0 0 -1px;
+                padding-left: 0;
+                width: 121px;
+                cursor: pointer;
+            }
+            .file-input-wrapper:hover > .btn-file-input {
+                //background-color: #494949;
+            }
 
             .btn-sample{
                 position: fixed;
@@ -893,16 +925,403 @@
                             </ol>                         
                         </div>
                         
-                        <!-- Continue Here -->
+                        <div id="part_e">
+                            <ol type="1" start="21">
+                                Please provide information for all of the facilities being used for the contained use activities in the table below.<br>
+                                <p><em>Note 1: For a Research and Development collaboration involving more than one IBC, please provide proof of collaboration (such as letter of authorization) to use the premises.</em></p>
+                                <p>Note 2: *For notifications with more than one premises, use additional columns provided.</p>
+                            </ol>
+                            
+                            <div>
+                                <table class="table table-bordered">
+                                    <h8><strong>Table 3: Details of premises</strong></h8>
+                                    <thead>
+                                        <th class="tbheader1">Information required</th>
+                                        <th class="tbheader1">Premises 1</th>
+                                        <th class="tbheader1">Premises 2*</th>
+                                        <th class="tbheader1">Premises 3*</th>
+                                        <th class="tbheader1">Premises 4*</th>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1. Name of premises:</td>
+                                            <td><input type="text" class="form-control" name="premise_name"></td>
+                                            <td><input type="text" class="form-control" name="premise_name"></td>
+                                            <td><input type="text" class="form-control" name="premise_name"></td>
+                                            <td><input type="text" class="form-control" name="premise_name"></td>
+                                        </tr>
+                                        <tr>
+                                           <td>
+                                               2. Premises type: <br> 
+                                            <p>
+                                                <em>(e.g)animal containment premises, laboratory, insect containment premises, greenhouse, etc.)</em>
+                                            </p>
+                                            <p>
+                                                <em>(Please specify if it is a large scale facility involving culture volume greater than or equal to 10L of culture of any LMO)</em>
+                                               </p>
+                                            </td> 
+                                            <td><input type="text" class="form-control" name="premise_type"></td>
+                                            <td><input type="text" class="form-control" name="premise_type"></td>
+                                            <td><input type="text" class="form-control" name="premise_type"></td>
+                                            <td><input type="text" class="form-control" name="premise_type"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>3. Biosafety level (BSL):</td>
+                                            <td><input type="text" class="form-control" name="premise_BSL"></td>
+                                            <td><input type="text" class="form-control" name="premise_BSL"></td>
+                                            <td><input type="text" class="form-control" name="premise_BSL"></td>
+                                            <td><input type="text" class="form-control" name="premise_BSL"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>4. Who undertook the inspection of the premises? <p><em>(please indicate which IBC)</em></p></td>
+                                            <td><input type="text" class="form-control" name="premise_IBC"></td>
+                                            <td><input type="text" class="form-control" name="premise_IBC"></td>
+                                            <td><input type="text" class="form-control" name="premise_IBC"></td>
+                                            <td><input type="text" class="form-control" name="premise_IBC"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>5. Date of the most recent inspection: <p>Attach lastest inspection report</p></td>
+                                            <td><input type="text" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" name="premise_IBC_date" placeholder="date"></td>
+                                            <td><input type="text" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" name="premise_IBC_date" placeholder="date"></td>
+                                            <td><input type="text" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" name="premise_IBC_date" placeholder="date"></td>
+                                            <td><input type="text" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" name="premise_IBC_date" placeholder="date"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>6. Fill the following if premises is BSL 3 or BSL 4: <p>Date of certification by competent authority</p>
+                                            <p>Certificate reference no:</p>
+                                                <p>Attach latest inspection report</p>
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" name="premise_certification_date" placeholder="date"><br>
+                                                <input type="text" class="form-control" name="premise_certification_no" placeholder="certificate no"><br>
+                                                <div class="file-input-wrapper">
+                                                  <button class="btn-file-input">Attach report</button>
+                                                  <input type="file" name="premise_certification_report" id="image" value="" />      
+                                                </div>
+                                                <span id="img_text" style="float: right;
+                                                margin-right: -80px;
+                                                margin-top: -14px;"></span>
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" name="premise_certification_date" placeholder="date"><br>
+                                                <input type="text" class="form-control" name="premise_certification_no" placeholder="certificate no"><br>
+                                                <div class="file-input-wrapper">
+                                                  <button class="btn-file-input">Attach report</button>
+                                                  <input type="file" name="premise_certification_report" id="image" value="" />      
+                                                </div>
+                                                <span id="img_text" style="float: right;
+                                                margin-right: -80px;
+                                                margin-top: -14px;"></span>
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" name="premise_certification_date" placeholder="date"><br>
+                                                <input type="text" class="form-control" name="premise_certification_no" placeholder="certificate no"><br>
+                                                <div class="file-input-wrapper">
+                                                  <button class="btn-file-input">Attach report</button>
+                                                  <input type="file" name="premise_certification_report" id="image" value="" />      
+                                                </div>
+                                                <span id="img_text" style="float: right;
+                                                margin-right: -80px;
+                                                margin-top: -14px;"></span>
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" name="premise_certification_date" placeholder="date"><br>
+                                                <input type="text" class="form-control" name="premise_certification_no" placeholder="certificate no"><br>
+                                                <div class="file-input-wrapper">
+                                                  <button class="btn-file-input">Attach report</button>
+                                                  <input type="file" name="premise_certification_report" id="image" value="" />      
+                                                </div>
+                                                <span id="img_text" style="float: right;
+                                                margin-right: -80px;
+                                                margin-top: -14px;"></span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>7. Address of premises:</td>
+                                            <td><input type="text" class="form-control" name="premise_address"></td>
+                                            <td><input type="text" class="form-control" name="premise_address"></td>
+                                            <td><input type="text" class="form-control" name="premise_address"></td>
+                                            <td><input type="text" class="form-control" name="premise_address"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>8. Name of contact person for premises/Biosafety Officer Name:</td>
+                                            <td><input type="text" class="form-control" name="premise_officer_name"></td>
+                                            <td><input type="text" class="form-control" name="premise_officer_name"></td>
+                                            <td><input type="text" class="form-control" name="premise_officer_name"></td>
+                                            <td><input type="text" class="form-control" name="premise_officer_name"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>9. Business phone number:</td>
+                                            <td><input type="tel" class="form-control" name="premise_telephone_business"></td>
+                                            <td><input type="text" class="form-control" name="premise_telephone_business"></td>
+                                            <td><input type="text" class="form-control" name="premise_telephone_business"></td>
+                                            <td><input type="text" class="form-control" name="premise_telephone_business"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>10. Mobile phone number:</td>
+                                            <td><input type="tel" class="form-control" name="premise_telephone_mobile"></td>
+                                            <td><input type="text" class="form-control" name="premise_telephone_mobile"></td>
+                                            <td><input type="text" class="form-control" name="premise_telephone_mobile"></td>
+                                            <td><input type="text" class="form-control" name="premise_telephone_mobile"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>11. Fax number:</td>
+                                            <td><input type="tel" class="form-control" name="premise_fax"></td>
+                                            <td><input type="tel" class="form-control" name="premise_fax"></td>
+                                            <td><input type="tel" class="form-control" name="premise_fax"></td>
+                                            <td><input type="tel" class="form-control" name="premise_fax"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>12. E-mail address:</td>
+                                            <td><input type="email" class="form-control" name="premise_email"></td>
+                                            <td><input type="email" class="form-control" name="premise_email"></td>
+                                            <td><input type="email" class="form-control" name="premise_email"></td>
+                                            <td><input type="email" class="form-control" name="premise_email"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        
+                        <div id="part_f">
+                            <h8><strong>Part F: Confidential Business Information</strong></h8>
+                            <br>
+                            
+                            <p>Enter in this section any information required in Part A - E which confidentiality is claimed together with full jsutification for that claim.<br> </p>
+                            <p>Criteria for confidentiality are as follows (section 59 of Biosafety Act 2007):</p>
+                            <ol type="a">
+                                <li>that the information is not known generally among, or readily accessible to, any person within the circle that normally deals with the kind of information sought to be made confidential;
+                                </li>
+                                <li>
+                                    that the information has commercial value because it is secret; and
+                                </li>
+                                <li>
+                                    those reasonable steps have been taken to keep the information secret.
+                                </li>
+                            </ol>
+                            
+                            <textarea rows="7" class="form-control" name="confidential_description"></textarea>
+                        </div>
+                        
+                        <div id="part_g">
+                            <h8><strong>Part G: List of references</strong></h8>
+                            
+                            <textarea rows="7" class="form-control" name="reference_description"></textarea>
+                        </div>
+                        <br>
+                        <br>
+                        
+                        <div id="notes">
+                            <h5 class="centering"><strong>EXPLANATORY NOTES FOR FORM E</strong></h5>
+                            <br>
+                            
+                            <div>
+                                <h8><strong>NOTIFICATION FOR CONTAINED USE AND IMPORT FOR CONTAINED USE ACTIVITIES INVOLVING LIVING MODIFIED ORGANISM (LMO) FOR BIOSAFETY LEVELS 1, 2, 3 AND 4
+                                    </strong></h8>
+                            </div>
+                            
+                            <br>
+                            
+                            <div>
+                                NBB/N/CU/15?FORM E shall be submitted to the Director General as a notification for contained use and import for contained use [not involving release into the environment of Living Modified Organism (LMO) as specified in Second Schedule of the Act]. Any organization undertaking modern biotechnology research and development shall submit the notification through its institutional Biosafety Commitee (IBC) that is registered with the National Biosafety Board (NBB). The IBC should do an assessment prior to the submission and submit the result of the assesment via the IBC Assessment Form (put link website link etc). Not all parts in this form will apply to every case. Therefore, applicants will only address the specific questions/paramaeters that are appropriate to individual application.
+                            </div>
+                            <br>
+                            
+                            <div>
+                                In each case where it is not technically possible or it does not appear necessary to give the information, the reasons shall be stated. The risk assessment, risk management plan, emergency response plan and the fullfillment of any other requirements under the Biosafety Act 2007 will be the basis of the decision by the NBB.
+                            </div>
+                            <br>
+                            
+                            <div>
+                                <p>The applicant shall submit 1 original and 6 copies of the notification to the Director General. The six copies submitted shoul be identical to the original form. Please ensure that the information provided can be clearly read/seen. This submission should be accompanied by a cover letter from the applicant's institution. A soft copy of the submitted notification (<u><strong>including all supporting documents/attachments, if any</strong></u>) shall also be provided in the form of a CD by the applicant. However, <u><strong>all information that has been decalred as Confidential Business Information (CBI) should be omitted from the CD</strong></u>. <u>Please provide one CD per application (do not combine with any other application that you may submit concurrently).</u> </p>
+                            </div>
+                            
+                            <div>
+                                <h8><strong>Providing Information</strong></h8>
+                                <p>The information provided in this notification will be used to evaluate the emergency response plan as specified in section 37 of the Biosafety Act 2007 and specific measures to be taken in relation to a contained use activity involving LMO. Thus it is important to provide accurate and timely information that is as comprehensive as existing scientific knowledge woul permit, and  supported by whatever data is available.</p>
+                                <p>If the LMO is imported, details of importer, date of importation and approval from relevant authorities like Department of Agriculture (DOA), Ministry of Health, Malaysia, etc. should be provided. </p>
+                                
+                                <p>The NBB may require additional information, the applicant will be notified should this be the case. If the applicant fails to provide the additional information requested, the notification shall be deemed to have been withdrawn but it shall not affect the right of the application to make a fresh notification.</p>
+                            </div>
+                            
+                            <div>
+                                <h8><strong>Description of LMO (Part C)</strong></h8>
+                                <p>'Parent organism' refers to the final recipient of the intended genetic modification.<br>
+                                'Donor organism' referes to the source of the genetic sequences used for modification.<br>
+                                'Vector' should include all vectors and method(s) used.<br>
+                                'Modified trait' can be stated as "unknown" if for example building a genomic library.<br>
+                                Identity and functio of gene(s) of donor organism responsible for the modified trait can be stated as "unknown" if for example building a genomic library.</p>
+                            </div>
+                            
+                            <div>
+                                <h8><strong>Class of modified trait, please refer box below.</strong></h8>
+                                <p>If the LMO has more than one modified trait please list all. If the modified trait is not listed in the Box 1, please list it as "other" and provide details of the modified traits.</p>
+                            </div>
+                            
+                            <table class="table table-bordered">
+                                <h8 class="centering">Box 1: Class of modified trait</h8>
+                                <thead>
+                                    <tr>
+                                        <th>NO</th>
+                                        <th>Class (type) of trait</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Abiotic stress resistance</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Altered argonomic characteristics</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Altered nutritional characteristics</td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td>Altered pharmaceutical characteristics</td>
+                                    </tr>
+                                    <tr>
+                                        <td>5</td>
+                                        <td>Altered physical product characteristics</td>
+                                    </tr>
+                                    <tr>
+                                        <td>6</td>
+                                        <td>Antibiotic resistance</td>
+                                    </tr>
+                                    <tr>
+                                        <td>7</td>
+                                        <td>Foreign antigen expression</td>
+                                    </tr>
+                                    <tr>
+                                        <td>8</td>
+                                        <td>Attenuation</td>
+                                    </tr>
+                                    <tr>
+                                        <td>9</td>
+                                        <td>Bacterial resistance</td>
+                                    </tr>
+                                    <tr>
+                                        <td>10</td>
+                                        <td>Disease resistance</td>
+                                    </tr>
+                                    <tr>
+                                        <td>11</td>
+                                        <td>Flower colour</td>
+                                    </tr>
+                                    <tr>
+                                        <td>12</td>
+                                        <td>Fungal resistance</td>
+                                    </tr>
+                                    <tr>
+                                        <td>13</td>
+                                        <td>Herbicide tolerance</td>
+                                    </tr>
+                                    <tr>
+                                        <td>14</td>
+                                        <td>Immuno-modulatory protein expression</td>
+                                    </tr>
+                                    <tr>
+                                        <td>15</td>
+                                        <td>Pest resistance e.g. insect resistance</td>
+                                    </tr>
+                                    <tr>
+                                        <td>16</td>
+                                        <td>Protein expression</td>
+                                    </tr>
+                                    <tr>
+                                        <td>17</td>
+                                        <td>Reporter/maker gene expression</td>
+                                    </tr>
+                                    <tr>
+                                        <td>18</td>
+                                        <td>Virus resistance</td>
+                                    </tr>
+                                    <tr>
+                                        <td>19</td>
+                                        <td>Others (please specify)</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            
+                            <div>
+                                <h8><strong>Accuracy of the information</strong></h8>
+                                <p>The notification should also be carefully checked before submission to enure that all the information is accurate. If the information provided is incorrect, incomplete or misleading, the NBB may issue a withdrawal of the acknowledgement of receipt of notification without prejudice to the submission of a fresh notification</p>
+                            </div>
+                            
+                            <div>
+                                <h8>Confidentiality</h8>
+                                <p>Any information within this notification which is to be treated as Confidential Business Inforamtion (CBI), as described in section 59(3) of the Biosafety Act 2007 should be clearly marked "CBI" in the relevant parts of the notification by providing the justification for the request for CBI. The following information shall not be considered confidential:
+                                </p>
+                                
+                                <ol type="a">
+                                    <li>The name and address of the applicant</li>
+                                    <li>
+                                        A general description of the LMO
+                                    </li>
+                                    <li>
+                                        A summary of the risk assessment of the effects on the conservation and sustainable use of biological diversity, taking also into account risks to human health; and
+                                    </li>
+                                    <li>
+                                        Any methods and plans for emergency response
+                                    </li>
+                                </ol>
+                            </div>
+                            
+                            <div>
+                                <h8><strong>Authorization</strong></h8>
+                                <p>Please ensure that if this notification is being completed on behalf of the proposed user, that the person completing this notification holds proper authority to submit this notification for the proposed user. Please provide written proof of authorization.</p>
+                            </div>
+                            
+                            <div>
+                                <p><strong>For further information or any queries related to filling up this form, </strong>please contact the office of the Director General by:<br>
+                                Telephone: 603-8886 1580<br>
+                                E-mail address: biosafety@nre.gov.my</p>
+                                
+                            </div>
+                            
+                            <div>
+                                <h8><strong>The completed form and cover letter to be submitted as follows:</strong></h8>
+                                <p>The Director General<br>
+                                Department of Biosafety<br>
+                                Ministry of Natural Resources and Environment Malaysia<br>
+                                Level 1, Podium 2<br>
+                                Wisma Sumber Asli, No.25, Persiaran Perdana<br>
+                                Precinct 4, Federal Government Administrative Centre<br>
+                                62574 Putrajaya, Malaysia</p>
+                            </div>
+                            
+                            <div>
+                                <h8><strong>Acknowledgement of Receipt</strong></h8>
+                                <p>Upon receipt of the notification, the Director General shall send to the applicant an acknowledgement of receipt with an assigned reference number. The reference number should be used in all correspondence with respect to the notification. The activity can start only after the acknowledgement is issued. The Principal Investigator is still required to be complaint to any decisions made by the NBB (as described in section 30(3) of the Biosafety Act 2007 and is required to comply with other written laws governing LMO.</p>
+                            </div>
+                            
+                            <div>
+                                <h8><strong>Exemption</strong></h8>
+                                <p>The First Schedule of the Biosafety (approval and Notification) Regualtions 2010 allows exemptions for some types of techniques and contained use of activities in relation to LMO posing a very low risk (i.e. contained research activities involving very well understood organisms and processes for creating and studying LMO). Exempted activities should be carried out under coditions of standard laboratory practice. Appropriate biosafety levels as according to Second Schedule of the Biosafety (Approval and Notification) Regulations 2010 should be used for the exempted activities and personnel should have appropriate training. Principal Investigators who beleive that the work falls into any of the exemptions should nevertheless notify their IBC of the proposed project. The IBC shall review all submitted research projects to determine their exemption or non-exemption status.</p>
+                            </div>
+                            
+                            <div>
+                                <h8><strong>Please retain a copy of your completed notification</strong></h8>
+                            </div>
+                            
+                        </div>
+                        
                         
                     </form>
                 </div>
                 
                  <div class="col-md-1">
                      <div class="btn-group-vertical btn-sample">
-                         <a href="#section_1" class="btn btn-success">Section 1</a>
-                         <a href="#section_2" class="btn btn-success">Section 2</a>
-                         <a href="#section_3" class="btn btn-success">Section 3</a>
+                         <a href="#part_a" class="btn btn-success">Part A</a>
+                         <a href="#part_b" class="btn btn-success">Part B</a>
+                         <a href="#part_c" class="btn btn-success">Part C</a>
+                         <a href="#part_d" class="btn btn-success">Part D</a>
+                         <a href="#part_e" class="btn btn-success">Part E</a>
+                         <a href="#part_f" class="btn btn-success">Part F</a>
+                         <a href="#part_g" class="btn btn-success">Part G</a>
                      </div>   
                  </div>
                 
@@ -911,6 +1330,14 @@
                 
         </div>
         
+        
+        <script>
+            (function($){       
+                $('input[type="file"]').bind('change',function(){           
+                    $("#img_text").html($('input[type="file"]').val());
+                });
+            })(jQuery)
+        </script>
         
 
     </body>
