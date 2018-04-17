@@ -38,7 +38,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<div class="row">
 				<div class="col-md-7">
 					<a href="#">
-						<img class="img-fluid rounded mb-3 mb-md-0" src="http://placehold.it/700x300" alt="" title="New Application">
+						<img class="img-fluid rounded mb-3 mb-md-0" src="<?php echo base_url('assets\images\ApplicantForm\New Application.jpg') ?>" 
+						alt="" title="New Application">
 					</a>
 				</div>				
 			</div>
@@ -50,7 +51,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<div class="row">
 				<div class="col-md-7">
 					<a href="#">
-						<img class="img-fluid rounded mb-3 mb-md-0" src="http://placehold.it/700x300" alt=""title="Modification of LMOs and/or biohazardous materials">
+						<img class="img-fluid rounded mb-3 mb-md-0" src="<?php echo base_url('assets\images\ApplicantForm\Modification of Approved Project.jpg') ?>" 
+						alt=""title="Modification of Approved Project">
 					</a>
 				</div>				
 			</div>
@@ -62,7 +64,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<div class="row">
 				<div class="col-md-7">
 					<a href="#">
-						<img class="img-fluid rounded mb-3 mb-md-0" src="http://placehold.it/700x300" alt="" title="Extension or Termination">
+						<img class="img-fluid rounded mb-3 mb-md-0" src="<?php echo base_url('assets\images\ApplicantForm\ExtensionTermination of Approved Project.jpg') ?>" 
+						alt="" title="Extension/Termination of Approved Project">
 					</a>
 				</div>				
 			</div>
@@ -99,9 +102,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		</div>
 	</div>					
 	</div>
-	
 
-</div>
+	</div>
 		
     </div>
 </body>

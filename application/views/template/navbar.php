@@ -1,7 +1,8 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
         <?php if ($this->session->userdata('isLogin')){ ?>
-            <a class="navbar-brand" href="<?php echo base_url(); ?>index.php/home/index">Swinburne BBOS</a>
+            <a class="navbar-brand" title="Swinburne Biosafety and Biosafety Online System Home"
+			href="<?php echo base_url();?>index.php/home/index">Swinburne BBOS</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle Navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
