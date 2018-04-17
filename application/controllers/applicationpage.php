@@ -8,3 +8,4 @@ class applicationpage extends CI_Controller {
         $this->load->template('applicationpage_view');
 	}
 }
+?>

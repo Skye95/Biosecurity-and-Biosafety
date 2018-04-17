@@ -33,10 +33,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="row">
             <div class="col-lg-3 col-md-4 col-sm-6 col-6 portfolio-item">
                 <div class="card card-block h-50 justify-content-center align-items-center">
-                    <a href="annex2"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\Application for Biosafety.jpg') ?>" alt=""></a>
+                    <a href="<?php echo base_url(); ?>index.php/applicationpage"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\Application for Biosafety.jpg') ?>" alt=""></a>
                     <div class="card-body">
                         <h5 class="card-title">
-                            <a href="<?php echo base_url(); ?>index.php/annex2/index">Application</a>
+                            <a href="<?php echo base_url(); ?>index.php/applicationpage">Application</a>
                         </h5>
                         <p class="card-text"></p>
                     </div>

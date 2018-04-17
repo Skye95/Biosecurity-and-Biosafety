@@ -30,7 +30,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <!-- Page Heading -->
         <h2 class="my-4 text-center">Welcome, <?php echo $this->session->userdata('account_name'); ?></h2>
 
-        <button type="button" class="btn">Return</button>
+        <button type="button" class="btn" onclick="window.location='<?php echo base_url("index.php/home");?>'">Return</button>		
 		<hr>
 	<div class="row" >
 	<div class="col-lg-6" >
