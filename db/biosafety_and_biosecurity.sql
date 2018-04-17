@@ -66,7 +66,7 @@ CREATE TABLE `annex2` (
   `project_objective_methodology` varchar(1000) NOT NULL,
   `biological_system_parent_organisms` varchar(1000) NOT NULL,
   `biological_system_donor_organisms` varchar(1000) NOT NULL,
-  `biological_system_modified_traits varchar(1000) NOT NULL,
+  `biological_system_modified_traits` varchar(1000) NOT NULL,
   `premises` varchar(1000) NOT NULL,
   `period` varchar(1000) NOT NULL,
   `risk_assessment_and_management` varchar(1000) NOT NULL,
