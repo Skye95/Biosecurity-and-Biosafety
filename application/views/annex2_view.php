@@ -63,11 +63,11 @@
                        </div>
                        
                        <div class="form-group">
-                           Institutional address: <input type="text" class="form-control" name="institute_address" id="institute_address" >
+                           Institutional address: <input type="text" class="form-control" name="institutional_address" >
                        </div>
                        
                        <div class="form-group">
-                           Collaborating partners: <input type="text" class="form-control" name="institute_address" id="institute_address" placeholder="indicate names & addresses of the instituion/s (if any)">
+                           Collaborating partners: <input type="text" class="form-control" name="collaborating_partners"  placeholder="indicate names & addresses of the instituion/s (if any)">
                        </div>
                        
                        <div class="form-group">
@@ -82,34 +82,34 @@
                        <p>IBC assessment/recommendation on each of the following:</p>
                        
                        <div class="form-group">
-                           Project objective and methodology: <input type="text" class="form-control" name="applicant_name" id="applicant_name" >
+                           Project objective and methodology: <input type="text" class="form-control" name="project_objective_methodology" >
                        </div>
                        
                        <div class="form-group">
                            <p>Biological System: </p>
-                               i. Common name of parent organism(s): <input type="text" class="form-control" name="parent_org_name" id="parent_org_name" >
-                               ii. Common name of donor organism(s): <input type="text" class="form-control" name="donor_org_name"  id="donor_org_name" >
-                               iii. Name of gene(s) for the modified traits(s): <input type="text" class="form-control" name="gene_name"  id="gene_name" >
+                               i. Common name of parent organism(s): <input type="text" class="form-control" name="biological_system_parent_organisms" id="parent_org_name" >
+                               ii. Common name of donor organism(s): <input type="text" class="form-control" name="biological_system_donor_organisms"  id="donor_org_name" >
+                               iii. Name of gene(s) for the modified traits(s): <input type="text" class="form-control" name="biological_system_modified_traits" >
                        </div>
                        
                        <div class="form-group">
-                           Premises or location of contained use activity/field experiment: <input type="text" class="form-control" name="premise_of_activity" id="premise_of_activity" >
+                           Premises or location of contained use activity/field experiment: <input type="text" class="form-control" name="premises" id="premise_of_activity" >
                        </div>
                        
                        <div class="form-group">
-                           Period of contained use activity/field experiment: <input type="text" class="form-control" name="applicant_name" id="applicant_name" >
+                           Period of contained use activity/field experiment: <input type="text" class="form-control" name="period" >
                        </div>
                        
                        <div class="form-group">
-                           Risk assesment and risk management: <input type="text" class="form-control" name="risk_assesment_management" id="risk_assesment_management" >
+                           Risk assesment and risk management: <input type="text" class="form-control" name="risk_assessment_and_management" id="risk_assesment_management" >
                        </div>
                        
                        <div class="form-group">
-                           Emergency response plan: <input type="text" class="form-control" name="emergency_plan" id="emergency_plan" >
+                           Emergency response plan: <input type="text" class="form-control" name="emergency_plan" id="emergency_response_plan" >
                        </div>
                        
                        <div class="form-group">
-                           Additional IBC recommendation (if any): <input type="text" class="form-control" name="ibc_recommendation" id="ibc_recommendation" >
+                           Additional IBC recommendation (if any): <input type="text" class="form-control" name="IBC_recommendation" >
                        </div>
 
                    </div>
@@ -120,19 +120,19 @@
                        <h6 id="section_3"><strong>3.Details of Principal Investigators(PI)</strong></h6>
                        
                        <div class="form-group">
-                           Experience and expertise: <input type="text" class="form-control" name="experience_expertise" id="experience_expertise" >
+                           Experience and expertise: <input type="text" class="form-control" name="PI_experience_and_expertise" >
                        </div>
                        
                        <div class="form-group">
-                           Training: <input type="text" class="form-control" name="training" id="training" >
+                           Training: <input type="text" class="form-control" name="PI_training" >
                        </div>
                        
                        <div class="form-group">
-                           Health: <input type="text" class="form-control" name="health" id="health" >
+                           Health: <input type="text" class="form-control" name="health" id="PI_health" >
                        </div>
                        
                        <div class="form-group">
-                           Others (please specify): <input type="text" class="form-control" name="others" id="others" >
+                           Others (please specify): <input type="text" class="form-control" name="PI_other">
                        </div>
                    </div>
                    
@@ -151,60 +151,51 @@
                            <tbody>
                                <tr>
                                    <td>1</td>
-                                   <td><input type="text" class="form-control" name="personnel_name1" id="personnel_name1" size="10"></td>
-                                   <td><input type="text" class="form-control" name="personnel_designation1" id="personnel_designation1" size="15"></td>
+                                   <td><input type="text" class="form-control" name="personnel_involved" size="10"></td>
+                                   <td><input type="text" class="form-control" name="personnel_designation" size="15"></td>
                                </tr>
                                <tr>
                                    <td>2</td>
-                                   <td><input type="text" class="form-control" name="personnel_name2" id="personnel_name2" size="10"></td>
-                                   <td><input type="text" class="form-control" name="personnel_designation2" id="personnel_designation2" size="15"></td>
+                                   <td><input type="text" class="form-control" name="personnel_involved" id="personnel_name2" size="10"></td>
+                                   <td><input type="text" class="form-control" name="personnel_designation" id="personnel_designation2" size="15"></td>
                                </tr>
                                <tr>
                                    <td>3</td>
-                                   <td><input type="text" class="form-control" name="personnel_name3" id="personnel_name3" size="10"></td>
-                                   <td><input type="text" class="form-control" name="personnel_designation3" id="personnel_designation3" size="15"></td>
+                                   <td><input type="text" class="form-control" name="personnel_involved" id="personnel_name3" size="10"></td>
+                                   <td><input type="text" class="form-control" name="personnel_designation" id="personnel_designation3" size="15"></td>
                                </tr>
                                <tr>
                                    <td>4</td>
-                                   <td><input type="text" class="form-control" name="personnel_name4" id="personnel_name4" size="10"></td>
-                                   <td><input type="text" class="form-control" name="personnel_designation4" id="personnel_designation4" size="15"></td>
+                                   <td><input type="text" class="form-control" name="personnel_involved" id="personnel_name4" size="10"></td>
+                                   <td><input type="text" class="form-control" name="personnel_designation" id="personnel_designation4" size="15"></td>
                                </tr>
                                <tr>
                                    <td>5</td>
-                                   <td><input type="text" class="form-control" name="personnel_name5" id="personnel_name5" size="10"></td>
-                                   <td><input type="text" class="form-control" name="personnel_designation5" id="personnel_designation5" size="15"></td>
+                                   <td><input type="text" class="form-control" name="personnel_involved" id="personnel_name5" size="10"></td>
+                                   <td><input type="text" class="form-control" name="personnel_designation" id="personnel_designation5" size="15"></td>
                                </tr>
                            </tbody>
                        </table>
                    </div>
                    
                    <div>
-                       <div class="checkbox">
-                           <label><input type="checkbox" value="" disabled>IBC approved</label>
+                       <div>
+                           <label for="IBC_signature">Signature (of IBC Chair) and Date</label>
+                           <textarea rows="5" name="IBC_approved" class="form-control"></textarea>
                        </div>
                        
                        <div class="form-group">
                            <label for="ibc_name">Name:</label>
-                           <input type="text" class="form-control">
+                           <input type="text" name="IBC_name" class="form-control">
                        </div>
                        <div class="form-group">
                            <label for="ibc_date">Date:</label>
-                           <input type="date" class="form-control">
+                           <input type="date" name="IBC_date" class="form-control">
                        </div>
                    </div>
                    
-                   
-                   <div class="approve_section">
-                       <div class="radio">
-                           <label><input type="radio" name="annex2_approval">Approve</label>
-                       </div>
-                       <div class="radio">
-                           <label><input type="radio" name="annex2_reject">Reject</label>
-                       </div>
-                   </div> 
-                   
                    <div>
-                       <button type="submit" class="btn btn-default">Submit</button>
+                       <button type="submit" class="btn btn-primary">Submit</button>
                    </div>
                    
                </form>
