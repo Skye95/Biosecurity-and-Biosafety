@@ -5,6 +5,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <head>
 	<title>Biosafety and Biosecurity Online System - Inventory</title>
     
+    <link rel="stylesheet" href="http://cdn.webix.com/edge/webix.css" type="text/css"> 
+    <script src="http://cdn.webix.com/edge/webix.js" type="text/javascript"></script>
+    
     <style>
         body {
             padding-top: 82px;
