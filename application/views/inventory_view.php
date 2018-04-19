@@ -89,12 +89,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <br/>
         
         <script>
-            grid = webix.ui({
-                view:"datatable",
-                autoheight:true,
-                autowidth:true
+            webix.ready(function(){
+                webix.ui({
+                    view:"datatable",
+                    columns:[
+                        { id:"inventory_id", header:"", width:50, sort:"int"},
+                        { id:"program", header:["Program", {content:"textFilter"}], width:150},
+                        { id:"program_type", header:["Program Type", {content:"textFilter"}], width:150},
+                        { id:"unit_convenor", header:"Unit Convenor", width:150},
+                        { id:"unit_name", header:"Unit Name", width:200},
+                        { id:"project_title", header:["Project Title & Project Reference No.", {content:"textFilter"}], width:250},
+                        { id:"biohazard_type", header:["Type of Biohazard Material", {content:"textFilter"}], width:250},
+                        { id:"biohazard_name", header:"Name of Biohazard Material", width:250},
+                        { id:"biohazard_id", header:"Biohazard Material ID", width:250}
+                    ],
+                    width:1000,
+                    autoheight:true,
+                    data:<?php print json_encode($inventory); ?>
+                });
             });
-            grid.parse("inventory", "htmltable");
         </script>
         
     </div>
