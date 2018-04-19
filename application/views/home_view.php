@@ -18,6 +18,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             height: auto;
             width: 100%;
         }
+        
+        a, a:hover, a:active, a:visited {
+            text-decoration: none;
+            color: black;
+        }
     </style>
 </head>
 
