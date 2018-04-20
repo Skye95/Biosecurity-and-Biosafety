@@ -28,13 +28,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <a href="<?php echo base_url(); ?>index.php/inventory/new_storage"><button class="btn btn-info">New Storage Application</button></a>
         </div>
         <br/>
-        <input class="form-control" id="searchbar" type="text" placeholder="Enter your text here to search for a result!">
+        <input class="form-control" id="searchbar" type="text" placeholder="Search here">
         <br/>
         
         <?php if(isset($inventory)) { ?>
         
         <div class="table-responsive">
-            <table class="table table-hover">
+            <table class="table table-hover table-bordered table-striped">
                 <thead>
                     <tr>
                         <th></th>
@@ -80,7 +80,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <?php } else { ?>
         
         <div class="table-responsive">
-            <table class="table table-hover">
+            <table class="table table-hover table-bordered table-striped">
                 <thead>
                     <tr>
                         <th></th>

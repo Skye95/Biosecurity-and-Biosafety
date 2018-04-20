@@ -1,5 +1,9 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+
+if($this->session->userdata('isLogin')){
+    redirect('home/index');
+}
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,7 +29,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <body>
     <!-- Navigation Bar -->
     <?php include_once 'template/navbar.php' ?>
-    
+
     <!-- Page Content -->
     <div class="vertical-center">
         <div class="container">
