@@ -25,13 +25,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <!-- Page Content -->
     <div class="container">
         <div class="text-center">
-            <a href="<?php echo base_url(); ?>index.php/inventory/index"><button class="btn btn-info">Storage Database</button></a>
-            <a href="<?php echo base_url(); ?>index.php/inventory/index2"><button class="btn btn-info">Inventory Database</button></a>
+            <a href="<?php echo base_url(); ?>index.php/inventory/index"><button class="btn btn-info">Inventory Database</button></a>
+            <a href="<?php echo base_url(); ?>index.php/inventory/index2"><button class="btn btn-info">Storage Database</button></a>
+            <a href="<?php echo base_url(); ?>index.php/inventory/new_inventory"><button class="btn btn-info">New Inventory Application</button></a>
+            <a href="<?php echo base_url(); ?>index.php/inventory/new_storage"><button class="btn btn-info">New Storage Application</button></a>
         </div>
         <br/>
         <?php if(isset($inventory)) { ?>
         <div class="table-responsive">
-            <table class="table table-hover">
+            <table class="table table-hover" id="inventory">
                 <tr>
                     <th></th>
                     <th>Program</th>
@@ -42,10 +44,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <th>Type of Biohazard Material</th>
                     <th>Name of Biohazard Material</th>
                     <th>Biohazard Material ID</th>
-                    <th>Date Received</th>
-                    <th>Log In Personnel</th>
-                    <th>Keeper</th>
-                    <th>Remarks</th>
                 </tr>
                 <?php foreach($inventory as $row): ?>
                 <tr>
@@ -58,10 +56,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <td><?php echo $row->biohazard_type; ?></td>
                     <td><?php echo $row->biohazard_name; ?></td>
                     <td><?php echo $row->biohazard_id; ?></td>
-                    <td><?php echo $row->date_received; ?></td>
-                    <td><?php echo $row->log_in_personnel; ?></td>
-                    <td><?php echo $row->keeper_name; ?></td>
-                    <td><?php echo $row->remarks; ?></td>
                 </tr>
                 <?php endforeach; ?>
             </table>
@@ -75,9 +69,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <th>Name of Biohazard Material</th>
                     <th>Risk Group</th>
                     <th>Location of Collection / Supplier</th>
-                    <th>Source of Biohazard Material</th>
-                    <th>Date Created</th>
-                    <th>Storage Location</th>
                     <th>Keeper</th>
                     <th>Log In Personnel</th>
                 </tr>
@@ -87,9 +78,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <td><?php echo $row->biohazard_id; ?></td>
                     <td><?php echo $row->biohazard_name; ?></td>
                     <td><?php echo $row->risk_group; ?></td>
-                    <td><?php echo $row->location; ?></td>
-                    <td><?php echo $row->biohazard_source; ?></td>
-                    <td><?php echo $row->date_created; ?></td>
                     <td><?php echo $row->storage_location; ?></td>
                     <td><?php echo $row->keeper_name; ?></td>
                     <td><?php echo $row->log_in_personnel; ?></td>
@@ -99,6 +87,29 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </div>
         <?php } ?>
         <br/>
+        
+        <script>
+            webix.ready(function(){
+                webix.ui({
+                    view:"datatable",
+                    columns:[
+                        { id:"inventory_id", header:"", width:50, sort:"int"},
+                        { id:"program", header:["Program", {content:"textFilter"}], width:150},
+                        { id:"program_type", header:["Program Type", {content:"textFilter"}], width:150},
+                        { id:"unit_convenor", header:"Unit Convenor", width:150},
+                        { id:"unit_name", header:"Unit Name", width:200},
+                        { id:"project_title", header:["Project Title & Project Reference No.", {content:"textFilter"}], width:250},
+                        { id:"biohazard_type", header:["Type of Biohazard Material", {content:"textFilter"}], width:250},
+                        { id:"biohazard_name", header:"Name of Biohazard Material", width:250},
+                        { id:"biohazard_id", header:"Biohazard Material ID", width:250}
+                    ],
+                    width:1000,
+                    autoheight:true,
+                    data:<?php print json_encode($inventory); ?>
+                });
+            });
+        </script>
+        
     </div>
 </body>
 </html>
