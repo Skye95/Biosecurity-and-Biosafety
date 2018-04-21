@@ -16,6 +16,10 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
 <style>
+    body {
+        background-color: aliceblue;
+    }
+    
     footer {
         position: fixed;
         height: 50px;

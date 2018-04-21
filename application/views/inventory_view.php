@@ -13,6 +13,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         button {
             margin-right: 12px;
         }
+        
+        .table {
+            background-color: white;
+        }
     </style>
 </head>
 <body>
@@ -34,7 +38,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <?php if(isset($inventory)) { ?>
         
         <div class="table-responsive">
-            <table class="table table-hover table-bordered table-striped">
+            <table class="table table-hover table-bordered">
                 <thead>
                     <tr>
                         <th></th>
@@ -46,11 +50,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <th>Type of Biohazard Material</th>
                         <th>Name of Biohazard Material</th>
                         <th>Biohazard Material ID</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody id="inventory">
                 <?php foreach($inventory as $row): ?>
-                    <tr>
+                    <tr class="searchable">
                         <td><?php echo $row->inventory_id; ?></td>
                         <td><?php echo $row->program; ?></td>
                         <td><?php echo $row->program_type; ?></td>
@@ -60,6 +65,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <td><?php echo $row->biohazard_type; ?></td>
                         <td><?php echo $row->biohazard_name; ?></td>
                         <td><?php echo $row->biohazard_id; ?></td>
+                        <td class="text-center">
+                            <button class="btn btn-info" onclick="view_details(<?php echo $row->inventory_id; ?>)">Details</button>
+                        </td>
+                    </tr>
+                    <tr id="tr<?php echo $row->inventory_id; ?>" style="display:none;">
+                        <td colspan="10">
+                            <p>Date Received: <?php echo $row->date_received; ?></p>
+                            <p>Log In Personnel: <?php echo $row->log_in_personnel; ?></p>
+                            <p>Keeper Name: <?php echo $row->keeper_name; ?></p>
+                            <p>Remarks: <?php echo $row->remarks; ?></p>
+                        </td>
                     </tr>
                 <?php endforeach; ?>
                 </tbody>
@@ -70,17 +86,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $(document).ready(function(){
                 $("#searchbar").on("keyup", function() {
                     var value = $(this).val().toLowerCase();
-                    $("#inventory tr").filter(function() {
+                    $("#inventory .searchable").filter(function() {
                         $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
                     });
                 });
             });
         </script>
         
+        <script>
+            function view_details(i){
+                if (document.getElementById("tr"+i).style.display == "table-row"){
+                    document.getElementById("tr"+i).style.display = "none";
+                } else {
+                    document.getElementById("tr"+i).style.display = "table-row";
+                }
+            }
+        </script>
         <?php } else { ?>
         
         <div class="table-responsive">
-            <table class="table table-hover table-bordered table-striped">
+            <table class="table table-hover table-bordered">
                 <thead>
                     <tr>
                         <th></th>
@@ -90,11 +115,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <th>Location of Collection / Supplier</th>
                         <th>Keeper</th>
                         <th>Log In Personnel</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody id="storage">
                 <?php foreach($storage as $row): ?>
-                    <tr>
+                    <tr class="searchable">
                         <td><?php echo $row->storage_id; ?></td>
                         <td><?php echo $row->biohazard_id; ?></td>
                         <td><?php echo $row->biohazard_name; ?></td>
@@ -102,6 +128,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <td><?php echo $row->storage_location; ?></td>
                         <td><?php echo $row->keeper_name; ?></td>
                         <td><?php echo $row->log_in_personnel; ?></td>
+                        <td class="text-center">
+                            <button class="btn btn-info" onclick="view_details(<?php echo $row->storage_id; ?>)">Details</button>
+                        </td>
+                    </tr>
+                    <tr id="tr<?php echo $row->storage_id; ?>" style="display:none;">
+                        <td colspan="10">
+                            <p>Location of Supplier / Supplier Name: <?php echo $row->location; ?></p>
+                            <p>Sourche of Biohazardous Material: <?php echo $row->biohazard_source; ?></p>
+                            <p>Date Created: <?php echo $row->date_created; ?></p>
+                        </td>
                     </tr>
                 <?php endforeach; ?>
                 </tbody>
@@ -112,7 +148,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $(document).ready(function(){
                 $("#searchbar").on("keyup", function() {
                     var value = $(this).val().toLowerCase();
-                    $("#storage tr").filter(function() {
+                    $("#storage .searchable").filter(function() {
                         $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
                     });
                 });
@@ -122,5 +158,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <?php } ?>
         <br/>
     </div>
+    
+    <script>
+        function view_details(i){
+            if (document.getElementById("tr"+i).style.display == "table-row"){
+                document.getElementById("tr"+i).style.display = "none";
+            } else {
+                document.getElementById("tr"+i).style.display = "table-row";
+            }
+        }
+    </script>
 </body>
 </html>
