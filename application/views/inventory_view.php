@@ -54,9 +54,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </tr>
                 </thead>
                 <tbody id="inventory">
-                <?php foreach($inventory as $row): ?>
+                <?php $i=0; foreach($inventory as $row): ?>
                     <tr class="searchable">
-                        <td><?php echo $row->inventory_id; ?></td>
+                        <td><?php echo $i = $i+1 ?></td>
                         <td><?php echo $row->program; ?></td>
                         <td><?php echo $row->program_type; ?></td>
                         <td><?php echo $row->unit_convenor . $row->project_investigator; ?></td>
@@ -119,9 +119,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </tr>
                 </thead>
                 <tbody id="storage">
-                <?php foreach($storage as $row): ?>
+                <?php $i=0; foreach($storage as $row): ?>
                     <tr class="searchable">
-                        <td><?php echo $row->storage_id; ?></td>
+                        <td><?php echo $i = $i+1 ?></td>
                         <td><?php echo $row->biohazard_id; ?></td>
                         <td><?php echo $row->biohazard_name; ?></td>
                         <td><?php echo $row->risk_group; ?></td>
