@@ -38,6 +38,7 @@ class inventory extends CI_Controller {
             $this->load->template('inventory_form_view');
         } else {
             $data = array(
+                'account_id' => $this->session->userdata('account_id'),
                 'program' => $this->input->post('program'),
                 'program_type' => $this->input->post('program_type'),
                 'unit_convenor' => $this->input->post('unit_convenor'),
