@@ -35,6 +35,13 @@ if(!$this->session->userdata('isLogin')){
             
             <div class="col-md-9">
                 
+                <?php echo form_open('annex2/index'); ?>
+                
+                    <div>
+                        <br/>
+                        <?php echo $this->session->flashdata('msg'); ?>
+                    </div>
+                
                    <div>
                        <h4><strong>IBC/AP/13/ANNEX 2</strong></h4>
                    </div>
@@ -236,10 +243,6 @@ if(!$this->session->userdata('isLogin')){
                    
                <?php echo form_close(); ?>
                 
-                    <div>
-                        <br/>
-                        <?php echo $this->session->flashdata('msg'); ?>
-                    </div>
                 
             </div>
             
