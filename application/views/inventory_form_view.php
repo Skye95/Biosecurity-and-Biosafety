@@ -140,10 +140,13 @@ if(!$this->session->userdata('isLogin')){
                             <label for="remark">Remarks:</label>
                             <input class="form-control" id="remark" name="remarks" placeholder="Enter remarks here." type="text" value="<?php echo set_value('remarks'); ?>" />
                         </div>
-
+                        
                         <div class="form-group text-center">
-                            <button name="submit" type="submit" class="btn btn-success">Submit</button>
-                            <button name="cancel" type="reset" class="btn">Reset</button>
+                            <span class="col-md-2"></span>
+                            <button name="submit" type="submit" class="btn btn-success col-md-3">Submit</button>
+                            <span class="col-md-2"></span>
+                            <button name="cancel" type="reset" class="btn col-md-3">Reset</button>
+                            <span class="col-md-2"></span>
                         </div>
                     <?php echo form_close(); ?>
                 </div>

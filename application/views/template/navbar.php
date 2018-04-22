@@ -12,7 +12,7 @@
                         <a class="nav-link" href="#"><i class="fa fa-bell fa-lg fa-fw"></i> Notifications</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fa fa-user fa-lg fa-fw"></i> My Account</a>
+                        <a class="nav-link" href="<?php echo base_url(); ?>index.php/settings/index"><i class="fa fa-user fa-lg fa-fw"></i> My Account</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="<?php echo base_url(); ?>index.php/landing/logout"><i class="fa fa-sign-out fa-lg fa-fw"></i> Log Out</a>

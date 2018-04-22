@@ -73,15 +73,17 @@ if($this->session->userdata('isLogin')){
                             <label for="type">Account Type:</label>
                             <select class="form-control" id="type" name="account_type" >
                                 <option value="1">Applicant / PI</option>
-                                <option value="2">SSBC</option>
-                                <option value="3">HSO / Lab Officer</option>
-                                <option value="4">Postgraduate</option>
+                                <option value="2">SSBC Chair / SSBC Members / BSO / HSO / Lab Officer</option>
+                                <option value="3">Students / Postgraduates</option>
                             </select>
                         </div>
 
                         <div class="form-group text-center">
-                            <button name="submit" type="submit" class="btn btn-success">Register</button>
-                            <button name="cancel" type="reset" class="btn">Reset</button>
+                            <span class="col-md-1"></span>
+                            <button name="submit" type="submit" class="btn btn-success col-md-4">Register</button>
+                            <span class="col-md-2"></span>
+                            <button name="cancel" type="reset" class="btn col-md-4">Reset</button>
+                            <span class="col-md-1"></span>
                         </div>
                     <?php echo form_close(); ?>
                 </div>

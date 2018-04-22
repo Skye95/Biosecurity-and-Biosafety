@@ -52,7 +52,9 @@ if($this->session->userdata('isLogin')){
                             <span class="text-danger"><?php echo form_error('account_password'); ?></span>
                         </div>
                         <div class="form-group text-center">
-                            <button name="submit" type="submit" class="btn btn-success">Login</button>
+                            <span class="col-md-4"></span>
+                            <button name="submit" type="submit" class="btn btn-success col-md-4">Login</button>
+                            <span class="col-md-4"></span>
                         </div>
                     <?php echo form_close(); ?>
                 </div>
