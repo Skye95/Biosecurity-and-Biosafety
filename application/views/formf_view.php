@@ -144,7 +144,8 @@
 					<div>
                        <h6 id="part1"><strong>Part 1 Details of the Applicant (Exporter) </strong></h6>
                        <div class="form-group">
-                           Organization: <input type="text" class="form-control" name="exporter_organization" id="exporter_organization" >
+                           Organization: <input type="text" class="form-control" name="exporter_organization">
+                           <span class="text-danger"><?php echo form_error('exporter_organization'); ?></span>
                        </div>                       
                        <div class="form-group">
                            Name of Applicant: <input type="text" class="form-control" name="exporter_name" id="exporter_name" >
