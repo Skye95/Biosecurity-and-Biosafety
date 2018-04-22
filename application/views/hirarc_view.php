@@ -1,3 +1,9 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+if(!$this->session->userdata('isLogin')){
+    redirect('landing/index');
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -52,6 +58,8 @@
 <body>
     <?php include_once 'template/navbar.php' ?>
     
+    <?php echo validation_errors(); ?>
+    
     <div class="container">
         <div class="row">
             
@@ -75,43 +83,60 @@
                            <tbody>
                                <tr>
                                    <th>1.01 Company/Department</th>
-                                   <td><input type="text" class="form-control" name="company_name"></td>
+                                   <td><input type="text" class="form-control" name="company_name" value="<?php echo set_value('company_name'); ?>">
+                                   <span class="text-danger"><?php echo form_error('company_name'); ?></span>
+                                   </td>
                                </tr>
                                <tr>
                                    <th>1.02 Date</th>
-                                   <td><input type="date" class="form-control" name="date"></td>
+                                   <td><input type="date" class="form-control" name="date" value="<?php echo set_value('date'); ?>">
+                                   <span class="text-danger"><?php echo form_error('date'); ?></span>
+                                   </td>
                                </tr>
                                <tr>
                                    <th>1.03 Process Location</th>
-                                   <td><input type="text" class="form-control" name="process_location"></td>
+                                   <td><input type="text" class="form-control" name="process_location" value="<?php echo set_value('process_location'); ?>"><span class="text-danger"><?php echo form_error('process_location'); ?></span>
+                                   </td>
                                </tr>
                                <tr>
                                    <th>1.04 Conducted by (name)</th>
-                                   <td><input type="text" class="form-control" name="conducted_name"></td>
+                                   <td><input type="text" class="form-control" name="conducted_name" value="<?php echo set_value('conducted_name'); ?>"><span class="text-danger"><?php echo form_error('conducted_name'); ?></span>
+                                   </td>
                                </tr>
                                <tr>
                                    <th>1.04.2 Conducted by (designation)</th>
-                                   <td><input type="text" class="form-control" name="conducted_designation"></td>
+                                   <td><input type="text" class="form-control" name="conducted_designation" value="<?php echo set_value('conducted_designation'); ?>">
+                                   <span class="text-danger"><?php echo form_error('conducted_designation'); ?></span>
+                                   </td>
                                </tr>
                                <tr>
                                    <th>1.05 Approved by (name)</th>
-                                   <td><input type="text" class="form-control" name="approved_name"></td>
+                                   <td><input type="text" class="form-control" name="approved_name" value="<?php echo set_value('approved_name'); ?>"><span class="text-danger"><?php echo form_error('approved_name'); ?></span>
+                                   </td>
                                </tr>
                                <tr>
                                    <th>1.05.2 Approved by (designation)</th>
-                                   <td><input type="text" class="form-control" name="approved_designation"></td>
+                                   <td><input type="text" class="form-control" name="approved_designation" value="<?php echo set_value('approved_designation'); ?>">
+                                   <span class="text-danger"><?php echo form_error('approved_designation'); ?></span>
+                                   </td>
                                </tr>
                                <tr>
                                    <th>1.06 Date (From)</th>
-                                   <td><input type="date" class="form-control" name="date_from"></td>
+                                   <td><input type="date" class="form-control" name="date_from" value="<?php echo set_value('date_from'); ?>">
+                                   <span class="text-danger"><?php echo form_error('date_from'); ?></span>
+                                   </td>
                                </tr>
                                <tr>
                                    <th>1.06.2 Date (To)</th>
-                                   <td><input type="date" class="form-control" name="date_to"></td>
+                                   <td><input type="date" class="form-control" name="date_to" value="<?php echo set_value('date_to'); ?>">
+                                   <span class="text-danger"><?php echo form_error('date_to'); ?></span>
+                                   </td>
                                </tr>
                                <tr>
                                    <th>1.07 Review Date</th>
-                                   <td><input type="date" class="form-control" name="date_from"></td>
+                                   <td><input type="date" class="form-control" name="review_date" value="<?php echo set_value('review_date'); ?>">
+                                   <span class="text-danger"><?php echo form_error('review_date'); ?></span>
+                                   </td>
                                </tr>
                                <tr>
                                    <th>1.08 Doc. No.</th>
@@ -148,52 +173,52 @@
                                    <th>PIC (Due date/status)</th>
                                </tr>
                                <tr>
-                                   <th><input type="text" class="form-control" name="HIRARC_no"></th>
-                                   <th><input type="text" class="form-control" name="HIRARC_activity"></th>
-                                   <th><input type="text" class="form-control" name="HIRARC_hazard"></th>
-                                   <th><input type="text" class="form-control" name="HIRARC_effects"></th>
-                                   <th><input type="text" class="form-control" name="HIRARC_risk_control"></th>
-                                   <th><input type="text" class="form-control" name="HIRARC_LLH"></th>
-                                   <th><input type="text" class="form-control" name="HIRARC_SEV"></th>
-                                   <th><input type="text" class="form-control" name="HIRARC_RR"></th>
-                                   <th><input type="text" class="form-control" name="HIRARC_control_measure"></th>
-                                   <th><input type="text" class="form-control" name="HIRARC_PIC"></th>
+                                   <th><input type="text" class="form-control" name="HIRARC_no[]" value="<?php echo set_value('HIRARC_no[]'); ?>"></th>
+                                   <th><input type="text" class="form-control" name="HIRARC_activity[]" value="<?php echo set_value('HIRARC_activity[]'); ?>"></th>
+                                   <th><input type="text" class="form-control" name="HIRARC_hazard[]" value="<?php echo set_value('HIRARC_hazard[]'); ?>"></th>
+                                   <th><input type="text" class="form-control" name="HIRARC_effects[]" value="<?php echo set_value('HIRARC_effects[]'); ?>"></th>
+                                   <th><input type="text" class="form-control" name="HIRARC_risk_control[]" value="<?php echo set_value('HIRARC_risk_control[]'); ?>"></th>
+                                   <th><input type="text" class="form-control" name="HIRARC_LLH[]" value="<?php echo set_value('HIRARC_LLH[]'); ?>"></th>
+                                   <th><input type="text" class="form-control" name="HIRARC_SEV[]" value="<?php echo set_value('HIRARC_SEV[]'); ?>"></th>
+                                   <th><input type="text" class="form-control" name="HIRARC_RR[]" value="<?php echo set_value('HIRARC_RR[]'); ?>"></th>
+                                   <th><input type="text" class="form-control" name="HIRARC_control_measure[]" value="<?php echo set_value('HIRARC_control_measure[]'); ?>"></th>
+                                   <th><input type="text" class="form-control" name="HIRARC_PIC[]" value="<?php echo set_value('HIRARC_PIC[]'); ?>"></th>
                                </tr>
                                <tr>
-                                   <th><input type="text" class="form-control" name="HIRARC_no2"></th>
-                                   <th><input type="text" class="form-control" name="HIRARC_activity2"></th>
-                                   <th><input type="text" class="form-control" name="HIRARC_hazard2"></th>
-                                   <th><input type="text" class="form-control" name="HIRARC_effects2"></th>
-                                   <th><input type="text" class="form-control" name="HIRARC_risk_control2"></th>
-                                   <th><input type="text" class="form-control" name="HIRARC_LLH2"></th>
-                                   <th><input type="text" class="form-control" name="HIRARC_SEV2"></th>
-                                   <th><input type="text" class="form-control" name="HIRARC_RR2"></th>
-                                   <th><input type="text" class="form-control" name="HIRARC_control_measure2"></th>
-                                   <th><input type="text" class="form-control" name="HIRARC_PIC2"></th>
+                                   <th><input type="text" class="form-control" name="HIRARC_no[]" value="<?php echo set_value('HIRARC_no[]'); ?>"></th>
+                                   <th><input type="text" class="form-control" name="HIRARC_activity[]" value="<?php echo set_value('HIRARC_activity[]'); ?>"></th>
+                                   <th><input type="text" class="form-control" name="HIRARC_hazard[]" value="<?php echo set_value('HIRARC_hazard[]'); ?>"></th>
+                                   <th><input type="text" class="form-control" name="HIRARC_effects[]" value="<?php echo set_value('HIRARC_effects[]'); ?>"></th>
+                                   <th><input type="text" class="form-control" name="HIRARC_risk_control[]" value="<?php echo set_value('HIRARC_risk_control[]'); ?>"></th>
+                                   <th><input type="text" class="form-control" name="HIRARC_LLH[]" value="<?php echo set_value('HIRARC_LLH[]'); ?>"></th>
+                                   <th><input type="text" class="form-control" name="HIRARC_SEV[]" value="<?php echo set_value('HIRARC_SEV[]'); ?>"></th>
+                                   <th><input type="text" class="form-control" name="HIRARC_RR[]" value="<?php echo set_value('HIRARC_RR[]'); ?>"></th>
+                                   <th><input type="text" class="form-control" name="HIRARC_control_measure[]" value="<?php echo set_value('HIRARC_control_measure[]'); ?>"></th>
+                                   <th><input type="text" class="form-control" name="HIRARC_PIC[]" value="<?php echo set_value('HIRARC_PIC[]'); ?>"></th>
                                </tr>
                                <tr>
-                                   <th><input type="text" class="form-control" name="HIRARC_no3"></th>
-                                   <th><input type="text" class="form-control" name="HIRARC_activity3"></th>
-                                   <th><input type="text" class="form-control" name="HIRARC_hazard3"></th>
-                                   <th><input type="text" class="form-control" name="HIRARC_effects3"></th>
-                                   <th><input type="text" class="form-control" name="HIRARC_risk_contro3"></th>
-                                   <th><input type="text" class="form-control" name="HIRARC_LLH3"></th>
-                                   <th><input type="text" class="form-control" name="HIRARC_SEV3"></th>
-                                   <th><input type="text" class="form-control" name="HIRARC_RR3"></th>
-                                   <th><input type="text" class="form-control" name="HIRARC_control_measure3"></th>
-                                   <th><input type="text" class="form-control" name="HIRARC_PIC3"></th>
+                                   <th><input type="text" class="form-control" name="HIRARC_no[]" value="<?php echo set_value('HIRARC_no[]'); ?>"></th>
+                                   <th><input type="text" class="form-control" name="HIRARC_activity[]" value="<?php echo set_value('HIRARC_activity[]'); ?>"></th>
+                                   <th><input type="text" class="form-control" name="HIRARC_hazard[]" value="<?php echo set_value('HIRARC_hazard[]'); ?>"></th>
+                                   <th><input type="text" class="form-control" name="HIRARC_effects[]" value="<?php echo set_value('HIRARC_effects[]'); ?>"></th>
+                                   <th><input type="text" class="form-control" name="HIRARC_risk_control[]" value="<?php echo set_value('HIRARC_risk_control[]'); ?>"></th>
+                                   <th><input type="text" class="form-control" name="HIRARC_LLH[]" value="<?php echo set_value('HIRARC_LLH[]'); ?>"></th>
+                                   <th><input type="text" class="form-control" name="HIRARC_SEV[]" value="<?php echo set_value('HIRARC_SEV[]'); ?>"></th>
+                                   <th><input type="text" class="form-control" name="HIRARC_RR[]" value="<?php echo set_value('HIRARC_RR[]'); ?>"></th>
+                                   <th><input type="text" class="form-control" name="HIRARC_control_measure[]" value="<?php echo set_value('HIRARC_control_measure[]'); ?>"></th>
+                                   <th><input type="text" class="form-control" name="HIRARC_PIC[]" value="<?php echo set_value('HIRARC_PIC[]'); ?>"></th>
                                </tr>
                                <tr>
-                                   <th><input type="text" class="form-control" name="HIRARC_no4"></th>
-                                   <th><input type="text" class="form-control" name="HIRARC_activity4"></th>
-                                   <th><input type="text" class="form-control" name="HIRARC_hazard4"></th>
-                                   <th><input type="text" class="form-control" name="HIRARC_effects4"></th>
-                                   <th><input type="text" class="form-control" name="HIRARC_risk_control4"></th>
-                                   <th><input type="text" class="form-control" name="HIRARC_LLH4"></th>
-                                   <th><input type="text" class="form-control" name="HIRARC_SEV4"></th>
-                                   <th><input type="text" class="form-control" name="HIRARC_RR4"></th>
-                                   <th><input type="text" class="form-control" name="HIRARC_control_measure4"></th>
-                                   <th><input type="text" class="form-control" name="HIRARC_PIC4"></th>
+                                   <th><input type="text" class="form-control" name="HIRARC_no[]" value="<?php echo set_value('HIRARC_no[]'); ?>"></th>
+                                   <th><input type="text" class="form-control" name="HIRARC_activity[]" value="<?php echo set_value('HIRARC_activity[]'); ?>"></th>
+                                   <th><input type="text" class="form-control" name="HIRARC_hazard[]" value="<?php echo set_value('HIRARC_hazard[]'); ?>"></th>
+                                   <th><input type="text" class="form-control" name="HIRARC_effects[]" value="<?php echo set_value('HIRARC_effects[]'); ?>"></th>
+                                   <th><input type="text" class="form-control" name="HIRARC_risk_control[]" value="<?php echo set_value('HIRARC_risk_control[]'); ?>"></th>
+                                   <th><input type="text" class="form-control" name="HIRARC_LLH[]" value="<?php echo set_value('HIRARC_LLH[]'); ?>"></th>
+                                   <th><input type="text" class="form-control" name="HIRARC_SEV[]" value="<?php echo set_value('HIRARC_SEV[]'); ?>"></th>
+                                   <th><input type="text" class="form-control" name="HIRARC_RR[]" value="<?php echo set_value('HIRARC_RR[]'); ?>"></th>
+                                   <th><input type="text" class="form-control" name="HIRARC_control_measure[]" value="<?php echo set_value('HIRARC_control_measure[]'); ?>"></th>
+                                   <th><input type="text" class="form-control" name="HIRARC_PIC[]" value="<?php echo set_value('HIRARC_PIC[]'); ?>"></th>
                                </tr>
                            </tbody>
                        </table>

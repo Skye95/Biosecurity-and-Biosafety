@@ -3,8 +3,99 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
     class annex5 extends CI_Controller{
         
+        function __construct()
+        {
+            parent::__construct();
+
+            $this->load->database();
+            //$this->load->model('annex5_model');
+        }
+        
         public function index(){
-            $this->load->template('annex5_view');
+            
+            $this->form_validation->set_rules('identification_PI_name', 'Name', 'required|callback_fullname_check');
+            $this->form_validation->set_rules('identification_email_address', 'Email', 'required|valid_email');
+            $this->form_validation->set_rules('identification_faculty', 'Faculty', 'required');
+            $this->form_validation->set_rules('identification_telephone', 'Telephone', 'required');
+            $this->form_validation->set_rules('identification_IBC_reference_no', 'IBC reference', 'required');
+            $this->form_validation->set_rules('identification_NBB_reference_no', 'NBB reference', 'required');
+            $this->form_validation->set_rules('identification_project_title', 'Project Title', 'required');
+            $this->form_validation->set_rules('identification_LMO_rDNA', 'LMO/rDNA Materials', 'required');
+            $this->form_validation->set_rules('request_type', 'Request Type', 'required');
+            $this->form_validation->set_rules('request_description', 'Request Description', 'required');
+            $this->form_validation->set_rules('PI_change', 'Principal Investigator change', 'required');
+            $this->form_validation->set_rules('RG_change', 'Risk Group (RG) change', 'required');
+            $this->form_validation->set_rules('BSL_change', 'Biosafety Level (BSL) change', 'required');
+            $this->form_validation->set_rules('LMO_rDNA_type_change', 'LMO/rDNA materials change', 'required');
+            $this->form_validation->set_rules('LMO_rDNA_moved', 'LMO/rDNA moved', 'required');
+            $this->form_validation->set_rules('LMO_rDNA_usage_change', 'LMO/rDNA usage change', 'required');
+            $this->form_validation->set_rules('adverse_events', 'adverse events', 'required');
+            $this->form_validation->set_rules('incident_report', 'incident report', 'required');
+            $this->form_validation->set_rules('signature_PI_name', 'Principal Investigator Name', 'required|callback_fullname_check');
+            $this->form_validation->set_rules('signature_PI_date', 'Principal Investigator Date Signed', 'required');
+            //$this->form_validation->set_rules('signature_BO_name', 'Biosafety Officer Name', 'required|callback_fullname_check');
+            //$this->form_validation->set_rules('signature_BO_date', 'Biosafety Officer Date Signed', 'required');
+            //$this->form_validation->set_rules('signature_IBC_name', 'IBC Chair Name', 'required|callback_fullname_check');
+            //$this->form_validation->set_rules('signature_IBC_date', 'IBC Chair Date Signed', 'required');
+            //$this->form_validation->set_rules('IBC_approval[]', 'IBC approval', 'required');
+            //$this->form_validation->set_rules('IBC_termination', 'IBC termination', 'required');
+            
+            if ($this->form_validation->run() == FALSE)
+            {
+                
+                $this->load->template('annex5_view');
+                
+            }
+            else
+            {
+                $data = array(
+                    'account_id' => $this->session->userdata('account_id'),
+                    'applicant_name' => $this->input->post('applicant_name'),
+                    'institutional_address' => $this->input->post('institutional_address'),
+                    'collaborating_partners' => $this->input->post('collaborating_partners'),
+                    'project_title' => $this->input->post('project_title'),
+                    'project_objective_methodology' => $this->input->post('project_objective_methodology'),
+                    'biological_system_parent_organisms' => $this->input->post('biological_system_parent_organisms'),
+                    'biological_system_donor_organisms' => $this->input->post('biological_system_donor_organisms'),
+                    'biological_system_modified_traits' => $this->input->post('biological_system_modified_traits'),
+                    'premises' => $this->input->post('premises'),
+                    'period' => $this->input->post('period'),
+                    'risk_assessment_and_management' => $this->input->post('risk_assessment_and_management'),
+                    'emergency_response_plan' => $this->input->post('emergency_response_plan'),
+                    'IBC_recommendation' => $this->input->post('IBC_recommendation'),
+                    'PI_experience_and_expertise' => $this->input->post('PI_experience_and_expertise'),
+                    'PI_training' => $this->input->post('PI_training'),
+                    'PI_health' => $this->input->post('PI_health'),
+                    'PI_other' => $this->input->post('PI_other'),
+                    'personnel_involved' => implode(',', $involved),
+                    'personnel_designation' => implode(',', $designation),
+                    'IBC_name' => $this->input->post('IBC_name'),
+                    'IBC_date' => $this->input->post('IBC_date')
+                );
+                
+                
+            }
+            
+        }
+        
+        public function fullname_check($str) {
+            
+            if (!preg_match('/^([a-z0-9 ])+$/i', $str)) {
+                $this->form_validation->set_message('fullname_check', 'The %s field can only be alphanumerical');
+                return FALSE;
+            } else {
+                return TRUE;
+            }
+        }
+        
+        public function phone_check($str) {
+            
+            if (!preg_match('/^(\+?6?01)[0|1|2|3|4|6|7|8|9]\-*[0-9]{7,8}$/', $str)) {
+                $this->form_validation->set_message('phone_check', 'Use a valid phone number');
+                return FALSE;
+            } else {
+                return TRUE;
+            }
         }
         
     }

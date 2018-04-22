@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 11, 2018 at 07:04 PM
+-- Generation Time: Apr 22, 2018 at 11:02 AM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.3
 
@@ -635,6 +635,7 @@ CREATE TABLE `incidentaccidentreport` (
 
 CREATE TABLE `inventory` (
   `inventory_id` int(10) UNSIGNED NOT NULL,
+  `account_id` int(10) UNSIGNED DEFAULT NULL,
   `program` varchar(100) NOT NULL,
   `program_type` varchar(100) NOT NULL,
   `unit_convenor` varchar(100) DEFAULT NULL,
@@ -650,16 +651,18 @@ CREATE TABLE `inventory` (
   `log_in_personnel` varchar(100) NOT NULL,
   `keeper_name` varchar(100) NOT NULL,
   `remarks` varchar(500) DEFAULT NULL,
-  `popularity` int(10) UNSIGNED DEFAULT NULL
+  `approval` int(1) UNSIGNED DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `inventory`
 --
 
-INSERT INTO `inventory` (`inventory_id`, `program`, `program_type`, `unit_convenor`, `project_investigator`, `unit_name`, `experiment_title`, `project_title`, `project_reference_no`, `biohazard_type`, `biohazard_name`, `biohazard_id`, `date_received`, `log_in_personnel`, `keeper_name`, `remarks`, `popularity`) VALUES
-(1, 'Msc\r\n', 'Research\r\n', 'Chua Jia Ni\r\n', NULL, NULL, NULL, 'SSBC: Biohazard.2018.01: Optimizing Bacteria Growth Condition\r\n', NULL, 'Microorganism\r\n', 'E. coli ABC\r\n', 'B.BSL1.R.1.1\r\n', '2018-04-09', 'Chua Jia Ni\r\n', 'Chua Jia Ni\r\n', 'Sample data being test.\r\nPlease see.', NULL),
-(2, 'Biotech\r\n', 'Teaching\r\n', 'Chua Jia Ni\r\n', NULL, 'BCH 007:\r\n', 'Bacteria Isolation\r\n', NULL, NULL, 'Living modified bacteria\r\n', 'E. coli DEF\r\n', 'L.BSL1.T.1.1\r\n', '2018-04-11', 'Chua Jia Ni\r\n', 'Chua Jia Ni\r\n', 'Let’s say once you render this table the description for the test is way too big and is pushing the other columns away and making them smaller than you think they should be.  The quickest way to fix this is to simply give column sizes to your table headers.', NULL);
+INSERT INTO `inventory` (`inventory_id`, `account_id`, `program`, `program_type`, `unit_convenor`, `project_investigator`, `unit_name`, `experiment_title`, `project_title`, `project_reference_no`, `biohazard_type`, `biohazard_name`, `biohazard_id`, `date_received`, `log_in_personnel`, `keeper_name`, `remarks`, `approval`) VALUES
+(1, NULL, 'Msc\r\n', 'Research\r\n', 'Chua Jia Ni\r\n', NULL, NULL, NULL, 'SSBC: Biohazard.2018.01: Optimizing Bacteria Growth Condition\r\n', NULL, 'Microorganism\r\n', 'E. coli ABC\r\n', 'B.BSL1.R.1.1\r\n', '2018-04-09', 'Chua Jia Ni\r\n', 'Chua Jia Ni\r\n', 'Sample data being test.\r\nPlease see.', 1),
+(2, NULL, 'Biotech\r\n', 'Teaching\r\n', 'Chua Jia Ni\r\n', NULL, 'BCH 007:\r\n', 'Bacteria Isolation\r\n', NULL, NULL, 'Living modified bacteria\r\n', 'E. coli DEF\r\n', 'L.BSL1.T.1.1\r\n', '2018-04-11', 'Chua Jia Ni\r\n', 'Chua Jia Ni\r\n', 'Let’s say once you render this table the description for the test is way too big and is pushing the other columns away and making them smaller than you think they should be.  The quickest way to fix this is to simply give column sizes to your table headers.', 1),
+(3, NULL, 'HELLO', 'THIS', 'IS', '', 'A', 'SAMPLE', '', '', 'ANSWER', 'OMEGA', 'LUL', '2018-04-21', 'PAG', 'CHOMP', 'XDXDXDXDXD', 0),
+(4, 1, 'account', 'id', '', 'test', 'sample', '', 'bois', 'sss', 'asas', 'asasa', 'sxc', '2018-04-21', '2w', 'sdw', '', 0);
 
 -- --------------------------------------------------------
 
@@ -1024,6 +1027,7 @@ CREATE TABLE `pc2` (
 
 CREATE TABLE `storage` (
   `storage_id` int(10) UNSIGNED NOT NULL,
+  `account_id` int(10) UNSIGNED DEFAULT NULL,
   `biohazard_id` varchar(20) NOT NULL,
   `biohazard_name` varchar(100) NOT NULL,
   `risk_group` varchar(20) NOT NULL,
@@ -1033,16 +1037,18 @@ CREATE TABLE `storage` (
   `storage_location` varchar(100) NOT NULL,
   `keeper_name` varchar(100) NOT NULL,
   `log_in_personnel` varchar(100) NOT NULL,
-  `popularity` int(10) UNSIGNED DEFAULT NULL
+  `approval` int(1) UNSIGNED DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `storage`
 --
 
-INSERT INTO `storage` (`storage_id`, `biohazard_id`, `biohazard_name`, `risk_group`, `location`, `biohazard_source`, `date_created`, `storage_location`, `keeper_name`, `log_in_personnel`, `popularity`) VALUES
-(1, 'B.BSL1.R.1.1', 'E. coli ABC\r\n', '1\r\n', 'Wind Cave\r\n', 'Soil\r\n', '2018-04-03', 'Freezer Room\r\n', 'Chua Jia Ni\r\n', 'Chua Jia Ni\r\n', NULL),
-(2, 'L.BSL1.T.1.1', 'E. coli DEF\r\n', '1\r\n', '123 Company\r\n', 'E. coli\r\n', '2018-04-07', 'Micro Lab\r\n', 'Chua Jia Ni\r\n', 'Chua Jia Ni\r\n', NULL);
+INSERT INTO `storage` (`storage_id`, `account_id`, `biohazard_id`, `biohazard_name`, `risk_group`, `location`, `biohazard_source`, `date_created`, `storage_location`, `keeper_name`, `log_in_personnel`, `approval`) VALUES
+(1, NULL, 'B.BSL1.R.1.1', 'E. coli ABC\r\n', '1\r\n', 'Wind Cave\r\n', 'Soil\r\n', '2018-04-03', 'Freezer Room\r\n', 'Chua Jia Ni\r\n', 'Chua Jia Ni\r\n', 1),
+(2, NULL, 'L.BSL1.T.1.1', 'E. coli DEF\r\n', '1\r\n', '123 Company\r\n', 'E. coli\r\n', '2018-04-07', 'Micro Lab\r\n', 'Chua Jia Ni\r\n', 'Chua Jia Ni\r\n', 1),
+(3, NULL, '123swd', '12rbsef', '23cd', '2wd', '1eawvbr', '2018-04-19', 'swx2', '1xwv1w3', 'wx2as', 0),
+(4, 1, 'a', 'b', 'c', 'd', 'e', '2018-04-22', 'f', 'g', 'h', 1);
 
 -- --------------------------------------------------------
 
@@ -1197,7 +1203,8 @@ ALTER TABLE `incidentaccidentreport`
 -- Indexes for table `inventory`
 --
 ALTER TABLE `inventory`
-  ADD PRIMARY KEY (`inventory_id`);
+  ADD PRIMARY KEY (`inventory_id`),
+  ADD KEY `account_id` (`account_id`);
 
 --
 -- Indexes for table `materialriskassessment`
@@ -1346,7 +1353,7 @@ ALTER TABLE `incidentaccidentreport`
 -- AUTO_INCREMENT for table `inventory`
 --
 ALTER TABLE `inventory`
-  MODIFY `inventory_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `inventory_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `materialriskassessment`
@@ -1388,7 +1395,7 @@ ALTER TABLE `pc2`
 -- AUTO_INCREMENT for table `storage`
 --
 ALTER TABLE `storage`
-  MODIFY `storage_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `storage_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `swp`
@@ -1482,6 +1489,12 @@ ALTER TABLE `hirarc`
 ALTER TABLE `incidentaccidentreport`
   ADD CONSTRAINT `incidentaccidentreport_ibfk_1` FOREIGN KEY (`account_id`) REFERENCES `accounts` (`account_id`),
   ADD CONSTRAINT `incidentaccidentreport_ibfk_2` FOREIGN KEY (`approver_id`) REFERENCES `accounts` (`account_id`);
+
+--
+-- Constraints for table `inventory`
+--
+ALTER TABLE `inventory`
+  ADD CONSTRAINT `inventory_ibfk_1` FOREIGN KEY (`account_id`) REFERENCES `accounts` (`account_id`);
 
 --
 -- Constraints for table `materialriskassessment`
