@@ -69,7 +69,43 @@ class inventory extends CI_Controller {
     public function new_storage()
 	{
         
-        $this->load->template('storage_form_view');
+        $this->form_validation->set_rules('biohazard_id', 'Biohazard ID', 'required');
+        $this->form_validation->set_rules('biohazard_name', 'Biohazard Name', 'required');
+        $this->form_validation->set_rules('risk_group', 'Risk Group', 'required');
+        $this->form_validation->set_rules('location', 'Location', 'required');
+        $this->form_validation->set_rules('biohazard_source', 'Biohazard Source', 'required');
+        $this->form_validation->set_rules('date_created', 'Date', 'required');
+        $this->form_validation->set_rules('storage_location', 'Storage Location', 'required');
+        $this->form_validation->set_rules('keeper_name', 'Keeper Name', 'required');
+        $this->form_validation->set_rules('log_in_personnel', 'Log In Personnel', 'required');
+        
+        # Submit form
+        if($this->form_validation->run() == FALSE){
+            # validation fails
+            $this->load->template('storage_form_view');
+        } else {
+            $data = array(
+                'account_id' => $this->session->userdata('account_id'),
+                'biohazard_id' => $this->input->post('biohazard_id'),
+                'biohazard_name' => $this->input->post('biohazard_name'),
+                'risk_group' => $this->input->post('risk_group'),
+                'storage_location' => $this->input->post('storage_location'),
+                'location' => $this->input->post('location'),
+                'biohazard_source' => $this->input->post('biohazard_source'),
+                'date_created' => $this->input->post('date_created'),
+                'storage_location' => $this->input->post('storage_location'),
+                'keeper_name' => $this->input->post('keeper_name'),
+                'log_in_personnel' => $this->input->post('log_in_personnel')
+            );
+            
+            if($this->inventory_model->insert_new_storage($data)){
+                $this->session->set_flashdata('msg','<div class="alert alert-success text-center">You have successfully applied for a new storage!</div>');
+                redirect('inventory/new_storage');
+            } else {
+                $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">An error has occured. Please try again later.</div>');
+                redirect('inventory/new_storage');
+            }
+        }
 	}
     
     /*

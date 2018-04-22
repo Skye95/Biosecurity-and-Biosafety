@@ -34,14 +34,75 @@ if(!$this->session->userdata('isLogin')){
         </div>
         <br/>
         <div class="row">
+            <div class="col-md-1">
+            </div>
+            <div class="col-md-10 text-center bg-white">
+                <br/>
+                <?php echo $this->session->flashdata('msg'); ?>
+            </div>
+            <div class="col-md-1">
+            </div>
+        </div>
+        <div class="row">
                 <div class="col-md-1">
                 </div>
                 <div class="col-md-10 bg-white">
-                    <?php echo form_open('inventory/new_inventory'); ?>
+                    <?php echo form_open('inventory/new_storage'); ?>
                         <br/>
                         <legend>New Storage Application</legend>
                         <br/>
                         <div class="form-group">
+                            <label for="biohazardid">Biohazard ID:</label>
+                            <input class="form-control" id="biohazardid" name="biohazard_id" placeholder="Enter the biohazard id here." type="text" value="<?php echo set_value('biohazard_id'); ?>" />
+                            <span class="text-danger"><?php echo form_error('biohazard_id'); ?></span>
+                        </div>
+                    
+                        <div class="form-group">
+                            <label for="biohazardname">Biohazard Name:</label>
+                            <input class="form-control" id="biohazardname" name="biohazard_name" placeholder="Enter the biohazard name here." type="text" value="<?php echo set_value('biohazard_name'); ?>" />
+                            <span class="text-danger"><?php echo form_error('biohazard_name'); ?></span>
+                        </div>
+                    
+                        <div class="form-group">
+                            <label for="riskgroup">Risk Group:</label>
+                            <input class="form-control" id="riskgroup" name="risk_group" placeholder="Enter risk group here." type="text" value="<?php echo set_value('risk_group'); ?>" />
+                            <span class="text-danger"><?php echo form_error('risk_group'); ?></span>
+                        </div>
+                    
+                        <div class="form-group">
+                            <label for="locationname">Location:</label>
+                            <input class="form-control" id="locationname" name="location" placeholder="Enter location here." type="text" value="<?php echo set_value('location'); ?>" />
+                            <span class="text-danger"><?php echo form_error('location'); ?></span>
+                        </div>
+                    
+                        <div class="form-group">
+                            <label for="biohazardsource">Biohazard Source:</label>
+                            <input class="form-control" id="biohazardsource" name="biohazard_source" placeholder="Enter biohazard source here." type="text" value="<?php echo set_value('biohazard_source'); ?>" />
+                            <span class="text-danger"><?php echo form_error('biohazard_source'); ?></span>
+                        </div>
+                    
+                        <div class="form-group">
+                            <label for="datecreated">Date Created:</label>
+                            <input class="form-control" id="datecreated" name="date_created" placeholder="Enter the date here." type="date" value="<?php echo set_value('date_created'); ?>" />
+                            <span class="text-danger"><?php echo form_error('date_created'); ?></span>
+                        </div>
+                    
+                        <div class="form-group">
+                            <label for="storagelocation">Storage Location:</label>
+                            <input class="form-control" id="storagelocation" name="storage_location" placeholder="Enter storage location here." type="text" value="<?php echo set_value('storage_location'); ?>" />
+                            <span class="text-danger"><?php echo form_error('storage_location'); ?></span>
+                        </div>
+                    
+                        <div class="form-group">
+                            <label for="keepername">Keeper Name:</label>
+                            <input class="form-control" id="keepername" name="keeper_name" placeholder="Enter the keeper name here." type="text" value="<?php echo set_value('keeper_name'); ?>" />
+                            <span class="text-danger"><?php echo form_error('keeper_name'); ?></span>
+                        </div>
+                    
+                        <div class="form-group">
+                            <label for="loginpersonnel">Log In Personnel:</label>
+                            <input class="form-control" id="loginpersonnel" name="log_in_personnel" placeholder="Enter the log in personnel here." type="text" value="<?php echo set_value('log_in_personnel'); ?>" />
+                            <span class="text-danger"><?php echo form_error('log_in_personnel'); ?></span>
                         </div>
 
                         <div class="form-group text-center">
@@ -53,16 +114,7 @@ if(!$this->session->userdata('isLogin')){
                 <div class="col-md-1">
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-1">
-                </div>
-                <div class="col-md-10 text-center bg-white">
-                    <br/>
-                    <?php echo $this->session->flashdata('msg'); ?>
-                </div>
-                <div class="col-md-1">
-                </div>
-            </div>
+        <br/>
     </div>
 </body>
 </html>
