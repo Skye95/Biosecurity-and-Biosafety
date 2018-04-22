@@ -30,5 +30,20 @@ class account_model extends CI_Model
     {
 		return $this->db->insert('accounts', $data);
 	}
+    
+    function update_account($id, $data)
+    {
+        extract($data);
+        #if ($account_email != ''){
+        #    $this->db->where('account_id', $id);
+        #    $this->db->update('accounts', array('account_email' => $account_email));
+        #}
+        if ($account_password != ''){
+            $this->db->where('account_id', $id);
+            $this->db->update('accounts', array('account_password' => $account_password));
+        }
+        #return $this->db->last_query();
+        return true;
+    }
 }
 ?>

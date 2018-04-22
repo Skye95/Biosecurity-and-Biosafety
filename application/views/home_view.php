@@ -1,5 +1,9 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+
+if(!$this->session->userdata('isLogin')){
+    redirect('landing/index');
+}
 ?><!DOCTYPE html>
 <html lang="en">
 <head>

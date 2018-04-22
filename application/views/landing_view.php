@@ -1,5 +1,9 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+
+if($this->session->userdata('isLogin')){
+    redirect('home/index');
+}
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,7 +29,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <body>
     <!-- Navigation Bar -->
     <?php include_once 'template/navbar.php' ?>
-    
+
     <!-- Page Content -->
     <div class="vertical-center">
         <div class="container">
@@ -48,7 +52,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <span class="text-danger"><?php echo form_error('account_password'); ?></span>
                         </div>
                         <div class="form-group text-center">
-                            <button name="submit" type="submit" class="btn btn-success">Login</button>
+                            <span class="col-md-4"></span>
+                            <button name="submit" type="submit" class="btn btn-success col-md-4">Login</button>
+                            <span class="col-md-4"></span>
                         </div>
                     <?php echo form_close(); ?>
                 </div>

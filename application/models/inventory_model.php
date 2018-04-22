@@ -10,13 +10,17 @@ class inventory_model extends CI_Model
 	
 	function get_all_inventory()
 	{
-        $query = $this->db->select('*')->from('inventory')->get();
+        #$query = $this->db->select('*')->from('inventory')->get();
+        $this->db->where('approval', 1);
+        $query = $this->db->get('inventory');
 		return $query->result();
 	}
     
     function get_all_storage()
 	{
-        $query = $this->db->select('*')->from('storage')->get();
+        #$query = $this->db->select('*')->from('storage')->get();
+        $this->db->where('approval', 1);
+        $query = $this->db->get('storage');
 		return $query->result();
 	}
 	
