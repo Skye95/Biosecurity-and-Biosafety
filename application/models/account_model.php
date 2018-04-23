@@ -24,6 +24,15 @@ class account_model extends CI_Model
         $query = $this->db->get('accounts');
 		return $query->result();
 	}
+    
+    function get_account_type($id)
+    {
+        $this->db->select('account_type');
+        $this->db->from('accounts');
+		$this->db->where('account_id', $id);
+        $query = $this->db->get();
+        return $query->result();
+    }
 	
 	# Insert New Account
 	function insert_new_account($data)

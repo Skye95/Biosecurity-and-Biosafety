@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 22, 2018 at 11:02 AM
+-- Generation Time: Apr 23, 2018 at 03:37 PM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.3
 
@@ -792,11 +792,21 @@ CREATE TABLE `materialriskassessment` (
 CREATE TABLE `notification` (
   `notification_id` int(10) UNSIGNED NOT NULL,
   `account_id` int(10) UNSIGNED NOT NULL,
-  `notification_type` varchar(20) DEFAULT 'admin',
+  `notification_type` int(1) DEFAULT '1',
+  `notification_title` varchar(100) DEFAULT NULL,
   `notification_description` varchar(500) NOT NULL,
   `notification_date` datetime DEFAULT CURRENT_TIMESTAMP,
-  `notification_read` int(1) UNSIGNED NOT NULL
+  `notification_read` int(1) UNSIGNED DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `notification`
+--
+
+INSERT INTO `notification` (`notification_id`, `account_id`, `notification_type`, `notification_title`, `notification_description`, `notification_date`, `notification_read`) VALUES
+(1, 1, 2, 'Test', 'Hello, This is to test out notification number 1 from account id 1!!!', '2018-04-23 20:27:40', 0),
+(2, 2, 1, 'Test 2', 'This is from account 2. Krappa', '2018-04-23 20:28:25', 0),
+(3, 1, 1, 'Test 1+2', 'SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT ', '2018-04-23 20:29:12', 0);
 
 -- --------------------------------------------------------
 
@@ -1365,7 +1375,7 @@ ALTER TABLE `materialriskassessment`
 -- AUTO_INCREMENT for table `notification`
 --
 ALTER TABLE `notification`
-  MODIFY `notification_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `notification_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `notificationexportingbiologicalmaterial`

@@ -27,6 +27,11 @@
             </div>
             
             <div id="top" class="col-md-9">
+              <?php echo form_open('formf/index'); ?>
+                    <div>
+                        <br/>
+                        <?php echo $this->session->flashdata('msg'); ?>
+                    </div>
                <form class="form-horizontal">
                    <div><h4><strong>TITLE:</strong></h4></div>
 				   <div><h4><strong>BIOSAFETY ACT 2007</strong></h4></div>
@@ -144,29 +149,36 @@
 					<div>
                        <h6 id="part1"><strong>Part 1 Details of the Applicant (Exporter) </strong></h6>
                        <div class="form-group">
-                           Organization: <input type="text" class="form-control" name="exporter_organization">
+                           Organization: <input type="text" class="form-control" name="exporter_organization" value="<?php echo set_value('exporter_organization'); ?>">
                            <span class="text-danger"><?php echo form_error('exporter_organization'); ?></span>
                        </div>                       
                        <div class="form-group">
-                           Name of Applicant: <input type="text" class="form-control" name="exporter_name" id="exporter_name" >
+                           Name of Applicant: <input type="text" class="form-control" name="exporter_name" value="<?php echo set_value('exporter_name'); ?>">
+                           <span class="text-danger"><?php echo form_error('exporter_name'); ?></span>
                        </div>                       
                        <div class="form-group">
-                           Position in Organization: <input type="text" class="form-control" name="exporter_position" id="exporter_position">
+                           Position in Organization: <input type="text" class="form-control" name="exporter_position" value="<?php echo set_value('exporter_position'); ?>">
+                           <span class="text-danger"><?php echo form_error('exporter_position'); ?></span>
                        </div>                       
                        <div class="form-group">
-                           Telephone (office): <input type="text" class="form-control" name="exporter_telephone_office" id="exporter_telephone_office" >
+                           Telephone (office): <input type="text" class="form-control" name="exporter_telephone_office" value="<?php echo set_value('exporter_telephone_office'); ?>">
+                           <span class="text-danger" ><?php echo form_error('exporter_telephone_office'); ?></span>
                        </div>					   
 					   <div class="form-group">
-                           Telephone (mobile): <input type="text" class="form-control" name="exporter_telephone_mobile" id="exporter_telephone_mobile" >
+                           Telephone (mobile): <input type="text" class="form-control" name="exporter_telephone_mobile" value="<?php echo set_value('exporter_telephone_mobile'); ?>">
+                           <span class="text-danger"><?php echo form_error('exporter_telephone_mobile'); ?></span>
                        </div>					   
 					   <div class="form-group">
-                           Fax number: <input type="text" class="form-control" name="exporter_fax" id="exporter_fax" >
+                           Fax number: <input type="text" class="form-control" name="exporter_fax" value="<?php echo set_value('exporter_fax'); ?>">
+                           <span class="text-danger"><?php echo form_error('exporter_fax'); ?></span>
                        </div>					   
 					   <div class="form-group">
-                           Email: <input type="text" class="form-control" name="exporter_email_address" id="exporter_email_address" >
+                           Email: <input type="text" class="form-control" name="exporter_email_address" value="<?php echo set_value('exporter_email_address'); ?>">
+                           <span class="text-danger"><?php echo form_error('exporter_email_address'); ?></span>
                        </div>					   
 					   <div class="form-group">
-                           Postal Address: <input type="text" class="form-control" name="exporter_postal_address" id="exporter_postal_address" >
+                           Postal Address: <input type="text" class="form-control" name="exporter_postal_address" value="<?php echo set_value('exporter_postal_address'); ?>">
+                           <span class="text-danger"><?php echo form_error('exporter_postal_address'); ?></span>
                        </div>			   
 					</div>
                     
@@ -175,38 +187,48 @@
 					<div>
                        <h6 id="part2"><strong>Part 2  Details of LMO to be exported</strong></h6>
                        <div class="form-group">
-                           Description of LMO to be exported <input type="text" class="form-control" name="LMO_description" id="LMO_description" >
+                           Description of LMO to be exported <input type="text" class="form-control" name="LMO_description" value="<?php echo set_value('LMO_description'); ?>">
+                           <span class="text-danger"><?php echo form_error('LMO_description'); ?></span>
                        </div>                       
                        <div class="form-group">
                            Plant, Fish/shellfish, Virus ,Animal, Micro-organism (bacterium/fungus etc.), Animal cell, Others (Please specify)
-						<input type="text" class="form-control" name="LMO_type_description" id="LMO_type_description" >
+						<input type="text" class="form-control" name="LMO_type_description" value="<?php echo set_value('LMO_type_description'); ?>">
+                           <span class="text-danger"><?php echo form_error('LMO_type_description'); ?></span>
                        </div>                       
                        <div class="form-group">
-                           Identification of LMO <input type="text" class="form-control" name="LMO_identification" id="LMO_identification">
+                           Identification of LMO <input type="text" class="form-control" name="LMO_identification" value="<?php echo set_value('LMO_identification'); ?>">
+                           <span class="text-danger"><?php echo form_error('LMO_identification'); ?></span>
                        </div>                       
                        <div class="form-group">
-                           Common name(s), Scientific name <input type="text" class="form-control" name="LMO_scientific_name" id="LMO_scientific_name" >
+                           Common name(s), Scientific name <input type="text" class="form-control" name="LMO_scientific_name" value="<?php echo set_value('LMO_scientific_name'); ?>" >
+                           <span class="text-danger"><?php echo form_error('LMO_scientific_name'); ?></span>
                        </div>					   
 					   <div class="form-group">
-                           Introduced  Trait(s) <input type="text" class="form-control" name="LMO_trait" id="LMO_trait" >
+                           Introduced  Trait(s) <input type="text" class="form-control" name="LMO_trait" value="<?php echo set_value('LMO_trait'); ?>" >
+                           <span class="text-danger"><?php echo form_error('LMO_trait'); ?></span>
                        </div>					   			   
 					   <div class="form-group">
-                          Intended use of LMO <input type="text" class="form-control" name="LMO_intended_usage" id="LMO_intended_usage" >
+                          Intended use of LMO <input type="text" class="form-control" name="LMO_intended_usage" value="<?php echo set_value('LMO_intended_usage'); ?>" >
+                           <span class="text-danger"><?php echo form_error('LMO_intended_usage'); ?></span>
                        </div>					   
 					   <div class="form-group">
                           Describe the form in which LMO will be exported e.g. as seeds, cuttings, live fish, etc.
-						  <input type="text" class="form-control" name="LMO_export_form" id="LMO_export_form" >
+						  <input type="text" class="form-control" name="LMO_export_form" value="<?php echo set_value('LMO_export_form'); ?>">
+                           <span class="text-danger"><?php echo form_error('LMO_export_form'); ?></span>
                        </div>
 					   <div class="form-group">
                           Mode of export: Sea, Rail, Road, Air, Others (Please specify)	
-					      <input type="text" class="form-control" name="LMO_export_mode_description" id="LMO_export_mode_description" >
+					      <input type="text" class="form-control" name="LMO_export_mode_description" value="<?php echo set_value('LMO_export_mode_description'); ?>">
+                           <span class="text-danger"><?php echo form_error('LMO_export_mode_description'); ?></span>
                        </div>
 					   <div class="form-group">
-                          Point of exit<input type="text" class="form-control" name="LMO_point_of_exit" id="LMO_point_of_exit" >
+                          Point of exit<input type="text" class="form-control" name="LMO_point_of_exit" value="<?php echo set_value('LMO_point_of_exit'); ?>">
+                           <span class="text-danger"><?php echo form_error('LMO_point_of_exit'); ?></span>
                        </div>					   
 					   <div class="form-group">
                           Suggested methods for safe handling, storage, transport and use (if available) 
-						  <input type="text" class="form-control" name="LMO_methods" id="LMO_methods" >
+						  <input type="text" class="form-control" name="LMO_methods" value="<?php echo set_value('LMO_methods'); ?>">
+                           <span class="text-danger"><?php echo form_error('LMO_methods'); ?></span>
                        </div>					   					   
 					</div>					
 
@@ -215,11 +237,13 @@
 					<div>
                        <h6 id="part3"><strong>Part 3  Importing Country</strong></h6>
                        <div class="form-group">
-                           Name of importing country <input type="text" class="form-control" name="import_country_name" id="import_country_name" >
+                           Name of importing country <input type="text" class="form-control" name="import_country_name" value="<?php echo set_value('import_country_name'); ?>">
+                           <span class="text-danger"><?php echo form_error('import_country_name'); ?></span>
                        </div>                       
                        <div class="form-group">
                            Evidence of compliance with importing country’s requirements (e.g. Copy of Import permit, copy of approval from competent authority, etc.)
-						   <input type="text" class="form-control" name="import_evidence" id="import_evidence" >
+						   <input type="file" class="form-control" name="import_evidence" value="<?php echo set_value('import_evidence'); ?>">
+                           <span class="text-danger"><?php echo form_error('import_evidence'); ?></span>
                        </div>              
 					</div>
                    
@@ -229,7 +253,8 @@
                        <h6 id="part4"><strong>Part 4 Confidential Business Information</strong></h6>
                        <div class="form-group">
                            Enter in this section any information required in Part 1-3 for which you are claiming confidentiality, together with full justification for that claim.
-						   <input type="text" class="form-control" name="export_import_CBI" id="export_import_CBI" >
+						   <input type="text" class="form-control" name="export_import_CBI" value="<?php echo set_value('export_import_CBI'); ?>">
+                           <span class="text-danger"><?php echo form_error('export_import_CBI'); ?></span>
                        </div>                       
              		</div>	
 					
@@ -249,13 +274,16 @@
 					<div>
                        <h6><strong>Applicant:</strong></h6>
                        <div class="form-group">
-						  Date <input type="date" class="form-control" name="applicant_signature_date" id="applicant_signature_date">
+						  Date <input type="date" class="form-control" name="applicant_signature_date" value="<?php echo set_value('applicant_signature_date'); ?>">
+                          <span class="text-danger"><?php echo form_error('applicant_signature_date'); ?></span>
                        </div>
 					   <div class="form-group">
-                          Name as in Identity Card/Passport:<input type="text" class="form-control" name="applicant_name" id="applicant_name" >
+                          Name as in Identity Card/Passport:<input type="text" class="form-control" name="applicant_name" value="<?php echo set_value('applicant_name'); ?>">
+                          <span class="text-danger"><?php echo form_error('applicant_name'); ?></span>
                        </div>
 					   <div class="form-group">
-                          Official Stamp <input type="text" class="form-control" name="applicant_stamp" id="applicant_stamp" >
+                          Official Stamp <input type="text" class="form-control" name="applicant_stamp" value="<?php echo set_value('applicant_stamp'); ?>">
+                           <span class="text-danger"><?php echo form_error('applicant_stamp'); ?></span>
                        </div>					   
              		</div>
 					
@@ -264,13 +292,16 @@
 					<div>
                        <h6><strong>Head of organization/ Authorized Representative:</strong></h6>
                        <div class="form-group">
-					      Date <input type="date" class="form-control" name="representative_signature_date" id="representative_signature_date">
+					      Date <input type="date" class="form-control" name="representative_signature_date" value="<?php echo set_value('representative_signature_date'); ?>">
+                           <span class="text-danger"><?php echo form_error('representative_signature_date'); ?></span>
                        </div>
 					   <div class="form-group">
-                          Name as in Identity Card/Passport:<input type="text" class="form-control" name="representative_name" id="representative_name" >
+                          Name as in Identity Card/Passport:<input type="text" class="form-control" name="representative_name" value="<?php echo set_value('representative_name'); ?>">
+                           <span class="text-danger"><?php echo form_error('representative_name'); ?></span>
                        </div>
 					   <div class="form-group">
-                          Official Stamp <input type="text" class="form-control" name="representative_stamp" id="representative_stamp" >
+                          Official Stamp <input type="text" class="form-control" name="representative_stamp" value="<?php echo set_value('representative_stamp'); ?>">
+                           <span class="text-danger"><?php echo form_error('representative_stamp'); ?></span>
                        </div>					   
              		</div>
 					

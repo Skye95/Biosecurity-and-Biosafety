@@ -68,7 +68,8 @@
                            <tbody>
                                <tr>
                                    <th class="tbheader1">1.01 Name (as per I.C./Passport):</th>
-                                   <td><input type="text" name="personnel_name" class="form-control"></td>
+                                   <td><input type="text" name="personnel_name" class="form-control" value="<?php echo set_value('institutional_address'); ?>">
+                                   </td>
                                    <th class="tbheader1">1.02 Staff/Student No.:</th>
                                    <td><input type="text" name="personnel_staff_student_no" class="form-control"></td>
                                </tr>
@@ -85,6 +86,7 @@
                                    <td><input type="text" class="form-control" name="personnel_reference_no"></td>
 							   </tr>                              
                            </tbody>
+                       <span class="text-danger"><?php echo form_error('institutional_address'); ?></span>
                        </table>
 					   
 					   <hr>

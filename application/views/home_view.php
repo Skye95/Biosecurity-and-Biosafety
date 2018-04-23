@@ -75,7 +75,7 @@ if(!$this->session->userdata('isLogin')){
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6 col-6 portfolio-item">
                 <div class="card card-block h-50 justify-content-center align-items-center">
-                    <a href="#"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\LMO Biohazardous Mat.jpg') ?>" alt=""></a>
+                    <a href="<?php echo base_url(); ?>index.php/inventory/index"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\LMO Biohazardous Mat.jpg') ?>" alt=""></a>
                     <div class="card-body">
                         <h5 class="card-title">
                             <a href="<?php echo base_url(); ?>index.php/inventory/index">LMO and Biohazardous Materials Database</a>
