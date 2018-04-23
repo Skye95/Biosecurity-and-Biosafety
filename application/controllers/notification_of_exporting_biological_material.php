@@ -13,7 +13,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		public function index()
         {
             
-            $this->form_validation->set_rules('exporter_organization','Organization', 'required|alpha');
+            $this->form_validation->set_rules('personnel_name','Name', 'required|alpha');
 			
 			if($this->form_validation->run()== FALSE) 
             {

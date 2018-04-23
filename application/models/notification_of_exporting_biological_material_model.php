@@ -8,5 +8,6 @@ class notification_of_exporting_biological_material_model extends CI_Model
         parent::__construct();
     }
 
+    
 }
 ?>
