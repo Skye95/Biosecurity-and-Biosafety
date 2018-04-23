@@ -7,11 +7,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         {
             parent::__construct();
 
-            $this->load->database();
             $this->load->model('annex2_model');
         }
         
         public function index(){
+            
+            
             
             $this->form_validation->set_rules('applicant_name', 'Name', 'required|callback_fullname_check');
             $this->form_validation->set_rules('institutional_address', 'Institutionl Address', 'required');
@@ -39,9 +40,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             
             if ($this->form_validation->run() == FALSE){
                 
-                $this->load->template('annex2_view');
+                $data['newpost'] = $this->input->post('IBC_name');
+                $data['list'] = $this->input->post('personnel_designation');
+                $data['list2'] = $this->input->post('personnel_involved');
+                $this->load->template('annex2_view', $data);
                 
             }else{
+                
+                $ar1 = implode(',',$this->input->post('personnel_involved'));
+                $ar2 = implode(',',$this->input->post('personnel_designation'));
+                
                 $data = array(
                     'account_id' => $this->session->userdata('account_id'),
                     'applicant_name' => $this->input->post('applicant_name'),
@@ -61,18 +69,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     'PI_training' => $this->input->post('PI_training'),
                     'PI_health' => $this->input->post('PI_health'),
                     'PI_other' => $this->input->post('PI_other'),
-                    'personnel_involved' => $this->input->post('personnel_involved[]'),
-                    'personnel_designation' => $this->input->post('personnel_designation[]'),
+                    'personnel_involved' => $ar1,
+                    'personnel_designation' => $ar2,
                     'IBC_name' => $this->input->post('IBC_name'),
                     'IBC_date' => $this->input->post('IBC_date')
                 );
                 
+                
                 if($this->annex2_model->insert_new_applicant_data($data)){
-                    $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Your form has been submitted</div>');
-                    redirect('annex2/index');
+                    
+                   $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">Success Has been achieved</div>', $data);
+                   redirect('annex2/index');
+                    
+                        
                 } else {
-                    $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">An error has occured. Please try again later.</div>');
-                    redirect('annex2/index');
+                    
+                   $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">An error has occured. Please try again later.</div>');
+                   redirect('annex2/index');
+                    
+                    
+                    
                 }
                 
                 

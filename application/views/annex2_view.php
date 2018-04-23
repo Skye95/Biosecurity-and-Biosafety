@@ -1,3 +1,9 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+if(!$this->session->userdata('isLogin')){
+    redirect('landing/index');
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,10 +30,18 @@
     <div class="container">
         <div class="row">
             <div class="col-md-1">
+                
             </div>
             
             <div class="col-md-9">
-               <?php echo form_open('annex2/index'); ?>
+                
+                <?php echo form_open('annex2/index'); ?>
+                
+                    <div>
+                        <br/>
+                        <?php echo $this->session->flashdata('msg'); ?>
+                    </div>
+                
                    <div>
                        <h4><strong>IBC/AP/13/ANNEX 2</strong></h4>
                    </div>
@@ -143,8 +157,8 @@
                        </div>
                        
                        <div class="form-group">
-                           Health: <input type="text" class="form-control" name="health" value="<?php echo set_value('health'); ?>">
-                           <span class="text-danger"><?php echo form_error('health'); ?></span>
+                           Health: <input type="text" class="form-control" name="PI_health" value="<?php echo set_value('PI_health'); ?>">
+                           <span class="text-danger"><?php echo form_error('PI_health'); ?></span>
                        </div>
                        
                        <div class="form-group">
@@ -168,36 +182,37 @@
                            <tbody>
                                <tr>
                                    <td>1</td>
-                                   <td><input type="text" class="form-control" name="personnel_involved[]" size="10"></td>
+                                   <td><input type="text" class="form-control" name="personnel_involved[]" value="<?php echo set_value('personnel_involved[]'); ?>" size="10"></td>
                                    
-                                   <td><input type="text" class="form-control" name="personnel_designation[]" size="15"></td>
+                                   <td><input type="text" class="form-control" name="personnel_designation[]" value="<?php echo set_value('personnel_designation[]'); ?>" size="15"></td>
                                    
                                </tr>
                                <tr>
                                    <td>2</td>
-                                   <td><input type="text" class="form-control" name="personnel_involved[]" size="10"></td>
-                                   <td><input type="text" class="form-control" name="personnel_designation[]" size="15"></td>
+                                   <td><input type="text" class="form-control" name="personnel_involved[]" value="<?php echo set_value('personnel_involved[]'); ?>" size="10"></td>
+                                   
+                                   <td><input type="text" class="form-control" name="personnel_designation[]" value="<?php echo set_value('personnel_designation[]'); ?>" size="15"></td>
                                    
                                </tr>
                                <tr>
                                    <td>3</td>
-                                   <td><input type="text" class="form-control" name="personnel_involved[]" size="10"></td>
+                                   <td><input type="text" class="form-control" name="personnel_involved[]" value="<?php echo set_value('personnel_involved[]'); ?>" size="10"></td>
                                    
-                                   <td><input type="text" class="form-control" name="personnel_designation[]" size="15"></td>
+                                   <td><input type="text" class="form-control" name="personnel_designation[]" value="<?php echo set_value('personnel_designation[]'); ?>" size="15"></td>
                                
                                </tr>
                                <tr>
                                    <td>4</td>
-                                   <td><input type="text" class="form-control" name="personnel_involved[]" size="10"></td>
+                                   <td><input type="text" class="form-control" name="personnel_involved[]" value="<?php echo set_value('personnel_involved[]'); ?>" size="10"></td>
                                    
-                                   <td><input type="text" class="form-control" name="personnel_designation[]" size="15"></td>
+                                   <td><input type="text" class="form-control" name="personnel_designation[]" value="<?php echo set_value('personnel_designation[]'); ?>" size="15"></td>
                                 
                                </tr>
                                <tr>
                                    <td>5</td>
-                                   <td><input type="text" class="form-control" name="personnel_involved[]" size="10"></td>
-                                  
-                                   <td><input type="text" class="form-control" name="personnel_designation[]" size="15"></td>
+                                   <td><input type="text" class="form-control" name="personnel_involved[]" value="<?php echo set_value('personnel_involved[]'); ?>" size="10"></td>
+                                   
+                                   <td><input type="text" class="form-control" name="personnel_designation[]" value="<?php echo set_value('personnel_designation[]'); ?>" size="15"></td>
                                    
                                </tr>
                            </tbody>
@@ -227,9 +242,14 @@
                    </div>
                    
                <?php echo form_close(); ?>
+                
+                
             </div>
             
             <div class="col-md-2">
+                
+                
+                
                 <div class="btn-group-vertical btn-sample">
                     <a href="#section_1" class="btn btn-success">Section 1</a>
                     <a href="#section_2" class="btn btn-success">Section 2</a>
