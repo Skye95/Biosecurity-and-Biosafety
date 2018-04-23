@@ -80,7 +80,7 @@ CREATE TABLE `annex2` (
   `personnel_designation` varchar(100) NOT NULL,
   `IBC_approved` int(1) DEFAULT NULL,
   `IBC_name` varchar(100) DEFAULT NULL,
-  `IBC_date` datetime DEFAULT CURRENT_TIMESTAMP,
+  `IBC_date` date DEFAULT NULL,
   `application_approved` int(1) NOT NULL DEFAULT '0',
   `popularity` int(10) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;

@@ -11,7 +11,7 @@ class annex2_model extends CI_Model
     # Retrieves Annex 2 form by users ID for now
 	function get_form_by_id($id)
 	{
-		$this->db->where('account_id', $id);
+		$this->db->where('application_id', $id);
         $query = $this->db->get('annex2');
 		return $query->result();
 	}

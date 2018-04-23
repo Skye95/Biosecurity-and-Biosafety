@@ -12,8 +12,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         
         public function index(){
             
-            
-            
             $this->form_validation->set_rules('applicant_name', 'Name', 'required|callback_fullname_check');
             $this->form_validation->set_rules('institutional_address', 'Institutionl Address', 'required');
             $this->form_validation->set_rules('collaborating_partners', 'Collaborating Partners', 'required');
@@ -93,6 +91,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 
                 
             }
+            
+            
+            
+        }
+        
+        public function fill_annex2(){
+            
+            $id = 1;
+            $data['retrieved'] = $this->annex2_model->get_form_by_id($id);
+            
+            $this->load->template('annex2_view', $data); 
             
         }
         

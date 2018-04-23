@@ -29,11 +29,9 @@ if(!$this->session->userdata('isLogin')){
     
     <div class="container">
         <div class="row">
-            <div class="col-md-1">
-                
-            </div>
+        
             
-            <div class="col-md-9">
+            <div class="col-md-10">
                 
                 <?php echo form_open('annex2/index'); ?>
                 
@@ -41,6 +39,16 @@ if(!$this->session->userdata('isLogin')){
                         <br/>
                         <?php echo $this->session->flashdata('msg'); ?>
                     </div>
+                
+                   <?php foreach($retrieved as $item){ ?>
+                
+                  <?php
+                    $ar3 = $item->personnel_involved;
+                    $ar4 = $item->personnel_designation;
+                    $i = explode(",", $ar3);
+                    $e = explode(",", $ar4);
+                                                     
+                  ?>
                 
                    <div>
                        <h4><strong>IBC/AP/13/ANNEX 2</strong></h4>
@@ -73,22 +81,22 @@ if(!$this->session->userdata('isLogin')){
                        <h6 id="section_1"><strong>1.General Information</strong></h6>
                        
                        <div class="form-group">
-                           Name of applicant: <input type="text" class="form-control" name="applicant_name" value="<?php echo set_value('applicant_name'); ?>" >
+                           Name of applicant: <input type="text" class="form-control" name="applicant_name" value="<?php echo set_value('applicant_name', $item->applicant_name); ?>" >
                            <span class="text-danger"><?php echo form_error('applicant_name'); ?></span>
                        </div>
                        
                        <div class="form-group">
-                           Institutional address: <input type="text" class="form-control" name="institutional_address" value="<?php echo set_value('institutional_address'); ?>">
+                           Institutional address: <input type="text" class="form-control" name="institutional_address" value="<?php echo set_value('institutional_address', $item->institutional_address); ?>">
                            <span class="text-danger"><?php echo form_error('institutional_address'); ?></span>
                        </div>
                        
                        <div class="form-group">
-                           Collaborating partners: <input type="text" class="form-control" name="collaborating_partners"  placeholder="indicate names & addresses of the instituion/s (if any)" value="<?php echo set_value('collaborating_partners'); ?>" >
+                           Collaborating partners: <input type="text" class="form-control" name="collaborating_partners"  placeholder="indicate names & addresses of the instituion/s (if any)" value="<?php echo set_value('collaborating_partners', $item->collaborating_partners); ?>" >
                            <span class="text-danger"><?php echo form_error('collaborating_partners'); ?></span>
                        </div>
                        
                        <div class="form-group">
-                           Project Title: <input type="text" class="form-control" name="project_title" value="<?php echo set_value('project_title'); ?>"  >
+                           Project Title: <input type="text" class="form-control" name="project_title" value="<?php echo set_value('project_title', $item->project_title); ?>"  >
                            <span class="text-danger"><?php echo form_error('project_title'); ?></span>
                        </div>
                    </div>
@@ -100,42 +108,42 @@ if(!$this->session->userdata('isLogin')){
                        <p>IBC assessment/recommendation on each of the following:</p>
                        
                        <div class="form-group">
-                           Project objective and methodology: <input type="text" class="form-control" name="project_objective_methodology" value="<?php echo set_value('project_objective_methodology'); ?>">
+                           Project objective and methodology: <input type="text" class="form-control" name="project_objective_methodology" value="<?php echo set_value('project_objective_methodology', $item->project_objective_methodology); ?>">
                            <span class="text-danger"><?php echo form_error('project_objective_methodology'); ?></span>
                        </div>
                        
                        <div class="form-group">
                            <p>Biological System: </p>
-                               i. Common name of parent organism(s): <input type="text" class="form-control" name="biological_system_parent_organisms" id="parent_org_name" value="<?php echo set_value('biological_system_parent_organisms'); ?>" >
+                               i. Common name of parent organism(s): <input type="text" class="form-control" name="biological_system_parent_organisms" id="parent_org_name" value="<?php echo set_value('biological_system_parent_organisms', $item->biological_system_parent_organisms ); ?>" >
                            <span class="text-danger"><?php echo form_error('biological_system_parent_organisms'); ?></span>
-                               ii. Common name of donor organism(s): <input type="text" class="form-control" name="biological_system_donor_organisms"  id="donor_org_name" value="<?php echo set_value('biological_system_donor_organisms'); ?>" >
+                               ii. Common name of donor organism(s): <input type="text" class="form-control" name="biological_system_donor_organisms"  id="donor_org_name" value="<?php echo set_value('biological_system_donor_organisms', $item->biological_system_donor_organisms); ?>" >
                            <span class="text-danger"><?php echo form_error('biological_system_donor_organisms'); ?></span>
-                               iii. Name of gene(s) for the modified traits(s): <input type="text" class="form-control" name="biological_system_modified_traits" value="<?php echo set_value('biological_system_modified_traits'); ?>">
+                               iii. Name of gene(s) for the modified traits(s): <input type="text" class="form-control" name="biological_system_modified_traits" value="<?php echo set_value('biological_system_modified_traits', $item->biological_system_modified_traits); ?>">
                            <span class="text-danger"><?php echo form_error('biological_system_modified_traits'); ?></span>
                        </div>
                        
                        <div class="form-group">
-                           Premises or location of contained use activity/field experiment: <input type="text" class="form-control" name="premises" value="<?php echo set_value('premises'); ?>" >
+                           Premises or location of contained use activity/field experiment: <input type="text" class="form-control" name="premises" value="<?php echo set_value('premises', $item->premises); ?>" >
                            <span class="text-danger"><?php echo form_error('premises'); ?></span>
                        </div>
                        
                        <div class="form-group">
-                           Period of contained use activity/field experiment: <input type="text" class="form-control" name="period" value="<?php echo set_value('period'); ?>" >
+                           Period of contained use activity/field experiment: <input type="text" class="form-control" name="period" value="<?php echo set_value('period', $item->premises); ?>" >
                            <span class="text-danger"><?php echo form_error('period'); ?></span>
                        </div>
                        
                        <div class="form-group">
-                           Risk assesment and risk management: <input type="text" class="form-control" name="risk_assessment_and_management" value="<?php echo set_value('risk_assessment_and_management'); ?>" >
+                           Risk assesment and risk management: <input type="text" class="form-control" name="risk_assessment_and_management" value="<?php echo set_value('risk_assessment_and_management', $item->risk_assessment_and_management); ?>" >
                            <span class="text-danger"><?php echo form_error('risk_assessment_and_management'); ?></span>
                        </div>
                        
                        <div class="form-group">
-                           Emergency response plan: <input type="text" class="form-control" name="emergency_response_plan" value="<?php echo set_value('emergency_response_plan'); ?>" >
+                           Emergency response plan: <input type="text" class="form-control" name="emergency_response_plan" value="<?php echo set_value('emergency_response_plan', $item->emergency_response_plan); ?>" >
                            <span class="text-danger"><?php echo form_error('emergency_response_plan'); ?></span>
                        </div>
                        
                        <div class="form-group">
-                           Additional IBC recommendation (if any): <input type="text" class="form-control" name="IBC_recommendation" value="<?php echo set_value('IBC_recommendation'); ?>" >
+                           Additional IBC recommendation (if any): <input type="text" class="form-control" name="IBC_recommendation" value="<?php echo set_value('IBC_recommendation', $item->IBC_recommendation); ?>" >
                            <span class="text-danger"><?php echo form_error('IBC_recommendation'); ?></span>
                        </div>
 
@@ -147,22 +155,22 @@ if(!$this->session->userdata('isLogin')){
                        <h6 id="section_3"><strong>3.Details of Principal Investigators(PI)</strong></h6>
                        
                        <div class="form-group">
-                           Experience and expertise: <input type="text" class="form-control" name="PI_experience_and_expertise" value="<?php echo set_value('PI_experience_and_expertise'); ?>" >
+                           Experience and expertise: <input type="text" class="form-control" name="PI_experience_and_expertise" value="<?php echo set_value('PI_experience_and_expertise', $item->PI_experience_and_expertise); ?>" >
                            <span class="text-danger"><?php echo form_error('PI_experience_and_expertise'); ?></span>
                        </div>
                        
                        <div class="form-group">
-                           Training: <input type="text" class="form-control" name="PI_training" value="<?php echo set_value('PI_training'); ?>">
+                           Training: <input type="text" class="form-control" name="PI_training" value="<?php echo set_value('PI_training', $item->PI_training); ?>">
                            <span class="text-danger"><?php echo form_error('PI_training'); ?></span>
                        </div>
                        
                        <div class="form-group">
-                           Health: <input type="text" class="form-control" name="PI_health" value="<?php echo set_value('PI_health'); ?>">
+                           Health: <input type="text" class="form-control" name="PI_health" value="<?php echo set_value('PI_health', $item->PI_health); ?>">
                            <span class="text-danger"><?php echo form_error('PI_health'); ?></span>
                        </div>
                        
                        <div class="form-group">
-                           Others (please specify): <input type="text" class="form-control" name="PI_other" value="<?php echo set_value('PI_other'); ?>" >
+                           Others (please specify): <input type="text" class="form-control" name="PI_other" value="<?php echo set_value('PI_other', $item->PI_other); ?>" >
                            <span class="text-danger"><?php echo form_error('PI_other'); ?></span>
                        </div>
                    </div>
@@ -182,37 +190,37 @@ if(!$this->session->userdata('isLogin')){
                            <tbody>
                                <tr>
                                    <td>1</td>
-                                   <td><input type="text" class="form-control" name="personnel_involved[]" value="<?php echo set_value('personnel_involved[]'); ?>" size="10"></td>
+                                   <td><input type="text" class="form-control" name="personnel_involved[]" value="<?php echo set_value('personnel_involved[]', $i[0]); ?>" size="10"></td>
                                    
-                                   <td><input type="text" class="form-control" name="personnel_designation[]" value="<?php echo set_value('personnel_designation[]'); ?>" size="15"></td>
+                                   <td><input type="text" class="form-control" name="personnel_designation[]" value="<?php echo set_value('personnel_designation[]', $e[0]); ?>" size="15"></td>
                                    
                                </tr>
                                <tr>
                                    <td>2</td>
-                                   <td><input type="text" class="form-control" name="personnel_involved[]" value="<?php echo set_value('personnel_involved[]'); ?>" size="10"></td>
+                                   <td><input type="text" class="form-control" name="personnel_involved[]" value="<?php echo set_value('personnel_involved[]', $i[1]); ?>" size="10"></td>
                                    
-                                   <td><input type="text" class="form-control" name="personnel_designation[]" value="<?php echo set_value('personnel_designation[]'); ?>" size="15"></td>
+                                   <td><input type="text" class="form-control" name="personnel_designation[]" value="<?php echo set_value('personnel_designation[]', $e[1]); ?>" size="15"></td>
                                    
                                </tr>
                                <tr>
                                    <td>3</td>
-                                   <td><input type="text" class="form-control" name="personnel_involved[]" value="<?php echo set_value('personnel_involved[]'); ?>" size="10"></td>
+                                   <td><input type="text" class="form-control" name="personnel_involved[]" value="<?php echo set_value('personnel_involved[]', $i[2]); ?>" size="10"></td>
                                    
-                                   <td><input type="text" class="form-control" name="personnel_designation[]" value="<?php echo set_value('personnel_designation[]'); ?>" size="15"></td>
+                                   <td><input type="text" class="form-control" name="personnel_designation[]" value="<?php echo set_value('personnel_designation[]', $e[2]); ?>" size="15"></td>
                                
                                </tr>
                                <tr>
                                    <td>4</td>
-                                   <td><input type="text" class="form-control" name="personnel_involved[]" value="<?php echo set_value('personnel_involved[]'); ?>" size="10"></td>
+                                   <td><input type="text" class="form-control" name="personnel_involved[]" value="<?php echo set_value('personnel_involved[]', $i[3]); ?>" size="10"></td>
                                    
-                                   <td><input type="text" class="form-control" name="personnel_designation[]" value="<?php echo set_value('personnel_designation[]'); ?>" size="15"></td>
+                                   <td><input type="text" class="form-control" name="personnel_designation[]" value="<?php echo set_value('personnel_designation[]', $e[3]); ?>" size="15"></td>
                                 
                                </tr>
                                <tr>
                                    <td>5</td>
-                                   <td><input type="text" class="form-control" name="personnel_involved[]" value="<?php echo set_value('personnel_involved[]'); ?>" size="10"></td>
+                                   <td><input type="text" class="form-control" name="personnel_involved[]" value="<?php echo set_value('personnel_involved[]', $i[4]); ?>" size="10"></td>
                                    
-                                   <td><input type="text" class="form-control" name="personnel_designation[]" value="<?php echo set_value('personnel_designation[]'); ?>" size="15"></td>
+                                   <td><input type="text" class="form-control" name="personnel_designation[]" value="<?php echo set_value('personnel_designation[]', $e[4]); ?>" size="15"></td>
                                    
                                </tr>
                            </tbody>
@@ -227,18 +235,21 @@ if(!$this->session->userdata('isLogin')){
                        
                        <div class="form-group">
                            <label for="ibc_name">Name:</label>
-                           <input type="text" name="IBC_name" class="form-control" value="<?php echo set_value('IBC_name'); ?>" size="15">
+                           <input type="text" name="IBC_name" class="form-control" value="<?php echo set_value('IBC_name', $item->IBC_name); ?>" size="15">
                            <span class="text-danger"><?php echo form_error('IBC_name'); ?></span>
                        </div>
                        <div class="form-group">
                            <label for="ibc_date">Date:</label>
-                           <input type="date" name="IBC_date" class="form-control" value="<?php echo set_value('IBC_date'); ?>" size="15">
+                           <input type="date" name="IBC_date" class="form-control" value="<?php echo set_value('IBC_date', $item->IBC_date); ?>" size="15">
                            <span class="text-danger"><?php echo form_error('IBC_date'); ?></span>
                        </div>
                    </div>
+                
+                <?php } ?>
                    
                    <div>
                        <button name="submit" type="submit" class="btn btn-primary">Submit</button>
+                       <a class="btn btn-primary" href="<?php echo base_url(); ?>index.php/annex2/fill_annex2">Load</a>
                    </div>
                    
                <?php echo form_close(); ?>
