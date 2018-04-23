@@ -28,6 +28,10 @@
             
             <div id="top" class="col-md-9">
               <?php echo form_open('formf/index'); ?>
+                    <div>
+                        <br/>
+                        <?php echo $this->session->flashdata('msg'); ?>
+                    </div>
                <form class="form-horizontal">
                    <div><h4><strong>TITLE:</strong></h4></div>
 				   <div><h4><strong>BIOSAFETY ACT 2007</strong></h4></div>
@@ -238,7 +242,7 @@
                        </div>                       
                        <div class="form-group">
                            Evidence of compliance with importing country’s requirements (e.g. Copy of Import permit, copy of approval from competent authority, etc.)
-						   <input type="text" class="form-control" name="import_evidence" value="<?php echo set_value('import_evidence'); ?>">
+						   <input type="file" class="form-control" name="import_evidence" value="<?php echo set_value('import_evidence'); ?>">
                            <span class="text-danger"><?php echo form_error('import_evidence'); ?></span>
                        </div>              
 					</div>
