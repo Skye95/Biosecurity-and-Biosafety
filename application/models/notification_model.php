@@ -13,14 +13,16 @@ class notification_model extends CI_Model
         foreach ($type as $row) {
             $account_type = $row->account_type;
         }
-        if($account_type == 1){
-            return "HELLO";
+        if($account_type == 1 || $account_type == 3){
+            $this->db->where(array('account_id' => $id, 'notification_type' => 1));
+            $query = $this->db->get('notification');
+            return $query->result();
         }
         if($account_type == 2){
-            return "DARK";
-        }
-        if($account_type == 3){
-            return "NESS";
+            $this->db->where('account_id', $id);
+            $this->db->or_where(array('notification_type' => 1, 'notification_type' => 2));
+            $query = $this->db->get('notification');
+            return $query->result();
         }
 	}
 }
