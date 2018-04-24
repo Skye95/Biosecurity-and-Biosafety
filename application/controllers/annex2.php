@@ -7,6 +7,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         {
             parent::__construct();
 
+            $this->load->database();
             $this->load->model('annex2_model');
         }
         
@@ -38,10 +39,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             
             if ($this->form_validation->run() == FALSE){
                 
-                $data['newpost'] = $this->input->post('IBC_name');
-                $data['list'] = $this->input->post('personnel_designation');
-                $data['list2'] = $this->input->post('personnel_involved');
-                $this->load->template('annex2_view', $data);
+                $this->load->template('annex2_view');
                 
             }else{
                 
@@ -96,14 +94,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             
         }
         
-        public function fill_annex2(){
-            
-            $id = 1;
-            $data['retrieved'] = $this->annex2_model->get_form_by_id($id);
-            
-            $this->load->template('annex2_view', $data); 
-            
-        }
         
         public function fullname_check($str) {
             

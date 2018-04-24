@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.9
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 23, 2018 at 03:37 PM
--- Server version: 10.1.31-MariaDB
--- PHP Version: 7.2.3
+-- Generation Time: Apr 24, 2018 at 11:16 AM
+-- Server version: 10.1.26-MariaDB
+-- PHP Version: 7.1.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -21,9 +21,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `biosafety_and_biosecurity`
 --
-
-CREATE DATABASE IF NOT EXISTS biosafety_and_biosecurity;
-USE biosafety_and_biosecurity;
 
 -- --------------------------------------------------------
 
@@ -81,9 +78,16 @@ CREATE TABLE `annex2` (
   `IBC_approved` int(1) DEFAULT NULL,
   `IBC_name` varchar(100) DEFAULT NULL,
   `IBC_date` date DEFAULT NULL,
-  `application_approved` int(1) NOT NULL DEFAULT '0',
+  `application_approved` int(1) DEFAULT NULL,
   `popularity` int(10) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `annex2`
+--
+
+INSERT INTO `annex2` (`application_id`, `account_id`, `approver_id`, `applicant_name`, `institutional_address`, `collaborating_partners`, `project_title`, `project_objective_methodology`, `biological_system_parent_organisms`, `biological_system_donor_organisms`, `biological_system_modified_traits`, `premises`, `period`, `risk_assessment_and_management`, `emergency_response_plan`, `IBC_recommendation`, `PI_experience_and_expertise`, `PI_training`, `PI_health`, `PI_other`, `personnel_involved`, `personnel_designation`, `IBC_approved`, `IBC_name`, `IBC_date`, `application_approved`, `popularity`) VALUES
+(1, 1, NULL, 'New Name', 'sscscfs', 'asfcscfs', 'asfs', 'scfascfs', 'sfvsvsvqev', 'svaqv', 'avavvav', 'svsavasvsav', 'svavsv', 'avvavsv', 'svvvs', 'scvcvascv', 'vsavsavascv', 'asscvascv', 'ascvacss', 'svcscvcvs', 'scvsvvvavsa,svvvssv,vasvsvv,cffgvfgg,ggerhbhaeeb htrbfd', 'vasvvvav,vadvaavvbfb fg ,gfbdfbd,dfbdfbbd,bdfbfbddb nnfbd', NULL, 'IBC name 2', '2013-03-02', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -559,15 +563,15 @@ CREATE TABLE `hirarc` (
   `account_id` int(10) UNSIGNED NOT NULL,
   `approver_id` int(10) UNSIGNED DEFAULT NULL,
   `company_name` varchar(200) NOT NULL,
-  `date` datetime DEFAULT NULL,
+  `date` date DEFAULT NULL,
   `process_location` varchar(200) NOT NULL,
   `conducted_name` varchar(200) NOT NULL,
   `conducted_designation` varchar(200) NOT NULL,
   `approved_name` varchar(200) NOT NULL,
   `approved_designation` varchar(200) NOT NULL,
-  `date_from` datetime DEFAULT NULL,
-  `date_to` datetime DEFAULT NULL,
-  `review_date` datetime DEFAULT NULL,
+  `date_from` date DEFAULT NULL,
+  `date_to` date DEFAULT NULL,
+  `review_date` date DEFAULT NULL,
   `document_no` varchar(10) DEFAULT NULL,
   `HIRARC_no` varchar(10) DEFAULT NULL,
   `HIRARC_activity` varchar(500) NOT NULL,
@@ -1291,7 +1295,7 @@ ALTER TABLE `accounts`
 -- AUTO_INCREMENT for table `annex2`
 --
 ALTER TABLE `annex2`
-  MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `annex3`
