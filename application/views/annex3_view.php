@@ -33,6 +33,11 @@
             </div>
             
             <div class="col-md-9">
+                <?php echo form_open('annex3/index'); ?>
+                    <div>
+                        <br/>
+                        <?php echo $this->session->flashdata('msg'); ?>
+                    </div>
                <form class="form-horizontal">
                    <div class="text-muted">
                        <h5>Guidelines for Institutional Biosafety Committees:<br>
@@ -70,7 +75,8 @@
 				  <hr>
                        
                        <div 
-							class="form-group"><h6><strong>ORGANISATION :</strong></h6><input type="text" class="form-control" name="organization" id="organization" >
+							class="form-group"><h6><strong>ORGANISATION :</strong></h6><input type="text" class="form-control" name="organization" id="organization" value="<?php echo set_value('organization'); ?>">
+                           <span class="text-danger"><?php echo form_error('organization'); ?></span>
                        </div>
 					   <div 
 							class="form-group"><h6><strong>FACULTY/DEPARTMENT :</strong></h6><input type="text" class="form-control" name="faculty" id="faculty" >
