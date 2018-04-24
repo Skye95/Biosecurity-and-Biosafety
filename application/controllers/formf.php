@@ -55,6 +55,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 
                 $data = array(
                 'account_id' => $this->session->userdata('account_id'),
+                    'exporter_organization' => $this->input->post('exporter_organization'),
                     'exporter_name' => $this->input->post('exporter_name'),
                     'exporter_position' => $this->input->post('exporter_position'),
                     'exporter_telephone_office' => $this->input->post('exporter_telephone_office'),
