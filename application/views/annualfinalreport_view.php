@@ -39,10 +39,14 @@
     <?php include_once 'template/navbar.php' ?>
     
     <div class="container">
-        <div class="row">
-            
-            
+        <div class="row">                       
             <div class="col-md-10">
+                <?php echo form_open('annualfinalreport/index'); ?>
+                    <div>
+                        <br/>
+                        <?php echo $this->session->flashdata('msg'); ?>
+                    </div>
+                
                <form class="form-horizontal">
                    <h4 class="centering"><u>Swinburne Biosafety Commitee</u></h4>
                    
@@ -98,7 +102,9 @@
                        </thead>
                        <tbody>
                            <tr>
-                              <td colspan="2"><input type="text" name="project_title" class="form-control"></td> 
+                              <td colspan="2"><input type="text" name="project_title" class="form-control" value="<?php echo set_value('project_title'); ?>">
+                                  <span class="text-danger"><?php echo form_error('project_title'); ?></span>                          
+                           </td> 
                            </tr>
                        </tbody>
                    </table>
@@ -112,7 +118,9 @@
                        </thead>
                        <tbody>
                            <tr>
-                              <td colspan="2"><input type="text" name="chief_investigator" class="form-control"></td> 
+                              <td colspan="2"><input type="text" name="chief_investigator" class="form-control" value="<?php echo set_value('chief_investigator'); ?>">
+                                  <span class="text-danger"><?php echo form_error('chief_investigator'); ?></span>
+                               </td> 
                            </tr>
                        </tbody>
                    </table>
@@ -135,23 +143,40 @@
 										  </td> 
                                        </tr>
                                        <tr>
-                                           <td width="90px">Title: <input type="text" class="form-control" name="personnel_extra_title"></td>
-                                           <td>Name: <input type="text" class="form-control" name="personnel_extra_name"></td>
-                                           <td>Current qualifications (please include all): <input type="text" class="form-control" name="personnel_extra_qualifications"></td>
+                                           <td width="90px">Title: <input type="text" class="form-control" name="personnel_extra_title"value="<?php echo set_value('personnel_extra_title'); ?>">
+                                  <span class="text-danger"><?php echo form_error('personnel_extra_title'); ?></span>
+                                           </td>
+                                           <td>Name: <input type="text" class="form-control" name="personnel_extra_name" value="<?php echo set_value('personnel_extra_name'); ?>">
+                                            <span class="text-danger"><?php echo form_error('personnel_extra_name'); ?></span>
+                                           </td>
+                                           <td>Current qualifications (please include all): <input type="text" class="form-control" name="personnel_extra_qualifications" value="<?php echo set_value('personnel_extra_qualifications'); ?>">
+                                  <span class="text-danger"><?php echo form_error('personnel_extra_qualifications'); ?></span>
+                                           </td>
                                        </tr>
                                        <tr>
-                                           <td colspan="2">Department: <input type="text" class="form-control" name="personnel_extra_department"></td>
-                                           <td colspan="1">Campus: <input type="text" class="form-control" name="personnel_extra_campus"></td>
+                                           <td colspan="2">Department: <input type="text" class="form-control" name="personnel_extra_department" value="<?php echo set_value('personnel_extra_department'); ?>">
+                                               <span class="text-danger"><?php echo form_error('personnel_extra_department'); ?></span>
+                                           </td>
+                                           <td colspan="1">Campus: <input type="text" class="form-control" name="personnel_extra_campus" value="<?php echo set_value('personnel_extra_campus'); ?>">
+                                            <span class="text-danger"><?php echo form_error('personnel_extra_campus'); ?></span>
+                                           </td>
                                        </tr>
                                        <tr>
-                                           <td colspan="3">Full postal address (including internal mail details): <input type="text" class="form-control" name="personnel_extra_postal_address"></td>
+                                           <td colspan="3">Full postal address (including internal mail details): <input type="text" class="form-control" name="personnel_extra_postal_address" value="<?php echo set_value('personnel_extra_postal_address'); ?>">
+                                            <span class="text-danger"><?php echo form_error('personnel_extra_postal_address'); ?></span>
+                                           </td>
                                        </tr>
                                        <tr>
-                                           <td colspan="2">Phone: <input type="tel" class="form-control" name="personnel_extra_telephone"></td>
-                                           <td>Fax: <input type="text" class="form-control" name="personnel_extra_fax"></td>
+                                           <td colspan="2">Phone: <input type="tel" class="form-control" name="personnel_extra_telephone" value="<?php echo set_value('personnel_extra_telephone'); ?>">
+                                            <span class="text-danger"><?php echo form_error('personnel_extra_telephone'); ?></span>
+                                           </td>
+                                           <td>Fax: <input type="text" class="form-control" name="personnel_extra_fax"value="<?php echo set_value('personnel_extra_fax'); ?>">
+                                  <span class="text-danger"><?php echo form_error('personnel_extra_fax'); ?></span></td>
                                        </tr>
                                        <tr>
-                                           <td colspan="3">Email (MUST be staff email address): <input type="email" class="form-control" name="personnel_extra_email_address"></td>
+                                           <td colspan="3">Email (MUST be staff email address): <input type="email" class="form-control" name="personnel_extra_email_address" value="<?php echo set_value('personnel_extra_email_address'); ?>">
+                                  <span class="text-danger"><?php echo form_error('personnel_extra_email_address'); ?></span>
+                                           </td>
                                        </tr>
                                    </table>
                                </td>
@@ -179,7 +204,9 @@
 					   <tbody>
                            <tr>
                                <td colspan="2">
-                                   <div class="form-group"><textarea rows="5" maxlength="150" class="form-control" name="project_summary" placeholder="150 words max"></textarea></div>
+                                   <div class="form-group"><textarea rows="5" maxlength="150" class="form-control" name="project_summary" placeholder="150 words max" value="<?php echo set_value('project_summary'); ?>">
+                                  </textarea><span class="text-danger"><?php echo form_error('project_summary'); ?></span>
+                                   </div>
                                </td>
                            </tr>
                        </tbody>
@@ -206,7 +233,9 @@
 					   <tbody>
                            <tr>
                                <td colspan="2">
-                                   <div class="form-group"><textarea rows="6" maxlength="500" class="form-control" name="project_outline"></textarea></div>
+                                   <div class="form-group"><textarea rows="6" maxlength="500" class="form-control" name="project_outline" value="<?php echo set_value('project_outline'); ?>">
+                                  </textarea><span class="text-danger"><?php echo form_error('project_outline'); ?></span>
+                                   </div>
                                </td>
                            </tr>
                        </tbody>
@@ -233,7 +262,8 @@
 					   <tbody>
                            <tr>
                                <td colspan="2">
-                                   <div class="form-group"><textarea rows="6" maxlength="500" class="form-control" name="project_incidents"></textarea></div>
+                                   <div class="form-group"><textarea rows="6" maxlength="500" class="form-control" name="project_incidents" value="<?php echo set_value('project_incidents'); ?>"></textarea>
+                                   </div>
                                </td>
                            </tr>
                        </tbody>
@@ -301,10 +331,10 @@
                                        </tr>
                                        <tr>
                                            <td>
-                                               <div class="form-group"><input type="text" class="form-control" name="project_facility_building_number"></div>
+                                               <div class="form-group"><input type="text" class="form-control" name="project_facility_building_number" value="<?php echo set_value('project_facility_building_number'); ?>"></div>
                                            </td>
                                            <td>
-                                               <div class="form-group"><input type="text" class="form-control" name="project_facility_room_number"></div>
+                                               <div class="form-group"><input type="text" class="form-control" name="project_facility_room_number" value="<?php echo set_value('project_facility_room_number'); ?>"></div>
                                            </td>
                                        </tr>
                                    </table>
@@ -328,11 +358,11 @@
                                    <table class="table table-bordered">
                                        <tr>
                                            <td>Chief Investigator: </td>
-                                           <td><div class="form-group"><input type="text" class="form-control" name="project_sign_off_chief_investigator_name"></div></td>
+                                           <td><div class="form-group"><input type="text" class="form-control" name="project_sign_off_chief_investigator_name" value="<?php echo set_value('project_sign_off_chief_investigator_name'); ?>"></div></td>
                                        </tr>
                                        <tr>
                                            <td>Lab Manager/Biosafety Officer: </td>
-                                           <td><div class="form-group"><input type="text" class="form-control" name="project_sign_off_BO_name"></div></td>
+                                           <td><div class="form-group"><input type="text" class="form-control" name="project_sign_off_BO_name" value="<?php echo set_value('project_sign_off_chief_investigator_name'); ?>"></div></td>
                                        </tr>
                                    </table>
                                </td>
