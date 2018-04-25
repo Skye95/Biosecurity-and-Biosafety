@@ -8,10 +8,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             parent::__construct();
 
             $this->load->database();
+			$this->load->model('notification_model');
             //$this->load->model('annex5_model');
         }
         
         public function index(){
+			$data['readnotif'] = $this->notification_model->get_read($this->session->userdata('account_id'));
             
             $this->form_validation->set_rules('identification_PI_name', 'Name', 'required|callback_fullname_check');
             $this->form_validation->set_rules('identification_email_address', 'Email', 'required|valid_email');
@@ -43,7 +45,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             if ($this->form_validation->run() == FALSE)
             {
                 
-                $this->load->template('annex5_view');
+                $this->load->template('annex5_view',$data);
                 
             }
             else

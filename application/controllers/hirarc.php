@@ -8,11 +8,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             parent::__construct();
 
             $this->load->database();
+			$this->load->model('notification_model');
             //$this->load->model('annex5_model');
         }
         
         public function index(){
-            
+            $data['readnotif'] = $this->notification_model->get_read($this->session->userdata('account_id'));
+			
             $this->form_validation->set_rules('company_name', 'Company name', 'required|callback_fullname_check');
             $this->form_validation->set_rules('date', 'Date', 'required');
             $this->form_validation->set_rules('process_location', 'Process location', 'required');
@@ -40,7 +42,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             if ($this->form_validation->run() == FALSE)
             {
                 
-                $this->load->template('hirarc_view');
+                $this->load->template('hirarc_view',$data);
                 
             }
             else
