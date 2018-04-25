@@ -39,8 +39,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<div class="row">
 				<div class="col-md-7">
 					<a href="<?php echo base_url(); ?>index.php/livingmodifiedorganismpage">
-						<img class="img-fluid rounded mb-3 mb-md-0" src="<?php echo base_url('assets\images\ApplicantForm\Living Modified Organism.jpg') ?>" 
-						alt="" title="SBC - Application for Biosafety Clearance for use of Biohazardous Materials)">
+						<img class="img-fluid rounded mb-3 mb-md-0" src="<?php echo base_url('assets\images\form\biohazardous.jpg') ?>" 
+						alt="" title="SBC - Application for biosafety clearance for use of Biohazardous materials">
 					</a>
 				</div>				
 			</div>
