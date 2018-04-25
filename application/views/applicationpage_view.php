@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Swinburne Biosafety and Biosecurity Online System - Homepage</title>
+    <title>Swinburne Biosafety and Biosecurity Online System - Application</title>
     
     <style>
         body {

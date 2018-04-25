@@ -38,7 +38,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<div>		
 			<div class="row">
 				<div class="col-md-7">
-					<a href="#">
+					<a href="<?php echo base_url(); ?>index.php/livingmodifiedorganismpage">
 						<img class="img-fluid rounded mb-3 mb-md-0" src="<?php echo base_url('assets\images\ApplicantForm\Living Modified Organism.jpg') ?>" 
 						alt="" title="Living Modified Organism (LMO)">
 					</a>
@@ -51,9 +51,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<div>		
 			<div class="row">
 				<div class="col-md-7">
-					<a href="#">
+					<a href="<?php echo base_url(); ?>index.php/annex5">
 						<img class="img-fluid rounded mb-3 mb-md-0" src="<?php echo base_url('assets\images\ApplicantForm\Exempt Dealing.jpg') ?>" 
-						alt=""title="Exempt Dealing">
+						alt=""title="Annex 5 Project Extension & Notice of Termination - IBC/PE-NT/10/ANNEX5">
 					</a>
 				</div>				
 			</div>
