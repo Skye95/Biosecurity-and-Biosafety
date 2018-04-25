@@ -69,7 +69,7 @@
                    <hr>
 				   
 				   <div>
-				   <h5><b>Reference No. :   </b><input  maxlength="10" type="text" name="reference_no">
+				   <h5><b>Reference No. :   </b><input  maxlength="20" type="text" name="reference_no">
 				   </div>
 				   
 				  <hr>
