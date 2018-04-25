@@ -9,13 +9,10 @@ class registration extends CI_Controller {
         
         $this->load->database();
         $this->load->model('account_model');
-        $this->load->model('notification_model');
     }
     
 	public function index()
 	{
-        $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id') );
-        
         $this->form_validation->set_rules('account_fullname', 'Name', 'required|callback_fullname_check');
         $this->form_validation->set_rules('account_email', 'Email', 'required|valid_email|is_unique[accounts.account_email]');
         $this->form_validation->set_rules('account_password', 'Password', 'required');
@@ -24,7 +21,7 @@ class registration extends CI_Controller {
         # Submit form
         if($this->form_validation->run() == FALSE){
             # validation fails
-            $this->load->template('registration_view', $data);
+            $this->load->template('registration_view');
         } else {
             $data = array(
                 'account_fullname' => $this->input->post('account_fullname'),

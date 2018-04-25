@@ -9,26 +9,21 @@ class inventory extends CI_Controller {
         
         $this->load->database();
         $this->load->model('inventory_model');
-        $this->load->model('notification_model');
     }
     
     public function index() {
         $data['inventory'] = $this->inventory_model->get_all_inventory();
-        $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id') );
         $this->load->template('inventory_view', $data);
     }
     
 	public function index2()
 	{
         $data['storage'] = $this->inventory_model->get_all_storage();
-        $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id') );
         $this->load->template('inventory_view', $data);
 	}
     
     public function new_inventory()
 	{
-        $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id') );
-        
         $this->form_validation->set_rules('program', 'Program', 'required');
         $this->form_validation->set_rules('program_type', 'Program Type', 'required');
         $this->form_validation->set_rules('biohazard_type', 'Biohazard Type', 'required');
@@ -40,7 +35,7 @@ class inventory extends CI_Controller {
         # Submit form
         if($this->form_validation->run() == FALSE){
             # validation fails
-            $this->load->template('inventory_form_view', $data);
+            $this->load->template('inventory_form_view');
         } else {
             $data = array(
                 'account_id' => $this->session->userdata('account_id'),
@@ -73,7 +68,6 @@ class inventory extends CI_Controller {
     
     public function new_storage()
 	{
-        $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id') );
         
         $this->form_validation->set_rules('biohazard_id', 'Biohazard ID', 'required');
         $this->form_validation->set_rules('biohazard_name', 'Biohazard Name', 'required');
@@ -88,7 +82,7 @@ class inventory extends CI_Controller {
         # Submit form
         if($this->form_validation->run() == FALSE){
             # validation fails
-            $this->load->template('storage_form_view', $data);
+            $this->load->template('storage_form_view');
         } else {
             $data = array(
                 'account_id' => $this->session->userdata('account_id'),

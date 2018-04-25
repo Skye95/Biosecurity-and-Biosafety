@@ -9,12 +9,7 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <?php if($readnotif==0) { ?>
-                            <a class="nav-link" href="<?php echo base_url(); ?>index.php/notification/index">
-                                <i class="fa fa-bell fa-lg fa-fw" style="color:indianred;"></i> Notifications</a>
-                        <?php } else { ?>
-                            <a class="nav-link" href="<?php echo base_url(); ?>index.php/notification/index"><i class="fa fa-bell fa-lg fa-fw"></i> Notifications</a>
-                        <?php } ?>
+                        <a class="nav-link" href="<?php echo base_url(); ?>index.php/notification/index"><i class="fa fa-bell fa-lg fa-fw"></i> Notifications</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="<?php echo base_url(); ?>index.php/settings/index"><i class="fa fa-user fa-lg fa-fw"></i> My Account</a>

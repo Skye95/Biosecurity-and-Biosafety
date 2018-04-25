@@ -70,7 +70,7 @@ if(!$this->session->userdata('isLogin')){
                         <td><?php echo $row->biohazard_name; ?></td>
                         <td><?php echo $row->biohazard_id; ?></td>
                         <td class="text-center">
-                            <button class="btn btn-info" onclick="view_details(<?php echo $row->inventory_id; ?>)"><i class="fa fa-bars"></i></button>
+                            <button class="btn btn-info" onclick="view_details(<?php echo $row->inventory_id; ?>)">Details</button>
                         </td>
                     </tr>
                     <tr id="tr<?php echo $row->inventory_id; ?>" style="display:none;">
@@ -133,7 +133,7 @@ if(!$this->session->userdata('isLogin')){
                         <td><?php echo $row->keeper_name; ?></td>
                         <td><?php echo $row->log_in_personnel; ?></td>
                         <td class="text-center">
-                            <button class="btn btn-info" onclick="view_details(<?php echo $row->storage_id; ?>)"><i class="fa fa-bars"></i></button>
+                            <button class="btn btn-info" onclick="view_details(<?php echo $row->storage_id; ?>)">Details</button>
                         </td>
                     </tr>
                     <tr id="tr<?php echo $row->storage_id; ?>" style="display:none;">

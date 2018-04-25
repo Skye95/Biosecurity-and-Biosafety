@@ -25,26 +25,5 @@ class notification_model extends CI_Model
             return $query->result();
         }
 	}
-    
-    function get_read($id) {
-        $notif = [];
-        $this->db->where('account_id', $id);
-        $query = $this->db->get('notification');
-        foreach ($query->result() as $i) {
-            array_push($notif, $i->notification_read);
-        }
-        if (in_array(0, $notif)){
-            return 0;
-        } else {
-            return 1;
-        }
-    }
-    
-    function update_read($id)
-    {
-        $this->db->where('account_id', $id);
-        $this->db->update('notification', array('notification_read' => 1));
-        return true;
-    }
 }
 ?>
