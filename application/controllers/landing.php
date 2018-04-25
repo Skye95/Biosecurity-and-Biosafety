@@ -9,10 +9,12 @@ class landing extends CI_Controller {
         
         $this->load->database();
         $this->load->model('account_model');
+        $this->load->model('notification_model');
     }
     
 	public function index()
 	{
+        $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id') );
         
         $account_email = $this->input->post('account_email');
         $account_password = $this->input->post('account_password');
@@ -22,7 +24,7 @@ class landing extends CI_Controller {
         
         if($this->form_validation->run() == FALSE){
             # validation fails
-            $this->load->template('landing_view');
+            $this->load->template('landing_view', $data);
         } else {
             # checks for account credentials
             $result = $this->account_model->get_account($account_email, $account_password);
