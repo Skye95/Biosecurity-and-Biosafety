@@ -117,6 +117,17 @@ if(!$this->session->userdata('isLogin')){
                     </div>
                 </div>
             </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 col-6 portfolio-item">
+                <div class="card card-block h-50 justify-content-center align-items-center">
+                    <a href="#"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\History.jpg') ?>" alt=""></a>
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <a href="#">Submitted Applications / Past Applications</a>
+                        </h5>
+                        <p class="card-text"></p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </body>

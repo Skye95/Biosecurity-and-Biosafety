@@ -14,7 +14,7 @@ if(!$this->session->userdata('isLogin')){
             padding-top: 82px;
         }
         
-        button {
+        .button_right {
             margin-right: 12px;
         }
     </style>
@@ -27,10 +27,10 @@ if(!$this->session->userdata('isLogin')){
     <!-- Page Content -->
     <div class="container">
         <div class="text-center">
-            <a href="<?php echo base_url(); ?>index.php/inventory/index"><button class="btn btn-info">Inventory Database</button></a>
-            <a href="<?php echo base_url(); ?>index.php/inventory/index2"><button class="btn btn-info">Storage Database</button></a>
-            <a href="<?php echo base_url(); ?>index.php/inventory/new_inventory"><button class="btn btn-info">New Inventory Application</button></a>
-            <a href="<?php echo base_url(); ?>index.php/inventory/new_storage"><button class="btn btn-info">New Storage Application</button></a>
+            <a href="<?php echo base_url(); ?>index.php/inventory/index"><button class="btn btn-info button_right">Inventory Database</button></a>
+            <a href="<?php echo base_url(); ?>index.php/inventory/index2"><button class="btn btn-info button_right">Storage Database</button></a>
+            <a href="<?php echo base_url(); ?>index.php/inventory/new_inventory"><button class="btn btn-info button_right">New Inventory Application</button></a>
+            <a href="<?php echo base_url(); ?>index.php/inventory/new_storage"><button class="btn btn-info button_right">New Storage Application</button></a>
         </div>
         <br/>
         <div class="row">

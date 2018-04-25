@@ -9,9 +9,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
             $this->load->database();
             $this->load->model('annex2_model');
+            $this->load->model('notification_model');
         }
         
         public function index(){
+            
+            $data['readnotif'] = $this->notification_model->get_read($this->session->userdata('account_id'));
             
             $this->form_validation->set_rules('applicant_name', 'Name', 'required|callback_fullname_check');
             $this->form_validation->set_rules('institutional_address', 'Institutionl Address', 'required');
@@ -30,8 +33,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $this->form_validation->set_rules('PI_training', 'Training', 'required');
             $this->form_validation->set_rules('PI_health', 'Health', 'required');
             $this->form_validation->set_rules('PI_other', 'Other', 'required');
-            $this->form_validation->set_rules('personnel_involved[]', 'Personnel Involved', 'callback_fullname_check');
-            $this->form_validation->set_rules('personnel_designation[]', 'Personnel Designation', 'alpha_numeric_spaces');
+            //$this->form_validation->set_rules('personnel_involved[]', 'Personnel Involved', 'callback_fullname_check');
+            //$this->form_validation->set_rules('personnel_designation[]', 'Personnel Designation', 'alpha_numeric_spaces');
             $this->form_validation->set_rules('IBC_name', 'IBC name', 'required');
             $this->form_validation->set_rules('IBC_date', 'IBC date', 'required');
             
@@ -39,7 +42,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             
             if ($this->form_validation->run() == FALSE){
                 
-                $this->load->template('annex2_view');
+                //$data['load'] = "true";
+                //$id = 1;
+                //$data['retrieved'] = $this->annex2_model->get_form_by_id($id);
+                
+                $this->load->template('annex2_view', $data);
                 
             }else{
                 
@@ -91,6 +98,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             }
             
             
+            
+        }
+        
+        public function load_form(){
+            
+            $data['readnotif'] = $this->notification_model->get_read($this->session->userdata('account_id'));
+            
+            $data['load'] = "true";
+            
+            $id = $this->session->userdata('account_id');
+            $data['retrieved'] = $this->annex2_model->get_form_by_id($id);
+            
+            $this->load->template('annex2_view', $data);
             
         }
         

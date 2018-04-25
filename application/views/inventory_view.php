@@ -14,7 +14,7 @@ if(!$this->session->userdata('isLogin')){
             padding-top: 82px;
         }
         
-        button {
+        .button_right {
             margin-right: 12px;
         }
         
@@ -30,10 +30,10 @@ if(!$this->session->userdata('isLogin')){
     <!-- Page Content -->
     <div class="container">
         <div class="text-center">
-            <a href="<?php echo base_url(); ?>index.php/inventory/index"><button class="btn btn-info">Inventory Database</button></a>
-            <a href="<?php echo base_url(); ?>index.php/inventory/index2"><button class="btn btn-info">Storage Database</button></a>
-            <a href="<?php echo base_url(); ?>index.php/inventory/new_inventory"><button class="btn btn-info">New Inventory Application</button></a>
-            <a href="<?php echo base_url(); ?>index.php/inventory/new_storage"><button class="btn btn-info">New Storage Application</button></a>
+            <a href="<?php echo base_url(); ?>index.php/inventory/index"><button class="btn btn-info button_right">Inventory Database</button></a>
+            <a href="<?php echo base_url(); ?>index.php/inventory/index2"><button class="btn btn-info button_right">Storage Database</button></a>
+            <a href="<?php echo base_url(); ?>index.php/inventory/new_inventory"><button class="btn btn-info button_right">New Inventory Application</button></a>
+            <a href="<?php echo base_url(); ?>index.php/inventory/new_storage"><button class="btn btn-info button_right">New Storage Application</button></a>
         </div>
         <br/>
         <input class="form-control" id="searchbar" type="text" placeholder="Search here">
@@ -70,7 +70,7 @@ if(!$this->session->userdata('isLogin')){
                         <td><?php echo $row->biohazard_name; ?></td>
                         <td><?php echo $row->biohazard_id; ?></td>
                         <td class="text-center">
-                            <button class="btn btn-info" onclick="view_details(<?php echo $row->inventory_id; ?>)">Details</button>
+                            <button class="btn btn-info" onclick="view_details(<?php echo $row->inventory_id; ?>)"><i class="fa fa-bars"></i></button>
                         </td>
                     </tr>
                     <tr id="tr<?php echo $row->inventory_id; ?>" style="display:none;">
@@ -133,7 +133,7 @@ if(!$this->session->userdata('isLogin')){
                         <td><?php echo $row->keeper_name; ?></td>
                         <td><?php echo $row->log_in_personnel; ?></td>
                         <td class="text-center">
-                            <button class="btn btn-info" onclick="view_details(<?php echo $row->storage_id; ?>)">Details</button>
+                            <button class="btn btn-info" onclick="view_details(<?php echo $row->storage_id; ?>)"><i class="fa fa-bars"></i></button>
                         </td>
                     </tr>
                     <tr id="tr<?php echo $row->storage_id; ?>" style="display:none;">
