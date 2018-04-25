@@ -34,7 +34,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<h3>New Application Page</h3>
 		<hr>
 	<div class="row" >
-	<div class="col-lg-6" >
+	<div class="col-lg-5" >
 		<div>		
 			<div class="row">
 				<div class="col-md-7">
@@ -64,7 +64,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<div>		
 			<div class="row">
 				<div class="col-md-7">
-					<a href="#">
+					<a href="<?php echo base_url(); ?>index.php/biohazardous_materialpage">
 						<img class="img-fluid rounded mb-3 mb-md-0" src="<?php echo base_url('assets\images\ApplicantForm\Biohazardous Material.jpg') ?>" 
 						alt="" title="Biohazardous Material">
 					</a>
@@ -74,7 +74,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		</div>
 		</div>
 		
-		<div class="col-lg-6">
+		<div class="col-lg-7">
 			<div>		
 				<h4>Announcements</h4>
 			</div>				
