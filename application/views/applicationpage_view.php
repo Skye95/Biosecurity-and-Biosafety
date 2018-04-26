@@ -37,7 +37,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<div class="col-lg-5" >
 		<div>		
 			<div class="row">
-				<div class="col-md-7">
+				<div class="card card-block justify-content-center align-items-center">
 					<a href="<?php echo base_url(); ?>index.php/newapplicationpage">
 						<img class="img-fluid rounded mb-3 mb-md-0" src="<?php echo base_url('assets\images\ApplicantForm\New Application.jpg') ?>" 
 						alt="" title="New Application">
@@ -50,7 +50,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		
 		<div>		
 			<div class="row">
-				<div class="col-md-7">
+				<div class="card card-block justify-content-center align-items-center">
 					<a href="#">
 						<img class="img-fluid rounded mb-3 mb-md-0" src="<?php echo base_url('assets\images\ApplicantForm\Modification of Approved Project.jpg') ?>" 
 						alt=""title="Modification of Approved Project">
@@ -63,7 +63,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		
 		<div>		
 			<div class="row">
-				<div class="col-md-7">
+				<div class="card card-block justify-content-center align-items-center">
 					<a href="<?php echo base_url(); ?>index.php/annex5">
 						<img class="img-fluid rounded mb-3 mb-md-0" src="<?php echo base_url('assets\images\ApplicantForm\ExtensionTermination of Approved Project.jpg') ?>" 
 						alt="" title="Extension/Termination of Approved Project">

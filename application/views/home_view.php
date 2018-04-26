@@ -41,89 +41,89 @@ if(!$this->session->userdata('isLogin')){
 
         <div class="row">
             <div class="col-lg-3 col-md-4 col-sm-6 col-6 portfolio-item">
-                <div class="card card-block h-50 justify-content-center align-items-center">
+                <div class="card card-block justify-content-center align-items-center">
                     <a href="<?php echo base_url(); ?>index.php/applicationpage"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\Application for Biosafety.jpg') ?>" alt=""></a>
                     <div class="card-body">
-                        <h5 class="card-title">
-                            <a href="<?php echo base_url(); ?>index.php/applicationpage">Application</a>
-                        </h5>
+                        <h6 class="card-title">
+                            <a href="<?php echo base_url(); ?>index.php/applicationpage">Application <br> <br> </a>
+                        </h6>
                         <p class="card-text"></p>
                     </div>
                 </div>
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6 col-6 portfolio-item">
-                <div class="card card-block h-50 justify-content-center align-items-center">
+                <div class="card card-block justify-content-center align-items-center">
                     <a href="<?php echo base_url(); ?>index.php/procurementpage"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\Procurement of Biological Material.jpg') ?>" alt=""></a>
                     <div class="card-body">
-                        <h5 class="card-title">
+                        <h6 class="card-title">
                             <a href="<?php echo base_url(); ?>index.php/procurementpage">Procurement of Biological Material</a>
-                        </h5>
+                        </h6>
                         <p class="card-text"></p>
                     </div>
                 </div>
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6 col-6 portfolio-item">
-                <div class="card card-block h-50 justify-content-center align-items-center">
+                <div class="card card-block justify-content-center align-items-center">
                     <a href="<?php echo base_url(); ?>index.php/notificationbiohazardouspage"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\Notification of LMO.jpg') ?>" alt=""></a>
                     <div class="card-body">
-                        <h5 class="card-title">
+                        <h6 class="card-title">
                             <a href="<?php echo base_url(); ?>index.php/notificationbiohazardouspage">Notification of LMO and Biohazardous Material</a>
-                        </h5>
+                        </h6>
                         <p class="card-text"></p>
                     </div>
                 </div>
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6 col-6 portfolio-item">
-                <div class="card card-block h-50 justify-content-center align-items-center">
+                <div class="card card-block justify-content-center align-items-center">
                     <a href="<?php echo base_url(); ?>index.php/inventory/index"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\LMO Biohazardous Mat.jpg') ?>" alt=""></a>
                     <div class="card-body">
-                        <h5 class="card-title">
+                        <h6 class="card-title">
                             <a href="<?php echo base_url(); ?>index.php/inventory/index">LMO and Biohazardous Materials Database</a>
-                        </h5>
+                        </h6>
                         <p class="card-text"></p>
                     </div>
                 </div>
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6 col-6 portfolio-item">
-                <div class="card card-block h-50 justify-content-center align-items-center">
+                <div class="card card-block justify-content-center align-items-center">
                     <a href="#"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\Exporting of Biological Material.jpg') ?>" alt=""></a>
                     <div class="card-body">
-                        <h5 class="card-title">
+                        <h6 class="card-title">
                             <a href="#">Exporting of Biological Material</a>
-                        </h5>
+                        </h6>
                         <p class="card-text"></p>
                     </div>
                 </div>
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6 col-6 portfolio-item">
-                <div class="card card-block h-50 justify-content-center align-items-center">
+                <div class="card card-block justify-content-center align-items-center">
                     <a href="#"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\Incident Accident Reporting.jpg') ?>" alt=""></a>
                     <div class="card-body">
-                        <h5 class="card-title">
-                            <a href="#">Incident Accident Reporting</a>
-                        </h5>
+                        <h6 class="card-title">
+                            <a href="#">Incident Accident Reporting<br> <br></a>
+                        </h6>
                         <p class="card-text"></p>
                     </div>
                 </div>
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6 col-6 portfolio-item">
-                <div class="card card-block h-50 justify-content-center align-items-center">
+                <div class="card card-block justify-content-center align-items-center">
                     <a href="#"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\Annual Report.jpg') ?>" alt=""></a>
                     <div class="card-body">
-                        <h5 class="card-title">
-                            <a href="#">Annual or Final Report</a>
-                        </h5>
+                        <h6 class="card-title">
+                            <a href="#">Annual or Final Report <br> <br></a>
+                        </h6>
                         <p class="card-text"></p>
                     </div>
                 </div>
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6 col-6 portfolio-item">
-                <div class="card card-block h-50 justify-content-center align-items-center">
+                <div class="card card-block justify-content-center align-items-center">
                     <a href="#"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\History.jpg') ?>" alt=""></a>
                     <div class="card-body">
-                        <h5 class="card-title">
+                        <h6 class="card-title">
                             <a href="#">Submitted Applications / Past Applications</a>
-                        </h5>
+                        </h6>
                         <p class="card-text"></p>
                     </div>
                 </div>
