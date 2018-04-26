@@ -3,6 +3,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="<?php echo base_url()?>assets/css/styles.css" type="text/css">
+    
     <title>Swinburne Biosafety and Biosecurity Online System - Living Modified Organism</title>
     
     <style>
@@ -29,8 +31,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <div class="container">
         <!-- Page Heading -->
         <h2 class="my-4 text-center">Welcome, <?php echo $this->session->userdata('account_name'); ?></h2>
-
-        <button type="button" class="btn" onclick="window.location='<?php echo base_url("index.php/newapplicationpage");?>'">Return</button>		
+        
+        <div id='breadcrumb1'>
+            <ul>
+               <li><a href='<?php echo base_url(); ?>index.php/home'>Home</a></li>
+               <li><a href='<?php echo base_url(); ?>index.php/applicationpage'>Application</a></li>
+               <li><a href='<?php echo base_url(); ?>index.php/newapplicationpage'>New Application</a></li>
+               <li class='active'><a>Living Modified Organism Form</a></li>
+                
+            </ul>
+        </div>
+		
 		<h3>Living Modified Organism Form Page</h3>
 		<hr>
 	<div class="row" >

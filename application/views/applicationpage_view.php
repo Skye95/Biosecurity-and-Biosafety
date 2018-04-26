@@ -35,8 +35,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <ul>
                <li><a href='<?php echo base_url(); ?>index.php/home'>Home</a></li>
                <li class='active'><a>Application</a></li>
-               <li><a href='#'>Company</a></li>
-               <li><a href='#'>Contact</a></li>
             </ul>
         </div>	
 		<h3>Application Page</h3>
