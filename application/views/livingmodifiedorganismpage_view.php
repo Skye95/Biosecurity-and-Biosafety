@@ -37,7 +37,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<div class="col-lg-5" >
 		<div>		
 			<div class="row">
-				<div class="col-md-7">
+				<div class="card card-block justify-content-center align-items-center">
 					<a href="<?php echo base_url(); ?>index.php/annex2">
 						<img class="img-fluid rounded mb-3 mb-md-0" src="<?php echo base_url('assets\images\form\annex2.jpg') ?>" 
 						alt="" title="Annex 2 IBC Assessment of Project Proposal Involving Modern Biotechnology Activities (new)">
@@ -50,7 +50,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		
 		<div>		
 			<div class="row">
-				<div class="col-md-7">
+				<div class="card card-block justify-content-center align-items-center">
 					<a href="<?php echo base_url(); ?>index.php/forme">
 						<img class="img-fluid rounded mb-3 mb-md-0" src="<?php echo base_url('assets\images\form\forme.jpg') ?>" 
 						alt=""title="NBB/N/CU/15/FORM E">
@@ -63,7 +63,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		
 		<div>		
 			<div class="row">
-				<div class="col-md-7">
+				<div class="card card-block justify-content-center align-items-center">
 					<a href="<?php echo base_url(); ?>index.php/pc1">
 						<img class="img-fluid rounded mb-3 mb-md-0" src="<?php echo base_url('assets\images\form\pc1.jpg') ?>" 
 						alt="" title="Application for Notifiable Low Risk Dealings (NLRDs) suitable for Physical Containment level 1 (PC1)">
@@ -75,7 +75,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		
 		<div>		
 			<div class="row">
-				<div class="col-md-7">
+				<div class="card card-block justify-content-center align-items-center">
 					<a href="<?php echo base_url(); ?>index.php/pc2">
 						<img class="img-fluid rounded mb-3 mb-md-0" src="<?php echo base_url('assets\images\form\pc2.jpg') ?>" 
 						alt="" title="Application for Notifiable Low Risk Dealings (NLRDs) suitable for Physical Containment level 2 (PC2)">
@@ -87,7 +87,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		
 		<div>		
 			<div class="row">
-				<div class="col-md-7">
+				<div class="card card-block justify-content-center align-items-center">
 					<a href="<?php echo base_url(); ?>index.php/hirarc">
 						<img class="img-fluid rounded mb-3 mb-md-0" src="<?php echo base_url('assets\images\form\hirarc.jpg') ?>" 
 						alt="" title="OHS-F-4.5.X HIRARC Form - Hazard Identification, Risk Assessment, Risk Control (HIRARC)">
@@ -99,7 +99,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		
 		<div>		
 			<div class="row">
-				<div class="col-md-7">
+				<div class="card card-block justify-content-center align-items-center">
 					<a href="<?php echo base_url(); ?>index.php/swp">
 						<img class="img-fluid rounded mb-3 mb-md-0" src="<?php echo base_url('assets\images\form\swp.jpg') ?>" 
 						alt="" title="SSBC_001 Safe Work Procedure (SWP)">

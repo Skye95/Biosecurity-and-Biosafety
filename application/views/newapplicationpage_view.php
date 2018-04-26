@@ -37,7 +37,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<div class="col-lg-5" >
 		<div>		
 			<div class="row">
-				<div class="col-md-7">
+				<div class="card card-block justify-content-center align-items-center">
 					<a href="<?php echo base_url(); ?>index.php/livingmodifiedorganismpage">
 						<img class="img-fluid rounded mb-3 mb-md-0" src="<?php echo base_url('assets\images\ApplicantForm\Living Modified Organism.jpg') ?>" 
 						alt="" title="Living Modified Organism (LMO) Form Page">
@@ -50,7 +50,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		
 		<div>		
 			<div class="row">
-				<div class="col-md-7">
+				<div class="card card-block justify-content-center align-items-center">
 					<a href="<?php echo base_url(); ?>index.php/exemptdealingpage">
 						<img class="img-fluid rounded mb-3 mb-md-0" src="<?php echo base_url('assets\images\ApplicantForm\Exempt Dealing.jpg') ?>" 
 						alt=""title="Exempt Dealing Form Page">
@@ -63,7 +63,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		
 		<div>		
 			<div class="row">
-				<div class="col-md-7">
+				<div class="card card-block justify-content-center align-items-center">
 					<a href="<?php echo base_url(); ?>index.php/biohazardous_materialpage">
 						<img class="img-fluid rounded mb-3 mb-md-0" src="<?php echo base_url('assets\images\ApplicantForm\Biohazardous Material.jpg') ?>" 
 						alt="" title="Biohazardous Material Form Page">
