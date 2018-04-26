@@ -1,3 +1,9 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+if(!$this->session->userdata('isLogin')){
+    redirect('landing/index');
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -65,12 +71,31 @@
 <body>
     <?php include_once 'template/navbar.php' ?>
     
+    <?php
+    
+    if(isset($load)){
+        foreach($retrieved as $item){
+            
+        }
+        
+        
+    }else{
+           
+        }
+    
+    ?>
+    
     <div class="container">
         <div class="row">
             
             
             <div class="col-md-10">
-               <form class="form-horizontal">
+               <?php echo form_open('procurement/index'); ?>
+                   
+                   <div>
+                        <br/>
+                        <?php echo $this->session->flashdata('msg'); ?>
+                    </div>
                    
                    <div>
                        <h5 class="dark_background">PLEASE FILL IN ALL INFORMATION REQUESTED</h5>
@@ -97,24 +122,25 @@
                                    <table class="table table-bordered">
                                        <tr>
                                            <td>Chemical</td>
-                                           <td><div class="form-group"><input type="text" class="form-control" name="Sec1_chemical"></div></td>
+                                           <td><div class="form-group"><input type="text" class="form-control" name="Sec1_chemical" value="<?php if(isset($load)){echo set_value('Sec1_chemical', $item->Sec1_chemical);}else{echo set_value('Sec1_chemical');} ?>" ></div></td>
                                        </tr>
                                        <tr>
                                            <td>Biological Material</td>
-                                           <td><div class="form-group"><input type="text" class="form-control" name="Sec1_biological_material"></div></td>
+                                           <td><div class="form-group"><input type="text" class="form-control" name="Sec1_biological_material" value="<?php if(isset($load)){echo set_value('Sec1_biological_material', $item->Sec1_biological_material);}else{echo set_value('Sec1_biological_material');} ?>" ></div></td>
                                        </tr>
                                        <tr>
                                            <td>Equipment</td>
-                                           <td><div class="form-group"><input type="text" class="form-control" name="Sec1_equipment"></div></td>
+                                           <td><div class="form-group"><input type="text" class="form-control" name="Sec1_equipment" value="<?php if(isset($load)){echo set_value('Sec1_equipment', $item->Sec1_equipment);}else{echo set_value('Sec1_equipment');} ?>" ></div></td>
                                        </tr>
                                    </table>
                                </td>
                                <th class="text-center tbheader1">
                                    1.02 Doc ID
                                </th>
-                               <td class="text-center"><input type="text" class="form-control" name="Sec1_doc_id" placeholder="OHS/F/4.18.X"></td>
+                               <td class="text-center"><input type="text" class="form-control" name="Sec1_doc_id"  value="<?php if(isset($load)){echo set_value('Sec1_doc_id', $item->Sec1_doc_id);}else{echo set_value('Sec1_doc_id');} ?>"></td>
+                               
                                <th class="text-center tbheader1">1.03 Review Date</th>
-                               <td class="text-center"><input type="text" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" name="date_received"></td>
+                               <td class="text-center"><input type="text" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" name="Sec1_review_date" value="<?php if(isset($load)){echo set_value('Sec1_review_date', $item->Sec1_review_date);}else{echo set_value('Sec1_review_date');} ?>" ></td>
                            </tr>
                        </tbody>
                    </table>
@@ -127,41 +153,41 @@
                        <tbody>
                            <tr>
                                <th class="tbheader1">1.01 Name of the substance</th>
-                               <td><div class="form-group"><input type="text" class="form-control" name="Sec2A_name"></div></td>
+                               <td><div class="form-group"><input type="text" class="form-control" name="Sec2A_name" value="<?php if(isset($load)){echo set_value('Sec2A_name', $item->Sec2A_name);}else{echo set_value('Sec2A_name');} ?>" ></div></td>
                                <th class="tbheader1">1.04 If “Yes”, list the hazard statement</th>
-                               <td><div class="form-group"><input type="text" class="form-control" name="Sec2A_statement"></div></td>
+                               <td><div class="form-group"><input type="text" class="form-control" name="Sec2A_statement" value="<?php if(isset($load)){echo set_value('Sec2A_statement', $item->Sec2A_statement);}else{echo set_value('Sec2A_statement');} ?>" ></div></td>
                            </tr>
                            <tr>
                                <th class="tbheader1">1.02 Substance’s manufacturer</th>
-                               <td><div class="form-group"><input type="text" class="form-control" name="Sec2A_manufacturer"></div></td>
+                               <td><div class="form-group"><input type="text" class="form-control" name="Sec2A_manufacturer" value="<?php if(isset($load)){echo set_value('Sec2A_manufacturer', $item->Sec2A_manufacturer);}else{echo set_value('Sec2A_manufacturer');} ?>" ></div></td>
                                <th class="tbheader1">1.05 Is the waste a scheduled waste?<p class="grey-text">*If it’s hazardous, it’s a scheduled waste</p></th>
                                <td>
-                                   <label class="radio-inline"><input type="radio" value="" name="Sec2A_waste">Yes</label>
-                                   <label class="radio-inline"><input type="radio" value="" name="Sec2A_waste">No</label>
+                                   <label class="radio-inline"><input type="radio" value="1" name="Sec2A_waste" <?php echo set_radio('Sec2A_waste', '1'); ?> <?php if(isset($load)){if($item->Sec2A_waste==1){echo "checked=checked";}}else{} ?> />Yes</label>
+                                   <label class="radio-inline"><input type="radio" value="0" name="Sec2A_waste" <?php echo set_radio('Sec2A_waste', '0'); ?> <?php if(isset($load)){if($item->Sec2A_waste==0){echo "checked=checked";}}else{} ?> >No</label>
                                </td>
                            </tr>
                            <tr>
                                <th class="tbheader1">1.03 Is the substance a hazardous substance?</th>
                                <td>
-                                   <label class="radio-inline"><input type="radio" value="" name="Sec2A_hazardous">Yes</label>
-                                   <label class="radio-inline"><input type="radio" value="" name="Sec2A_hazardous">No</label>
+                                   <label class="radio-inline"><input type="radio" value="1" name="Sec2A_hazardous" <?php echo set_radio('Sec2A_hazardous', '1'); ?> <?php if(isset($load)){if($item->Sec2A_hazardous==1){echo "checked=checked";}}else{} ?> >Yes</label>
+                                   <label class="radio-inline"><input type="radio" value="0" name="Sec2A_hazardous" <?php echo set_radio('Sec2A_hazardous', '0'); ?> <?php if(isset($load)){if($item->Sec2A_hazardous==0){echo "checked=checked";}}else{} ?> >No</label>
                                </td>
                                <th class="tbheader1">1.06 If “Yes”, list the scheduled waste characteristic</th>
                                <td>
                                     <div class="checkbox">
-                                        <label><input type="checkbox" value="" name="Sec2A_waste_type_corrosive">Corrosive</label>
+                                        <label><input type="checkbox" value="1" name="Sec2A_waste_type_corrosive" <?php echo set_checkbox('Sec2A_waste_type_corrosive', '1'); ?> <?php if(isset($load)){if($item->Sec2A_waste_type_corrosive==1){echo "checked=checked";}}else{} ?> >Corrosive</label>
                                    </div>
                                    <div class="checkbox">
-                                       <label><input type="checkbox" value="" name="Sec2A_waste_type_ignitable">Ignitable</label>
+                                       <label><input type="checkbox" value="1" name="Sec2A_waste_type_ignitable" <?php echo set_checkbox('Sec2A_waste_type_ignitable', '1'); ?> <?php if(isset($load)){if($item->Sec2A_waste_type_ignitable==1){echo "checked=checked";}}else{} ?> >Ignitable</label>
                                    </div>
                                    <div class="checkbox">
-                                       <label><input type="checkbox" value="" name="Sec2A_waste_type_reactive" >Reactive</label>
+                                       <label><input type="checkbox" value="1" name="Sec2A_waste_type_reactive" <?php echo set_checkbox('Sec2A_waste_type_reactive', '1'); ?> <?php if(isset($load)){if($item->Sec2A_waste_type_reactive==1){echo "checked=checked";}}else{} ?> >Reactive</label>
                                    </div> 
                                    <div class="checkbox">
-                                       <label><input type="checkbox" value="" name="Sec2A_waste_type_toxic">Toxic</label>
+                                       <label><input type="checkbox" value="1" name="Sec2A_waste_type_toxic" <?php echo set_checkbox('Sec2A_waste_type_toxic', '1'); ?> <?php if(isset($load)){if($item->Sec2A_waste_type_toxic==1){echo "checked=checked";}}else{} ?> >Toxic</label>
                                    </div> 
                                    <div class="checkbox">
-                                       <label><input type="checkbox" value="" name="Sec2A_waste_type_infectious">Infectious</label>
+                                       <label><input type="checkbox" value="1" name="Sec2A_waste_type_infectious" <?php echo set_checkbox('Sec2A_waste_type_infectious', '1'); ?> <?php if(isset($load)){if($item->Sec2A_waste_type_infectious==1){echo "checked=checked";}}else{} ?> >Infectious</label>
                                    </div> 
                                </td>
                            </tr>
@@ -176,44 +202,48 @@
                            <tr>
                                <th class="tbheader1">2.01 Licensing / permit required?</th>
                                <td>
-                                   <label class="radio-inline"><input type="radio" value="" name="Sec2A2_permit">Yes</label>
-                                   <label class="radio-inline"><input type="radio" value="" name="Sec2A2_permit">No</label>
+                                   <label class="radio-inline"><input type="radio" value="1" name="Sec2A2_permit" <?php echo set_radio('Sec2A2_permit', '1'); ?> <?php if(isset($load)){if($item->Sec2A2_permit==1){echo "checked=checked";}}else{} ?>>Yes</label>
+                                   
+                                   <label class="radio-inline"><input type="radio" value="0" name="Sec2A2_permit" <?php echo set_radio('Sec2A2_permit', '1'); ?> <?php if(isset($load)){if($item->Sec2A2_permit==0){echo "checked=checked";}}else{} ?>>No</label>
                                </td>
                                <th class="tbheader1">2.05 Storage requirements?</th>
-                               <td><div class="form-group"><input type="text" class="form-control" name="Sec2A2_storage"></div></td>
+                               <td><div class="form-group"><input type="text" class="form-control" name="Sec2A2_storage" value="<?php if(isset($load)){echo set_value('Sec2A2_storage', $item->Sec2A2_storage);}else{echo set_value('Sec2A2_storage');} ?>"></div></td>
                            </tr>
                            <tr>
                                <th class="tbheader1">2.02 If “Yes”, type of license / permit required</th>
-                               <td><div class="form-group"><input type="text" class="form-control" name="Sec2A2_permit_type"></div></td>
+                               <td><div class="form-group"><input type="text" class="form-control" name="Sec2A2_permit_type" value="<?php if(isset($load)){echo set_value('Sec2A2_permit_type', $item->Sec2A2_permit_type);}else{echo set_value('Sec2A2_permit_type');} ?>" ></div></td>
+                               
                                <th class="tbheader1">2.06 Waste / disposal requirements?<p class="grey-text">*Refer to Disposal section in SDS or the Accidental Release section</p>
                                </th>
                                <td>
-                                   <label class="radio-inline"><input type="radio" value="" name="Sec2A2_waste_requirement">Yes</label>
-                                   <label class="radio-inline"><input type="radio" value="" name="Sec2A2_waste_requirement">No</label>
+                                   <label class="radio-inline"><input type="radio" value="1" name="Sec2A2_waste_requirement" <?php echo set_radio('Sec2A2_waste_requirement', '1'); ?> <?php if(isset($load)){if($item->Sec2A2_waste_requirement==1){echo "checked=checked";}}else{} ?> >Yes</label>
+                                   
+                                   <label class="radio-inline"><input type="radio" value="0" name="Sec2A2_waste_requirement" <?php echo set_radio('Sec2A2_waste_requirement', '1'); ?> <?php if(isset($load)){if($item->Sec2A2_waste_requirement==0){echo "checked=checked";}}else{} ?> >No</label>
                                </td>
                            </tr>
                            <tr>
                                <th class="tbheader1"><p>2.03 Current MSDS (less than 5yrs) is available</p></th>
                                <td>
-                                   <label class="radio-inline"><input type="radio" value="" name="Sec2A2_MSDS">Yes</label>
-                                   <label class="radio-inline"><input type="radio" value="" name="Sec2A2_MSDS">No</label>
+                                   <label class="radio-inline"><input type="radio" value="1" name="Sec2A2_MSDS" <?php echo set_radio('Sec2A2_MSDS', '1'); ?> <?php if(isset($load)){if($item->Sec2A2_MSDS==1){echo "checked=checked";}}else{} ?> >Yes</label>
+                                   
+                                   <label class="radio-inline"><input type="radio" value="0" name="Sec2A2_MSDS" <?php echo set_radio('Sec2A2_MSDS', '1'); ?> <?php if(isset($load)){if($item->Sec2A2_MSDS==0){echo "checked=checked";}}else{} ?> >No</label>
                                </td>
                                <th class="tbheader1"><p>2.07 Risk control for the use of material</p></th>
                                <td>
                                     <div class="checkbox">
-                                        <label><input type="checkbox" value="" name="Sec2A2_risk_control_training">Training Procedure</label>
+                                        <label><input type="checkbox" value="1" name="Sec2A2_risk_control_training" <?php echo set_checkbox('Sec2A2_risk_control_training', '1'); ?> <?php if(isset($load)){if($item->Sec2A2_risk_control_training==1){echo "checked=checked";}}else{} ?> >Training Procedure</label>
                                    </div>
                                    <div class="checkbox">
-                                       <label><input type="checkbox" value="" name="Sec2A2_risk_control_inspection">Inspections</label>
+                                       <label><input type="checkbox" value="1" name="Sec2A2_risk_control_inspection" <?php echo set_checkbox('Sec2A2_risk_control_inspection', '1'); ?> <?php if(isset($load)){if($item->Sec2A2_risk_control_inspection==1){echo "checked=checked";}}else{} ?> >Inspections</label>
                                    </div>
                                    <div class="checkbox">
-                                       <label><input type="checkbox" value="" name="Sec2A2_risk_control_SOP" >SOPs</label>
+                                       <label><input type="checkbox" value="1" name="Sec2A2_risk_control_SOP" <?php echo set_checkbox('Sec2A2_risk_control_SOP', '1'); ?> <?php if(isset($load)){if($item->Sec2A2_risk_control_SOP==1){echo "checked=checked";}}else{} ?> >SOPs</label>
                                    </div> 
                                    <div class="checkbox">
-                                       <label><input type="checkbox" value="" name="Sec2A2_risk_control_PPE">PPE requirement</label>
+                                       <label><input type="checkbox" value="1" name="Sec2A2_risk_control_PPE" <?php echo set_checkbox('Sec2A2_risk_control_PPE', '1'); ?> <?php if(isset($load)){if($item->Sec2A2_risk_control_PPE==1){echo "checked=checked";}}else{} ?> >PPE requirement</label>
                                    </div> 
                                    <div class="checkbox">
-                                       <label><input type="checkbox" value="" name="Sec2A2_risk_control_engineering">Engineering control</label>
+                                       <label><input type="checkbox" value="1" name="Sec2A2_risk_control_engineering" <?php echo set_checkbox('Sec2A2_risk_control_engineering', '1'); ?> <?php if(isset($load)){if($item->Sec2A2_risk_control_engineering==1){echo "checked=checked";}}else{} ?> >Engineering control</label>
                                    </div> 
                                </td>
                            </tr>
@@ -221,41 +251,46 @@
                                <th class="tbheader1"><p>2.04 Exposure route of substance</p></th>
                                <td>
                                     <div class="checkbox">
-                                        <label><input type="checkbox" value="" name="Sec2A2_exposure_inhalation">Inhalation</label>
+                                        <label><input type="checkbox" value="1" name="Sec2A2_exposure_inhalation" <?php echo set_checkbox('Sec2A2_exposure_inhalation', '1'); ?> <?php if(isset($load)){if($item->Sec2A2_exposure_inhalation==1){echo "checked=checked";}}else{} ?> >Inhalation</label>
                                    </div>
                                    <div class="checkbox">
-                                       <label><input type="checkbox" value="" name="Sec2A2_exposure_skin">Skin (absorption)</label>
+                                       <label><input type="checkbox" value="1" name="Sec2A2_exposure_skin" <?php echo set_checkbox('Sec2A2_exposure_skin', '1'); ?> <?php if(isset($load)){if($item->Sec2A2_exposure_skin==1){echo "checked=checked";}}else{} ?> >Skin (absorption)</label>
                                    </div>
                                    <div class="checkbox">
-                                       <label><input type="checkbox" value="" name="Sec2A2_exposure_ingestion" >Ingestion</label>
+                                       <label><input type="checkbox" value="1" name="Sec2A2_exposure_ingestion" <?php echo set_checkbox('Sec2A2_exposure_ingestion', '1'); ?> <?php if(isset($load)){if($item->Sec2A2_exposure_ingestion==1){echo "checked=checked";}}else{} ?> >Ingestion</label>
                                    </div> 
                                    <div class="checkbox">
-                                       <label><input type="checkbox" value="" name="Sec2A2_exposure_injection">Injection</label>
+                                       <label><input type="checkbox" value="1" name="Sec2A2_exposure_injection" <?php echo set_checkbox('Sec2A2_exposure_injection', '1'); ?> <?php if(isset($load)){if($item->Sec2A2_exposure_injection==1){echo "checked=checked";}}else{} ?> >Injection</label>
                                    </div> 
                                    <div class="checkbox">
-                                       <label><input type="checkbox" value="" name="Sec2A2_exposure_others">Others</label>
+                                       <label><input type="checkbox" value="1" name="Sec2A2_exposure_others" <?php echo set_checkbox('Sec2A2_exposure_others', '1'); ?> <?php if(isset($load)){if($item->Sec2A2_exposure_others==1){echo "checked=checked";}}else{} ?> >Others</label>
                                    </div>
-                                   <div class="form-group"><input type="text" class="form-control" name="Sec2A2_exposure_description" placeholder="specify"></div>
+                                   <div class="form-group"><input type="text" class="form-control" name="Sec2A2_exposure_description" placeholder="specify" value="<?php if(isset($load)){echo set_value('Sec2A2_exposure_description', $item->Sec2A2_exposure_description);}else{echo set_value('Sec2A2_exposure_description');} ?>"></div>
                                </td>
                                <th class="tbheader1">2.08 First aid and emergency requirement</th>
                                <td>
                                     <div class="checkbox">
-                                        <label><input type="checkbox" value="" name="Sec2A2_emergency_first_aid_kit">Additional first aid kit contents</label>
+                                        <label><input type="checkbox" value="1" name="Sec2A2_emergency_first_aid_kit" <?php echo set_checkbox('Sec2A2_emergency_first_aid_kit', '1'); ?> <?php if(isset($load)){if($item->Sec2A2_emergency_first_aid_kit==1){echo "checked=checked";}}else{} ?> >Additional first aid kit contents</label>
                                    </div>
+                                   
                                    <div class="checkbox">
-                                       <label><input type="checkbox" value="" name="Sec2A2_emergency_shower">Emergency Shower</label>
+                                       <label><input type="checkbox" value="1" name="Sec2A2_emergency_shower" <?php echo set_checkbox('Sec2A2_emergency_shower', '1'); ?> <?php if(isset($load)){if($item->Sec2A2_emergency_shower==1){echo "checked=checked";}}else{} ?> >Emergency Shower</label>
                                    </div>
+                                   
                                    <div class="checkbox">
-                                       <label><input type="checkbox" value="" name="Sec2A2_emergency_eyewash" >Emergency eyewash</label>
+                                       <label><input type="checkbox" value="1" name="Sec2A2_emergency_eyewash" <?php echo set_checkbox('Sec2A2_emergency_eyewash', '1'); ?> <?php if(isset($load)){if($item->Sec2A2_emergency_eyewash==1){echo "checked=checked";}}else{} ?> >Emergency eyewash</label>
                                    </div> 
+                                   
                                    <div class="checkbox">
-                                       <label><input type="checkbox" value="" name="Sec2A2_emergency_neutralizing">Neutralizing agent</label>
+                                       <label><input type="checkbox" value="1" name="Sec2A2_emergency_neutralizing" <?php echo set_checkbox('Sec2A2_emergency_neutralizing', '1'); ?> <?php if(isset($load)){if($item->Sec2A2_emergency_neutralizing==1){echo "checked=checked";}}else{} ?> >Neutralizing agent</label>
                                    </div> 
+                                   
                                    <div class="checkbox">
-                                       <label><input type="checkbox" value="" name="Sec2A2_emergency_spill">Spill kit</label>
+                                       <label><input type="checkbox" value="1" name="Sec2A2_emergency_spill" <?php echo set_checkbox('Sec2A2_emergency_spill', '1'); ?> <?php if(isset($load)){if($item->Sec2A2_emergency_spill==1){echo "checked=checked";}}else{} ?> >Spill kit</label>
                                    </div> 
+                                   
                                    <div class="checkbox">
-                                       <label><input type="checkbox" value="" name="Sec2A2_emergency_restrict">Restrict Access</label>
+                                       <label><input type="checkbox" value="1" name="Sec2A2_emergency_restrict" <?php echo set_checkbox('Sec2A2_emergency_restrict', '1'); ?> <?php if(isset($load)){if($item->Sec2A2_emergency_restrict==1){echo "checked=checked";}}else{} ?> >Restrict Access</label>
                                    </div> 
                                </td>
                            </tr>
@@ -281,96 +316,100 @@
                                <td>Storage</td>
                                <td>
                                    <div class="checkbox">
-                                        <label><input type="checkbox" value="" name="Sec2A3_storage_inhalation">Inhalation</label>
+                                        <label><input type="checkbox" value="1" name="Sec2A3_storage_inhalation" <?php echo  set_checkbox('Sec2A3_storage_inhalation', '1'); ?> <?php if(isset($load)){if($item->Sec2A3_storage_inhalation==1){echo "checked=checked";}}else{} ?> >Inhalation</label>
                                    </div>
                                    <div class="checkbox">
-                                       <label><input type="checkbox" value="" name="Sec2A3_storage_skin">Skin (absorption)</label>
+                                       <label><input type="checkbox" value="1" name="Sec2A3_storage_skin" <?php echo set_checkbox('Sec2A3_storage_skin', '1'); ?> <?php if(isset($load)){if($item->Sec2A3_storage_skin==1){echo "checked=checked";}}else{} ?> >Skin (absorption)</label>
                                    </div>
                                    <div class="checkbox">
-                                       <label><input type="checkbox" value="" name="Sec2A3_storage_ingestion" >Ingestion</label>
+                                       <label><input type="checkbox" value="1" name="Sec2A3_storage_ingestion" <?php echo set_checkbox('Sec2A3_storage_ingestion', '1'); ?> <?php if(isset($load)){if($item->Sec2A3_storage_ingestion==1){echo "checked=checked";}}else{} ?> >Ingestion</label>
                                    </div> 
                                    <div class="checkbox">
-                                       <label><input type="checkbox" value="" name="Sec2A3_storage_injection">Injection</label>
+                                       <label><input type="checkbox" value="1" name="Sec2A3_storage_injection" <?php echo set_checkbox('Sec2A3_storage_injection', '1'); ?> <?php if(isset($load)){if($item->Sec2A3_storage_injection==1){echo "checked=checked";}}else{} ?> >Injection</label>
                                    </div> 
                                    <div class="checkbox">
-                                       <label><input type="checkbox" value="" name="Sec2A3_storage_others">Others</label>
+                                       <label><input type="checkbox" value="1" name="Sec2A3_storage_others" <?php echo set_checkbox('Sec2A3_storage_others', '1'); ?> <?php if(isset($load)){if($item->Sec2A3_storage_others==1){echo "checked=checked";}}else{} ?> >Others</label>
                                    </div>
-                                   <div class="form-group"><input type="text" class="form-control" name="Sec2A3_storage_description" placeholder="specify"></div>
+                                   <div class="form-group"><input type="text" class="form-control" name="Sec2A3_storage_description" placeholder="specify" value="<?php if(isset($load)){echo set_value('Sec2A3_storage_description', $item->Sec2A3_storage_description);}else{echo set_value('Sec2A3_storage_description');} ?>"></div>
                                </td>
                                <td>
-                                   <textarea rows="10" class="form-control" name="Sec2A3_storage_control"></textarea>
+                                   <textarea rows="10" class="form-control" name="Sec2A3_storage_control"><?php if(isset($load)){echo set_value('Sec2A3_storage_control', $item->Sec2A3_storage_control);}else{echo set_value('Sec2A3_storage_control');} ?></textarea>
                                </td>
                            </tr>
                            <tr>
                                <td>Handling(applying/using/decanting/mixing)</td>
                                <td>
                                    <div class="checkbox">
-                                        <label><input type="checkbox" value="" name="Sec2A3_handling_inhalation">Inhalation</label>
+                                        <label><input type="checkbox" value="1" name="Sec2A3_handling_inhalation" <?php echo  set_checkbox('Sec2A3_handling_inhalation', '1'); ?> <?php if(isset($load)){if($item->Sec2A3_handling_inhalation==1){echo "checked=checked";}}else{} ?> >Inhalation</label>
                                    </div>
                                    <div class="checkbox">
-                                       <label><input type="checkbox" value="" name="Sec2A3_handling_skin">Skin (absorption)</label>
+                                       <label><input type="checkbox" value="1" name="Sec2A3_handling_skin" <?php echo  set_checkbox('Sec2A3_handling_skin', '1'); ?> <?php if(isset($load)){if($item->Sec2A3_handling_skin==1){echo "checked=checked";}}else{} ?> >Skin (absorption)</label>
                                    </div>
                                    <div class="checkbox">
-                                       <label><input type="checkbox" value="" name="Sec2A3_handling_ingestion" >Ingestion</label>
+                                       <label><input type="checkbox" value="1" name="Sec2A3_handling_ingestion" <?php echo  set_checkbox('Sec2A3_handling_ingestion', '1'); ?> <?php if(isset($load)){if($item->Sec2A3_handling_ingestion==1){echo "checked=checked";}}else{} ?> >Ingestion</label>
                                    </div> 
                                    <div class="checkbox">
-                                       <label><input type="checkbox" value="" name="Sec2A3_handling_injection">Injection</label>
+                                       <label><input type="checkbox" value="1" name="Sec2A3_handling_injection" <?php echo  set_checkbox('Sec2A3_handling_injection', '1'); ?> <?php if(isset($load)){if($item->Sec2A3_handling_injection==1){echo "checked=checked";}}else{} ?> >Injection</label>
                                    </div> 
                                    <div class="checkbox">
-                                       <label><input type="checkbox" value="" name="Sec2A3_handling_others">Others</label>
+                                       <label><input type="checkbox" value="1" name="Sec2A3_handling_others" <?php echo  set_checkbox('Sec2A3_handling_others', '1'); ?> <?php if(isset($load)){if($item->Sec2A3_handling_others==1){echo "checked=checked";}}else{} ?> >Others</label>
                                    </div>
-                                   <div class="form-group"><input type="text" class="form-control" name="Sec2A3_handling_description" placeholder="specify"></div>
+                                   <div class="form-group">
+                                       <input type="text" class="form-control" name="Sec2A3_handling_description" placeholder="specify" value="<?php if(isset($load)){echo set_value('Sec2A3_handling_description', $item->Sec2A3_handling_description);}else{echo set_value('Sec2A3_handling_description');} ?>">
+                                   </div>
                                </td>
                                <td>
-                                   <textarea rows="10" class="form-control" name="Sec2A3_handling_control"></textarea>
+                                   <textarea rows="10" class="form-control" name="Sec2A3_handling_control"><?php if(isset($load)){echo set_value('Sec2A3_handling_control', $item->Sec2A3_handling_control);}else{echo set_value('Sec2A3_handling_control');} ?></textarea>
                                </td>
                            </tr>
                            <tr>
                                <td>Spill / Leak</td>
                                <td>
                                    <div class="checkbox">
-                                        <label><input type="checkbox" value="" name="Sec2A3_spill_inhalation">Inhalation</label>
+                                        <label><input type="checkbox" value="1" name="Sec2A3_spill_inhalation" <?php echo  set_checkbox('Sec2A3_spill_inhalation', '1'); ?> <?php if(isset($load)){if($item->Sec2A3_spill_inhalation==1){echo "checked=checked";}}else{} ?> >Inhalation</label>
                                    </div>
                                    <div class="checkbox">
-                                       <label><input type="checkbox" value="" name="Sec2A3_spill_skin">Skin (absorption)</label>
+                                       <label><input type="checkbox" value="1" name="Sec2A3_spill_skin" <?php echo  set_checkbox('Sec2A3_spill_skin', '1'); ?> <?php if(isset($load)){if($item->Sec2A3_spill_skin==1){echo "checked=checked";}}else{} ?> >Skin (absorption)</label>
                                    </div>
                                    <div class="checkbox">
-                                       <label><input type="checkbox" value="" name="Sec2A3_spill_ingestion" >Ingestion</label>
+                                       <label><input type="checkbox" value="1" name="Sec2A3_spill_ingestion" <?php echo  set_checkbox('Sec2A3_spill_ingestion', '1'); ?> <?php if(isset($load)){if($item->Sec2A3_spill_ingestion==1){echo "checked=checked";}}else{} ?> >Ingestion</label>
                                    </div> 
                                    <div class="checkbox">
-                                       <label><input type="checkbox" value="" name="Sec2A3_spill_injection">Injection</label>
+                                       <label><input type="checkbox" value="1" name="Sec2A3_spill_injection" <?php echo  set_checkbox('Sec2A3_spill_injection', '1'); ?> <?php if(isset($load)){if($item->Sec2A3_spill_injection==1){echo "checked=checked";}}else{} ?> >Injection</label>
                                    </div> 
                                    <div class="checkbox">
-                                       <label><input type="checkbox" value="" name="Sec2A3_spill_others">Others</label>
+                                       <label><input type="checkbox" value="1" name="Sec2A3_spill_others" <?php echo  set_checkbox('Sec2A3_spill_others', '1'); ?> <?php if(isset($load)){if($item->Sec2A3_spill_others==1){echo "checked=checked";}}else{} ?> >Others</label>
                                    </div>
-                                   <div class="form-group"><input type="text" class="form-control" name="Sec2A3_spill_description" placeholder="specify"></div>
+                                   <div class="form-group">
+                                       <input type="text" class="form-control" name="Sec2A3_spill_description" placeholder="specify" value="<?php if(isset($load)){echo set_value('Sec2A3_spill_description', $item->Sec2A3_spill_description);}else{echo set_value('Sec2A3_spill_description');} ?>">
+                                   </div>
                                </td>
                                <td>
-                                   <textarea rows="10" class="form-control" name="Sec2A3_spill_control"></textarea>
+                                   <textarea rows="10" class="form-control" name="Sec2A3_spill_control"><?php if(isset($load)){echo set_value('Sec2A3_spill_control', $item->Sec2A3_spill_control);}else{echo set_value('Sec2A3_spill_control');} ?></textarea>
                                </td>
                            </tr>
                            <tr>
                                <td>Disposal</td>
                                <td>
                                    <div class="checkbox">
-                                        <label><input type="checkbox" value="" name="Sec2A3_disposal_inhalation">Inhalation</label>
+                                        <label><input type="checkbox" value="1" name="Sec2A3_disposal_inhalation" <?php echo  set_checkbox('Sec2A3_disposal_inhalation', '1'); ?> <?php if(isset($load)){if($item->Sec2A3_disposal_inhalation==1){echo "checked=checked";}}else{} ?> >Inhalation</label>
                                    </div>
                                    <div class="checkbox">
-                                       <label><input type="checkbox" value="" name="Sec2A3_disposal_skin">Skin (absorption)</label>
+                                       <label><input type="checkbox" value="1" name="Sec2A3_disposal_skin" <?php echo  set_checkbox('Sec2A3_disposal_skin', '1'); ?> <?php if(isset($load)){if($item->Sec2A3_disposal_skin==1){echo "checked=checked";}}else{} ?> >Skin (absorption)</label>
                                    </div>
                                    <div class="checkbox">
-                                       <label><input type="checkbox" value="" name="Sec2A3_disposal_ingestion" >Ingestion</label>
+                                       <label><input type="checkbox" value="1" name="Sec2A3_disposal_ingestion" <?php echo  set_checkbox('Sec2A3_disposal_ingestion', '1'); ?> <?php if(isset($load)){if($item->Sec2A3_disposal_ingestion==1){echo "checked=checked";}}else{} ?> >Ingestion</label>
                                    </div> 
                                    <div class="checkbox">
-                                       <label><input type="checkbox" value="" name="Sec2A3_disposal_injection">Injection</label>
+                                       <label><input type="checkbox" value="1" name="Sec2A3_disposal_injection" <?php echo  set_checkbox('Sec2A3_disposal_injection', '1'); ?> <?php if(isset($load)){if($item->Sec2A3_disposal_injection==1){echo "checked=checked";}}else{} ?> >Injection</label>
                                    </div> 
                                    <div class="checkbox">
-                                       <label><input type="checkbox" value="" name="Sec2A3_disposal_others">Others</label>
+                                       <label><input type="checkbox" value="1" name="Sec2A3_disposal_others" <?php echo  set_checkbox('Sec2A3_disposal_others', '1'); ?> <?php if(isset($load)){if($item->Sec2A3_disposal_others==1){echo "checked=checked";}}else{} ?> >Others</label>
                                    </div>
-                                   <div class="form-group"><input type="text" class="form-control" name="Sec2A3_disposal_description" placeholder="specify"></div>
+                                   <div class="form-group"><input type="text" class="form-control" name="Sec2A3_disposal_description" placeholder="specify" value="<?php if(isset($load)){echo set_value('Sec2A3_disposal_description', $item->Sec2A3_disposal_description);}else{echo set_value('Sec2A3_disposal_description');} ?>"></div>
                                </td>
                                <td>
-                                   <textarea rows="10" class="form-control" name="Sec2A3_disposal_control"></textarea>
+                                   <textarea rows="10" class="form-control" name="Sec2A3_disposal_control"><?php if(isset($load)){echo set_value('Sec2A3_disposal_control', $item->Sec2A3_disposal_control);}else{echo set_value('Sec2A3_disposal_control');} ?></textarea>
                                </td>
                            </tr>
                        </tbody>
@@ -385,15 +424,15 @@
                        <tbody>
                            <tr>
                                <th class="tbheader1">1.01 Name of the equipment</th>
-                               <td><input type="text" class="form-control" name="Sec2B1_equipment_name"></td>
+                               <td><input type="text" class="form-control" name="Sec2B1_equipment_name" value="<?php if(isset($load)){echo set_value('Sec2B1_equipment_name', $item->Sec2B1_equipment_name);}else{echo set_value('Sec2B1_equipment_name');} ?> "></td>
                            </tr>
                            <tr>
                                <th class="tbheader1">1.02 Type of Activity</th>
-                               <td><input type="text" class="form-control" name="Sec2B1_activity_type"></td>
+                               <td><input type="text" class="form-control" name="Sec2B1_activity_type" value="<?php if(isset($load)){echo set_value('Sec2B1_activity_type', $item->Sec2B1_activity_type);}else{echo set_value('Sec2B1_activity_type');} ?>"></td>
                            </tr>
                            <tr>
                                <th class="tbheader1">1.03 Location of Activity</th>
-                               <td><input type="text" class="form-control" name="Sec2B1_activity_location"></td>
+                               <td><input type="text" class="form-control" name="Sec2B1_activity_location" value="<?php if(isset($load)){echo set_value('Sec2B1_activity_location', $item->Sec2B1_activity_location);}else{echo set_value('Sec2B1_activity_location');} ?>" ></td>
                            </tr>
                        </tbody>
                    </table>
@@ -411,7 +450,7 @@
                                    </p>  
                                </th>
                                <td colspan="5">
-                                   <textarea rows="10" class="form-control" name="Sec2B2_machinery_description"></textarea>
+                                   <textarea rows="10" class="form-control" name="Sec2B2_machinery_description"><?php if(isset($load)){echo set_value('Sec2B2_machinery_description', $item->Sec2B2_machinery_description);}else{echo set_value('Sec2B2_machinery_description');} ?></textarea>
                                </td>
                            </tr>
                            <tr>
@@ -429,13 +468,13 @@
                                <td colspan="1">Crushing</td>
                                <td colspan="2">
                                    <div class="checkbox">
-                                       <label><input type="checkbox" value="" name="Sec2B2_checklist_crushing"></label>
+                                       <label><input type="checkbox" value="1" name="Sec2B2_checklist_crushing" <?php echo  set_checkbox('Sec2B2_checklist_crushing', '1'); ?> <?php if(isset($load)){if($item->Sec2B2_checklist_crushing==1){echo "checked=checked";}}else{} ?>></label>
                                    </div>
                                </td>
                                <td colspan="1">Temperature (high or low)</td>
                                <td colspan="2">
                                    <div class="checkbox">
-                                       <label><input type="checkbox" value="" name="Sec2B2_checklist_temperature"></label>
+                                       <label><input type="checkbox" value="1" name="Sec2B2_checklist_temperature" <?php echo  set_checkbox('Sec2B2_checklist_temperature', '1'); ?> <?php if(isset($load)){if($item->Sec2B2_checklist_temperature==1){echo "checked=checked";}}else{} ?> ></label>
                                    </div>
                                </td>
                            </tr>
@@ -443,13 +482,13 @@
                                <td colspan="1">Shearing</td>
                                <td colspan="2">
                                    <div class="checkbox">
-                                       <label><input type="checkbox" value="" name="Sec2B2_checklist_shearing"></label>
+                                       <label><input type="checkbox" value="1" name="Sec2B2_checklist_shearing" <?php echo  set_checkbox('Sec2B2_checklist_shearing', '1'); ?> <?php if(isset($load)){if($item->Sec2B2_checklist_shearing==1){echo "checked=checked";}}else{} ?> ></label>
                                    </div>
                                </td>
                                <td colspan="1">Electrical</td>
                                <td colspan="2">
                                    <div class="checkbox">
-                                       <label><input type="checkbox" value="" name="Sec2B2_checklist_electrical"></label>
+                                       <label><input type="checkbox" value="1" name="Sec2B2_checklist_electrical" <?php echo  set_checkbox('Sec2B2_checklist_electrical', '1'); ?> <?php if(isset($load)){if($item->Sec2B2_checklist_electrical==1){echo "checked=checked";}}else{} ?> ></label>
                                    </div>
                                </td>
                            </tr>
@@ -457,13 +496,13 @@
                                <td colspan="1">Drawing-in</td>
                                <td colspan="2">
                                    <div class="checkbox">
-                                       <label><input type="checkbox" value="" name="Sec2B2_checklist_drawing"></label>
+                                       <label><input type="checkbox" value="1" name="Sec2B2_checklist_drawing" <?php echo  set_checkbox('Sec2B2_checklist_drawing', '1'); ?> <?php if(isset($load)){if($item->Sec2B2_checklist_drawing==1){echo "checked=checked";}}else{} ?> ></label>
                                    </div>
                                </td>
                                <td colspan="1">Noise</td>
                                <td colspan="2">
                                    <div class="checkbox">
-                                       <label><input type="checkbox" value="" name="Sec2B2_checklist_noise"></label>
+                                       <label><input type="checkbox" value="1" name="Sec2B2_checklist_noise" <?php echo  set_checkbox('Sec2B2_checklist_noise', '1'); ?> <?php if(isset($load)){if($item->Sec2B2_checklist_noise==1){echo "checked=checked";}}else{} ?> ></label>
                                    </div>
                                </td>
                            </tr>
@@ -471,13 +510,13 @@
                                <td colspan="1">Cutting</td>
                                <td colspan="2">
                                    <div class="checkbox">
-                                       <label><input type="checkbox" value="" name="Sec2B2_checklist_cutting"></label>
+                                       <label><input type="checkbox" value="1" name="Sec2B2_checklist_cutting" <?php echo  set_checkbox('Sec2B2_checklist_cutting', '1'); ?> <?php if(isset($load)){if($item->Sec2B2_checklist_cutting==1){echo "checked=checked";}}else{} ?> ></label>
                                    </div>
                                </td>
                                <td colspan="1">Vibration</td>
                                <td colspan="2">
                                    <div class="checkbox">
-                                       <label><input type="checkbox" value="" name="Sec2B2_checklist_vibration"></label>
+                                       <label><input type="checkbox" value="1" name="Sec2B2_checklist_vibration" <?php echo  set_checkbox('Sec2B2_checklist_vibration', '1'); ?> <?php if(isset($load)){if($item->Sec2B2_checklist_vibration==1){echo "checked=checked";}}else{} ?> ></label>
                                    </div>
                                </td>
                            </tr>
@@ -485,13 +524,13 @@
                                <td colspan="1">Entanglement</td>
                                <td colspan="2">
                                    <div class="checkbox">
-                                       <label><input type="checkbox" value="" name="Sec2B2_checklist_entangle"></label>
+                                       <label><input type="checkbox" value="1" name="Sec2B2_checklist_entangle" <?php echo  set_checkbox('Sec2B2_checklist_entangle', '1'); ?> <?php if(isset($load)){if($item->Sec2B2_checklist_entangle==1){echo "checked=checked";}}else{} ?> ></label>
                                    </div>
                                </td>
                                <td colspan="1">Dust</td>
                                <td colspan="2">
                                    <div class="checkbox">
-                                       <label><input type="checkbox" value="" name="Sec2B2_checklist_dust"></label>
+                                       <label><input type="checkbox" value="1" name="Sec2B2_checklist_dust" <?php echo  set_checkbox('Sec2B2_checklist_dust', '1'); ?> <?php if(isset($load)){if($item->Sec2B2_checklist_dust==1){echo "checked=checked";}}else{} ?> ></label>
                                    </div>
                                </td>
                            </tr>
@@ -499,13 +538,13 @@
                                <td colspan="1">Impact</td>
                                <td colspan="2">
                                    <div class="checkbox">
-                                       <label><input type="checkbox" value="" name="Sec2B2_checklist_impact"></label>
+                                       <label><input type="checkbox" value="1" name="Sec2B2_checklist_impact" <?php echo  set_checkbox('Sec2B2_checklist_impact', '1'); ?> <?php if(isset($load)){if($item->Sec2B2_checklist_impact==1){echo "checked=checked";}}else{} ?> ></label>
                                    </div>
                                </td>
                                <td colspan="1">Pressure</td>
                                <td colspan="2">
                                    <div class="checkbox">
-                                       <label><input type="checkbox" value="" name="Sec2B2_checklist_pressure"></label>
+                                       <label><input type="checkbox" value="1" name="Sec2B2_checklist_pressure" <?php echo  set_checkbox('Sec2B2_checklist_pressure', '1'); ?> <?php if(isset($load)){if($item->Sec2B2_checklist_pressure==1){echo "checked=checked";}}else{} ?> ></label>
                                    </div>
                                </td>
                            </tr>
@@ -513,13 +552,13 @@
                                <td colspan="1">Abrasion</td>
                                <td colspan="2">
                                    <div class="checkbox">
-                                       <label><input type="checkbox" value="" name="Sec2B2_checklist_abrasion"></label>
+                                       <label><input type="checkbox" value="1" name="Sec2B2_checklist_abrasion" <?php echo  set_checkbox('Sec2B2_checklist_abrasion', '1'); ?> <?php if(isset($load)){if($item->Sec2B2_checklist_abrasion==1){echo "checked=checked";}}else{} ?> ></label>
                                    </div>
                                </td>
                                <td colspan="1">Waste</td>
                                <td colspan="2">
                                    <div class="checkbox">
-                                       <label><input type="checkbox" value="" name="Sec2B2_checklist_waste"></label>
+                                       <label><input type="checkbox" value="1" name="Sec2B2_checklist_waste" <?php echo  set_checkbox('Sec2B2_checklist_waste', '1'); ?> <?php if(isset($load)){if($item->Sec2B2_checklist_waste==1){echo "checked=checked";}}else{} ?> ></label>
                                    </div>
                                </td>
                            </tr>
@@ -527,13 +566,13 @@
                                <td colspan="1">Stabbing</td>
                                <td colspan="2">
                                    <div class="checkbox">
-                                       <label><input type="checkbox" value="" name="Sec2B2_checklist_stabbing"></label>
+                                       <label><input type="checkbox" value="1" name="Sec2B2_checklist_stabbing" <?php echo  set_checkbox('Sec2B2_checklist_stabbing', '1'); ?> <?php if(isset($load)){if($item->Sec2B2_checklist_stabbing==1){echo "checked=checked";}}else{} ?> ></label>
                                    </div>
                                </td>
                                <td colspan="1">Fumes</td>
                                <td colspan="2">
                                    <div class="checkbox">
-                                       <label><input type="checkbox" value="" name="Sec2B2_checklist_fumes"></label>
+                                       <label><input type="checkbox" value="1" name="Sec2B2_checklist_fumes" <?php echo  set_checkbox('Sec2B2_checklist_fumes', '1'); ?> <?php if(isset($load)){if($item->Sec2B2_checklist_fumes==1){echo "checked=checked";}}else{} ?> ></label>
                                    </div>
                                </td>
                            </tr>
@@ -541,13 +580,13 @@
                                <td colspan="1">Puncture</td>
                                <td colspan="2">
                                    <div class="checkbox">
-                                       <label><input type="checkbox" value="" name="Sec2B2_checklist_puncture"></label>
+                                       <label><input type="checkbox" value="1" name="Sec2B2_checklist_puncture" <?php echo  set_checkbox('Sec2B2_checklist_puncture', '1'); ?> <?php if(isset($load)){if($item->Sec2B2_checklist_puncture==1){echo "checked=checked";}}else{} ?> ></label>
                                    </div>
                                </td>
                                <td colspan="1">Chemicals</td>
                                <td colspan="2"> 
                                    <div class="checkbox">
-                                       <label><input type="checkbox" value="" name="Sec2B2_checklist_chemical"></label>
+                                       <label><input type="checkbox" value="1" name="Sec2B2_checklist_chemical" <?php echo  set_checkbox('Sec2B2_checklist_chemical', '1'); ?> <?php if(isset($load)){if($item->Sec2B2_checklist_chemical==1){echo "checked=checked";}}else{} ?> ></label>
                                    </div>
                                </td>
                            </tr>
@@ -555,31 +594,31 @@
                                <td colspan="1">Ejection</td>
                                <td colspan="2">
                                    <div class="checkbox">
-                                       <label><input type="checkbox" value="" name="Sec2B2_checklist_ejection"></label>
+                                       <label><input type="checkbox" value="1" name="Sec2B2_checklist_ejection" <?php echo  set_checkbox('Sec2B2_checklist_ejection', '1'); ?> <?php if(isset($load)){if($item->Sec2B2_checklist_ejection==1){echo "checked=checked";}}else{} ?> ></label>
                                    </div>
                                </td>
                                <td colspan="1">Allergens</td>
                                <td colspan="2">
                                    <div class="checkbox">
-                                       <label><input type="checkbox" value="" name="Sec2B2_checklist_allergens"></label>
+                                       <label><input type="checkbox" value="1" name="Sec2B2_checklist_allergens" <?php echo  set_checkbox('Sec2B2_checklist_allergens', '1'); ?> <?php if(isset($load)){if($item->Sec2B2_checklist_allergens==1){echo "checked=checked";}}else{} ?> ></label>
                                    </div>
                                </td>
                            </tr>
                            <tr>
                                <td colspan="1">Exposure</td>
-                               <td colspan="5"><input type="text" class="form-control" name="Sec2B2_users" placeholder="(duration/frequency of use) e.g. 10mins/daily, 3 hours/monthly"></td>
+                               <td colspan="5"><input type="text" class="form-control" name="Sec2B2_exposure" placeholder="(duration/frequency of use) e.g. 10mins/daily, 3 hours/monthly" value="<?php if(isset($load)){echo set_value('Sec2B2_exposure', $item->Sec2B2_exposure);}else{echo set_value('Sec2B2_exposure');} ?>"></td>
                            </tr>
                            <tr>
                                <td colspan="1">Users</td>
-                               <td colspan="5"><input type="text" class="form-control" name="Sec2B2_exposure" placeholder="Competency, inexperience, those persons at increased risk of harm (disabled, pregnancy)"></td>
+                               <td colspan="5"><input type="text" class="form-control" name="Sec2B2_users" placeholder="Competency, inexperience, those persons at increased risk of harm (disabled, pregnancy)" value="<?php if(isset($load)){echo set_value('Sec2B2_users', $item->Sec2B2_users);}else{echo set_value('Sec2B2_users');} ?>" ></td>
                            </tr>
                            <tr>
                                <td colspan="1">Outline the control measures for the use of the machinery</td>
-                               <td colspan="5"><textarea type="text" rows="6" class="form-control" name="Sec2B2_control_measures" placeholder=".e. Engineering controls e.g. guarding: fixed guards, adjustable guards, protections devices e.g. photoelectric or appliances e.g. jigs, push sticks, holders or markings/warnings, limiting persons in the area."></textarea></td>
+                               <td colspan="5"><textarea type="text" rows="6" class="form-control" name="Sec2B2_control_measures" placeholder=".e. Engineering controls e.g. guarding: fixed guards, adjustable guards, protections devices e.g. photoelectric or appliances e.g. jigs, push sticks, holders or markings/warnings, limiting persons in the area."><?php if(isset($load)){echo set_value('Sec2B2_control_measures', $item->Sec2B2_control_measures);}else{echo set_value('Sec2B2_control_measures');} ?></textarea></td>
                            </tr>
                            <tr>
                                <td colspan="1">Outline the procedural and behavioural control measures for the use of machinery</td>
-                               <td colspan="5"><textarea type="text" rows="6" class="form-control" name="Sec2B2_procedural_behavioural" placeholder=".e. Engineering controls e.g. guarding: fixed guards, adjustable guards, protections devices e.g. photoelectric or appliances e.g. jigs, push sticks, holders or markings/warnings, limiting persons in the area."></textarea></td>
+                               <td colspan="5"><textarea type="text" rows="6" class="form-control" name="Sec2B2_procedural_behavioural" placeholder=".e. Engineering controls e.g. guarding: fixed guards, adjustable guards, protections devices e.g. photoelectric or appliances e.g. jigs, push sticks, holders or markings/warnings, limiting persons in the area."><?php if(isset($load)){echo set_value('Sec2B2_procedural_behavioural', $item->Sec2B2_procedural_behavioural);}else{echo set_value('Sec2B2_procedural_behavioural');} ?></textarea></td>
                            </tr>
                            
                            <tr>
@@ -592,19 +631,19 @@
                                <td class="greendata">Low</td>
                                <td>
                                    <div class="checkbox">
-                                       <label><input type="checkbox" value="" name="Sec2B2_overall_assessment_risk_level "></label>
+                                       <label><input type="radio" value="1" name="Sec2B2_overall_assessment_risk_level" <?php echo set_radio('Sec2B2_overall_assessment_risk_level', '1'); ?> <?php if(isset($load)){if($item->Sec2B2_overall_assessment_risk_level==1){echo "checked=checked";}}else{} ?> /></label>
                                    </div>
                                </td>
                                <td class="yellowdata">Medium</td>
                                <td>
                                    <div class="checkbox">
-                                       <label><input type="checkbox" value="" name="Sec2B2_overall_assessment_risk_level "></label>
+                                       <label><input type="radio" value="2" name="Sec2B2_overall_assessment_risk_level" <?php echo set_radio('Sec2B2_overall_assessment_risk_level', '2'); ?> <?php if(isset($load)){if($item->Sec2B2_overall_assessment_risk_level==2){echo "checked=checked";}}else{} ?> ></label>
                                    </div>
                                </td>
                                <td class="reddata">High</td>
                                <td>
                                    <div class="checkbox">
-                                       <label><input type="checkbox" value="" name="Sec2B2_overall_assessment_risk_level "></label>
+                                       <label><input type="radio" value="3" name="Sec2B2_overall_assessment_risk_level" <?php echo set_radio('Sec2B2_overall_assessment_risk_level', '3'); ?> <?php if(isset($load)){if($item->Sec2B2_overall_assessment_risk_level==3){echo "checked=checked";}}else{} ?> ></label>
                                    </div>
                                </td>
                            </tr>
@@ -618,10 +657,13 @@
                                <td colspan="2" class="tbheader1"><strong>Action Completed</strong></td>
                            </tr>
                            <tr>
-                               <td colspan="2" class="tbheader1"><textarea rows="5" class="form-control" name="Sec2B2_risk_reduction_action"></textarea></td>
-                               <td colspan="1" class="tbheader1"><textarea rows="5" class="form-control" name="Sec2B2_risk_reduction_by_who"></textarea></td>
-                               <td colspan="1" class="tbheader1"><textarea rows="5" class="form-control" name="Sec2B2_risk_reduction_by_when"></textarea></td>
-                               <td colspan="2" class="tbheader1"><textarea rows="5" class="form-control" name="Sec2B2_risk_reduction_action_completed"></textarea></td>
+                               <td colspan="2" class="tbheader1"><textarea rows="5" class="form-control" name="Sec2B2_risk_reduction_action"><?php if(isset($load)){echo set_value('Sec2B2_risk_reduction_action', $item->Sec2B2_risk_reduction_action);}else{echo set_value('Sec2B2_risk_reduction_action');} ?></textarea></td>
+                               
+                               <td colspan="1" class="tbheader1"><textarea rows="5" class="form-control" name="Sec2B2_risk_reduction_by_who"><?php if(isset($load)){echo set_value('Sec2B2_risk_reduction_by_who', $item->Sec2B2_risk_reduction_by_who);}else{echo set_value('Sec2B2_risk_reduction_by_who');} ?></textarea></td>
+                               
+                               <td colspan="1" class="tbheader1"><textarea rows="5" class="form-control" name="Sec2B2_risk_reduction_by_when"><?php if(isset($load)){echo set_value('Sec2B2_risk_reduction_by_when', $item->Sec2B2_risk_reduction_by_when);}else{echo set_value('Sec2B2_risk_reduction_by_when');} ?></textarea></td>
+                               
+                               <td colspan="2" class="tbheader1"><textarea rows="5" class="form-control" name="Sec2B2_risk_reduction_action_completed"><?php if(isset($load)){echo set_value('Sec2B2_risk_reduction_action_completed', $item->Sec2B2_risk_reduction_action_completed);}else{echo set_value('Sec2B2_risk_reduction_action_completed');} ?></textarea></td>
                            </tr>
                            <tr>
                                <th colspan="6" class="tbheader1"><strong>Overall assesment</strong> of the risk posed by this machine type with additional control measures</th>
@@ -633,19 +675,19 @@
                                <td class="greendata">Low</td>
                                <td>
                                    <div class="checkbox">
-                                       <label><input type="checkbox" value="" name="Sec2B2_overall_assessment_risk_level_after"></label>
+                                       <label><input type="radio" value="1" name="Sec2B2_overall_assessment_risk_level_after" <?php echo set_radio('Sec2B2_overall_assessment_risk_level_after', '1'); ?> <?php if(isset($load)){if($item->Sec2B2_overall_assessment_risk_level_after==1){echo "checked=checked";}}else{} ?> /></label>
                                    </div>
                                </td>
                                <td class="yellowdata">Medium</td>
                                <td>
                                    <div class="checkbox">
-                                       <label><input type="checkbox" value="" name="Sec2B2_overall_assessment_risk_level_after"></label>
+                                       <label><input type="radio" value="2" name="Sec2B2_overall_assessment_risk_level_after" <?php echo set_radio('Sec2B2_overall_assessment_risk_level_after', '2'); ?> <?php if(isset($load)){if($item->Sec2B2_overall_assessment_risk_level_after==2){echo "checked=checked";}}else{} ?> ></label>
                                    </div>
                                </td>
                                <td class="reddata">High</td>
                                <td>
                                    <div class="checkbox">
-                                       <label><input type="checkbox" value="" name="Sec2B2_overall_assessment_risk_level_after"></label>
+                                       <label><input type="radio" value="3" name="Sec2B2_overall_assessment_risk_level_after" <?php echo set_radio('Sec2B2_overall_assessment_risk_level_after', '3'); ?> <?php if(isset($load)){if($item->Sec2B2_overall_assessment_risk_level_after==3){echo "checked=checked";}}else{} ?> ></label>
                                    </div>
                                </td>
                            </tr>
@@ -698,28 +740,38 @@
                            </tr>
                            <tr>
                                <td class="tbheader1">Requestor's Name</td>
-                               <td><input type="text" class="form-control" name="Sec3_requestor "></td>
+                               <td><input type="text" class="form-control" name="Sec3_requestor" value="<?php if(isset($load)){echo set_value('Sec3_requestor', $item->Sec3_requestor);}else{echo set_value('Sec3_requestor');} ?>"></td>
+                               
                                <td class="tbheader1">Signature and date</td>
-                               <td class="text-center"><input type="text" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" name="Sec3_requestor_date"></td>
+                               <td class="text-center"><input type="text" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" name="Sec3_requestor_date" value="<?php if(isset($load)){echo set_value('Sec3_requestor_date', $item->Sec3_requestor_date);}else{echo set_value('Sec3_requestor_date');} ?>"></td>
                            </tr>
                            <tr>
                                <td class="tbheader1">HMU / Dean / Lab Coordinator / Supervisor / Project’s Supervisor</td>
-                               <td><input type="text" class="form-control" name="Sec3_supervisor"></td>
+                               <td><input type="text" class="form-control" name="Sec3_supervisor" value="<?php if(isset($load)){echo set_value('Sec3_supervisor', $item->Sec3_supervisor);}else{echo set_value('Sec3_supervisor');} ?>"></td>
+                               
                                <td class="tbheader1">Signature and date</td>
-                               <td class="text-center"><input type="text" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" name="Sec3_supervisor_date"></td>
+                               <td class="text-center"><input type="text" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" name="Sec3_supervisor_date" value="<?php if(isset($load)){echo set_value('Sec3_supervisor_date', $item->Sec3_supervisor_date);}else{echo set_value('Sec3_supervisor_date');} ?>"></td>
                            </tr>
                            <tr>
                                <td class="tbheader1">Lab Officer</td>
-                               <td><input type="text" class="form-control" name="Sec3_LO"></td>
+                               <td><input type="text" class="form-control" name="Sec3_LO" value="<?php if(isset($load)){echo set_value('Sec3_LO', $item->Sec3_LO);}else{echo set_value('Sec3_LO');} ?>"></td>
+                               
                                <td class="tbheader1">Signature and date</td>
-                               <td class="text-center"><input type="text" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" name="Sec3_LO_date"></td>
+                               <td class="text-center"><input type="text" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" name="Sec3_LO_date" value="<?php if(isset($load)){echo set_value('Sec3_LO_date', $item->Sec3_LO_date);}else{echo set_value('Sec3_LO_date');} ?>"></td>
                            </tr>
                        </tbody>
                    </table>
+                   <span class="text-danger"><?php echo form_error('Sec3_requestor'); ?></span>
+                   <span class="text-danger"><?php echo form_error('Sec3_requestor_date'); ?></span>
+                   <span class="text-danger"><?php echo form_error('Sec3_supervisor'); ?></span>
+                   <span class="text-danger"><?php echo form_error('Sec3_supervisor_date'); ?></span>
+                   <span class="text-danger"><?php echo form_error('Sec3_LO'); ?></span>
+                   <span class="text-danger"><?php echo form_error('Sec3_LO_date'); ?></span>
                    
                    <input type="submit" class="btn btn-primary" name="submit" value="Submit">
+                <a class="btn btn-primary" href="<?php echo base_url(); ?>index.php/procurement/load_form">Load</a>
                    
-               </form>
+               <?php echo form_close(); ?>
             </div>
             
             <div class="col-md-2">
