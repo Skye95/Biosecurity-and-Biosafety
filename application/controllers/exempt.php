@@ -27,15 +27,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $this->form_validation->set_rules('project_supervisor_telephone', 'Supervisor telephone', 'required');
             $this->form_validation->set_rules('project_supervisor_fax', 'Supervisor fax', 'required');
             $this->form_validation->set_rules('project_supervisor_email_address', 'Supervisor email address', 'required|valid_email');
-            $this->form_validation->set_rules('project_add_title', 'Additional person title', 'required');
-            $this->form_validation->set_rules('project_add_name', 'Additional person name', 'required');
-            $this->form_validation->set_rules('project_add_qualification', 'Additional person qualification', 'required');
-            $this->form_validation->set_rules('project_add_department', 'Additional person department', 'required');
-            $this->form_validation->set_rules('project_add_campus', 'Additional person campus', 'required');
-            $this->form_validation->set_rules('project_add_postal_address', 'Additional person postal address', 'required');
-            $this->form_validation->set_rules('project_add_telephone', 'Additional person telephone', 'required');
-            $this->form_validation->set_rules('project_add_fax', 'Additional person name', 'required');
-            $this->form_validation->set_rules('project_add_email_address', 'Additional person email address', 'required|valid_email');
             $this->form_validation->set_rules('project_summary', 'Project summary', 'required');
             $this->form_validation->set_rules('project_facilities_building_no', 'Building No', 'required');
             $this->form_validation->set_rules('project_facilities_room_no', 'Room no', 'required');
@@ -51,41 +42,65 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 //$data['load'] = "true";
                 //$id = 1;
                 //$data['retrieved'] = $this->annex2_model->get_form_by_id($id);
+            
                 
                 $this->load->template('exempt_view', $data);
                 
             }else{
                 
-                $ar1 = implode(',',$this->input->post('personnel_involved'));
-                $ar2 = implode(',',$this->input->post('personnel_designation'));
+                $ar1 = implode(',',$this->input->post('project_add_qualification'));
+                $ar2 = implode(',',$this->input->post('project_add_name'));
+                $ar3 = implode(',',$this->input->post('project_add_department'));
+                $ar4 = implode(',',$this->input->post('project_add_campus'));
+                $ar5 = implode(',',$this->input->post('project_add_postal_address'));
+                $ar6 = implode(',',$this->input->post('project_add_telephone'));
+                $ar7 = implode(',',$this->input->post('project_add_fax'));
+                $ar8 = implode(',',$this->input->post('project_add_email_address'));
+                $ar9 = implode(',',$this->input->post('project_add_title'));
                 
                 $data = array(
                     'account_id' => $this->session->userdata('account_id'),
-                    'applicant_name' => $this->input->post('applicant_name'),
-                    'institutional_address' => $this->input->post('institutional_address'),
-                    'collaborating_partners' => $this->input->post('collaborating_partners'),
+                    'date_received ' => $this->input->post('date_received '),
+                    'SBC_reference_no' => $this->input->post('SBC_reference_no'),
                     'project_title' => $this->input->post('project_title'),
-                    'project_objective_methodology' => $this->input->post('project_objective_methodology'),
-                    'biological_system_parent_organisms' => $this->input->post('biological_system_parent_organisms'),
-                    'biological_system_donor_organisms' => $this->input->post('biological_system_donor_organisms'),
-                    'biological_system_modified_traits' => $this->input->post('biological_system_modified_traits'),
-                    'premises' => $this->input->post('premises'),
-                    'period' => $this->input->post('period'),
-                    'risk_assessment_and_management' => $this->input->post('risk_assessment_and_management'),
-                    'emergency_response_plan' => $this->input->post('emergency_response_plan'),
-                    'IBC_recommendation' => $this->input->post('IBC_recommendation'),
-                    'PI_experience_and_expertise' => $this->input->post('PI_experience_and_expertise'),
-                    'PI_training' => $this->input->post('PI_training'),
-                    'PI_health' => $this->input->post('PI_health'),
-                    'PI_other' => $this->input->post('PI_other'),
-                    'personnel_involved' => $ar1,
-                    'personnel_designation' => $ar2,
-                    'IBC_name' => $this->input->post('IBC_name'),
-                    'IBC_date' => $this->input->post('IBC_date')
+                    'project_supervisor_title' => $this->input->post('project_supervisor_title'),
+                    'project_supervisor_name' => $this->input->post('project_supervisor_name'),
+                    'project_supervisor_qualification' => $this->input->post('project_supervisor_qualification'),
+                    'project_supervisor_department' => $this->input->post('project_supervisor_department'),
+                    'project_supervisor_campus' => $this->input->post('project_supervisor_campus'),
+                    'project_supervisor_postal_address' => $this->input->post('project_supervisor_postal_address'),
+                    'project_supervisor_telephone' => $this->input->post('project_supervisor_telephone'),
+                    'project_supervisor_fax' => $this->input->post('project_supervisor_fax'),
+                    'project_supervisor_email_address' => $this->input->post('project_supervisor_email_address'),
+                    'project_add_title ' => $ar9,
+                    'project_add_qualification' => $ar1,
+                    'project_add_name' => $ar2,
+                    'project_add_department' => $ar3,
+                    'project_add_campus' => $ar4,
+                    'project_add_postal_address' => $ar5,
+                    'project_add_telephone' => $ar6,
+                    'project_add_fax' => $ar7,
+                    'project_add_email_address' => $ar8,
+                    'exemption_type_2' => $this->input->post('exemption_type_2'),
+                    'exemption_type_3' => $this->input->post('exemption_type_3'),
+                    'exemption_type_3A' => $this->input->post('exemption_type_3A'),
+                    'exemption_type_4' => $this->input->post('exemption_type_4'),
+                    'exemption_type_5' => $this->input->post('exemption_type_5'),
+                    'project_summary' => $this->input->post('project_summary'),
+                    'project_hazard' => $this->input->post('project_hazard'),
+                    'project_SOP' => $this->input->post('project_SOP'),
+                    'project_facilities_building_no' => $this->input->post('project_facilities_building_no'),
+                    'project_facilities_room_no' => $this->input->post('project_facilities_room_no'),
+                    'project_facilities_containment_level' => $this->input->post('project_facilities_containment_level'),
+                    'project_facilities_certification_no' => $this->input->post('project_facilities_certification_no'),
+                    'officer_notified' => $this->input->post('officer_notified'),
+                    'officer_name' => $this->input->post('officer_name'),
+                    'laboratory_manager' => $this->input->post('laboratory_manager')
+                    
                 );
                 
                 
-                if($this->annex2_model->insert_new_applicant_data($data)){
+                if($this->exempt_model->insert_new_applicant_data($data)){
                     
                    $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">Success Has been achieved</div>', $data);
                    redirect('exempt/index');
@@ -124,7 +139,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         public function fullname_check($str) {
             
             if (!preg_match('/^([a-z0-9 ])+$/i', $str)) {
-                $this->form_validation->set_message('fullname_check', 'The %s field can only be alphanumerical');
+                $this->form_validation->set_message('fullname_check', 'The %s field can only be alphanumerical and not empty');
                 return FALSE;
             } else {
                 return TRUE;
