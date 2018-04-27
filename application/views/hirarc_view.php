@@ -58,14 +58,44 @@ if(!$this->session->userdata('isLogin')){
 <body>
     <?php include_once 'template/navbar.php' ?>
     
-    <?php echo validation_errors(); ?>
+    <?php
+    
+    if(isset($load)){
+        foreach($retrieved as $item){
+            $load1 = $item->HIRARC_activity;
+            $load2 = $item->HIRARC_hazard;
+            $load3 = $item->HIRARC_effects;
+            $load4 = $item->HIRARC_risk_control;
+            $load5 = $item->HIRARC_LLH;
+            $load6 = $item->HIRARC_SEV;
+            $load7 = $item->HIRARC_RR;
+            $load8 = $item->HIRARC_control_measure;
+            $load9 = $item->HIRARC_PIC;
+            
+            $a = explode(",", $load1);
+            $b = explode(",", $load2);
+            $c = explode(",", $load3);
+            $d = explode(",", $load4);
+            $e = explode(",", $load5);
+            $f = explode(",", $load6);
+            $g = explode(",", $load7);
+            $h = explode(",", $load8);
+            $i = explode(",", $load9);
+        }
+        
+        
+    }else{
+           
+        }
+    
+    ?>
     
     <div class="container">
         <div class="row">
             
             
             <div class="col-md-10">
-               <form class="form-horizontal">
+               <?php echo form_open('hirarc/index'); ?>
                    <div>
                        <h5><strong>PLEASE FILL OUT ALL INFORMATION REQUESTED</strong></h5>
                    </div>
@@ -83,58 +113,59 @@ if(!$this->session->userdata('isLogin')){
                            <tbody>
                                <tr>
                                    <th>1.01 Company/Department</th>
-                                   <td><input type="text" class="form-control" name="company_name" value="<?php echo set_value('company_name'); ?>">
+                                   <td><input type="text" class="form-control" name="company_name" value="<?php if(isset($load)){echo set_value('company_name', $item->company_name);}else{echo set_value('company_name');} ?>">
                                    <span class="text-danger"><?php echo form_error('company_name'); ?></span>
                                    </td>
                                </tr>
                                <tr>
                                    <th>1.02 Date</th>
-                                   <td><input type="date" class="form-control" name="date" value="<?php echo set_value('date'); ?>">
+                                   <td><input type="date" class="form-control" name="date" value="<?php if(isset($load)){echo set_value('date', $item->date);}else{echo set_value('date');} ?>">
                                    <span class="text-danger"><?php echo form_error('date'); ?></span>
                                    </td>
                                </tr>
                                <tr>
                                    <th>1.03 Process Location</th>
-                                   <td><input type="text" class="form-control" name="process_location" value="<?php echo set_value('process_location'); ?>"><span class="text-danger"><?php echo form_error('process_location'); ?></span>
+                                   <td><input type="text" class="form-control" name="process_location" value="<?php if(isset($load)){echo set_value('process_location', $item->process_location);}else{echo set_value('process_location');} ?>">
+                                       <span class="text-danger"><?php echo form_error('process_location'); ?></span>
                                    </td>
                                </tr>
                                <tr>
                                    <th>1.04 Conducted by (name)</th>
-                                   <td><input type="text" class="form-control" name="conducted_name" value="<?php echo set_value('conducted_name'); ?>"><span class="text-danger"><?php echo form_error('conducted_name'); ?></span>
+                                   <td><input type="text" class="form-control" name="conducted_name" value="<?php if(isset($load)){echo set_value('conducted_name', $item->conducted_name);}else{echo set_value('conducted_name');} ?>"><span class="text-danger"><?php echo form_error('conducted_name'); ?></span>
                                    </td>
                                </tr>
                                <tr>
                                    <th>1.04.2 Conducted by (designation)</th>
-                                   <td><input type="text" class="form-control" name="conducted_designation" value="<?php echo set_value('conducted_designation'); ?>">
+                                   <td><input type="text" class="form-control" name="conducted_designation" value="<?php if(isset($load)){echo set_value('conducted_designation', $item->conducted_designation);}else{echo set_value('conducted_designation');} ?>">
                                    <span class="text-danger"><?php echo form_error('conducted_designation'); ?></span>
                                    </td>
                                </tr>
                                <tr>
                                    <th>1.05 Approved by (name)</th>
-                                   <td><input type="text" class="form-control" name="approved_name" value="<?php echo set_value('approved_name'); ?>"><span class="text-danger"><?php echo form_error('approved_name'); ?></span>
+                                   <td><input type="text" class="form-control" name="approved_name" value="<?php if(isset($load)){echo set_value('approved_name', $item->approved_name);}else{echo set_value('approved_name');} ?>"><span class="text-danger"><?php echo form_error('approved_name'); ?></span>
                                    </td>
                                </tr>
                                <tr>
                                    <th>1.05.2 Approved by (designation)</th>
-                                   <td><input type="text" class="form-control" name="approved_designation" value="<?php echo set_value('approved_designation'); ?>">
+                                   <td><input type="text" class="form-control" name="approved_designation" value="<?php if(isset($load)){echo set_value('approved_designation', $item->approved_designation);}else{echo set_value('approved_designation');} ?>">
                                    <span class="text-danger"><?php echo form_error('approved_designation'); ?></span>
                                    </td>
                                </tr>
                                <tr>
                                    <th>1.06 Date (From)</th>
-                                   <td><input type="date" class="form-control" name="date_from" value="<?php echo set_value('date_from'); ?>">
+                                   <td><input type="date" class="form-control" name="date_from" value="<?php if(isset($load)){echo set_value('date_from', $item->date_from);}else{echo set_value('date_from');} ?>">
                                    <span class="text-danger"><?php echo form_error('date_from'); ?></span>
                                    </td>
                                </tr>
                                <tr>
                                    <th>1.06.2 Date (To)</th>
-                                   <td><input type="date" class="form-control" name="date_to" value="<?php echo set_value('date_to'); ?>">
+                                   <td><input type="date" class="form-control" name="date_to" value="<?php if(isset($load)){echo set_value('date_to', $item->date_to);}else{echo set_value('date_to');} ?>">
                                    <span class="text-danger"><?php echo form_error('date_to'); ?></span>
                                    </td>
                                </tr>
                                <tr>
                                    <th>1.07 Review Date</th>
-                                   <td><input type="date" class="form-control" name="review_date" value="<?php echo set_value('review_date'); ?>">
+                                   <td><input type="date" class="form-control" name="review_date" value="<?php if(isset($load)){echo set_value('review_date', $item->review_date);}else{echo set_value('review_date');} ?>">
                                    <span class="text-danger"><?php echo form_error('review_date'); ?></span>
                                    </td>
                                </tr>
@@ -161,7 +192,7 @@ if(!$this->session->userdata('isLogin')){
                                    <th colspan="2">1. Risk Control</th>
                                </tr>
                                <tr>
-                                   <th>No.</th>
+                                   <th width="5">No.</th>
                                    <th>Work Activity</th>
                                    <th>Hazard</th>
                                    <th>Which can cause/effect</th>
@@ -173,55 +204,96 @@ if(!$this->session->userdata('isLogin')){
                                    <th>PIC (Due date/status)</th>
                                </tr>
                                <tr>
-                                   <th><input type="text" class="form-control" name="HIRARC_no[]" value="<?php echo set_value('HIRARC_no[]'); ?>"></th>
-                                   <th><input type="text" class="form-control" name="HIRARC_activity[]" value="<?php echo set_value('HIRARC_activity[]'); ?>"></th>
-                                   <th><input type="text" class="form-control" name="HIRARC_hazard[]" value="<?php echo set_value('HIRARC_hazard[]'); ?>"></th>
-                                   <th><input type="text" class="form-control" name="HIRARC_effects[]" value="<?php echo set_value('HIRARC_effects[]'); ?>"></th>
-                                   <th><input type="text" class="form-control" name="HIRARC_risk_control[]" value="<?php echo set_value('HIRARC_risk_control[]'); ?>"></th>
-                                   <th><input type="text" class="form-control" name="HIRARC_LLH[]" value="<?php echo set_value('HIRARC_LLH[]'); ?>"></th>
-                                   <th><input type="text" class="form-control" name="HIRARC_SEV[]" value="<?php echo set_value('HIRARC_SEV[]'); ?>"></th>
-                                   <th><input type="text" class="form-control" name="HIRARC_RR[]" value="<?php echo set_value('HIRARC_RR[]'); ?>"></th>
-                                   <th><input type="text" class="form-control" name="HIRARC_control_measure[]" value="<?php echo set_value('HIRARC_control_measure[]'); ?>"></th>
-                                   <th><input type="text" class="form-control" name="HIRARC_PIC[]" value="<?php echo set_value('HIRARC_PIC[]'); ?>"></th>
+                                   <td>1</td>
+                                   <td><input type="text" class="form-control" name="HIRARC_activity[0]" value="<?php if(isset($load)){echo set_value('HIRARC_activity[0]', $a[0]);}else{echo set_value('HIRARC_activity[0]');} ?>"></td>
+                                   
+                                   <td><input type="text" class="form-control" name="HIRARC_hazard[0]" value="<?php if(isset($load)){echo set_value('HIRARC_hazard[0]', $b[0]);}else{echo set_value('HIRARC_hazard[0]');} ?>"></td>
+                                   
+                                   <td><input type="text" class="form-control" name="HIRARC_effects[0]" value="<?php if(isset($load)){echo set_value('HIRARC_effects[0]', $c[0]);}else{echo set_value('HIRARC_effects[0]');} ?>"></td>
+                                   
+                                   <td><input type="text" class="form-control" name="HIRARC_risk_control[0]" value="<?php if(isset($load)){echo set_value('HIRARC_risk_control[0]', $d[0]);}else{echo set_value('HIRARC_risk_control[0]');} ?>"></td>
+                                   
+                                   <td><input type="text" class="form-control" name="HIRARC_LLH[0]" value="<?php if(isset($load)){echo set_value('HIRARC_LLH[0]', $e[0]);}else{echo set_value('HIRARC_LLH[0]');} ?>"></td>
+                                   
+                                   <td><input type="text" class="form-control" name="HIRARC_SEV[0]" value="<?php if(isset($load)){echo set_value('HIRARC_SEV[0]', $f[0]);}else{echo set_value('HIRARC_SEV[0]');} ?>"></td>
+                                   
+                                   <td><input type="text" class="form-control" name="HIRARC_RR[0]" value="<?php if(isset($load)){echo set_value('HIRARC_RR[0]', $g[0]);}else{echo set_value('HIRARC_RR[0]');} ?>"></td>
+                                   
+                                   <td><input type="text" class="form-control" name="HIRARC_control_measure[0]" value="<?php if(isset($load)){echo set_value('HIRARC_control_measure[0]', $h[0]);}else{echo set_value('HIRARC_control_measure[0]');} ?>"></td>
+                                   
+                                   <td><input type="text" class="form-control" name="HIRARC_PIC[0]" value="<?php if(isset($load)){echo set_value('HIRARC_PIC[0]', $i[0]);}else{echo set_value('HIRARC_PIC[0]');} ?>"></td>
                                </tr>
                                <tr>
-                                   <th><input type="text" class="form-control" name="HIRARC_no[]" value="<?php echo set_value('HIRARC_no[]'); ?>"></th>
-                                   <th><input type="text" class="form-control" name="HIRARC_activity[]" value="<?php echo set_value('HIRARC_activity[]'); ?>"></th>
-                                   <th><input type="text" class="form-control" name="HIRARC_hazard[]" value="<?php echo set_value('HIRARC_hazard[]'); ?>"></th>
-                                   <th><input type="text" class="form-control" name="HIRARC_effects[]" value="<?php echo set_value('HIRARC_effects[]'); ?>"></th>
-                                   <th><input type="text" class="form-control" name="HIRARC_risk_control[]" value="<?php echo set_value('HIRARC_risk_control[]'); ?>"></th>
-                                   <th><input type="text" class="form-control" name="HIRARC_LLH[]" value="<?php echo set_value('HIRARC_LLH[]'); ?>"></th>
-                                   <th><input type="text" class="form-control" name="HIRARC_SEV[]" value="<?php echo set_value('HIRARC_SEV[]'); ?>"></th>
-                                   <th><input type="text" class="form-control" name="HIRARC_RR[]" value="<?php echo set_value('HIRARC_RR[]'); ?>"></th>
-                                   <th><input type="text" class="form-control" name="HIRARC_control_measure[]" value="<?php echo set_value('HIRARC_control_measure[]'); ?>"></th>
-                                   <th><input type="text" class="form-control" name="HIRARC_PIC[]" value="<?php echo set_value('HIRARC_PIC[]'); ?>"></th>
+                                   <td>2</td>
+                                   <td><input type="text" class="form-control" name="HIRARC_activity[1]" value="<?php if(isset($load)){echo set_value('HIRARC_activity[1]', $a[1]);}else{echo set_value('HIRARC_activity[1]');} ?>"></td>
+                                   
+                                   <td><input type="text" class="form-control" name="HIRARC_hazard[1]" value="<?php if(isset($load)){echo set_value('HIRARC_hazard[1]', $b[1]);}else{echo set_value('HIRARC_hazard[1]');} ?>"></td>
+                                   
+                                   <td><input type="text" class="form-control" name="HIRARC_effects[1]" value="<?php if(isset($load)){echo set_value('HIRARC_effects[1]', $c[1]);}else{echo set_value('HIRARC_effects[1]');} ?>"></td>
+                                   
+                                   <td><input type="text" class="form-control" name="HIRARC_risk_control[1]" value="<?php if(isset($load)){echo set_value('HIRARC_risk_control[1]', $d[1]);}else{echo set_value('HIRARC_risk_control[1]');} ?>"></td>
+                                   
+                                   <td><input type="text" class="form-control" name="HIRARC_LLH[1]" value="<?php if(isset($load)){echo set_value('HIRARC_LLH[1]', $e[1]);}else{echo set_value('HIRARC_LLH[1]');} ?>"></td>
+                                   
+                                   <td><input type="text" class="form-control" name="HIRARC_SEV[1]" value="<?php if(isset($load)){echo set_value('HIRARC_SEV[1]', $f[1]);}else{echo set_value('HIRARC_SEV[1]');} ?>"></td>
+                                   
+                                   <td><input type="text" class="form-control" name="HIRARC_RR[1]" value="<?php if(isset($load)){echo set_value('HIRARC_RR[1]', $g[1]);}else{echo set_value('HIRARC_RR[1]');} ?>"></td>
+                                   
+                                   <td><input type="text" class="form-control" name="HIRARC_control_measure[1]" value="<?php if(isset($load)){echo set_value('HIRARC_control_measure[1]', $h[1]);}else{echo set_value('HIRARC_control_measure[1]');} ?>"></td>
+                                   
+                                   <td><input type="text" class="form-control" name="HIRARC_PIC[1]" value="<?php if(isset($load)){echo set_value('HIRARC_PIC[1]', $i[1]);}else{echo set_value('HIRARC_PIC[1]');} ?>"></td>
                                </tr>
                                <tr>
-                                   <th><input type="text" class="form-control" name="HIRARC_no[]" value="<?php echo set_value('HIRARC_no[]'); ?>"></th>
-                                   <th><input type="text" class="form-control" name="HIRARC_activity[]" value="<?php echo set_value('HIRARC_activity[]'); ?>"></th>
-                                   <th><input type="text" class="form-control" name="HIRARC_hazard[]" value="<?php echo set_value('HIRARC_hazard[]'); ?>"></th>
-                                   <th><input type="text" class="form-control" name="HIRARC_effects[]" value="<?php echo set_value('HIRARC_effects[]'); ?>"></th>
-                                   <th><input type="text" class="form-control" name="HIRARC_risk_control[]" value="<?php echo set_value('HIRARC_risk_control[]'); ?>"></th>
-                                   <th><input type="text" class="form-control" name="HIRARC_LLH[]" value="<?php echo set_value('HIRARC_LLH[]'); ?>"></th>
-                                   <th><input type="text" class="form-control" name="HIRARC_SEV[]" value="<?php echo set_value('HIRARC_SEV[]'); ?>"></th>
-                                   <th><input type="text" class="form-control" name="HIRARC_RR[]" value="<?php echo set_value('HIRARC_RR[]'); ?>"></th>
-                                   <th><input type="text" class="form-control" name="HIRARC_control_measure[]" value="<?php echo set_value('HIRARC_control_measure[]'); ?>"></th>
-                                   <th><input type="text" class="form-control" name="HIRARC_PIC[]" value="<?php echo set_value('HIRARC_PIC[]'); ?>"></th>
+                                   <td>3</td>
+                                   <td><input type="text" class="form-control" name="HIRARC_activity[2]" value="<?php if(isset($load)){echo set_value('HIRARC_activity[2]', $a[2]);}else{echo set_value('HIRARC_activity[2]');} ?>"></td>
+                                   
+                                   <td><input type="text" class="form-control" name="HIRARC_hazard[2]" value="<?php if(isset($load)){echo set_value('HIRARC_hazard[2]', $b[2]);}else{echo set_value('HIRARC_hazard[2]');} ?>"></td>
+                                   
+                                   <td><input type="text" class="form-control" name="HIRARC_effects[2]" value="<?php if(isset($load)){echo set_value('HIRARC_effects[2]', $c[2]);}else{echo set_value('HIRARC_effects[2]');} ?>"></td>
+                                   
+                                   <td><input type="text" class="form-control" name="HIRARC_risk_control[2]" value="<?php if(isset($load)){echo set_value('HIRARC_risk_control[2]', $d[2]);}else{echo set_value('HIRARC_risk_control[2]');} ?>"></td>
+                                   
+                                   <td><input type="text" class="form-control" name="HIRARC_LLH[2]" value="<?php if(isset($load)){echo set_value('HIRARC_LLH[2]', $e[2]);}else{echo set_value('HIRARC_LLH[2]');} ?>"></td>
+                                   
+                                   <td><input type="text" class="form-control" name="HIRARC_SEV[2]" value="<?php if(isset($load)){echo set_value('HIRARC_SEV[2]', $f[2]);}else{echo set_value('HIRARC_SEV[2]');} ?>"></td>
+                                   
+                                   <td><input type="text" class="form-control" name="HIRARC_RR[2]" value="<?php if(isset($load)){echo set_value('HIRARC_RR[2]', $g[2]);}else{echo set_value('HIRARC_RR[2]');} ?>"></td>
+                                   
+                                   <td><input type="text" class="form-control" name="HIRARC_control_measure[2]" value="<?php if(isset($load)){echo set_value('HIRARC_control_measure[2]', $h[2]);}else{echo set_value('HIRARC_control_measure[2]');} ?>"></td>
+                                   
+                                   <td><input type="text" class="form-control" name="HIRARC_PIC[2]" value="<?php if(isset($load)){echo set_value('HIRARC_PIC[2]', $i[2]);}else{echo set_value('HIRARC_PIC[2]');} ?>"></td>
                                </tr>
                                <tr>
-                                   <th><input type="text" class="form-control" name="HIRARC_no[]" value="<?php echo set_value('HIRARC_no[]'); ?>"></th>
-                                   <th><input type="text" class="form-control" name="HIRARC_activity[]" value="<?php echo set_value('HIRARC_activity[]'); ?>"></th>
-                                   <th><input type="text" class="form-control" name="HIRARC_hazard[]" value="<?php echo set_value('HIRARC_hazard[]'); ?>"></th>
-                                   <th><input type="text" class="form-control" name="HIRARC_effects[]" value="<?php echo set_value('HIRARC_effects[]'); ?>"></th>
-                                   <th><input type="text" class="form-control" name="HIRARC_risk_control[]" value="<?php echo set_value('HIRARC_risk_control[]'); ?>"></th>
-                                   <th><input type="text" class="form-control" name="HIRARC_LLH[]" value="<?php echo set_value('HIRARC_LLH[]'); ?>"></th>
-                                   <th><input type="text" class="form-control" name="HIRARC_SEV[]" value="<?php echo set_value('HIRARC_SEV[]'); ?>"></th>
-                                   <th><input type="text" class="form-control" name="HIRARC_RR[]" value="<?php echo set_value('HIRARC_RR[]'); ?>"></th>
-                                   <th><input type="text" class="form-control" name="HIRARC_control_measure[]" value="<?php echo set_value('HIRARC_control_measure[]'); ?>"></th>
-                                   <th><input type="text" class="form-control" name="HIRARC_PIC[]" value="<?php echo set_value('HIRARC_PIC[]'); ?>"></th>
+                                   <td>4</td>
+                                   <td><input type="text" class="form-control" name="HIRARC_activity[3]" value="<?php if(isset($load)){echo set_value('HIRARC_activity[3]', $a[3]);}else{echo set_value('HIRARC_activity[3]');} ?>"></td>
+                                   
+                                   <td><input type="text" class="form-control" name="HIRARC_hazard[3]" value="<?php if(isset($load)){echo set_value('HIRARC_hazard[3]', $b[3]);}else{echo set_value('HIRARC_hazard[3]');} ?>"></td>
+                                   
+                                   <td><input type="text" class="form-control" name="HIRARC_effects[3]" value="<?php if(isset($load)){echo set_value('HIRARC_effects[3]', $c[3]);}else{echo set_value('HIRARC_effects[3]');} ?>"></td>
+                                   
+                                   <td><input type="text" class="form-control" name="HIRARC_risk_control[3]" value="<?php if(isset($load)){echo set_value('HIRARC_risk_control[3]', $d[3]);}else{echo set_value('HIRARC_risk_control[3]');} ?>"></td>
+                                   
+                                   <td><input type="text" class="form-control" name="HIRARC_LLH[3]" value="<?php if(isset($load)){echo set_value('HIRARC_LLH[3]', $e[3]);}else{echo set_value('HIRARC_LLH[3]');} ?>"></td>
+                                   
+                                   <td><input type="text" class="form-control" name="HIRARC_SEV[3]" value="<?php if(isset($load)){echo set_value('HIRARC_SEV[3]', $f[3]);}else{echo set_value('HIRARC_SEV[3]');} ?>"></td>
+                                   
+                                   <td><input type="text" class="form-control" name="HIRARC_RR[3]" value="<?php if(isset($load)){echo set_value('HIRARC_RR[3]', $g[3]);}else{echo set_value('HIRARC_RR[3]');} ?>"></td>
+                                   
+                                   <td><input type="text" class="form-control" name="HIRARC_control_measure[3]" value="<?php if(isset($load)){echo set_value('HIRARC_control_measure[3]', $h[3]);}else{echo set_value('HIRARC_control_measure[3]');} ?>"></td>
+                                   
+                                   <td><input type="text" class="form-control" name="HIRARC_PIC[3]" value="<?php if(isset($load)){echo set_value('HIRARC_PIC[3]', $i[3]);}else{echo set_value('HIRARC_PIC[3]');} ?>"></td>
                                </tr>
                            </tbody>
                        </table>
+                       <span class="text-danger"><?php echo form_error('HIRARC_activity[0]'); ?></span>
+                       <span class="text-danger"><?php echo form_error('HIRARC_hazard[0]'); ?></span>
+                       <span class="text-danger"><?php echo form_error('HIRARC_effects[0]'); ?></span>
+                       <span class="text-danger"><?php echo form_error('HIRARC_risk_control[0]'); ?></span>
+                       <span class="text-danger"><?php echo form_error('HIRARC_LLH[0]'); ?></span>
+                       <span class="text-danger"><?php echo form_error('HIRARC_SEV[0]'); ?></span>
+                       <span class="text-danger"><?php echo form_error('HIRARC_RR[0]'); ?></span>
+                       <span class="text-danger"><?php echo form_error('HIRARC_control_measure[0]'); ?></span>
+                       <span class="text-danger"><?php echo form_error('HIRARC_PIC[0]'); ?></span>
                    </div>
                    
                    <br>
@@ -398,8 +470,9 @@ if(!$this->session->userdata('isLogin')){
                    <br>
                    
                    <input type="submit" class="btn btn-primary" name="submit" value="Submit">
+                <a class="btn btn-primary" href="<?php echo base_url(); ?>index.php/hirarc/load_form">Load</a>
                    
-               </form>
+               <?php echo form_close(); ?>
             </div>
             
             <div class="col-md-2">

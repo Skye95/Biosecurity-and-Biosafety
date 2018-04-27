@@ -224,43 +224,45 @@ if(!$this->session->userdata('isLogin')){
                            <tbody>
                                <tr>
                                    <td>1</td>
-                                   <td><input type="text" class="form-control" name="personnel_involved[]" value="<?php if(isset($load)){echo set_value('personnel_involved[]', $i[0]);}else{echo set_value('personnel_involved[]');} ?>" size="10">
+                                   <td><input type="text" class="form-control" name="personnel_involved[0]" value="<?php if(isset($load)){echo set_value('personnel_involved[0]', $i[0]);}else{echo set_value('personnel_involved[0]');} ?>" >
                                    </td>
                                    
-                                   <td><input type="text" class="form-control" name="personnel_designation[]" value="<?php if(isset($load)){echo set_value('personnel_designation[]', $e[0]);}else{echo set_value('personnel_designation[]');} ?>" size="15">
+                                   <td><input type="text" class="form-control" name="personnel_designation[0]" value="<?php if(isset($load)){echo set_value('personnel_designation[0]', $e[0]);}else{echo set_value('personnel_designation[0]');} ?>" >
                                    </td>
                                    
                                </tr>
                                <tr>
                                    <td>2</td>
-                                   <td><input type="text" class="form-control" name="personnel_involved[]" value="<?php if(isset($load)){echo set_value('personnel_involved[]', $i[1]);}else{echo set_value('personnel_involved[]');} ?>" size="10"></td>
+                                   <td><input type="text" class="form-control" name="personnel_involved[1]" value="<?php if(isset($load)){echo set_value('personnel_involved[1]', $i[1]);}else{echo set_value('personnel_involved[1]');} ?>" ></td>
                                    
-                                   <td><input type="text" class="form-control" name="personnel_designation[]" value="<?php if(isset($load)){echo set_value('personnel_designation[]', $e[1]);}else{echo set_value('personnel_designation[]');} ?>" size="15"></td>
+                                   <td><input type="text" class="form-control" name="personnel_designation[1]" value="<?php if(isset($load)){echo set_value('personnel_designation[1]', $e[1]);}else{echo set_value('personnel_designation[1]');} ?>" ></td>
                                    
                                </tr>
                                <tr>
                                    <td>3</td>
-                                   <td><input type="text" class="form-control" name="personnel_involved[]" value="<?php if(isset($load)){echo set_value('personnel_involved[]', $i[2]);}else{echo set_value('personnel_involved[]');} ?>" size="10"></td>
+                                   <td><input type="text" class="form-control" name="personnel_involved[2]" value="<?php if(isset($load)){echo set_value('personnel_involved[2]', $i[2]);}else{echo set_value('personnel_involved[2]');} ?>" ></td>
                                    
-                                   <td><input type="text" class="form-control" name="personnel_designation[]" value="<?php if(isset($load)){echo set_value('personnel_designation[]', $e[2]);}else{echo set_value('personnel_designation[]');} ?>" size="15"></td>
+                                   <td><input type="text" class="form-control" name="personnel_designation[2]" value="<?php if(isset($load)){echo set_value('personnel_designation[2]', $e[2]);}else{echo set_value('personnel_designation[2]');} ?>" ></td>
                                
                                </tr>
                                <tr>
                                    <td>4</td>
-                                   <td><input type="text" class="form-control" name="personnel_involved[]" value="<?php if(isset($load)){echo set_value('personnel_involved[]', $i[3]);}else{echo set_value('personnel_involved[]');} ?>" size="10"></td>
+                                   <td><input type="text" class="form-control" name="personnel_involved[3]" value="<?php if(isset($load)){echo set_value('personnel_involved[3]', $i[3]);}else{echo set_value('personnel_involved[3]');} ?>" ></td>
                                    
-                                   <td><input type="text" class="form-control" name="personnel_designation[]" value="<?php if(isset($load)){echo set_value('personnel_designation[]', $e[3]);}else{echo set_value('personnel_designation[]');} ?>" size="15"></td>
+                                   <td><input type="text" class="form-control" name="personnel_designation[3]" value="<?php if(isset($load)){echo set_value('personnel_designation[3]', $e[3]);}else{echo set_value('personnel_designation[3]');} ?>" ></td>
                                 
                                </tr>
                                <tr>
                                    <td>5</td>
-                                   <td><input type="text" class="form-control" name="personnel_involved[]" value="<?php if(isset($load)){echo set_value('personnel_involved[]', $i[4]);}else{echo set_value('personnel_involved[]');} ?>" size="10"></td>
+                                   <td><input type="text" class="form-control" name="personnel_involved[4]" value="<?php if(isset($load)){echo set_value('personnel_involved[4]', $i[4]);}else{echo set_value('personnel_involved[4]');} ?>" ></td>
                                    
-                                   <td><input type="text" class="form-control" name="personnel_designation[]" value="<?php if(isset($load)){echo set_value('personnel_designation[]', $e[4]);}else{echo set_value('personnel_designation[]');} ?>" size="15"></td>
+                                   <td><input type="text" class="form-control" name="personnel_designation[4]" value="<?php if(isset($load)){echo set_value('personnel_designation[4]', $e[4]);}else{echo set_value('personnel_designation[4]');} ?>" ></td>
                                    
                                </tr>
                            </tbody>
                        </table>
+                       <span class="text-danger"><?php echo form_error('personnel_involved[0]'); ?></span>
+                       <span class="text-danger"><?php echo form_error('personnel_designation[0]'); ?></span>
                        
                    </div>
                    
@@ -279,7 +281,6 @@ if(!$this->session->userdata('isLogin')){
                            <label for="ibc_date">Date:</label>
                            <input type="date" name="IBC_date" class="form-control" value="<?php if(isset($load)){echo set_value('IBC_date', $item->IBC_date);}else{echo set_value('IBC_date');} ?>" size="15">
                            <span class="text-danger"><?php echo form_error('IBC_date'); ?></span>
-                           <span class="text-danger"><?php echo form_error('personnel_designation[]'); ?></span>
                        </div>
                    </div>
                 

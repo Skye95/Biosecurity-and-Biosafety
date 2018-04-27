@@ -33,8 +33,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $this->form_validation->set_rules('PI_training', 'Training', 'required');
             $this->form_validation->set_rules('PI_health', 'Health', 'required');
             $this->form_validation->set_rules('PI_other', 'Other', 'required');
-            //$this->form_validation->set_rules('personnel_involved[]', 'Personnel Involved', 'callback_fullname_check');
-            //$this->form_validation->set_rules('personnel_designation[]', 'Personnel Designation', 'alpha_numeric_spaces');
+            $this->form_validation->set_rules('personnel_involved[0]', 'Personnel Involved', 'required|callback_fullname_check');
+            $this->form_validation->set_rules('personnel_designation[0]', 'Personnel Designation', 'required|alpha_numeric_spaces');
             $this->form_validation->set_rules('IBC_name', 'IBC name', 'required');
             $this->form_validation->set_rules('IBC_date', 'IBC date', 'required');
             

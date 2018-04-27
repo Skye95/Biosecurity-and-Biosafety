@@ -1,3 +1,9 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+if(!$this->session->userdata('isLogin')){
+    redirect('landing/index');
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -39,11 +45,37 @@
 <body>
     <?php include_once 'template/navbar.php' ?>
     
+    <?php
+    
+    if(isset($load)){
+        foreach($retrieved as $item){
+            $newar1 = $item->project_personnel_name;
+            $newar2 = $item->project_personnel_role;
+            $newar3 = $item->project_SOP_title;
+            $newar4 = $item->project_SOP_risk_title;
+            $newar5 = $item->project_facilities_building;
+            $newar6 = $item->project_facilities_room;
+            $a = explode(",", $newar1);
+            $b = explode(",", $newar2);
+            $c = explode(",", $newar3);
+            $d = explode(",", $newar4);
+            $e = explode(",", $newar5);
+            $f = explode(",", $newar6);
+        }
+        
+        
+    }else{
+           
+        }
+    
+    ?>
+    
     <div class="container">
         <div class="row">
             
             <div class="col-md-10">
-               <form class="form-horizontal">
+               <?php echo form_open('biohazard/index'); ?>
+                
                    <h4 class="centering"><u>Swinburne Biosafety Commitee</u></h4>
                    
                    <h3 class="centering">Application for biosafety clearance for use of</h3>
@@ -76,10 +108,11 @@
                        </thead>
                        <tbody>
                            <tr>
-                              <td colspan="2"><input type="text" name="project_title" class="form-control"></td> 
+                              <td colspan="2"><input type="text" name="project_title" class="form-control" value="<?php if(isset($load)){echo set_value('project_title', $item->project_title);}else{echo set_value('project_title');} ?>"></td> 
                            </tr>
                        </tbody>
                    </table>
+                <span class="text-danger"><?php echo form_error('project_title'); ?></span>
                    
                    <table class="table table-bordered">
                        <thead>
@@ -90,16 +123,19 @@
                        </thead>
                        <tbody>
                            <tr>
-                               <td colspan="2">Name: <div class="form-group"><input type="text" class="form-control" name="project_supervisor_name"></div></td>
+                               <td colspan="2">Name: <div class="form-group"><input type="text" class="form-control" name="project_supervisor_name" value="<?php if(isset($load)){echo set_value('project_supervisor_name', $item->project_supervisor_name);}else{echo set_value('project_supervisor_name');} ?>"></div></td>
                            </tr>
                            <tr>
-                               <td colspan="2">Department: <div class="form-group"><input type="text" class="form-control" name="project_supervisor_department"></div></td>
+                               <td colspan="2">Department: <div class="form-group"><input type="text" class="form-control" name="project_supervisor_department" value="<?php if(isset($load)){echo set_value('project_supervisor_department', $item->project_supervisor_department);}else{echo set_value('project_supervisor_department');} ?>"></div></td>
                            </tr>
                            <tr>
-                               <td colspan="2">Email (MUST be Swinburne email address): <div class="form-group"><input type="email" class="form-control" name="project_supervisor_email_address"></div></td>
+                               <td colspan="2">Email (MUST be Swinburne email address): <div class="form-group"><input type="email" class="form-control" name="project_supervisor_email_address" value="<?php if(isset($load)){echo set_value('project_supervisor_email_address', $item->project_supervisor_email_address);}else{echo set_value('project_supervisor_email_address');} ?>"></div></td>
                            </tr>
                        </tbody>
                    </table>
+                <span class="text-danger"><?php echo form_error('project_supervisor_name'); ?></span>
+                <span class="text-danger"><?php echo form_error('project_supervisor_department'); ?></span>
+                <span class="text-danger"><?php echo form_error('project_supervisor_email_address'); ?></span>
                    
                    <table class="table table-bordered">
                        <thead>
@@ -110,16 +146,19 @@
                        </thead>
                        <tbody>
                            <tr>
-                               <td colspan="2">Name: <div class="form-group"><input type="text" class="form-control" name="project_alt_person"></div></td>
+                               <td colspan="2">Name: <div class="form-group"><input type="text" class="form-control" name="project_alt_person" value="<?php if(isset($load)){echo set_value('project_alt_person', $item->project_alt_person);}else{echo set_value('project_alt_person');} ?>"></div></td>
                            </tr>
                            <tr>
-                               <td colspan="2">Department: <div class="form-group"><input type="text" class="form-control" name="project_alt_department"></div></td>
+                               <td colspan="2">Department: <div class="form-group"><input type="text" class="form-control" name="project_alt_department" value="<?php if(isset($load)){echo set_value('project_alt_department', $item->project_alt_department);}else{echo set_value('project_alt_department');} ?>" ></div></td>
                            </tr>
                            <tr>
-                               <td colspan="2">Email (MUST be Swinburne email address): <div class="form-group"><input type="email" class="form-control" name="project_alt_email"></div></td>
+                               <td colspan="2">Email (MUST be Swinburne email address): <div class="form-group"><input type="email" class="form-control" name="project_alt_email" value="<?php if(isset($load)){echo set_value('project_alt_email', $item->project_alt_email);}else{echo set_value('project_alt_email');} ?>"></div></td>
                            </tr>
                        </tbody>
                    </table>
+                <span class="text-danger"><?php echo form_error('project_alt_person'); ?></span>
+                <span class="text-danger"><?php echo form_error('project_alt_department'); ?></span>
+                <span class="text-danger"><?php echo form_error('project_alt_email'); ?></span>
                    
                    <table class="table table-bordered">
                        <thead>
@@ -137,26 +176,29 @@
                                            <th>Role on project (e.g. PhD student, Research Assistant, Biosafety Officers, Laboratory Manager, co-Chief Investigator)</th>
                                        </tr>
                                        <tr>
-                                           <td><div class="form-group"><input type="text" class="form-control" name="project_personel_name"></div></td>
-                                           <td><div class="form-group"><input type="text" class="form-control" name="project_personel_role"></div></td>
+                                           <td><div class="form-group"><input type="text" class="form-control" name="project_personnel_name[0]" value="<?php if(isset($load)){echo set_value('project_personel_name[0]', $a[0]);}else{echo set_value('project_personel_name[0]');} ?>"></div></td>
+                                           
+                                           <td><div class="form-group"><input type="text" class="form-control" name="project_personnel_role[0]" value="<?php if(isset($load)){echo set_value('project_personel_role[0]', $b[0]);}else{echo set_value('project_personel_role[0]');} ?>"></div></td>
                                        </tr>
                                        <tr>
-                                           <td><div class="form-group"><input type="text" class="form-control" name="project_personel_name"></div></td>
-                                           <td><div class="form-group"><input type="text" class="form-control" name="project_personel_role"></div></td>
+                                           <td><div class="form-group"><input type="text" class="form-control" name="project_personnel_name[1]" value="<?php if(isset($load)){echo set_value('project_personel_name[1]', $a[1]);}else{echo set_value('project_personel_name[1]');} ?>"></div></td>
+                                           <td><div class="form-group"><input type="text" class="form-control" name="project_personnel_role[1]" value="<?php if(isset($load)){echo set_value('project_personel_role[1]', $b[1]);}else{echo set_value('project_personel_role[1]');} ?>"></div></td>
                                        </tr>
                                        <tr>
-                                           <td><div class="form-group"><input type="text" class="form-control" name="project_personel_name"></div></td>
-                                           <td><div class="form-group"><input type="text" class="form-control" name="project_personel_role"></div></td>
+                                           <td><div class="form-group"><input type="text" class="form-control" name="project_personnel_name[2]" value="<?php if(isset($load)){echo set_value('project_personel_name[2]', $a[2]);}else{echo set_value('project_personel_name[2]');} ?>"></div></td>
+                                           <td><div class="form-group"><input type="text" class="form-control" name="project_personnel_role[2]" value="<?php if(isset($load)){echo set_value('project_personel_role[2]', $b[2]);}else{echo set_value('project_personel_role[2]');} ?>"></div></td>
                                        </tr>
                                        <tr>
-                                           <td><div class="form-group"><input type="text" class="form-control" name="project_personel_name"></div></td>
-                                           <td><div class="form-group"><input type="text" class="form-control" name="project_personel_role"></div></td>
+                                           <td><div class="form-group"><input type="text" class="form-control" name="project_personnel_name[3]" value="<?php if(isset($load)){echo set_value('project_personel_name[3]', $a[3]);}else{echo set_value('project_personel_name[3]');} ?>"></div></td>
+                                           <td><div class="form-group"><input type="text" class="form-control" name="project_personnel_role[3]" value="<?php if(isset($load)){echo set_value('project_personel_role[3]', $b[3]);}else{echo set_value('project_personel_role[3]');} ?>"></div></td>
                                        </tr>
                                    </table>
                                </td>
                            </tr>
                        </tbody>
                    </table>
+                <span class="text-danger"><?php echo form_error('project_personnel_name[0]'); ?></span>
+                <span class="text-danger"><?php echo form_error('project_personnel_role[0]'); ?></span>
                    
                    <table class="table table-bordered">
                        <thead>
@@ -166,7 +208,7 @@
                        <tbody>
                            <tr>
                                <td>
-                                   <input type="checkbox" class="form-control" name="proposed_work_known">
+                                   <input type="checkbox" value="1" class="form-control" name="proposed_work_known" <?php echo set_checkbox('proposed_work_known', '1'); ?> <?php if(isset($load)){if($item->proposed_work_known==1){echo "checked=checked";}}else{} ?>>
                                </td>
                                <td>
                                    Handling clinical or environmental samples that are known to contain Risk Group 2 microorganisms
@@ -174,7 +216,7 @@
                            </tr>
                            <tr>
                                <td>
-                                   <input type="checkbox" class="form-control" name="proposed_work_may">
+                                   <input type="checkbox" value="1" class="form-control" name="proposed_work_may" <?php echo set_checkbox('proposed_work_may', '1'); ?> <?php if(isset($load)){if($item->proposed_work_may==1){echo "checked=checked";}}else{} ?> >
                                </td>
                                <td>
                                    Handling clinical or environmental samples that may contain Risk Group 2 microorganisms
@@ -182,7 +224,7 @@
                            </tr>
                            <tr>
                                <td>
-                                   <input type="checkbox" class="form-control" name="proposed_work_unknown">
+                                   <input type="checkbox" value="1" class="form-control" name="proposed_work_unknown" <?php echo set_checkbox('proposed_work_unknown', '1'); ?> <?php if(isset($load)){if($item->proposed_work_unknown==1){echo "checked=checked";}}else{} ?>>
                                </td>
                                <td>
                                    Isolation, enrichment or culture of unknown microorganisms from clinical or environmental samples that are likely to contain Risk Group 2 microorganisms
@@ -190,7 +232,7 @@
                            </tr>
                            <tr>
                                <td>
-                                   <input type="checkbox" class="form-control" name="proposed_work_isolation">
+                                   <input type="checkbox" value="1" class="form-control" name="proposed_work_isolation" <?php echo set_checkbox('proposed_work_isolation', '1'); ?> <?php if(isset($load)){if($item->proposed_work_isolation==1){echo "checked=checked";}}else{} ?>>
                                </td>
                                <td>
                                    Isolation or culture of a known Risk Group 2 microorganism
@@ -198,7 +240,7 @@
                            </tr>
                            <tr>
                                <td>
-                                   <input type="checkbox" class="form-control" name="proposed_work_risk">
+                                   <input type="checkbox" value="1" class="form-control" name="proposed_work_risk" <?php echo set_checkbox('proposed_work_risk', '1'); ?> <?php if(isset($load)){if($item->proposed_work_risk==1){echo "checked=checked";}}else{} ?> >
                                </td>
                                <td>
                                    Work involving Risk Group 3 or 4 microorganisms
@@ -206,7 +248,7 @@
                            </tr>
                            <tr>
                                <td>
-                                   <input type="checkbox" class="form-control" name="proposed_work_sensitive">
+                                   <input type="checkbox" value="1" class="form-control" name="proposed_work_sensitive" <?php echo set_checkbox('proposed_work_sensitive', '1'); ?> <?php if(isset($load)){if($item->proposed_work_sensitive==1){echo "checked=checked";}}else{} ?> >
                                </td>
                                <td>
                                    Work involving Security Sensitive Biological Agents 
@@ -214,7 +256,7 @@
                            </tr>
                            <tr>
                                <td>
-                                   <input type="checkbox" class="form-control" name="proposed_work_other">
+                                   <input type="checkbox" value="1" class="form-control" name="proposed_work_other" <?php echo set_checkbox('proposed_work_other', '1'); ?> <?php if(isset($load)){if($item->proposed_work_other==1){echo "checked=checked";}}else{} ?> >
                                </td>
                                <td>
                                    Other (ensure you describe in Part 7)
@@ -231,11 +273,12 @@
                        <tbody>
                            <tr>
                                <td colspan="2">
-                                  <div class="form-group"><textarea rows="6" name="project_summary" class="form-control"></textarea></div> 
+                                  <div class="form-group"><textarea rows="6" name="project_summary" class="form-control"><?php if(isset($load)){echo set_value('project_summary', $item->project_summary);}else{echo set_value('project_summary');} ?></textarea></div> 
                                </td>
                            </tr>
                        </tbody>
                    </table>
+                <span class="text-danger"><?php echo form_error('project_summary'); ?></span>
                    
                    <table class="table table-bordered">
                        <thead>
@@ -245,11 +288,12 @@
                        <tbody>
                            <tr>
                                <td colspan="2">
-                                  <div class="form-group"><textarea rows="6" name="project_activity" class="form-control"></textarea></div> 
+                                  <div class="form-group"><textarea rows="6" name="project_activity" class="form-control"><?php if(isset($load)){echo set_value('project_activity', $item->project_activity);}else{echo set_value('project_activity');} ?></textarea></div> 
                                </td>
                            </tr>
                        </tbody>
                    </table>
+                <span class="text-danger"><?php echo form_error('project_activity'); ?></span>
                    
                    <table class="table table-bordered">
                        <thead>
@@ -271,31 +315,31 @@
                                        <tr>
                                            <td>
                                                <div class="form-group">
-                                                   <input type="text" class="form-control" name="project_SOP">
+                                                   <input type="text" class="form-control" name="project_SOP_title[0]" value="<?php if(isset($load)){echo set_value('project_SOP_title[0]', $c[0]);}else{echo set_value('project_SOP_title[0]');} ?>">
                                                </div>
                                            </td>
                                            <td>
-                                               <input type="text" class="form-control" name="project_SOP_title">
+                                               <input type="text" class="form-control" name="project_SOP_risk_title[0]" value="<?php if(isset($load)){echo set_value('project_SOP_risk_title[0]', $d[0]);}else{echo set_value('project_SOP_risk_title[0]');} ?>" >
                                            </td>
                                        </tr>
                                        <tr>
                                            <td>
                                                <div class="form-group">
-                                                   <input type="text" class="form-control" name="project_SOP">
+                                                   <input type="text" class="form-control" name="project_SOP_title[1]" value="<?php if(isset($load)){echo set_value('project_SOP_title[1]', $c[1]);}else{echo set_value('project_SOP_title[1]');} ?>" >
                                                </div>
                                            </td>
                                            <td>
-                                               <input type="text" class="form-control" name="project_SOP_title">
+                                               <input type="text" class="form-control" name="project_SOP_risk_title[1]" value="<?php if(isset($load)){echo set_value('project_SOP_risk_title[1]', $d[1]);}else{echo set_value('project_SOP_risk_title[1]');} ?>">
                                            </td>
                                        </tr>
                                        <tr>
                                            <td>
                                                <div class="form-group">
-                                                   <input type="text" class="form-control" name="project_SOP">
+                                                   <input type="text" class="form-control" name="project_SOP_title[2]" value="<?php if(isset($load)){echo set_value('project_SOP_title[2]', $c[2]);}else{echo set_value('project_SOP_title[2]');} ?>" >
                                                </div>
                                            </td>
                                            <td>
-                                               <input type="text" class="form-control" name="project_SOP_title">
+                                               <input type="text" class="form-control" name="project_SOP_risk_title[2]" value="<?php if(isset($load)){echo set_value('project_SOP_risk_title[2]', $d[2]);}else{echo set_value('project_SOP_risk_title[2]');} ?>" >
                                            </td>
                                        </tr>
                                    </table>
@@ -303,6 +347,8 @@
                            </tr>
                        </tbody>
                    </table>
+                <span class="text-danger"><?php echo form_error('project_SOP_title[0]'); ?></span>
+                <span class="text-danger"><?php echo form_error('project_SOP_risk_title[0]'); ?></span>
                    
                    <table class="table table-bordered">
                        <thead>
@@ -323,18 +369,18 @@
                                        </tr>
                                        <tr>
                                            <td>
-                                               <input type="text" class="form-control" name="project_facilities_building">
+                                               <input type="text" class="form-control" name="project_facilities_building[0]" value="<?php if(isset($load)){echo set_value('project_facilities_building[0]', $e[0]);}else{echo set_value('project_facilities_building[0]');} ?>" >
                                            </td>
                                            <td>
-                                               <input type="text" class="form-control" name="project_facilities_room">
+                                               <input type="text" class="form-control" name="project_facilities_room[0]" value="<?php if(isset($load)){echo set_value('project_facilities_room[0]', $f[0]);}else{echo set_value('project_facilities_room[0]');} ?>" >
                                            </td>
                                        </tr>
                                        <tr>
                                            <td>
-                                               <input type="text" class="form-control" name="project_facilities_building">
+                                               <input type="text" class="form-control" name="project_facilities_building[1]" value="<?php if(isset($load)){echo set_value('project_facilities_building[1]', $e[1]);}else{echo set_value('project_facilities_building[1]');} ?>" >
                                            </td>
                                            <td>
-                                               <input type="text" class="form-control" name="project_facilities_room">
+                                               <input type="text" class="form-control" name="project_facilities_room[1]" value="<?php if(isset($load)){echo set_value('project_facilities_room[1]', $f[1]);}else{echo set_value('project_facilities_room[1]');} ?>" >
                                            </td>
                                        </tr>
                                    </table>
@@ -342,6 +388,8 @@
                            </tr>
                        </tbody>
                    </table>
+                <span class="text-danger"><?php echo form_error('project_facilities_building[0]'); ?></span>
+                <span class="text-danger"><?php echo form_error('project_facilities_room[0]'); ?></span>
                    
                    <table class="table table-bordered">
                        <thead>
@@ -353,15 +401,15 @@
                                <td colspan="2">
                                    Has/have the Biosafety Officer and/or Lab Manager responsible for the facilities where the work is to be conducted been made aware of this application and approve the use of the facility for this project? 
                                    
-                                   <label class="checkbox-inline"><input type="checkbox" value="" name="officer_notified">Yes</label>
+                                   <label class="checkbox-inline"><input type="checkbox" value="1" name="officer_notified" <?php echo set_checkbox('officer_notified', '1'); ?> <?php if(isset($load)){if($item->officer_notified==1){echo "checked=checked";}}else{} ?>>Yes</label>
                                                
-                                   <label class="checkbox-inline"><input type="checkbox" value="" name="officer_notified">No</label>
+                                   <label class="checkbox-inline"><input type="checkbox" value="0" name="officer_notified" <?php echo set_checkbox('officer_notified', '1'); ?> <?php if(isset($load)){if($item->officer_notified==0){echo "checked=checked";}}else{} ?> >No</label>
                                </td>
                            </tr>
                            <tr>
                                <td colspan="2">
                                    Name and signature of Biosafety Officer(s)/Lab Manager:
-                                  <div class="form-group"><input type="text" class="form-control" name="officer_name"></div>
+                                  <div class="form-group"><input type="text" class="form-control" name="officer_name" value="<?php if(isset($load)){echo set_value('officer_name', $item->officer_name);}else{echo set_value('officer_name');} ?>"></div>
                                </td>
                            </tr>
                        </tbody>
@@ -393,9 +441,12 @@
                        </tbody>
                    </table>
       
-                   <input type="submit" class="btn btn-primary" name="submit" value="Submit">
+                   <div>
+                       <button name="submit" type="submit" class="btn btn-primary">Submit</button>
+                       <a class="btn btn-primary" href="<?php echo base_url(); ?>index.php/biohazard/load_form">Load</a>
+                   </div>
                    
-               </form>
+               <?php echo form_close(); ?>
             </div>
             
             <div class="col-md-2">

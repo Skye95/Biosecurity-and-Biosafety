@@ -1,3 +1,9 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+if(!$this->session->userdata('isLogin')){
+    redirect('landing/index');
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,6 +30,20 @@
 </head>    
 <body>
     <?php include_once 'template/navbar.php' ?>
+    
+    <?php
+    
+    if(isset($load)){
+        foreach($retrieved as $item){
+        
+        }
+        
+        
+    }else{
+           
+        }
+    
+    ?>
     
     <div class="container">
         <div class="row">
@@ -66,49 +86,49 @@
                        <ol type="a">
                            <li>Name of Principal Investigator: 
                                <div class="form_group">
-                                   <input type="text" class="form-control" name="identification_PI_name" value="<?php echo set_value('identification_PI_name'); ?>">
+                                   <input type="text" class="form-control" name="identification_PI_name" value="<?php if(isset($load)){echo set_value('identification_PI_name', $item->identification_PI_name);}else{echo set_value('identification_PI_name');} ?>">
                                    <span class="text-danger"><?php echo form_error('identification_PI_name'); ?></span>
                                </div>
                            </li>
                            <li>Email: 
                                <div class="form_group">
-                                   <input type="email" class="form-control" name="identification_email_address" value="<?php echo set_value('identification_email_address'); ?>">
+                                   <input type="email" class="form-control" name="identification_email_address" value="<?php if(isset($load)){echo set_value('identification_email_address', $item->identification_email_address);}else{echo set_value('identification_email_address');} ?>">
                                    <span class="text-danger"><?php echo form_error('identification_email_address'); ?></span>
                                </div>
                            </li>
                            <li>Faculty/Department: 
                                <div class="form_group">
-                                   <input type="text" class="form-control" name="identification_faculty" value="<?php echo set_value('identification_faculty'); ?>">
+                                   <input type="text" class="form-control" name="identification_faculty" value="<?php if(isset($load)){echo set_value('identification_faculty', $item->identification_faculty);}else{echo set_value('identification_faculty');} ?>">
                                    <span class="text-danger"><?php echo form_error('identification_faculty'); ?></span>
                                </div>
                            </li>
                            <li>Tel: 
                                <div class="form_group">
-                                   <input type="tel" class="form-control" name="identification_telephone" value="<?php echo set_value('identification_telephone'); ?>">
+                                   <input type="tel" class="form-control" name="identification_telephone" value="<?php if(isset($load)){echo set_value('identification_telephone', $item->identification_telephone);}else{echo set_value('identification_telephone');} ?>">
                                    <span class="text-danger"><?php echo form_error('identification_telephone'); ?></span>
                                </div>
                            </li>
                            <li>IBC Reference No.: 
                                <div class="form_group">
-                                   <input type="text" class="form-control" name="identification_IBC_reference_no" value="<?php echo set_value('identification_IBC_reference_no'); ?>">
+                                   <input type="text" class="form-control" name="identification_IBC_reference_no" value="<?php if(isset($load)){echo set_value('identification_IBC_reference_no', $item->identification_IBC_reference_no);}else{echo set_value('identification_IBC_reference_no');} ?>">
                                     <span class="text-danger"><?php echo form_error('identification_IBC_reference_no'); ?></span>
                                </div>
                            </li>
                            <li>NBB Reference No. (if applicable): 
                                <div class="form_group">
-                                   <input type="text" class="form-control" name="identification_NBB_reference_no" value="<?php echo set_value('identification_NBB_reference_no'); ?>">
+                                   <input type="text" class="form-control" name="identification_NBB_reference_no" value="<?php if(isset($load)){echo set_value('identification_NBB_reference_no', $item->identification_NBB_reference_no);}else{echo set_value('identification_NBB_reference_no');} ?>">
                                    <span class="text-danger"><?php echo form_error('identification_NBB_reference_no'); ?></span>
                                </div>
                            </li>
                            <li>Project Title:
                                <div class="form_group">
-                                   <input type="text" class="form-control" name="identification_project_title" value="<?php echo set_value('identification_project_title'); ?>">
+                                   <input type="text" class="form-control" name="identification_project_title" value="<?php if(isset($load)){echo set_value('identification_project_title', $item->identification_project_title);}else{echo set_value('identification_project_title');} ?>">
                                    <span class="text-danger"><?php echo form_error('identification_project_title'); ?></span>
                                </div>
                            </li>
                            <li>Identify LMO/rDNA materials:
                                <div class="form_group">
-                                   <input type="text" class="form-control" name="identification_LMO_rDNA" value="<?php echo set_value('identification_LMO_rDNA'); ?>">
+                                   <input type="text" class="form-control" name="identification_LMO_rDNA" value="<?php if(isset($load)){echo set_value('identification_LMO_rDNA', $item->identification_LMO_rDNA);}else{echo set_value('identification_LMO_rDNA');} ?>">
                                    <span class="text-danger"><?php echo form_error('identification_LMO_rDNA'); ?></span>
                                </div>
                            </li>
@@ -120,7 +140,7 @@
                        
                        <div class="radio">
                            <label>
-                               <input type="radio" value="<?php echo set_value('request_type'); ?>" name="request_type">
+                               <input type="radio" value="1" name="request_type" <?php echo set_radio('request_type', '1'); ?> <?php if(isset($load)){if($item->request_type==1){echo "checked=checked";}}else{} ?> >
                                &nbsp;request extend IBC approval of my use/possession of the LMO/rDNA materials described above. (Complete &nbsp;&nbsp;&nbsp;&nbsp;Sections C, and D below)
                            </label>
                        </div>
@@ -133,7 +153,7 @@
                        
                        <div class="radio">
                            <label>
-                               <input type="radio" value="<?php echo set_value('request_type'); ?>" name="request_type">&nbsp;request termination of IBC approval. Describe when and how the LMO/rDNA materials identified above will be &nbsp;&nbsp;&nbsp;&nbsp; disposed of:
+                               <input type="radio" value="2" name="request_type" <?php echo set_radio('request_type', '2'); ?> <?php if(isset($load)){if($item->request_type==2){echo "checked=checked";}}else{} ?> >&nbsp;request termination of IBC approval. Describe when and how the LMO/rDNA materials identified above will be &nbsp;&nbsp;&nbsp;&nbsp; disposed of:
                            </label>
                        </div>
                        
@@ -146,38 +166,47 @@
                        <ol type="a">
                            <li>
                                Will the Principal Investigator change?<br>
-                                   <label class="radio-inline"><input type="radio" value="<?php echo set_value('PI_change'); ?>" name="PI_change">Yes</label>
-                                   <label class="radio-inline"><input type="radio" value="<?php echo set_value('PI_change'); ?>" name="PI_change">No</label>
+                                   <label class="radio-inline"><input type="radio" value="1" name="PI_change" <?php echo set_radio('PI_change', '1'); ?> <?php if(isset($load)){if($item->PI_change==1){echo "checked=checked";}}else{} ?> >Yes</label>
+                               
+                                   <label class="radio-inline"><input type="radio" value="0" name="PI_change" <?php echo set_radio('PI_change', '0'); ?> <?php if(isset($load)){if($item->PI_change==0){echo "checked=checked";}}else{} ?> >No</label>
                                <span class="text-danger"><?php echo form_error('PI_change'); ?></span>
                            </li>
                            <li>
                                Will the Risk Group (RG) change?<br>
-                                   <label class="radio-inline"><input type="radio" value="<?php echo set_value('RG_change'); ?>" name="RG_change">Yes</label>                              
-                                   <label class="radio-inline"><input type="radio" value="<?php echo set_value('RG_change'); ?>" name="RG_change">No</label>
+                                   <label class="radio-inline"><input type="radio" value="1" name="RG_change" <?php echo set_radio('RG_change', '1'); ?> <?php if(isset($load)){if($item->RG_change==1){echo "checked=checked";}}else{} ?>>Yes</label>
+                               
+                                   <label class="radio-inline"><input type="radio" value="0" name="RG_change" <?php echo set_radio('RG_change', '0'); ?> <?php if(isset($load)){if($item->RG_change==0){echo "checked=checked";}}else{} ?>>No</label>
                                <span class="text-danger"><?php echo form_error('RG_change'); ?></span>
                            </li>
                            <li>
                                Will the Biosafety Level (BSL) change?<br>
-                               <label class="radio-inline"><input type="radio" value="<?php echo set_value('BSL_change'); ?>" name="BSL_change">Yes</label>                              
-                               <label class="radio-inline"><input type="radio" value="<?php echo set_value('BSL_change'); ?>" name="BSL_change">No</label>
+                               <label class="radio-inline"><input type="radio" value="1" name="BSL_change" <?php echo set_radio('BSL_change', '1'); ?> <?php if(isset($load)){if($item->BSL_change==1){echo "checked=checked";}}else{} ?> >Yes</label> 
+                               
+                               <label class="radio-inline"><input type="radio" value="0" name="BSL_change" <?php echo set_radio('BSL_change', '0'); ?> <?php if(isset($load)){if($item->BSL_change==0){echo "checked=checked";}}else{} ?> >No</label>
+                               
                                <span class="text-danger"><?php echo form_error('BSL_change'); ?></span>
                            </li>
                            <li>
                                Will the type or amount of LMO/rDNA materials change?<br>
-                               <label class="radio-inline"><input type="radio" value="<?php echo set_value('LMO_rDNA_type_change'); ?>" name="LMO_rDNA_type_change">Yes</label>                              
-                               <label class="radio-inline"><input type="radio" value="<?php echo set_value('LMO_rDNA_type_change'); ?>" name="LMO_rDNA_type_change">No</label>
+                               <label class="radio-inline"><input type="radio" value="1" name="LMO_rDNA_type_change" <?php echo set_radio('LMO_rDNA_type_change', '1'); ?> <?php if(isset($load)){if($item->LMO_rDNA_type_change==1){echo "checked=checked";}}else{} ?>>Yes</label>         
+                               
+                               <label class="radio-inline"><input type="radio" value="0" name="LMO_rDNA_type_change" <?php echo set_radio('LMO_rDNA_type_change', '0'); ?> <?php if(isset($load)){if($item->LMO_rDNA_type_change==0){echo "checked=checked";}}else{} ?>>No</label>
+                               
                                <span class="text-danger"><?php echo form_error('LMO_rDNA_type_change'); ?></span>
                            </li>
                            <li>
                                Will the LMO/rDNA materials be moved to another laboratory?<br>
-                               <label class="radio-inline"><input type="radio" value="<?php echo set_value('LMO_rDNA_moved'); ?>" name="LMO_rDNA_moved">Yes</label>                              
-                               <label class="radio-inline"><input type="radio" value="<?php echo set_value('LMO_rDNA_moved'); ?>" name="LMO_rDNA_moved">No</label>
+                               <label class="radio-inline"><input type="radio" value="1" name="LMO_rDNA_moved" <?php echo set_radio('LMO_rDNA_moved', '1'); ?> <?php if(isset($load)){if($item->LMO_rDNA_moved==1){echo "checked=checked";}}else{} ?>>Yes</label>     
+                               
+                               <label class="radio-inline"><input type="radio" value="0" name="LMO_rDNA_moved" <?php echo set_radio('LMO_rDNA_moved', '0'); ?> <?php if(isset($load)){if($item->LMO_rDNA_moved==0){echo "checked=checked";}}else{} ?>>No</label>
                                <span class="text-danger"><?php echo form_error('LMO_rDNA_moved'); ?></span>
                            </li>
                           <li>
                                Will the use of the LMO/rDNA materials change?<br>
-                               <label class="radio-inline"><input type="radio" value="<?php echo set_value('LMO_rDNA_usage_change'); ?>" name="LMO_rDNA_usage_change">Yes</label>                             
-                               <label class="radio-inline"><input type="radio" value="<?php echo set_value('LMO_rDNA_usage_change'); ?>" name="LMO_rDNA_usage_change">No</label>
+                               <label class="radio-inline"><input type="radio" value="1" name="LMO_rDNA_usage_change" <?php echo set_radio('LMO_rDNA_usage_change', '1'); ?> <?php if(isset($load)){if($item->LMO_rDNA_moved==1){echo "checked=checked";}}else{} ?> >Yes</label>               
+                              
+                               <label class="radio-inline"><input type="radio" value="0" name="LMO_rDNA_usage_change" <?php echo set_radio('LMO_rDNA_usage_change', '0'); ?> <?php if(isset($load)){if($item->LMO_rDNA_moved==0){echo "checked=checked";}}else{} ?> >No</label>
+                              
                               <span class="text-danger"><?php echo form_error('LMO_rDNA_usage_change'); ?></span>
                            </li>
                        </ol>
@@ -194,14 +223,16 @@
                        <ol type="a">
                            <li>
                                Have any adverse events occurred since the project approval or last request for project extension approval?<br>
-                               <label class="radio-inline"><input type="radio" value="<?php echo set_value('adverse_events'); ?>" name="adverse_events">Yes</label>                             
-                               <label class="radio-inline"><input type="radio" value="<?php echo set_value('adverse_events'); ?>" name="adverse_events">No</label>
+                               <label class="radio-inline"><input type="radio" value="1" name="adverse_events" <?php echo set_radio('adverse_events', '1'); ?> <?php if(isset($load)){if($item->adverse_events==1){echo "checked=checked";}}else{} ?> >Yes</label>                             
+                               <label class="radio-inline"><input type="radio" value="0" name="adverse_events" <?php echo set_radio('adverse_events', '0'); ?> <?php if(isset($load)){if($item->adverse_events==0){echo "checked=checked";}}else{} ?> >No</label>
+                               
                                <span class="text-danger"><?php echo form_error('adverse_events'); ?></span>
                            </li>
                            <li>
                                If so, was an Incident Reporting Form submitted to the IBC as required by the IBC regulation?<br>
-                               <label class="radio-inline"><input type="radio" value="<?php echo set_value('incident_report'); ?>" name="incident_report">Yes</label>                             
-                               <label class="radio-inline"><input type="radio" value="<?php echo set_value('incident_report'); ?>" name="incident_report">No</label>
+                               <label class="radio-inline"><input type="radio" value="1" name="incident_report" <?php echo set_radio('incident_report', '1'); ?> <?php if(isset($load)){if($item->incident_report==1){echo "checked=checked";}}else{} ?>>Yes</label>
+                               
+                               <label class="radio-inline"><input type="radio" value="0" name="incident_report" <?php echo set_radio('incident_report', '0'); ?> <?php if(isset($load)){if($item->incident_report==0){echo "checked=checked";}}else{} ?>>No</label>
                                <span class="text-danger"><?php echo form_error('incident_report'); ?></span>
                                
                            </li>
@@ -221,12 +252,12 @@
                            <p>Signature of Principal Investigator</p>
                            <label class="control-label col-sm-2" for="signature_PI_name">Name:</label>
                            <div class="col-sm-10">
-                               <input type="text" class="form-control" name="signature_PI_name" value="<?php echo set_value('signature_PI_name'); ?>">
+                               <input type="text" class="form-control" name="signature_PI_name" value="<?php if(isset($load)){echo set_value('signature_PI_name', $item->signature_PI_name);}else{echo set_value('signature_PI_name');} ?>">
                                <span class="text-danger"><?php echo form_error('signature_PI_name'); ?></span>
                            </div>
                            <label class="control-label col-sm-2" for="signature_PI_date">Date:</label>
                            <div class="col-sm-10">
-                               <input type="date" class="form-control" name="signature_PI_date" value="<?php echo set_value('signature_PI_date'); ?>">
+                               <input type="date" class="form-control" name="signature_PI_date" value="<?php if(isset($load)){echo set_value('signature_PI_date', $item->signature_PI_date);}else{echo set_value('signature_PI_date');} ?>">
                                <span class="text-danger"><?php echo form_error('signature_PI_date'); ?></span>
                            </div>
                            
@@ -237,12 +268,12 @@
                            <p>Signature of Biosafety Officer</p>
                            <label class="control-label col-sm-2" for="signature_BO_name">Name:</label>
                            <div class="col-sm-10">
-                               <input type="text" class="form-control" name="signature_BO_name" value="<?php echo set_value('signature_BO_name'); ?>">
+                               <input type="text" class="form-control" name="signature_BO_name" value="<?php if(isset($load)){echo set_value('signature_BO_name', $item->signature_BO_name);}else{echo set_value('signature_BO_name');} ?>">
                                <span class="text-danger"><?php echo form_error('signature_BO_name'); ?></span>
                            </div>
                            <label class="control-label col-sm-2" for="signature_BO_date">Date:</label>
                            <div class="col-sm-10">
-                               <input type="date" class="form-control" name="signature_BO_date" value="<?php echo set_value('signature_BO_date'); ?>">
+                               <input type="date" class="form-control" name="signature_BO_date" value="<?php if(isset($load)){echo set_value('signature_BO_date', $item->signature_BO_date);}else{echo set_value('signature_BO_date');} ?>">
                                <span class="text-danger"><?php echo form_error('signature_BO_date'); ?></span>
                            </div>
                            
@@ -255,12 +286,12 @@
                            <p>Signature of IBC Chair</p>
                            <label class="control-label col-sm-2" for="signature_IBC_name">Name:</label>
                            <div class="col-sm-10">
-                               <input type="text" class="form-control" name="signature_IBC_name" value="<?php echo set_value('signature_IBC_name'); ?>">
+                               <input type="text" class="form-control" name="signature_IBC_name" value="<?php if(isset($load)){echo set_value('signature_IBC_name', $item->signature_IBC_name);}else{echo set_value('signature_IBC_name');} ?>">
                                <span class="text-danger"><?php echo form_error('signature_IBC_name'); ?></span>
                            </div>
                            <label class="control-label col-sm-2" for="signature_IBC_date" >Date:</label>
                            <div class="col-sm-10">
-                               <input type="date" class="form-control" name="signature_IBC_date" value="<?php echo set_value('signature_IBC_date'); ?>">
+                               <input type="date" class="form-control" name="signature_IBC_date" value="<?php if(isset($load)){echo set_value('signature_IBC_date', $item->signature_IBC_date);}else{echo set_value('signature_IBC_date');} ?>">
                                <span class="text-danger"><?php echo form_error('signature_IBC_date'); ?></span>
                            </div>
                        </div> 
@@ -284,17 +315,17 @@
                            
                             <div class="checkbox">
                               <label>
-                                  <input type="checkbox" name="IBC_approval[]" value="<?php echo set_value('IBC_approval[]'); ?>">Use /Possession Approved
+                                  <input type="checkbox" name="IBC_approval" value="1" <?php echo set_checkbox('IBC_approval', '1'); ?> <?php if(isset($load)){if($item->request_type==1){echo "checked=checked";}}else{} ?> >Use/Possession Approved
                                 </label>
                             </div>
                             <div class="checkbox">
                               <label>
-                                  <input type="checkbox" name="IBC_approval[]" value="<?php echo set_value('IBC_approval[]'); ?>">Use/Possession Disapproved
+                                  <input type="checkbox" name="IBC_approval" value="0" <?php echo set_checkbox('IBC_approval', '0'); ?> <?php if(isset($load)){if($item->request_type==0){echo "checked=checked";}}else{} ?> >Use/Possession Disapproved
                                 </label>
                             </div>
                             <div class="checkbox">
                               <label>
-                                  <input type="checkbox" name="IBC_termination" value="<?php echo set_value('IBC_termination[]'); ?>" >Termination Approved
+                                  <input type="checkbox" name="IBC_termination" value="1" <?php echo set_checkbox('IBC_termination', '1'); ?> <?php if(isset($load)){if($item->request_type==1){echo "checked=checked";}}else{} ?> >Termination Approved
                                 </label>
                             </div> 
                        </div>
@@ -304,6 +335,7 @@
                 
                    <div>
                        <button name="submit" type="submit" class="btn btn-primary">Submit</button>
+                       <a class="btn btn-primary" href="<?php echo base_url(); ?>index.php/annex5/load_form">Load</a>
                    </div>
                    
                <?php echo form_close(); ?>
