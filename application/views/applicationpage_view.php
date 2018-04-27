@@ -44,10 +44,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<div class="row">
             <a href="<?php echo base_url(); ?>index.php/newapplicationpage">		
                     <div class="option1 card col-md-9 hover1" title="New Application">
-                        <h5><span>NEW APPLICATION</span></h5>                    										
+                        <h5><span>NEW APPLICATION</span></h5>
                     </div>				
             </a>
-			
 		</div>
 				
     

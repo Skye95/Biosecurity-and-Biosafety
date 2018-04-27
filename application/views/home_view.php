@@ -86,10 +86,10 @@ if(!$this->session->userdata('isLogin')){
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6 col-6 portfolio-item">
                 <div class="card card-block justify-content-center align-items-center">
-                    <a href="#"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\Exporting of Biological Material.jpg') ?>" alt=""></a>
+                    <a href="<?php echo base_url(); ?>index.php/exportingbiologicalmaterialpage"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\Exporting of Biological Material.jpg') ?>" alt=""></a>
                     <div class="card-body">
                         <h6 class="card-title">
-                            <a href="#">Exporting of Biological Material</a>
+                            <a href="<?php echo base_url(); ?>index.php/exportingbiologicalmaterialpage">Exporting of Biological Material</a>
                         </h6>
                         <p class="card-text"></p>
                     </div>

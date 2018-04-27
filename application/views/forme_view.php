@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" href="<?php echo base_url()?>assets/css/styles.css" type="text/css">
         <title>Biosafety and Biosecurity Online System - Application for Biosafety Clearance for use of exempt dealings</title>
     
         <style>
@@ -81,6 +82,16 @@
         <?php include_once 'template/navbar.php' ?>
         
         <div class="container">
+            <div id='breadcrumb1'>
+            <ul>
+               <li><a href='<?php echo base_url(); ?>index.php/home'>Home</a></li>
+               <li><a href='<?php echo base_url(); ?>index.php/applicationpage'>Application</a></li>
+               <li><a href='<?php echo base_url(); ?>index.php/newapplicationpage'>New Application</a></li>
+               <li><a href='<?php echo base_url(); ?>index.php/livingmodifiedorganismpage'>Living Modified Organism Form</a></li>
+               <li class='active'><a>Form E</a></li>       
+            </ul>
+        </div>
+            <hr>
             <div class="row">
                 
                 <div class="col-md-11">

@@ -22,43 +22,35 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </head>
 
 <body>
+    <link rel="stylesheet" href="<?php echo base_url()?>assets/css/styles.css" type="text/css">
     <!-- Navigation -->
     <?php include_once 'template/navbar.php' ?>
 
     <!-- Page Content -->
     <div class="container">
         <!-- Page Heading -->
-        <h2 class="my-4 text-center">Welcome, <?php echo $this->session->userdata('account_name'); ?></h2>
+        <h2 class="my-4 text-center">Procurement Form Page</h2>
+        
+        <div id='breadcrumb1'>
+            <ul>
+               <li><a href='<?php echo base_url(); ?>index.php/home'>Home</a></li>
+               <li class='active'><a>Procurement of Biological Material</a></li>
+            </ul>
+        </div>	
 
-        <button type="button" class="btn" onclick="window.location='<?php echo base_url("index.php/newapplicationpage");?>'">Return</button>		
-		<h3>PRPCUREMENT FORM</h3>
+        	
 		<hr>
 	<div class="row" >
 	<div class="col-lg-5" >
-		<div>		
-			<div class="row">
-				<div class="col-md-7">
-					<a href="<?php echo base_url(); ?>index.php/exempt">
-						<img class="img-fluid rounded mb-3 mb-md-0" src="<?php echo base_url('assets\images\form\prepurchasematerial.jpg') ?>" 
-						alt="" title="OHS-F-4.18.X Pre-Purchase Material Risk Assessment Form">
-					</a>
-				</div>				
-			</div>
-			<hr>
-		</div>
-		
-		<div>		
-			<div class="row">
-				<div class="col-md-7">
-					<input type="file" id="myFile">
-				</div>				
-			</div>
-			<hr>
-		</div>
-		
-		
-					
-		</div>
+        
+        <div class="row">
+            <a href="<?php echo base_url(); ?>index.php/procurement">		
+                    <div class="option1 card col-md-9 hover1" title="OHS-F-4.18.X Pre-Purchase Material Risk Assessment Form">
+                        <h5><span>OHS-F-4.18.X Pre-Purchase Material Risk Assessment</span></h5>
+                    </div>				
+            </a>
+		</div>				
+    </div>
 		
 		<div class="col-lg-7">
 			<div>		
