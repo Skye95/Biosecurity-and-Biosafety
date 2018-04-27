@@ -29,7 +29,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <!-- Page Content -->
     <div class="container">
         <!-- Page Heading -->
-        <h2 class="my-4 text-center">Welcome, <?php echo $this->session->userdata('account_name'); ?></h2>
+        <h2 class="my-4 text-center">Application Page</h2>
 		
         <div id='breadcrumb1'>
             <ul>
@@ -37,48 +37,40 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                <li class='active'><a>Application</a></li>
             </ul>
         </div>	
-		<h3>Application Page</h3>
 		<hr>
 	<div class="row" >
 	<div class="col-lg-5" >
-		<div>		
-			<div class="row">
-				<div class="card card-block justify-content-center align-items-center">
-					<a href="<?php echo base_url(); ?>index.php/newapplicationpage">
-						<img class="img-fluid rounded mb-3 mb-md-0" src="<?php echo base_url('assets\images\ApplicantForm\New Application.jpg') ?>" 
-						alt="" title="New Application">
-					</a>
-				</div>				
-			</div>
-			<hr>
+        
+		<div class="row">
+            <a href="<?php echo base_url(); ?>index.php/newapplicationpage">		
+                    <div class="option1 card col-md-9 hover1" title="New Application">
+                        <h5><span>NEW APPLICATION</span></h5>                    										
+                    </div>				
+            </a>
+			
 		</div>
-		
-		
-		<div>		
-			<div class="row">
-				<div class="card card-block justify-content-center align-items-center">
-					<a href="#">
-						<img class="img-fluid rounded mb-3 mb-md-0" src="<?php echo base_url('assets\images\ApplicantForm\Modification of Approved Project.jpg') ?>" 
-						alt=""title="Modification of Approved Project">
-					</a>
-				</div>				
-			</div>
-			<hr>
+				
+    
+        <div class="row">
+            <a href="#">		
+                    <div class="option1 card col-md-9 hover1" title="Modification of Approved Project">
+                        <h5><span>MODIFICATION OF APPROVED PROJECT</span></h5>				
+                    </div>				
+                
+            </a>
+			
 		</div>
-		
-		
-		<div>		
-			<div class="row">
-				<div class="card card-block justify-content-center align-items-center">
-					<a href="<?php echo base_url(); ?>index.php/annex5">
-						<img class="img-fluid rounded mb-3 mb-md-0" src="<?php echo base_url('assets\images\ApplicantForm\ExtensionTermination of Approved Project.jpg') ?>" 
-						alt="" title="Extension/Termination of Approved Project">
-					</a>
-				</div>				
-			</div>
-			<hr>
-		</div>
-		</div>
+        
+        <div class="row">
+            <a href="<?php echo base_url(); ?>index.php/annex5">		
+                
+                    <div class="option1 card col-md-9 hover1" title="Extension/Termination of Approved Project">
+                        <h5><span>EXTENSION OR TERMINATION OF APPROVED PROJECT</span></h5>						
+                    </div>	            
+            </a>
+			
+        </div>
+	</div>
 		
 		<div class="col-lg-7">
 			<div>		
@@ -110,8 +102,5 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</div>					
 	</div>
 
-	</div>
-		
-    </div>
 </body>
 </html>

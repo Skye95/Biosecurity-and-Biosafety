@@ -1,3 +1,61 @@
+/*
+* === pages selection, Custom Button===
+*/
+div.option1 {
+	width: 500px;
+    height: 100px;
+  align-items: center;
+  justify-content: center }
+div.option1 h5 {
+  margin: 0 }
+  
+ 
+/*
+* === Hover Effect ===
+*/  
+.hover1 {
+  border-radius: 4px;
+  background-color: black;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.hover1 span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.hover1 span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.hover1:hover span {
+  padding-right: 25px;
+}
+
+.hover1:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+ 
+/*
+* === breadcrumb ===
+*/
+  
 #breadcrumb1{
   display: inline-block;
   position: relative;
