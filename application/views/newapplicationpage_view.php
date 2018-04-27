@@ -3,6 +3,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="<?php echo base_url()?>assets/css/styles.css" type="text/css">
+    
     <title>Swinburne Biosafety and Biosecurity Online System - New Application</title>
     
     <style>
@@ -28,51 +30,43 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <!-- Page Content -->
     <div class="container">
         <!-- Page Heading -->
-        <h2 class="my-4 text-center">Welcome, <?php echo $this->session->userdata('account_name'); ?></h2>
+        <h2 class="my-4 text-center">New Application Page</h2>
+        
+        <div id='breadcrumb1'>
+            <ul>
+               <li><a href='<?php echo base_url(); ?>index.php/home'>Home</a></li>
+               <li><a href='<?php echo base_url(); ?>index.php/applicationpage'>Application</a></li>
+               <li class='active'><a>New Application</a></li>           
+            </ul>
+        </div>
 
-        <button type="button" class="btn" onclick="window.location='<?php echo base_url("index.php/applicationpage");?>'">Return</button>		
-		<h3>New Application Page</h3>
 		<hr>
 	<div class="row" >
 	<div class="col-lg-5" >
-		<div>		
-			<div class="row">
-				<div class="col-md-7">
-					<a href="<?php echo base_url(); ?>index.php/livingmodifiedorganismpage">
-						<img class="img-fluid rounded mb-3 mb-md-0" src="<?php echo base_url('assets\images\ApplicantForm\Living Modified Organism.jpg') ?>" 
-						alt="" title="Living Modified Organism (LMO) Form Page">
-					</a>
-				</div>				
-			</div>
-			<hr>
+        <div class="row">
+            <a href="<?php echo base_url(); ?>index.php/livingmodifiedorganismpage">		
+                    <div class="option1 card col-md-9 hover1" title="Living Modified Organism (LMO) Form Page">
+                        <h5><span>Living Modified Organism (LMO)</span></h5>		
+                    </div>				
+            </a>
 		</div>
-		
-		
-		<div>		
-			<div class="row">
-				<div class="col-md-7">
-					<a href="<?php echo base_url(); ?>index.php/exemptdealingpage">
-						<img class="img-fluid rounded mb-3 mb-md-0" src="<?php echo base_url('assets\images\ApplicantForm\Exempt Dealing.jpg') ?>" 
-						alt=""title="Exempt Dealing Form Page">
-					</a>
-				</div>				
-			</div>
-			<hr>
+        
+        <div class="row">
+            <a href="<?php echo base_url(); ?>index.php/exemptdealingpage">		
+                    <div class="option1 card col-md-9 hover1" title="Exempt Dealing Form Page">
+                        <h5><span>EXEMPT DEALING</span></h5>		
+                    </div>				
+            </a>
 		</div>
-		
-		
-		<div>		
-			<div class="row">
-				<div class="col-md-7">
-					<a href="<?php echo base_url(); ?>index.php/biohazardous_materialpage">
-						<img class="img-fluid rounded mb-3 mb-md-0" src="<?php echo base_url('assets\images\ApplicantForm\Biohazardous Material.jpg') ?>" 
-						alt="" title="Biohazardous Material Form Page">
-					</a>
-				</div>				
-			</div>
-			<hr>
-		</div>
-		</div>
+        
+        <div class="row">
+            <a href="<?php echo base_url(); ?>index.php/biohazardous_materialpage">		
+                    <div class="option1 card col-md-9 hover1" title="Biohazardous Material Form Page">
+                        <h5><span>BIOHAZARDOUS MATERIAL</span></h5>		
+                    </div>				
+            </a>
+		</div>	
+    </div>
 		
 		<div class="col-lg-7">
 			<div>		

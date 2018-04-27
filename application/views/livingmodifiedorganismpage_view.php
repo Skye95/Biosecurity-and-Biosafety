@@ -3,6 +3,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="<?php echo base_url()?>assets/css/styles.css" type="text/css">
+    
     <title>Swinburne Biosafety and Biosecurity Online System - Living Modified Organism</title>
     
     <style>
@@ -28,88 +30,69 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <!-- Page Content -->
     <div class="container">
         <!-- Page Heading -->
-        <h2 class="my-4 text-center">Welcome, <?php echo $this->session->userdata('account_name'); ?></h2>
-
-        <button type="button" class="btn" onclick="window.location='<?php echo base_url("index.php/newapplicationpage");?>'">Return</button>		
-		<h3>Living Modified Organism Form Page</h3>
+        <h2 class="my-4 text-center">Living Modified Organism Form Page</h2>
+        
+        <div id='breadcrumb1'>
+            <ul>
+               <li><a href='<?php echo base_url(); ?>index.php/home'>Home</a></li>
+               <li><a href='<?php echo base_url(); ?>index.php/applicationpage'>Application</a></li>
+               <li><a href='<?php echo base_url(); ?>index.php/newapplicationpage'>New Application</a></li>
+               <li class='active'><a>Living Modified Organism Form</a></li>
+                
+            </ul>
+        </div>
+		
 		<hr>
 	<div class="row" >
 	<div class="col-lg-5" >
-		<div>		
-			<div class="row">
-				<div class="col-md-7">
-					<a href="<?php echo base_url(); ?>index.php/annex2">
-						<img class="img-fluid rounded mb-3 mb-md-0" src="<?php echo base_url('assets\images\form\annex2.jpg') ?>" 
-						alt="" title="Annex 2 IBC Assessment of Project Proposal Involving Modern Biotechnology Activities (new)">
-					</a>
-				</div>				
-			</div>
-			<hr>
+        <div class="row">
+            <a href="<?php echo base_url(); ?>index.php/annex2">		
+                    <div class="option1 card col-md-9 hover1" title="Annex 2 IBC Assessment of Project Proposal Involving Modern Biotechnology Activities">
+                        <h5><span>ANNEX 2</span></h5>		
+                    </div>				
+            </a>
+		</div>		
+		
+        <div class="row">
+            <a href="<?php echo base_url(); ?>index.php/forme">		
+                    <div class="option1 card col-md-9 hover1" title="NBB/N/CU/15/FORM E">
+                        <h5><span>FORM E</span></h5>		
+                    </div>				
+            </a>
 		</div>
-		
-		
-		<div>		
-			<div class="row">
-				<div class="col-md-7">
-					<a href="<?php echo base_url(); ?>index.php/forme">
-						<img class="img-fluid rounded mb-3 mb-md-0" src="<?php echo base_url('assets\images\form\forme.jpg') ?>" 
-						alt=""title="NBB/N/CU/15/FORM E">
-					</a>
-				</div>				
-			</div>
-			<hr>
+        
+        <div class="row">
+            <a href="<?php echo base_url(); ?>index.php/pc1">		
+                    <div class="option1 card col-md-9 hover1" title="Application for Notifiable Low Risk Dealings (NLRDs) suitable for Physical Containment level 1 (PC1)">
+                        <h5><span>SBC - APPLICATION FOR NLRDS SUITABLE FOR PC1</span></h5>	
+                    </div>				
+            </a>
 		</div>
-		
-		
-		<div>		
-			<div class="row">
-				<div class="col-md-7">
-					<a href="<?php echo base_url(); ?>index.php/pc1">
-						<img class="img-fluid rounded mb-3 mb-md-0" src="<?php echo base_url('assets\images\form\pc1.jpg') ?>" 
-						alt="" title="Application for Notifiable Low Risk Dealings (NLRDs) suitable for Physical Containment level 1 (PC1)">
-					</a>
-				</div>				
-			</div>
-			<hr>
+        
+        <div class="row">
+            <a href="<?php echo base_url(); ?>index.php/pc2">		
+                    <div class="option1 card col-md-9 hover1" title="Application for Notifiable Low Risk Dealings (NLRDs) suitable for Physical Containment level 2 (PC2)">
+                        <h5><span>SBC - APPLICATION FOR NLRDS SUITABLE FOR PC2</span></h5>	
+                    </div>				
+            </a>
 		</div>
-		
-		<div>		
-			<div class="row">
-				<div class="col-md-7">
-					<a href="<?php echo base_url(); ?>index.php/pc2">
-						<img class="img-fluid rounded mb-3 mb-md-0" src="<?php echo base_url('assets\images\form\pc2.jpg') ?>" 
-						alt="" title="Application for Notifiable Low Risk Dealings (NLRDs) suitable for Physical Containment level 2 (PC2)">
-					</a>
-				</div>				
-			</div>
-			<hr>
+        
+        <div class="row">
+            <a href="<?php echo base_url(); ?>index.php/hirarc">		
+                    <div class="option1 card col-md-9 hover1" title="OHS-F-4.5.X HIRARC Form - Hazard Identification, Risk Assessment, Risk Control (HIRARC)">
+                        <h5><span>OHS-F-4.5.X HIRARC FORM</span></h5>	
+                    </div>				
+            </a>
 		</div>
-		
-		<div>		
-			<div class="row">
-				<div class="col-md-7">
-					<a href="<?php echo base_url(); ?>index.php/hirarc">
-						<img class="img-fluid rounded mb-3 mb-md-0" src="<?php echo base_url('assets\images\form\hirarc.jpg') ?>" 
-						alt="" title="OHS-F-4.5.X HIRARC Form - Hazard Identification, Risk Assessment, Risk Control (HIRARC)">
-					</a>
-				</div>				
-			</div>
-			<hr>
+        
+        <div class="row">
+            <a href="<?php echo base_url(); ?>index.php/swp">		
+                    <div class="option1 card col-md-9 hover1" title="SSBC_001 Safe Work Procedure (SWP)">
+                        <h5><span>SSBC SAFE WORK PROCEDURE</span></h5>	
+                    </div>				
+            </a>
 		</div>
-		
-		<div>		
-			<div class="row">
-				<div class="col-md-7">
-					<a href="<?php echo base_url(); ?>index.php/swp">
-						<img class="img-fluid rounded mb-3 mb-md-0" src="<?php echo base_url('assets\images\form\swp.jpg') ?>" 
-						alt="" title="SSBC_001 Safe Work Procedure (SWP)">
-					</a>
-				</div>				
-			</div>
-			<hr>
-		</div>
-		
-		</div>
+    </div>
 		
 		<div class="col-lg-7">
 			<div>		

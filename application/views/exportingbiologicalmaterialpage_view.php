@@ -4,9 +4,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <html lang="en">
 <head>
     <link rel="stylesheet" href="<?php echo base_url()?>assets/css/styles.css" type="text/css">
+    <title>Swinburne Biosafety and Biosecurity Online System - Exempt Dealing Page</title>
     
-    <title>Swinburne Biosafety and Biosecurity Online System - Application</title>
-
     <style>
         body {
             padding-top: 54px;
@@ -26,62 +25,52 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <body>
     <!-- Navigation -->
     <?php include_once 'template/navbar.php' ?>
+
     <!-- Page Content -->
     <div class="container">
         <!-- Page Heading -->
-        <h2 class="my-4 text-center">Application Page</h2>
-		
+        <h2 class="my-4 text-center">Exporting of Biological Material Page</h2>
+
         <div id='breadcrumb1'>
             <ul>
                <li><a href='<?php echo base_url(); ?>index.php/home'>Home</a></li>
-               <li class='active'><a>Application</a></li>
+               <li class='active'><a>Exporting of Biological Material</a></li>
             </ul>
-        </div>	
+        </div>			
+
 		<hr>
 	<div class="row" >
 	<div class="col-lg-5" >
-        
-		<div class="row">
-            <a href="<?php echo base_url(); ?>index.php/newapplicationpage">		
-                    <div class="option1 card col-md-9 hover1" title="New Application">
-                        <h5><span>NEW APPLICATION</span></h5>
+        <div class="row">
+            <a href="<?php echo base_url(); ?>index.php/formf">		
+                    <div class="option1 card col-md-9 hover1" title="Living Modified Organism (LMO) Form">
+                        <h5><span>Living Modified Organism (LMO)</span></h5>		
                     </div>				
             </a>
 		</div>
-				
-    
-        <div class="row">
-            <a href="#">		
-                    <div class="option1 card col-md-9 hover1" title="Modification of Approved Project">
-                        <h5><span>MODIFICATION OF APPROVED PROJECT</span></h5>				
-                    </div>				
-                
-            </a>
-			
-		</div>
         
         <div class="row">
-            <a href="<?php echo base_url(); ?>index.php/annex5">		
-                
-                    <div class="option1 card col-md-9 hover1" title="Extension/Termination of Approved Project">
-                        <h5><span>EXTENSION OR TERMINATION OF APPROVED PROJECT</span></h5>						
-                    </div>	            
+            <a href="<?php echo base_url(); ?>index.php/notification_of_exporting_biological_material">		
+                    <div class="option1 card col-md-9 hover1" title="Exempt Dealing or Biohazardous Material Form">
+                        <h5><span>Exempt Dealing or Biohazardous Material</span></h5>		
+                    </div>				
             </a>
+		</div>
+        
 			
-        </div>
-	</div>
+		</div>
 		
 		<div class="col-lg-7">
 			<div>		
-				<h4>Announcements</h4>
+				<h4>Fun Fact</h4>
 			</div>				
 			<div>		
 				<div class="row">
 					<div class="card my-4">
-						<h5 class="card-header">LMO Definition</h5>
+						<h5 class="card-header">Did you know? The human saliva</h5>
 						<div class="card-body">
-						test test test 1131231231231231231231231231231212331121321321321213213213 test test test 1131231231231231231231231231231212331121321321321213213213 
-						test test test 1131231231231231231231231231231212331121321321321213213213 test test test 1131231231231231231231231231231212331121321321321213213213 
+						<img class="img-fluid rounded mb-3 mb-md-0" src="<?php echo base_url('assets\images\announcement\funfact1.png') ?>" 
+						alt="" title="The human saliva"> 
 						</div>
 					</div>				
 				</div>
@@ -89,7 +78,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<div>		
 				<div class="row">
 					<div class="card my-4">
-						<h5 class="card-header">Type of LMO</h5>
+						<h5 class="card-header">Reminder</h5>
 						<div class="card-body">
 						test test test 1131231231231231231231231231231212331121321321321213213213 test test test 1131231231231231231231231231231212331121321321321213213213 
 						test test test 1131231231231231231231231231231212331121321321321213213213 test test test 1131231231231231231231231231231212331121321321321213213213 
@@ -101,5 +90,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</div>					
 	</div>
 
+	</div>
+		
+    </div>
 </body>
 </html>

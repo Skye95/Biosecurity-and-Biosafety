@@ -3,6 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="<?php echo base_url()?>assets/css/styles.css" type="text/css">
     <title>Swinburne Biosafety and Biosecurity Online System - Exempt Dealing Page</title>
     
     <style>
@@ -28,28 +29,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <!-- Page Content -->
     <div class="container">
         <!-- Page Heading -->
-        <h2 class="my-4 text-center">Welcome, <?php echo $this->session->userdata('account_name'); ?></h2>
+        <h2 class="my-4 text-center">Notification of LMO and Biohazardous Material Page</h2>
 
-        <button type="button" class="btn" onclick="window.location='<?php echo base_url("index.php/home");?>'">Return</button>		
-		<h3>Notification of LMO and Biohazardous Material Page</h3>
+        <div id='breadcrumb1'>
+            <ul>
+               <li><a href='<?php echo base_url(); ?>index.php/home'>Home</a></li>
+               <li class='active'><a>Notification of LMO and Biohazardous Material</a></li>
+            </ul>
+        </div>			
+
 		<hr>
 	<div class="row" >
 	<div class="col-lg-5" >
-		<div>		
-			<div class="row">
-				<div class="col-md-7">
-					<a href="<?php echo base_url(); ?>index.php/notification_of_LMO_and_BM">
-						<img class="img-fluid rounded mb-3 mb-md-0" src="<?php echo base_url('assets\images\form\notificationBiohazardousMaterial.jpg') ?>" 
-						alt="" title="SSBC_002 Notification of LMO and Biohazardous Material">
-					</a>
-				</div>				
-			</div>
-			<hr>
+        
+        <div class="row">
+            <a href="<?php echo base_url(); ?>index.php/notification_of_LMO_and_BM">		
+                    <div class="option1 card col-md-9 hover1" title="SSBC_002 Notification of LMO and Biohazardous Material">
+                        <h5><span>SSBC Notification of LMO and Biohazardous Material</span></h5>
+                    </div>				
+            </a>
 		</div>
-	
-		
-		
-					
+			
 		</div>
 		
 		<div class="col-lg-7">

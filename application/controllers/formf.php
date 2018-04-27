@@ -1,35 +1,31 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
     class formf extends CI_Controller
     {
         
         function __construct()
         {
             parent::__construct();
-            
             $this->load->database();
-            $this->load->model('notification_model');
             $this->load->model('formf_model');
+			$this->load->model('notification_model');
         }
         
         public function index()
         {
-            
-            $data['readnotif'] = $this->notification_model->get_read($this->session->userdata('account_id'));
-            //echo 'Form validation testing OK';
-            $this->form_validation->set_rules('exporter_organization','Organization', 'required');
-            $this->form_validation->set_rules('exporter_name','Name of Applicant', 'required|callback_fullname_check');
-            $this->form_validation->set_rules('exporter_position','Position in Organization', 'required');
-            $this->form_validation->set_rules('exporter_telephone_office','Telephone (office)', 'required');
-            $this->form_validation->set_rules('exporter_telephone_mobile','Telephone (mobile)', 'required');
+			$data['readnotif'] = $this->notification_model->get_read($this->session->userdata('account_id'));
+            $this->form_validation->set_rules('exporter_organization','Organization', 'required|alpha');
+            $this->form_validation->set_rules('exporter_name','Name of Applicant', 'required|alpha');
+            $this->form_validation->set_rules('exporter_position','Position in Organization', 'required|alpha');
+            $this->form_validation->set_rules('exporter_telephone_office','Telephone (office)', 'required|numeric');
+            $this->form_validation->set_rules('exporter_telephone_mobile','Telephone (mobile)', 'required|numeric');
             $this->form_validation->set_rules('exporter_fax','Fax number', 'required');
             $this->form_validation->set_rules('exporter_email_address','Email', 'required|valid_email');
             $this->form_validation->set_rules('exporter_postal_address','Postal Address', 'required');          
             $this->form_validation->set_rules('LMO_description','Description of LMO', 'required');
-            $this->form_validation->set_rules('LMO_type_description','LMO Type', 'required');
+            $this->form_validation->set_rules('LMO_type_description','LMO Type', 'required|alpha');
             $this->form_validation->set_rules('LMO_identification','Identification of LMO', 'required');
-            $this->form_validation->set_rules('LMO_scientific_name','Scientific name', 'required');
+            $this->form_validation->set_rules('LMO_scientific_name','Scientific name', 'required|alpha');
             $this->form_validation->set_rules('LMO_trait','Introduced Trait', 'required');
             $this->form_validation->set_rules('LMO_intended_usage','Intended use of LMO', 'required');
             $this->form_validation->set_rules('LMO_export_form','Describe form', 'required');
@@ -40,12 +36,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             //$this->form_validation->set_rules('import_evidence','Evidence', 'required');
             $this->form_validation->set_rules('export_import_CBI','Section information', 'required');
             $this->form_validation->set_rules('applicant_signature_date','Date', 'required');
-            $this->form_validation->set_rules('applicant_name','Name', 'required|callback_fullname_check');
-            //$this->form_validation->set_rules('applicant_stamp','Official Stamp', 'required');
+            $this->form_validation->set_rules('applicant_name','Name', 'required|alpha');
+            $this->form_validation->set_rules('applicant_stamp','Official Stamp', 'required');
             
             //Head of organization/ Authorized Representative:
             $this->form_validation->set_rules('representative_signature_date','Date', 'required');
-            $this->form_validation->set_rules('representative_name','Name', 'required|callback_fullname_check');
+            $this->form_validation->set_rules('representative_name','Name', 'required|alpha');
             $this->form_validation->set_rules('representative_stamp','Official Stamp', 'required');
                         
             
@@ -59,9 +55,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 
                 $data = array(
                 'account_id' => $this->session->userdata('account_id'),
-                    'notification_checklist_form_completed' => $this->input->post('notification_checklist_form_completed'),
-                    'notification_checklist_CBI' => $this->input->post('notification_checklist_CBI'),
-                    'notification_checklist_submitted' => $this->input->post('notification_checklist_submitted'),
                     'exporter_organization' => $this->input->post('exporter_organization'),
                     'exporter_name' => $this->input->post('exporter_name'),
                     'exporter_position' => $this->input->post('exporter_position'),
@@ -107,32 +100,5 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             
         }
         
-        public function load_form(){
-            
-            $data['readnotif'] = $this->notification_model->get_read($this->session->userdata('account_id'));
-            
-            $data['load'] = "true";
-            
-            $id = $this->session->userdata('account_id');
-            $data['retrieved'] = $this->formf_model->get_form_by_id($id);
-            
-            $this->load->template('formf_view', $data);
-            
-        }
-        
-        
-        public function fullname_check($str) {
-            
-            if (!preg_match('/^([a-z0-9 ])+$/i', $str)) {
-                $this->form_validation->set_message('fullname_check', 'The %s field can only be alphanumerical');
-                return FALSE;
-            } else {
-                return TRUE;
-            }
-        }
-        
-        
     }
-
-
 ?>
