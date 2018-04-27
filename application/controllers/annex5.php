@@ -9,7 +9,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
             $this->load->database();
 			$this->load->model('notification_model');
-            //$this->load->model('annex5_model');
+            $this->load->model('annex5_model');
         }
         
         public function index(){
@@ -24,7 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $this->form_validation->set_rules('identification_project_title', 'Project Title', 'required');
             $this->form_validation->set_rules('identification_LMO_rDNA', 'LMO/rDNA Materials', 'required');
             $this->form_validation->set_rules('request_type', 'Request Type', 'required');
-            $this->form_validation->set_rules('request_description', 'Request Description', 'required');
+            //$this->form_validation->set_rules('request_description', 'Request Description', 'required');
             $this->form_validation->set_rules('PI_change', 'Principal Investigator change', 'required');
             $this->form_validation->set_rules('RG_change', 'Risk Group (RG) change', 'required');
             $this->form_validation->set_rules('BSL_change', 'Biosafety Level (BSL) change', 'required');
@@ -50,33 +50,66 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             }
             else
             {
+                $ar1 = implode(',',$this->input->post('IBC_approval'));
+                
                 $data = array(
                     'account_id' => $this->session->userdata('account_id'),
-                    'applicant_name' => $this->input->post('applicant_name'),
-                    'institutional_address' => $this->input->post('institutional_address'),
-                    'collaborating_partners' => $this->input->post('collaborating_partners'),
-                    'project_title' => $this->input->post('project_title'),
-                    'project_objective_methodology' => $this->input->post('project_objective_methodology'),
-                    'biological_system_parent_organisms' => $this->input->post('biological_system_parent_organisms'),
-                    'biological_system_donor_organisms' => $this->input->post('biological_system_donor_organisms'),
-                    'biological_system_modified_traits' => $this->input->post('biological_system_modified_traits'),
-                    'premises' => $this->input->post('premises'),
-                    'period' => $this->input->post('period'),
-                    'risk_assessment_and_management' => $this->input->post('risk_assessment_and_management'),
-                    'emergency_response_plan' => $this->input->post('emergency_response_plan'),
-                    'IBC_recommendation' => $this->input->post('IBC_recommendation'),
-                    'PI_experience_and_expertise' => $this->input->post('PI_experience_and_expertise'),
-                    'PI_training' => $this->input->post('PI_training'),
-                    'PI_health' => $this->input->post('PI_health'),
-                    'PI_other' => $this->input->post('PI_other'),
-                    'personnel_involved' => implode(',', $involved),
-                    'personnel_designation' => implode(',', $designation),
-                    'IBC_name' => $this->input->post('IBC_name'),
-                    'IBC_date' => $this->input->post('IBC_date')
+                    'identification_PI_name' => $this->input->post('identification_PI_name'),
+                    'identification_email_address' => $this->input->post('identification_email_address'),
+                    'identification_faculty' => $this->input->post('identification_faculty'),
+                    'identification_telephone' => $this->input->post('identification_telephone'),
+                    'identification_IBC_reference_no' => $this->input->post('identification_IBC_reference_no'),
+                    'identification_NBB_reference_no' => $this->input->post('identification_NBB_reference_no'),
+                    'identification_project_title' => $this->input->post('identification_project_title'),
+                    'identification_LMO_rDNA' => $this->input->post('identification_LMO_rDNA'),
+                    'request_type' => $this->input->post('request_type'),
+                    'PI_change' => $this->input->post('PI_change'),
+                    'RG_change' => $this->input->post('RG_change'),
+                    'BSL_change' => $this->input->post('BSL_change'),
+                    'LMO_rDNA_type_change' => $this->input->post('LMO_rDNA_type_change'),
+                    'LMO_rDNA_moved' => $this->input->post('LMO_rDNA_moved'),
+                    'adverse_events' => $this->input->post('adverse_events'),
+                    'incident_report' => $this->input->post('incident_report'),
+                    'signature_PI_name' => $this->input->post('signature_PI_name'),
+                    'signature_PI_date' => $this->input->post('signature_PI_date'),
+                    'signature_BO_name' => $this->input->post('signature_BO_name'),
+                    'signature_BO_date' => $this->input->post('signature_BO_date'),
+                    'signature_IBC_name' => $this->input->post('signature_BO_date'),
+                    'signature_IBC_date' => $this->input->post('signature_BO_date'),
+                    'IBC_approval' => $this->input->post('IBC_approval'),
+                    'IBC_termination' => $this->input->post('IBC_termination')
                 );
+                
+                if($this->annex5_model->insert_new_applicant_data($data)){
+                    
+                   $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">Success Has been achieved</div>', $data);
+                   redirect('annex5/index');
+                    
+                        
+                } else {
+                    
+                   $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">An error has occured. Please try again later.</div>');
+                   redirect('annex5/index');
+                    
+                    
+                    
+                }
                 
                 
             }
+            
+        }
+        
+        public function load_form(){
+            
+            $data['readnotif'] = $this->notification_model->get_read($this->session->userdata('account_id'));
+            
+            $data['load'] = "true";
+            
+            $id = $this->session->userdata('account_id');
+            $data['retrieved'] = $this->annex5_model->get_form_by_id($id);
+            
+            $this->load->template('annex5_view', $data);
             
         }
         
