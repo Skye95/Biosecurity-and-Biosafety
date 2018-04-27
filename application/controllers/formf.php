@@ -7,13 +7,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         function __construct()
         {
             parent::__construct();
-            
+            $this->load->database();
             $this->load->model('formf_model');
+			$this->load->model('notification_model');
         }
         
         public function index()
         {
-            //echo 'Form validation testing OK';
+			$data['readnotif'] = $this->notification_model->get_read($this->session->userdata('account_id'));
             $this->form_validation->set_rules('exporter_organization','Organization', 'required|alpha');
             $this->form_validation->set_rules('exporter_name','Name of Applicant', 'required|alpha');
             $this->form_validation->set_rules('exporter_position','Position in Organization', 'required|alpha');
@@ -48,7 +49,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             if($this->form_validation->run()== FALSE) 
             {
                 
-                $this->load->template('formf_view');
+                $this->load->template('formf_view', $data);
             
             }
             else {
