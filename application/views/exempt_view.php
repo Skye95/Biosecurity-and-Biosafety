@@ -52,6 +52,37 @@ if(!$this->session->userdata('isLogin')){
 <body>
     <?php include_once 'template/navbar.php' ?>
     
+    <?php
+    
+    if(isset($load)){
+        foreach($retrieved as $item){
+            $new1 = $item->project_add_qualification;
+            $new2 = $item->project_add_name;
+            $new3 = $item->project_add_department;
+            $new4 = $item->project_add_campus;
+            $new5 = $item->project_add_postal_address;
+            $new6 = $item->project_add_telephone;
+            $new7 = $item->project_add_fax;
+            $new8 = $item->project_add_email_address;
+            $new9 = $item->project_add_title;
+            $a = explode(",", $new1);
+            $b = explode(",", $new2);
+            $c = explode(",", $new3);
+            $d = explode(",", $new4);
+            $e = explode(",", $new5);
+            $f = explode(",", $new6);
+            $g = explode(",", $new7);
+            $h = explode(",", $new8);
+            $i = explode(",", $new9);
+        }
+        
+        
+    }else{
+           
+        }
+    
+    ?>
+    
     <div class="container">
         <div class="row">
             
@@ -423,7 +454,7 @@ if(!$this->session->userdata('isLogin')){
                    
                    <div>
                        <button name="submit" type="submit" class="btn btn-primary">Submit</button>
-                       <a class="btn btn-primary" href="<?php echo base_url(); ?>index.php/annex2/load_form">Load</a>
+                       <a class="btn btn-primary" href="<?php echo base_url(); ?>index.php/exempt/load_form">Load</a>
                    </div>
                    
                <?php echo form_close(); ?>
