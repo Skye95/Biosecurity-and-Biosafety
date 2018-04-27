@@ -53,10 +53,10 @@ if(!$this->session->userdata('isLogin')){
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6 col-6 portfolio-item">
                 <div class="card card-block h-50 justify-content-center align-items-center">
-                    <a href="#"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\Procurement of Biological Material.jpg') ?>" alt=""></a>
+                    <a href="<?php echo base_url(); ?>index.php/procurementpage"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\Procurement of Biological Material.jpg') ?>" alt=""></a>
                     <div class="card-body">
                         <h5 class="card-title">
-                            <a href="#">Procurement of Biological Material</a>
+                            <a href="<?php echo base_url(); ?>index.php/procurementpage">Procurement of Biological Material</a>
                         </h5>
                         <p class="card-text"></p>
                     </div>
@@ -64,10 +64,10 @@ if(!$this->session->userdata('isLogin')){
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6 col-6 portfolio-item">
                 <div class="card card-block h-50 justify-content-center align-items-center">
-                    <a href="#"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\Notification of LMO.jpg') ?>" alt=""></a>
+                    <a href="<?php echo base_url(); ?>index.php/notificationbiohazardouspage"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\Notification of LMO.jpg') ?>" alt=""></a>
                     <div class="card-body">
                         <h5 class="card-title">
-                            <a href="#">Notification of LMO and Biohazardous Material</a>
+                            <a href="<?php echo base_url(); ?>index.php/notificationbiohazardouspage">Notification of LMO and Biohazardous Material</a>
                         </h5>
                         <p class="card-text"></p>
                     </div>
@@ -112,6 +112,17 @@ if(!$this->session->userdata('isLogin')){
                     <div class="card-body">
                         <h5 class="card-title">
                             <a href="#">Annual or Final Report</a>
+                        </h5>
+                        <p class="card-text"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 col-6 portfolio-item">
+                <div class="card card-block h-50 justify-content-center align-items-center">
+                    <a href="#"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\History.jpg') ?>" alt=""></a>
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <a href="#">Submitted Applications / Past Applications</a>
                         </h5>
                         <p class="card-text"></p>
                     </div>

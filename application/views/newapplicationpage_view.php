@@ -34,13 +34,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<h3>New Application Page</h3>
 		<hr>
 	<div class="row" >
-	<div class="col-lg-6" >
+	<div class="col-lg-5" >
 		<div>		
 			<div class="row">
 				<div class="col-md-7">
 					<a href="<?php echo base_url(); ?>index.php/livingmodifiedorganismpage">
 						<img class="img-fluid rounded mb-3 mb-md-0" src="<?php echo base_url('assets\images\ApplicantForm\Living Modified Organism.jpg') ?>" 
-						alt="" title="Living Modified Organism (LMO)">
+						alt="" title="Living Modified Organism (LMO) Form Page">
 					</a>
 				</div>				
 			</div>
@@ -51,9 +51,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<div>		
 			<div class="row">
 				<div class="col-md-7">
-					<a href="<?php echo base_url(); ?>index.php/annex5">
+					<a href="<?php echo base_url(); ?>index.php/exemptdealingpage">
 						<img class="img-fluid rounded mb-3 mb-md-0" src="<?php echo base_url('assets\images\ApplicantForm\Exempt Dealing.jpg') ?>" 
-						alt=""title="Annex 5 Project Extension & Notice of Termination - IBC/PE-NT/10/ANNEX5">
+						alt=""title="Exempt Dealing Form Page">
 					</a>
 				</div>				
 			</div>
@@ -64,9 +64,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<div>		
 			<div class="row">
 				<div class="col-md-7">
-					<a href="#">
+					<a href="<?php echo base_url(); ?>index.php/biohazardous_materialpage">
 						<img class="img-fluid rounded mb-3 mb-md-0" src="<?php echo base_url('assets\images\ApplicantForm\Biohazardous Material.jpg') ?>" 
-						alt="" title="Biohazardous Material">
+						alt="" title="Biohazardous Material Form Page">
 					</a>
 				</div>				
 			</div>
@@ -74,7 +74,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		</div>
 		</div>
 		
-		<div class="col-lg-6">
+		<div class="col-lg-7">
 			<div>		
 				<h4>Announcements</h4>
 			</div>				

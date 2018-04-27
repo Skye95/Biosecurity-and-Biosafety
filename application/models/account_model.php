@@ -33,6 +33,13 @@ class account_model extends CI_Model
         $query = $this->db->get();
         return $query->result();
     }
+    
+    function get_all_account() 
+    {
+        $this->db->where('account_approved', 0);
+        $query = $this->db->select('*')->from('accounts')->get();
+		return $query->result();
+    }
 	
 	# Insert New Account
 	function insert_new_account($data)
@@ -52,6 +59,20 @@ class account_model extends CI_Model
             $this->db->update('accounts', array('account_password' => $account_password));
         }
         #return $this->db->last_query();
+        return true;
+    }
+    
+    function update_approval($id, $type)
+    {
+        if ($type == 0) {
+            $data = array('account_approved' => 0);
+            $this->db->where('account_id', $id);
+            $this->db->update('accounts', $data);
+        } elseif ($type == 1) {
+            $data = array('account_approved' => 1);
+            $this->db->where('account_id', $id);
+            $this->db->update('accounts', $data);
+        }
         return true;
     }
 }
