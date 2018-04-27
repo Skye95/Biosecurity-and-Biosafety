@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 24, 2018 at 11:16 AM
+-- Generation Time: Apr 27, 2018 at 08:11 PM
 -- Server version: 10.1.26-MariaDB
 -- PHP Version: 7.1.9
 
@@ -21,9 +21,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `biosafety_and_biosecurity`
 --
-
-CREATE DATABASE IF NOT EXISTS biosafety_and_biosecurity;
-USE biosafety_and_biosecurity;
 
 -- --------------------------------------------------------
 
@@ -106,43 +103,53 @@ CREATE TABLE `annex3` (
   `organization` varchar(250) NOT NULL,
   `faculty` varchar(250) NOT NULL,
   `laboratory` varchar(250) NOT NULL,
-  `date` datetime DEFAULT NULL,
+  `date` date DEFAULT NULL,
   `PI_name` varchar(100) NOT NULL,
   `PI_telephone_number` int(20) NOT NULL,
-  `PI_reported_date` datetime DEFAULT NULL,
+  `PI_reported_date` date DEFAULT NULL,
+  `PI_reported_time` varchar(10) DEFAULT NULL,
   `incident_description` varchar(500) NOT NULL,
-  `incident_cause_checklist_faulty_equipment` int(1) NOT NULL,
-  `incident_cause_checklist_no_equipment` int(1) NOT NULL,
-  `incident_cause_checklist_storage` int(1) NOT NULL,
-  `incident_cause_checklist_weather` int(1) NOT NULL,
-  `incident_cause_checklist_assistance` int(1) NOT NULL,
-  `incident_cause_checklist_electrical` int(1) NOT NULL,
-  `incident_cause_checklist_carelessness` int(1) NOT NULL,
-  `incident_cause_checklist_terrain` int(1) NOT NULL,
-  `incident_cause_checklist_workspace` int(1) NOT NULL,
-  `incident_cause_checklist_training` int(1) NOT NULL,
-  `incident_cause_checklist_poor_access` int(1) NOT NULL,
-  `incident_cause_checklist_unknown` int(1) NOT NULL,
-  `incident_cause_checklist_maintenance_staff` int(1) NOT NULL,
-  `incident_cause_checklist_supervision` int(1) NOT NULL,
-  `incident_cause_checklist_method` int(1) NOT NULL,
-  `incident_cause_checklist_none` int(1) NOT NULL,
+  `incident_cause_checklist_faulty_equipment` int(1) DEFAULT NULL,
+  `incident_cause_checklist_no_equipment` int(1) DEFAULT NULL,
+  `incident_cause_checklist_storage` int(1) DEFAULT NULL,
+  `incident_cause_checklist_weather` int(1) DEFAULT NULL,
+  `incident_cause_checklist_assistance` int(1) DEFAULT NULL,
+  `incident_cause_checklist_electrical` int(1) DEFAULT NULL,
+  `incident_cause_checklist_carelessness` int(1) DEFAULT NULL,
+  `incident_cause_checklist_terrain` int(1) DEFAULT NULL,
+  `incident_cause_checklist_workspace` int(1) DEFAULT NULL,
+  `incident_cause_checklist_training` int(1) DEFAULT NULL,
+  `incident_cause_checklist_poor_access` int(1) DEFAULT NULL,
+  `incident_cause_checklist_unknown` int(1) DEFAULT NULL,
+  `incident_cause_checklist_maintenance_staff` int(1) DEFAULT NULL,
+  `incident_cause_checklist_supervision` int(1) DEFAULT NULL,
+  `incident_cause_checklist_method` int(1) DEFAULT NULL,
+  `incident_cause_checklist_none` int(1) DEFAULT NULL,
   `incident_cause_checklist_none_description` varchar(500) DEFAULT NULL,
-  `incident_LMO_rDNA_release` int(1) NOT NULL,
+  `incident_LMO_rDNA_release` int(1) DEFAULT NULL,
   `incident_LMO_rDNA_response` varchar(500) DEFAULT NULL,
   `incident_contribution` varchar(500) NOT NULL,
   `incident_personal_factors` varchar(500) NOT NULL,
   `incident_corrective_actions` varchar(500) NOT NULL,
   `incident_responsible` varchar(500) NOT NULL,
   `signature_PI_name` varchar(100) DEFAULT NULL,
-  `signature_PI_date` datetime DEFAULT NULL,
+  `signature_PI_date` date DEFAULT NULL,
   `signature_BO_name` varchar(100) DEFAULT NULL,
-  `signature_BO_date` datetime DEFAULT NULL,
+  `signature_BO_date` date DEFAULT NULL,
   `signature_IBC_name` varchar(100) DEFAULT NULL,
-  `signature_IBC_date` datetime DEFAULT NULL,
+  `signature_IBC_date` date DEFAULT NULL,
+  `IBC_approval` int(1) DEFAULT NULL,
+  `IBC_termination` int(1) DEFAULT NULL,
   `application_approved` int(1) NOT NULL,
   `popularity` int(10) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `annex3`
+--
+
+INSERT INTO `annex3` (`application_id`, `account_id`, `approver_id`, `reference_no`, `organization`, `faculty`, `laboratory`, `date`, `PI_name`, `PI_telephone_number`, `PI_reported_date`, `PI_reported_time`, `incident_description`, `incident_cause_checklist_faulty_equipment`, `incident_cause_checklist_no_equipment`, `incident_cause_checklist_storage`, `incident_cause_checklist_weather`, `incident_cause_checklist_assistance`, `incident_cause_checklist_electrical`, `incident_cause_checklist_carelessness`, `incident_cause_checklist_terrain`, `incident_cause_checklist_workspace`, `incident_cause_checklist_training`, `incident_cause_checklist_poor_access`, `incident_cause_checklist_unknown`, `incident_cause_checklist_maintenance_staff`, `incident_cause_checklist_supervision`, `incident_cause_checklist_method`, `incident_cause_checklist_none`, `incident_cause_checklist_none_description`, `incident_LMO_rDNA_release`, `incident_LMO_rDNA_response`, `incident_contribution`, `incident_personal_factors`, `incident_corrective_actions`, `incident_responsible`, `signature_PI_name`, `signature_PI_date`, `signature_BO_name`, `signature_BO_date`, `signature_IBC_name`, `signature_IBC_date`, `IBC_approval`, `IBC_termination`, `application_approved`, `popularity`) VALUES
+(1, 1, NULL, '123', 'Swinburne', 'BCS', 'Lab A', '2018-04-16', 'Kim', 123, '2018-04-24', '2 Pm', 'Incident description', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, 1, 1, NULL, NULL, NULL, NULL, 'Some cause', 1, 'Response plan', 'Acts by staf and others', 'Inattention', 'Repair', 'The one who did it', 'Kim Yeung', '2018-04-24', '', '0000-00-00', '', '0000-00-00', 1, 1, 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -216,16 +223,23 @@ CREATE TABLE `annex5` (
   `adverse_events` int(1) NOT NULL,
   `incident_report` varchar(500) DEFAULT NULL,
   `signature_PI_name` varchar(100) DEFAULT NULL,
-  `signature_PI_date` datetime DEFAULT NULL,
+  `signature_PI_date` date DEFAULT NULL,
   `signature_BO_name` varchar(100) DEFAULT NULL,
-  `signature_BO_date` datetime DEFAULT NULL,
+  `signature_BO_date` date DEFAULT NULL,
   `signature_IBC_name` varchar(100) DEFAULT NULL,
-  `signature_IBC_date` datetime DEFAULT NULL,
+  `signature_IBC_date` date DEFAULT NULL,
   `IBC_approval` int(1) DEFAULT NULL,
   `IBC_termination` int(1) DEFAULT NULL,
   `application_approved` int(1) NOT NULL,
   `popularity` int(10) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `annex5`
+--
+
+INSERT INTO `annex5` (`application_id`, `account_id`, `approver_id`, `identification_PI_name`, `identification_email_address`, `identification_faculty`, `identification_telephone`, `identification_IBC_reference_no`, `identification_NBB_reference_no`, `identification_project_title`, `identification_LMO_rDNA`, `request_type`, `request_description`, `PI_change`, `RG_change`, `BSL_change`, `LMO_rDNA_type_change`, `LMO_rDNA_moved`, `LMO_rDNA_usage_change`, `adverse_events`, `incident_report`, `signature_PI_name`, `signature_PI_date`, `signature_BO_name`, `signature_BO_date`, `signature_IBC_name`, `signature_IBC_date`, `IBC_approval`, `IBC_termination`, `application_approved`, `popularity`) VALUES
+(1, 1, NULL, 'Kim', '100072290@gmail.com', 'BCS', 123, '123', '1234', 'New title', 'New materials', 1, NULL, 0, 1, 1, 1, 1, 0, 0, '0', 'Kim', '2018-04-02', '', '0000-00-00', '', '0000-00-00', 1, 1, 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -282,6 +296,13 @@ CREATE TABLE `annualfinalreport` (
   `popularity` int(10) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `annualfinalreport`
+--
+
+INSERT INTO `annualfinalreport` (`application_id`, `account_id`, `approver_id`, `date_received`, `SBC_reference_no`, `project_approval_date`, `project_report_date`, `report_type`, `project_title`, `chief_investigator`, `personnel_extra`, `personnel_extra_title`, `personnel_extra_name`, `personnel_extra_qualifications`, `personnel_extra_department`, `personnel_extra_campus`, `personnel_extra_postal_address`, `personnel_extra_telephone`, `personnel_extra_fax`, `personnel_extra_email_address`, `project_summary`, `project_outline`, `project_incidents`, `project_SOP`, `project_facility_changes`, `project_facility_building_number`, `project_facility_room_number`, `project_facility_description`, `project_sign_off_chief_investigator_name`, `project_sign_off_BO_name`, `application_approved`, `popularity`) VALUES
+(1, 1, NULL, NULL, NULL, NULL, NULL, 0, 'New title', 'Chief Investigator person', 1, 'Title', 'Kim', 'Undergraduate', 'BCS', 'Swinburne sarawak', 'Somewhere in sarawask', 123, '123-1234567', '100072290@students.swinburne.edu.my', 'Biology stuff', 'Lazy', 'None at all', NULL, 1, '123', '609', NULL, 'Some random person', 'Ms Chua', 0, NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -292,7 +313,7 @@ CREATE TABLE `biohazardousmaterial` (
   `application_id` int(10) UNSIGNED NOT NULL,
   `account_id` int(10) UNSIGNED NOT NULL,
   `approver_id` int(10) UNSIGNED DEFAULT NULL,
-  `date_received` datetime DEFAULT NULL,
+  `date_received` date DEFAULT NULL,
   `SBC_reference_no` varchar(10) DEFAULT NULL,
   `project_title` varchar(100) NOT NULL,
   `project_supervisor_name` varchar(100) DEFAULT NULL,
@@ -303,13 +324,13 @@ CREATE TABLE `biohazardousmaterial` (
   `project_alt_email` varchar(100) DEFAULT NULL,
   `project_personnel_name` varchar(100) DEFAULT NULL,
   `project_personnel_role` varchar(100) DEFAULT NULL,
-  `proposed_work_known` int(1) NOT NULL,
-  `proposed_work_may` int(1) NOT NULL,
-  `proposed_work_unknown` int(1) NOT NULL,
-  `proposed_work_isolation` int(1) NOT NULL,
-  `proposed_work_risk` int(1) NOT NULL,
-  `proposed_work_sensitive` int(1) NOT NULL,
-  `proposed_work_other` int(1) NOT NULL,
+  `proposed_work_known` int(1) DEFAULT NULL,
+  `proposed_work_may` int(1) DEFAULT NULL,
+  `proposed_work_unknown` int(1) DEFAULT NULL,
+  `proposed_work_isolation` int(1) DEFAULT NULL,
+  `proposed_work_risk` int(1) DEFAULT NULL,
+  `proposed_work_sensitive` int(1) DEFAULT NULL,
+  `proposed_work_other` int(1) DEFAULT NULL,
   `project_summary` varchar(500) NOT NULL,
   `project_activity` varchar(500) NOT NULL,
   `project_SOP` blob,
@@ -323,6 +344,13 @@ CREATE TABLE `biohazardousmaterial` (
   `popularity` int(10) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `biohazardousmaterial`
+--
+
+INSERT INTO `biohazardousmaterial` (`application_id`, `account_id`, `approver_id`, `date_received`, `SBC_reference_no`, `project_title`, `project_supervisor_name`, `project_supervisor_department`, `project_supervisor_email_address`, `project_alt_person`, `project_alt_department`, `project_alt_email`, `project_personnel_name`, `project_personnel_role`, `proposed_work_known`, `proposed_work_may`, `proposed_work_unknown`, `proposed_work_isolation`, `proposed_work_risk`, `proposed_work_sensitive`, `proposed_work_other`, `project_summary`, `project_activity`, `project_SOP`, `project_SOP_title`, `project_SOP_risk_title`, `project_facilities_building`, `project_facilities_room`, `officer_notified`, `officer_name`, `application_approved`, `popularity`) VALUES
+(1, 1, NULL, NULL, NULL, 'New project title', 'Me', 'BCS', '100072290@students.swinburne.edu.my', 'Somebody Else', NULL, '100072290@students.swinburne.edu.my', 'Me,,,', 'Research assistant,,,', 1, 1, 1, NULL, NULL, NULL, NULL, 'Long ass summary', 'New breakthrough method', NULL, 'Not sure ,,', 'Anything,,', 'New Building,', '103,', NULL, NULL, 0, NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -333,7 +361,7 @@ CREATE TABLE `exemptdealing` (
   `application_id` int(10) UNSIGNED NOT NULL,
   `account_id` int(10) UNSIGNED NOT NULL,
   `approver_id` int(10) UNSIGNED DEFAULT NULL,
-  `date_received` datetime DEFAULT NULL,
+  `date_received` date DEFAULT NULL,
   `SBC_reference_no` varchar(10) DEFAULT NULL,
   `project_title` varchar(100) NOT NULL,
   `project_supervisor_title` varchar(100) NOT NULL,
@@ -354,17 +382,17 @@ CREATE TABLE `exemptdealing` (
   `project_add_telephone` varchar(100) DEFAULT NULL,
   `project_add_fax` varchar(100) DEFAULT NULL,
   `project_add_email_address` varchar(500) DEFAULT NULL,
-  `exemption_type_2` int(1) NOT NULL,
-  `exemption_type_3` int(1) NOT NULL,
-  `exemption_type_3A` int(1) NOT NULL,
-  `exemption_type_4` int(1) NOT NULL,
-  `exemption_type_5` int(1) NOT NULL,
+  `exemption_type_2` int(1) DEFAULT NULL,
+  `exemption_type_3` int(1) DEFAULT NULL,
+  `exemption_type_3A` int(1) DEFAULT NULL,
+  `exemption_type_4` int(1) DEFAULT NULL,
+  `exemption_type_5` int(1) DEFAULT NULL,
   `project_summary` varchar(500) NOT NULL,
   `project_hazard` varchar(500) NOT NULL,
   `project_SOP` blob,
   `project_facilities_building_no` varchar(100) NOT NULL,
   `project_facilities_room_no` varchar(100) NOT NULL,
-  `project_facilities_containment_level` int(100) NOT NULL,
+  `project_facilities_containment_level` varchar(50) NOT NULL,
   `project_facilities_certification_no` varchar(10) DEFAULT NULL,
   `officer_notified` int(1) DEFAULT NULL,
   `officer_name` varchar(100) DEFAULT NULL,
@@ -372,6 +400,13 @@ CREATE TABLE `exemptdealing` (
   `application_approved` int(1) NOT NULL,
   `popularity` int(10) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `exemptdealing`
+--
+
+INSERT INTO `exemptdealing` (`application_id`, `account_id`, `approver_id`, `date_received`, `SBC_reference_no`, `project_title`, `project_supervisor_title`, `project_supervisor_name`, `project_supervisor_qualification`, `project_supervisor_department`, `project_supervisor_campus`, `project_supervisor_postal_address`, `project_supervisor_telephone`, `project_supervisor_fax`, `project_supervisor_email_address`, `project_add_title`, `project_add_name`, `project_add_qualification`, `project_add_department`, `project_add_campus`, `project_add_postal_address`, `project_add_telephone`, `project_add_fax`, `project_add_email_address`, `exemption_type_2`, `exemption_type_3`, `exemption_type_3A`, `exemption_type_4`, `exemption_type_5`, `project_summary`, `project_hazard`, `project_SOP`, `project_facilities_building_no`, `project_facilities_room_no`, `project_facilities_containment_level`, `project_facilities_certification_no`, `officer_notified`, `officer_name`, `laboratory_manager`, `application_approved`, `popularity`) VALUES
+(1, 1, NULL, NULL, '', 'Random Project', 'Dr', 'Strange', 'Doctotrate', 'BCS', 'Swinbure', 'Somewhere', 123, 123, 'New@gmail.com', 'Professsor,', 'dfvsdfvs,', 'sfdsf,', 'sdvdv,', 'sdvdv,', 'sdvdvsdv,', '234-4567890,', '234-4567890,', 'My@gmail.com,', 1, 1, 1, NULL, NULL, 'Biology stuff', 'Acid Burning', '', 'New building', '103', 'High', '123', 1, 'Ms Chua', 'Random Manager', 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -519,9 +554,9 @@ CREATE TABLE `formf` (
   `account_id` int(10) UNSIGNED NOT NULL,
   `approver_id` int(10) UNSIGNED DEFAULT NULL,
   `NBB_reference_no` varchar(10) DEFAULT NULL,
-  `notification_checklist_form_completed` int(1) NOT NULL,
-  `notification_checklist_CBI` int(1) NOT NULL,
-  `notification_checklist_submitted` int(1) NOT NULL,
+  `notification_checklist_form_completed` int(1) DEFAULT NULL,
+  `notification_checklist_CBI` int(1) DEFAULT NULL,
+  `notification_checklist_submitted` int(1) DEFAULT NULL,
   `exporter_organization` varchar(100) NOT NULL,
   `exporter_name` varchar(100) NOT NULL,
   `exporter_position` varchar(100) NOT NULL,
@@ -545,15 +580,22 @@ CREATE TABLE `formf` (
   `import_country_name` varchar(100) NOT NULL,
   `import_evidence` blob,
   `export_import_CBI` varchar(300) NOT NULL,
-  `applicant_signature_date` datetime DEFAULT NULL,
+  `applicant_signature_date` date DEFAULT NULL,
   `applicant_name` varchar(100) DEFAULT NULL,
   `applicant_stamp` varchar(100) DEFAULT NULL,
-  `representative_signature_date` datetime DEFAULT NULL,
+  `representative_signature_date` date DEFAULT NULL,
   `representative_name` varchar(100) DEFAULT NULL,
   `representative_stamp` varchar(100) DEFAULT NULL,
   `application_approved` int(1) NOT NULL,
   `popularity` int(10) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `formf`
+--
+
+INSERT INTO `formf` (`application_id`, `account_id`, `approver_id`, `NBB_reference_no`, `notification_checklist_form_completed`, `notification_checklist_CBI`, `notification_checklist_submitted`, `exporter_organization`, `exporter_name`, `exporter_position`, `exporter_telephone_office`, `exporter_telephone_mobile`, `exporter_fax`, `exporter_email_address`, `exporter_postal_address`, `LMO_description`, `LMO_type`, `LMO_type_description`, `LMO_identification`, `LMO_scientific_name`, `LMO_trait`, `LMO_intended_usage`, `LMO_export_form`, `LMO_export_mode`, `LMO_export_mode_description`, `LMO_point_of_exit`, `LMO_methods`, `import_country_name`, `import_evidence`, `export_import_CBI`, `applicant_signature_date`, `applicant_name`, `applicant_stamp`, `representative_signature_date`, `representative_name`, `representative_stamp`, `application_approved`, `popularity`) VALUES
+(3, 1, NULL, NULL, 1, 1, NULL, 'Swinburne Sarawak', 'My Name', 'Student', 123, 123, 123, 'random@gmail.com', 'Somewhere', 'Amoeba', 0, 'Micro-organism', 'Fish type', 'LMO name', 'LMO trait', 'Research', 'Live sampes', 0, 'Air', 'Exit', 'Dont drop it', 'Japan', '', 'Shhhh', '2018-04-03', 'Kim', 'faf', '2018-04-04', 'Kim', 'Second Stamp', 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -576,7 +618,6 @@ CREATE TABLE `hirarc` (
   `date_to` date DEFAULT NULL,
   `review_date` date DEFAULT NULL,
   `document_no` varchar(10) DEFAULT NULL,
-  `HIRARC_no` varchar(10) DEFAULT NULL,
   `HIRARC_activity` varchar(500) NOT NULL,
   `HIRARC_hazard` varchar(500) NOT NULL,
   `HIRARC_effects` varchar(500) NOT NULL,
@@ -589,6 +630,13 @@ CREATE TABLE `hirarc` (
   `application_approved` int(1) NOT NULL,
   `popularity` int(10) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `hirarc`
+--
+
+INSERT INTO `hirarc` (`application_id`, `account_id`, `approver_id`, `company_name`, `date`, `process_location`, `conducted_name`, `conducted_designation`, `approved_name`, `approved_designation`, `date_from`, `date_to`, `review_date`, `document_no`, `HIRARC_activity`, `HIRARC_hazard`, `HIRARC_effects`, `HIRARC_risk_control`, `HIRARC_LLH`, `HIRARC_SEV`, `HIRARC_RR`, `HIRARC_control_measure`, `HIRARC_PIC`, `application_approved`, `popularity`) VALUES
+(1, 1, NULL, 'My company', '2018-03-26', 'Swinburne', 'Me', 'Student', 'Ms Chua', 'Biosafety Officer', '2018-03-28', '2018-04-26', '2018-05-16', NULL, 'asfcaf,,,', 'sasfvasv,,,', 'asvasvasvas,,,', 'svavsv,,,', 'llh,,,', 'SEV,,,', 'RR,,,', 'asfasfasf,,,', 'Finished,,,', 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -607,10 +655,19 @@ CREATE TABLE `incidentaccidentreport` (
   `victim_employment_designation` varchar(100) NOT NULL,
   `victim_faculty` varchar(100) NOT NULL,
   `doc_id` varchar(10) DEFAULT NULL,
-  `review_date` datetime DEFAULT NULL,
-  `incident_date` datetime DEFAULT NULL,
+  `review_date` date DEFAULT NULL,
+  `incident_date` date DEFAULT NULL,
+  `incident_time` varchar(25) NOT NULL,
   `incident_location` varchar(100) NOT NULL,
-  `incident_type` int(1) NOT NULL,
+  `incident_type1` int(1) DEFAULT NULL,
+  `incident_type2` int(1) DEFAULT NULL,
+  `incident_type3` int(1) DEFAULT NULL,
+  `incident_type4` int(1) DEFAULT NULL,
+  `incident_type5` int(1) DEFAULT NULL,
+  `incident_type6` int(1) DEFAULT NULL,
+  `incident_type7` int(1) DEFAULT NULL,
+  `incident_type8` int(1) DEFAULT NULL,
+  `incident_type9` int(1) DEFAULT NULL,
   `incident_type_description` varchar(500) DEFAULT NULL,
   `incident_injury` int(1) NOT NULL,
   `incident_physician_or_hospital` int(1) NOT NULL,
@@ -618,7 +675,7 @@ CREATE TABLE `incidentaccidentreport` (
   `incident_actions` varchar(500) DEFAULT NULL,
   `reporter_name` varchar(100) DEFAULT NULL,
   `reporter_designation` varchar(100) DEFAULT NULL,
-  `reporter_date` datetime DEFAULT NULL,
+  `reporter_date` date DEFAULT NULL,
   `investigation_victim` int(1) NOT NULL,
   `investigation_victim_age` varchar(100) NOT NULL,
   `investigation_victim_citizenship` varchar(100) NOT NULL,
@@ -633,6 +690,13 @@ CREATE TABLE `incidentaccidentreport` (
   `application_approved` int(1) NOT NULL,
   `popularity` int(10) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `incidentaccidentreport`
+--
+
+INSERT INTO `incidentaccidentreport` (`application_id`, `account_id`, `approver_id`, `victim_name`, `victim_gender`, `victim_age`, `victim_citizenship`, `victim_employment_designation`, `victim_faculty`, `doc_id`, `review_date`, `incident_date`, `incident_time`, `incident_location`, `incident_type1`, `incident_type2`, `incident_type3`, `incident_type4`, `incident_type5`, `incident_type6`, `incident_type7`, `incident_type8`, `incident_type9`, `incident_type_description`, `incident_injury`, `incident_physician_or_hospital`, `incident_details`, `incident_actions`, `reporter_name`, `reporter_designation`, `reporter_date`, `investigation_victim`, `investigation_victim_age`, `investigation_victim_citizenship`, `investigation_victim_job_description`, `investigation_findings`, `investigation_preventive_no`, `investigation_preventive_action`, `investigation_preventive_by_whom`, `investigation_preventive_timeline`, `investigated_by`, `reviewed_by`, `application_approved`, `popularity`) VALUES
+(1, 1, NULL, 'Kim yeung', 1, 23, 'Malaysian', 'Student', 'CS', NULL, '2018-04-02', '2018-04-04', '', 'B609', 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Stuff happened', 0, 0, 'Nothing serious', 'Investigations Commenced', 'This dude', 'Student', '2018-04-04', 0, '20', 'Malayisan', 'Student', 'Some dude messed up', '1,,,,,', 'remove stuff,,,,,', 'Lab manager,,,,,', '2018-04-03,,,,,', 'health and Safety Officer', 'Ms Chua', 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -681,11 +745,11 @@ CREATE TABLE `materialriskassessment` (
   `application_id` int(10) UNSIGNED NOT NULL,
   `account_id` int(10) UNSIGNED NOT NULL,
   `approver_id` int(10) UNSIGNED DEFAULT NULL,
-  `Sec1_chemical` int(1) NOT NULL,
-  `Sec1_biological_material` int(1) NOT NULL,
-  `Sec1_equipment` int(1) NOT NULL,
+  `Sec1_chemical` varchar(100) NOT NULL,
+  `Sec1_biological_material` varchar(100) NOT NULL,
+  `Sec1_equipment` varchar(100) NOT NULL,
   `Sec1_doc_id` varchar(10) NOT NULL,
-  `Sec1_review_date` datetime DEFAULT NULL,
+  `Sec1_review_date` date DEFAULT NULL,
   `Sec2A_name` varchar(100) DEFAULT NULL,
   `Sec2A_manufacturer` varchar(100) DEFAULT NULL,
   `Sec2A_hazardous` int(1) DEFAULT NULL,
@@ -781,14 +845,22 @@ CREATE TABLE `materialriskassessment` (
   `Sec2B2_risk_reduction_action_completed` varchar(500) DEFAULT NULL,
   `Sec2B2_overall_assessment_risk_level_after` int(1) DEFAULT NULL,
   `Sec3_requestor` varchar(100) DEFAULT NULL,
-  `Sec3_requestor_date` datetime DEFAULT NULL,
+  `Sec3_requestor_date` date DEFAULT NULL,
   `Sec3_supervisor` varchar(100) DEFAULT NULL,
-  `Sec3_supervisor_date` datetime DEFAULT NULL,
+  `Sec3_supervisor_date` date DEFAULT NULL,
   `Sec3_LO` varchar(100) DEFAULT NULL,
-  `Sec3_LO_date` datetime DEFAULT NULL,
-  `application_approved` int(1) NOT NULL,
+  `Sec3_LO_date` date DEFAULT NULL,
+  `application_approved` int(1) DEFAULT NULL,
   `popularity` int(10) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `materialriskassessment`
+--
+
+INSERT INTO `materialriskassessment` (`application_id`, `account_id`, `approver_id`, `Sec1_chemical`, `Sec1_biological_material`, `Sec1_equipment`, `Sec1_doc_id`, `Sec1_review_date`, `Sec2A_name`, `Sec2A_manufacturer`, `Sec2A_hazardous`, `Sec2A_statement`, `Sec2A_waste`, `Sec2A_waste_type_corrosive`, `Sec2A_waste_type_ignitable`, `Sec2A_waste_type_reactive`, `Sec2A_waste_type_toxic`, `Sec2A_waste_type_infectious`, `Sec2A2_permit`, `Sec2A2_permit_type`, `Sec2A2_MSDS`, `Sec2A2_exposure_inhalation`, `Sec2A2_exposure_skin`, `Sec2A2_exposure_ingestion`, `Sec2A2_exposure_injection`, `Sec2A2_exposure_others`, `Sec2A2_exposure_description`, `Sec2A2_storage`, `Sec2A2_waste_requirement`, `Sec2A2_risk_control_training`, `Sec2A2_risk_control_inspection`, `Sec2A2_risk_control_SOP`, `Sec2A2_risk_control_PPE`, `Sec2A2_risk_control_engineering`, `Sec2A2_emergency_first_aid_kit`, `Sec2A2_emergency_shower`, `Sec2A2_emergency_eyewash`, `Sec2A2_emergency_neutralizing`, `Sec2A2_emergency_spill`, `Sec2A2_emergency_restrict`, `Sec2A3_storage_inhalation`, `Sec2A3_storage_skin`, `Sec2A3_storage_ingestion`, `Sec2A3_storage_injection`, `Sec2A3_storage_others`, `Sec2A3_storage_description`, `Sec2A3_storage_control`, `Sec2A3_handling_inhalation`, `Sec2A3_handling_skin`, `Sec2A3_handling_ingestion`, `Sec2A3_handling_injection`, `Sec2A3_handling_others`, `Sec2A3_handling_description`, `Sec2A3_handling_control`, `Sec2A3_spill_inhalation`, `Sec2A3_spill_skin`, `Sec2A3_spill_ingestion`, `Sec2A3_spill_injection`, `Sec2A3_spill_others`, `Sec2A3_spill_description`, `Sec2A3_spill_control`, `Sec2A3_disposal_inhalation`, `Sec2A3_disposal_skin`, `Sec2A3_disposal_ingestion`, `Sec2A3_disposal_injection`, `Sec2A3_disposal_others`, `Sec2A3_disposal_description`, `Sec2A3_disposal_control`, `Sec2B1_equipment_name`, `Sec2B1_activity_type`, `Sec2B1_activity_location`, `Sec2B2_machinery_description`, `Sec2B2_checklist_crushing`, `Sec2B2_checklist_shearing`, `Sec2B2_checklist_drawing`, `Sec2B2_checklist_cutting`, `Sec2B2_checklist_entangle`, `Sec2B2_checklist_impact`, `Sec2B2_checklist_abrasion`, `Sec2B2_checklist_stabbing`, `Sec2B2_checklist_puncture`, `Sec2B2_checklist_ejection`, `Sec2B2_checklist_temperature`, `Sec2B2_checklist_electrical`, `Sec2B2_checklist_noise`, `Sec2B2_checklist_vibration`, `Sec2B2_checklist_dust`, `Sec2B2_checklist_pressure`, `Sec2B2_checklist_waste`, `Sec2B2_checklist_fumes`, `Sec2B2_checklist_chemical`, `Sec2B2_checklist_allergens`, `Sec2B2_exposure`, `Sec2B2_users`, `Sec2B2_control_measures`, `Sec2B2_procedural_behavioural`, `Sec2B2_overall_assessment_risk_level`, `Sec2B2_risk_reduction_action`, `Sec2B2_risk_reduction_by_who`, `Sec2B2_risk_reduction_by_when`, `Sec2B2_risk_reduction_action_completed`, `Sec2B2_overall_assessment_risk_level_after`, `Sec3_requestor`, `Sec3_requestor_date`, `Sec3_supervisor`, `Sec3_supervisor_date`, `Sec3_LO`, `Sec3_LO_date`, `application_approved`, `popularity`) VALUES
+(1, 1, NULL, '0', '0', '0', 'OHS/F/4.18', NULL, 'Goo', 'Tham', 0, NULL, 1, 1, 1, 1, NULL, NULL, 1, 'adadcas', 1, 1, 1, 1, NULL, NULL, '', 'Adad', 1, 1, 1, 1, NULL, NULL, 1, 1, 1, NULL, NULL, NULL, 1, 1, NULL, NULL, NULL, '', 'sacasccss', 1, 1, NULL, NULL, NULL, '', 'acscascascacs', 1, 1, NULL, NULL, NULL, '', 'cascascascasca', 1, 1, 1, NULL, NULL, '', 'cscasascasassasvasvfdzbdb ', 'sDvVvs ', 'DSvsdvVv', 'zdvzvzdvdv', 'adscascasasvasvsd', 1, 1, 1, 1, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, 1, 1, NULL, NULL, NULL, NULL, NULL, NULL, '10 mins', 'New to this', 'afcascs', 'ascacsc', 2, 'sacscsa', 'asacsacas', 'cascsacas', 'acasxcsacca', 2, 'ascfsacas', '2018-04-02', 'sacascsac', '2018-04-04', 'ascasc', '2018-04-10', NULL, NULL),
+(2, 1, NULL, 'My name', 'New material', 'ascascasc', 'wadadda', '2018-04-02', 'awdw', 'dwadsa', 0, 'wsdasdx', 1, 1, 1, NULL, 1, 1, NULL, 'adcwasdcas', NULL, 1, 1, NULL, NULL, NULL, '', 'ascas', NULL, 1, 1, 1, NULL, NULL, 1, 1, NULL, NULL, NULL, NULL, NULL, 1, 1, NULL, NULL, '', 'dsaacas', 1, 1, NULL, NULL, NULL, '', 'scacscas', NULL, 1, NULL, NULL, NULL, '', 'acscaaca', 1, NULL, NULL, NULL, NULL, '', 'ascascc', ' ascscasca  ', 'SDVgv', 'VDsv', 'WOOOO', 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '10 years', 'no experience', 'sacacs', 'scascasc', 3, 'ascacsa', 'ascascasc', 'asacascasc', 'scascasvsdvc', 1, 'sascscvs', '2018-04-23', 'scvscsa', '2018-04-24', 'cscsacasdcvas', '2018-04-25', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -811,9 +883,9 @@ CREATE TABLE `notification` (
 --
 
 INSERT INTO `notification` (`notification_id`, `account_id`, `notification_type`, `notification_title`, `notification_description`, `notification_date`, `notification_read`) VALUES
-(1, 1, 2, 'Test', 'Hello, This is to test out notification number 1 from account id 1!!!', '2018-04-23 20:27:40', 0),
+(1, 1, 2, 'Test', 'Hello, This is to test out notification number 1 from account id 1!!!', '2018-04-23 20:27:40', 1),
 (2, 2, 1, 'Test 2', 'This is from account 2. Krappa', '2018-04-23 20:28:25', 0),
-(3, 1, 1, 'Test 1+2', 'SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT ', '2018-04-23 20:29:12', 0);
+(3, 1, 1, 'Test 1+2', 'SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT ', '2018-04-23 20:29:12', 1);
 
 -- --------------------------------------------------------
 
@@ -825,7 +897,7 @@ CREATE TABLE `notificationexportingbiologicalmaterial` (
   `application_id` int(10) UNSIGNED NOT NULL,
   `account_id` int(10) UNSIGNED NOT NULL,
   `approver_id` int(10) UNSIGNED DEFAULT NULL,
-  `date_received` datetime DEFAULT NULL,
+  `date_received` date DEFAULT NULL,
   `SBC_reference_no` varchar(10) DEFAULT NULL,
   `personnel_name` varchar(100) NOT NULL,
   `personnel_staff_student_no` int(10) DEFAULT NULL,
@@ -847,24 +919,33 @@ CREATE TABLE `notificationexportingbiologicalmaterial` (
   `biological_volume` varchar(500) DEFAULT NULL,
   `importing_country` varchar(100) NOT NULL,
   `importing_institude` varchar(100) NOT NULL,
-  `importing_person_in_charge` int(100) NOT NULL,
+  `importing_person_in_charge` varchar(100) NOT NULL,
   `importing_person_in_charge_telephone_no` int(20) NOT NULL,
   `declaration_name` varchar(100) DEFAULT NULL,
-  `declaration_date` datetime DEFAULT NULL,
+  `declaration_date` date DEFAULT NULL,
   `signature_verified_by` varchar(100) DEFAULT NULL,
-  `signature_verified_date` datetime DEFAULT NULL,
+  `signature_verified_date` date DEFAULT NULL,
   `notification_approved_by` varchar(100) DEFAULT NULL,
   `notification_declined_by` varchar(100) DEFAULT NULL,
-  `notification_approve_decline_date` datetime DEFAULT NULL,
+  `notification_approve_decline_date` date DEFAULT NULL,
   `notification_approve_decline_remarks` varchar(300) DEFAULT NULL,
   `notification_reviewed_by` varchar(100) DEFAULT NULL,
-  `notification_reviewed_by_date` datetime DEFAULT NULL,
+  `notification_reviewed_by_date` date DEFAULT NULL,
   `notification_reviewed_by_remarks` varchar(300) DEFAULT NULL,
-  `delivered_date` datetime DEFAULT NULL,
+  `delivered_date` date DEFAULT NULL,
   `incident_accident_report` varchar(500) DEFAULT NULL,
   `application_approved` int(1) NOT NULL,
   `popularity` int(10) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `notificationexportingbiologicalmaterial`
+--
+
+INSERT INTO `notificationexportingbiologicalmaterial` (`application_id`, `account_id`, `approver_id`, `date_received`, `SBC_reference_no`, `personnel_name`, `personnel_staff_student_no`, `personnel_designation`, `personnel_faculty`, `personnel_project_title`, `personnel_reference_no`, `LMO_list`, `LMO_name`, `LMO_risk_level`, `LMO_category`, `LMO_quantity`, `LMO_volume`, `biological_list`, `biological_name`, `biological_risk_level`, `biological_category`, `biological_quantity`, `biological_volume`, `importing_country`, `importing_institude`, `importing_person_in_charge`, `importing_person_in_charge_telephone_no`, `declaration_name`, `declaration_date`, `signature_verified_by`, `signature_verified_date`, `notification_approved_by`, `notification_declined_by`, `notification_approve_decline_date`, `notification_approve_decline_remarks`, `notification_reviewed_by`, `notification_reviewed_by_date`, `notification_reviewed_by_remarks`, `delivered_date`, `incident_accident_report`, `application_approved`, `popularity`) VALUES
+(1, 1, NULL, NULL, NULL, 'Si Kim Yeung', 100072290, 'Student', 'BCS', 'Project Title', '123', 1, 'New LMO,,Lmo 2,,,', 'Low,,High,,,', 'A,,A,,,', '3,,5,,,', '20,,30,,,', NULL, ',,,,,', ',,,,,', ',,,,,', ',,,,,', ',,,,,', '', '', '0', 0, 'Si Kim Yeung', '2018-04-03', '', '2018-04-05', NULL, NULL, '0000-00-00', '', 'ms chua', '2018-04-23', 'Its ok', NULL, NULL, 0, NULL),
+(2, 1, NULL, NULL, NULL, 'Si Kim', 100072290, 'Student', 'BCS', 'New Title', '123', 1, 'Amoeba,,,,,', 'Low,,,,,', 'A,,,,,', '3,,,,,', '20,,,,,', NULL, ',,,,,', ',,,,,', ',,,,,', ',,,,,', ',,,,,', 'Malaysia', 'Swinburne', '0', 123, 'Kim', '2018-04-02', '', '2018-04-04', NULL, NULL, '0000-00-00', '', '', '0000-00-00', '', NULL, NULL, 0, NULL),
+(3, 1, NULL, NULL, NULL, 'Si Kim', 100072290, 'Student', 'BCS', 'New Title', '123', 1, 'Amoeba,,,,,', 'Low,,,,,', 'A,,,,,', '3,,,,,', '20,,,,,', NULL, ',,,,,', ',,,,,', ',,,,,', ',,,,,', ',,,,,', 'Malaysia', 'Swinburne', 'ms chua', 123, 'Kim', '2018-04-02', '', '2018-04-04', NULL, NULL, '0000-00-00', '', '', '0000-00-00', '', '2018-04-23', 'No accidents lately', 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -876,7 +957,7 @@ CREATE TABLE `notificationlmobiohazardousmaterial` (
   `application_id` int(10) UNSIGNED NOT NULL,
   `account_id` int(10) UNSIGNED NOT NULL,
   `approver_id` int(10) UNSIGNED DEFAULT NULL,
-  `date_received` datetime DEFAULT NULL,
+  `date_received` date DEFAULT NULL,
   `SBC_reference_no` varchar(10) DEFAULT NULL,
   `personnel_name` varchar(100) NOT NULL,
   `personnel_staff_student_no` int(10) DEFAULT NULL,
@@ -898,19 +979,28 @@ CREATE TABLE `notificationlmobiohazardousmaterial` (
   `biohazard_quantity` varchar(500) DEFAULT NULL,
   `biohazard_volume` varchar(500) DEFAULT NULL,
   `declaration_name` varchar(100) DEFAULT NULL,
-  `declaration_date` datetime DEFAULT NULL,
+  `declaration_date` date DEFAULT NULL,
   `signature_verified_by` varchar(100) DEFAULT NULL,
-  `signature_verified_date` datetime DEFAULT NULL,
+  `signature_verified_date` date DEFAULT NULL,
   `notification_approved_by` varchar(100) DEFAULT NULL,
   `notification_declined_by` varchar(100) DEFAULT NULL,
-  `notification_approve_decline_date` datetime DEFAULT NULL,
+  `notification_approver` varchar(25) DEFAULT NULL,
+  `notification_decliner` varchar(25) DEFAULT NULL,
+  `notification_approve_decline_date` date DEFAULT NULL,
   `notification_approve_decline_remarks` varchar(300) DEFAULT NULL,
   `notification_reviewed_by` varchar(100) DEFAULT NULL,
-  `notification_reviewed_by_date` datetime DEFAULT NULL,
+  `notification_reviewed_by_date` date DEFAULT NULL,
   `notification_reviewed_by_remarks` varchar(300) DEFAULT NULL,
   `application_approved` int(1) NOT NULL,
   `popularity` int(10) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `notificationlmobiohazardousmaterial`
+--
+
+INSERT INTO `notificationlmobiohazardousmaterial` (`application_id`, `account_id`, `approver_id`, `date_received`, `SBC_reference_no`, `personnel_name`, `personnel_staff_student_no`, `personnel_designation`, `personnel_faculty`, `personnel_unit_code`, `personnel_project_title`, `personnel_reference_no`, `personnel_storage`, `personnel_keeper_name`, `LMO_list`, `LMO_name`, `LMO_risk_level`, `LMO_quantity`, `LMO_volume`, `biohazard_list`, `biohazard_name`, `biohazard_risk_level`, `biohazard_quantity`, `biohazard_volume`, `declaration_name`, `declaration_date`, `signature_verified_by`, `signature_verified_date`, `notification_approved_by`, `notification_declined_by`, `notification_approver`, `notification_decliner`, `notification_approve_decline_date`, `notification_approve_decline_remarks`, `notification_reviewed_by`, `notification_reviewed_by_date`, `notification_reviewed_by_remarks`, `application_approved`, `popularity`) VALUES
+(1, 1, NULL, NULL, NULL, 'Sim', 100072290, 'Student', 'BCS', 'SE4001', 'New title', NULL, 'new storage', 'keepr name', NULL, ',,,,,', ',,,,,', ',,,,,', ',,,,,', 1, ',,,,,', ',,,,,', ',,,,,', ',,,,,', 'Sikscac', '2018-04-03', 'Sim', '2018-04-05', NULL, NULL, '', '', '2018-04-18', 'dvsdvsdv', '', '2018-04-23', 'sdvsdvsvddsd', 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -1077,7 +1167,7 @@ CREATE TABLE `swp` (
   `application_id` int(10) UNSIGNED NOT NULL,
   `account_id` int(10) UNSIGNED NOT NULL,
   `approver_id` int(10) UNSIGNED DEFAULT NULL,
-  `date_received` datetime DEFAULT NULL,
+  `date_received` date DEFAULT NULL,
   `SBC_reference_no` varchar(10) DEFAULT NULL,
   `SWP_prepared_by` varchar(100) NOT NULL,
   `SWP_staff_student_no` int(10) UNSIGNED DEFAULT NULL,
@@ -1093,23 +1183,31 @@ CREATE TABLE `swp` (
   `SWP_risk` varchar(500) NOT NULL,
   `SWP_control` varchar(500) NOT NULL,
   `SWP_declaration_name` varchar(100) NOT NULL,
-  `SWP_declaratioon_date` datetime DEFAULT NULL,
+  `SWP_declaration_date` date DEFAULT NULL,
   `SWP_signature_prepared_by` varchar(100) DEFAULT NULL,
-  `SWP_signature_prepared_by_date` datetime DEFAULT NULL,
+  `SWP_signature_prepared_by_date` date DEFAULT NULL,
   `SWP_signature_PI` varchar(100) DEFAULT NULL,
-  `SWP_signature_PI_date` datetime DEFAULT NULL,
-  `SWP_lab_trained` int(1) NOT NULL,
+  `SWP_signature_PI_date` date DEFAULT NULL,
+  `SWP_lab_trained` int(1) DEFAULT NULL,
   `SWP_lab_trainer` varchar(500) DEFAULT NULL,
+  `SWP_approval_by` int(1) DEFAULT NULL,
   `SWP_approved_by` varchar(100) DEFAULT NULL,
   `SWP_declined_by` varchar(100) DEFAULT NULL,
-  `SWP_approve_decline_date` datetime DEFAULT NULL,
+  `SWP_approve_decline_date` date DEFAULT NULL,
   `SWP_approve_decline_remarks` varchar(300) DEFAULT NULL,
   `SWP_reviewed_by` varchar(100) DEFAULT NULL,
-  `SWP_reviewed_by_date` datetime DEFAULT NULL,
+  `SWP_reviewed_by_date` date DEFAULT NULL,
   `SWP_reviewed_by_remarks` varchar(300) DEFAULT NULL,
   `application_approved` int(1) NOT NULL,
   `popularity` int(10) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `swp`
+--
+
+INSERT INTO `swp` (`application_id`, `account_id`, `approver_id`, `date_received`, `SBC_reference_no`, `SWP_prepared_by`, `SWP_staff_student_no`, `SWP_designation`, `SWP_faculty`, `SWP_unit_title`, `SWP_project_title`, `SWP_location`, `SWP_description`, `SWP_preoperational`, `SWP_operational`, `SWP_postoperational`, `SWP_risk`, `SWP_control`, `SWP_declaration_name`, `SWP_declaration_date`, `SWP_signature_prepared_by`, `SWP_signature_prepared_by_date`, `SWP_signature_PI`, `SWP_signature_PI_date`, `SWP_lab_trained`, `SWP_lab_trainer`, `SWP_approval_by`, `SWP_approved_by`, `SWP_declined_by`, `SWP_approve_decline_date`, `SWP_approve_decline_remarks`, `SWP_reviewed_by`, `SWP_reviewed_by_date`, `SWP_reviewed_by_remarks`, `application_approved`, `popularity`) VALUES
+(1, 1, NULL, NULL, NULL, 'Heu', 100072290, 'Studnet', 'BCS', 'SE40001', 'FYP', 'Swinburne Sarawak', 'kdnflsnagvkldb gvg', 'bzdhshbbfdbhbhsdfrbbzsbsbzs', 'zsdtbsbstnbzndbsnb', 'fdbtsrnsrtnbrtsnsrnbzd', 'rtgfnrsnrssrnzrs', 'srnsrntsdbrnt', 'Declare name', '2018-02-06', 'Signature name', '2018-04-12', 'Verified name', '2018-04-23', 1, 'Me', 1, NULL, '', '0000-00-00', '', 'Damn', '0000-00-00', '', 0, NULL);
 
 --
 -- Indexes for dumped tables
@@ -1304,7 +1402,7 @@ ALTER TABLE `annex2`
 -- AUTO_INCREMENT for table `annex3`
 --
 ALTER TABLE `annex3`
-  MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `annex4`
@@ -1316,7 +1414,7 @@ ALTER TABLE `annex4`
 -- AUTO_INCREMENT for table `annex5`
 --
 ALTER TABLE `annex5`
-  MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `announcement`
@@ -1328,19 +1426,19 @@ ALTER TABLE `announcement`
 -- AUTO_INCREMENT for table `annualfinalreport`
 --
 ALTER TABLE `annualfinalreport`
-  MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `biohazardousmaterial`
 --
 ALTER TABLE `biohazardousmaterial`
-  MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `exemptdealing`
 --
 ALTER TABLE `exemptdealing`
-  MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `forme`
@@ -1352,19 +1450,19 @@ ALTER TABLE `forme`
 -- AUTO_INCREMENT for table `formf`
 --
 ALTER TABLE `formf`
-  MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `hirarc`
 --
 ALTER TABLE `hirarc`
-  MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `incidentaccidentreport`
 --
 ALTER TABLE `incidentaccidentreport`
-  MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `inventory`
@@ -1376,7 +1474,7 @@ ALTER TABLE `inventory`
 -- AUTO_INCREMENT for table `materialriskassessment`
 --
 ALTER TABLE `materialriskassessment`
-  MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `notification`
@@ -1388,13 +1486,13 @@ ALTER TABLE `notification`
 -- AUTO_INCREMENT for table `notificationexportingbiologicalmaterial`
 --
 ALTER TABLE `notificationexportingbiologicalmaterial`
-  MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `notificationlmobiohazardousmaterial`
 --
 ALTER TABLE `notificationlmobiohazardousmaterial`
-  MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `pc1`
@@ -1418,7 +1516,7 @@ ALTER TABLE `storage`
 -- AUTO_INCREMENT for table `swp`
 --
 ALTER TABLE `swp`
-  MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables
