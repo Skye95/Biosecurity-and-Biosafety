@@ -1,3 +1,9 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+if(!$this->session->userdata('isLogin')){
+    redirect('landing/index');
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -96,12 +102,15 @@
                        </div>
 					   <div 
 							class="form-group"><h6><strong>FACULTY/DEPARTMENT :</strong></h6><input type="text" class="form-control" name="faculty" id="faculty" value="<?php if(isset($load)){echo set_value('faculty', $item->faculty);}else{echo set_value('faculty');} ?>">
+                           <span class="text-danger"><?php echo form_error('faculty'); ?></span>
                        </div>
 					   <div 
 							class="form-group"><h6><strong>LABORATORY :</strong></h6><input type="text" class="form-control" name="laboratory" id="laboratory" value="<?php if(isset($load)){echo set_value('laboratory', $item->laboratory);}else{echo set_value('laboratory');} ?>" >
+                           <span class="text-danger"><?php echo form_error('laboratory'); ?></span>
                        </div>
 					   <div 
 							class="form-group"><h6><strong>DATE & TIME OF INCIDENT :</strong></h6><input type="date" class="form-control" name="date" id="date" value="<?php if(isset($load)){echo set_value('date', $item->date);}else{echo set_value('date');} ?>" >
+                           <span class="text-danger"><?php echo form_error('date'); ?></span>
                        </div>
                    
                    <div>                      
@@ -133,6 +142,10 @@
                            </tr>                
                            </tbody>
                        </table>
+                       <span class="text-danger"><?php echo form_error('PI_name'); ?></span>
+                       <span class="text-danger"><?php echo form_error('PI_telephone_number'); ?></span>
+                       <span class="text-danger"><?php echo form_error('PI_reported_date'); ?></span>
+                       <span class="text-danger"><?php echo form_error('PI_reported_time'); ?></span>
                    </div>
 				   <hr>
 				   
@@ -274,19 +287,28 @@
                            </tr>
                            </tbody>
                        </table>
+                <span class="text-danger"><?php echo form_error('incident_description'); ?></span>
+                <span class="text-danger"><?php echo form_error('incident_contribution'); ?></span>
+                <span class="text-danger"><?php echo form_error('incident_personal_factors'); ?></span>
+                <span class="text-danger"><?php echo form_error('incident_corrective_actions'); ?></span>
+                <span class="text-danger"><?php echo form_error('incident_responsible'); ?></span>
                    
                    <div class="row">
                        <div class="col-md-6 form-group">
                            <textarea rows="2" class="form-control"></textarea>
                            <p>Signature of Principal Investigator</p>
+                           
                            <label class="control-label col-sm-2" for="signature_PI_name">Name:</label>
                            <div class="col-sm-10">
                                <input type="text" class="form-control" name="signature_PI_name" value="<?php if(isset($load)){echo set_value('signature_PI_name', $item->signature_PI_name);}else{echo set_value('signature_PI_name');} ?>">
                            </div>
+                           <span class="text-danger"><?php echo form_error('signature_PI_name'); ?></span>
+                           
                            <label class="control-label col-sm-2" for="signature_PI_date">Date:</label>
                            <div class="col-sm-10">
                                <input type="date" class="form-control" name="signature_PI_date" value="<?php if(isset($load)){echo set_value('signature_PI_date', $item->signature_PI_date);}else{echo set_value('signature_PI_date');} ?>">
                            </div>
+                           <span class="text-danger"><?php echo form_error('signature_PI_date'); ?></span>
                            
                        </div>
                        
@@ -351,7 +373,7 @@
 				   
 				   <div>
                        <button name="submit" type="submit" class="btn btn-primary">Submit</button>
-                       <a class="btn btn-primary" href="<?php echo base_url(); ?>index.php/annex3/load_form">Load</a>
+                       <a class="btn btn-primary" href="<?php echo base_url(); ?>index.php/annex4/load_form">Load</a>
                    </div>
                     
                <?php echo form_close(); ?>
