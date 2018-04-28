@@ -58,9 +58,11 @@ if($this->session->userdata('account_type') != 2){
                                         if($row->account_type == 1) {
                                             echo "Applicant / PI";
                                         } elseif($row->account_type == 2) {
-                                            echo "SSBC Chair / SSBC Members / BSO / HSO / Lab Officer";
+                                            echo "SSBC Chair / SSBC Members";
                                         } elseif($row->account_type == 3) {
                                             echo "Students / Postgraduates";
+                                        } elseif($row->account_type == 4) {
+                                            echo "BSO / HSO / Lab Officer";
                                         }
                             ?></td>
                         <td><?php echo $row->account_date; ?></td>
