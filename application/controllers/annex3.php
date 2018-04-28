@@ -20,6 +20,28 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $data['readnotif'] = $this->notification_model->get_read($this->session->userdata('account_id'));
             
             $this->form_validation->set_rules('reference_no','Reference No.', 'required');
+            $this->form_validation->set_rules('organization','Organization', 'required');
+            $this->form_validation->set_rules('faculty','Faculty/Department', 'required');
+            $this->form_validation->set_rules('laboratory','Laboratory', 'required');
+            
+            
+            //PI/ LABORATORY PERSONEL INFORMATION
+            $this->form_validation->set_rules('PI_name','PI/ Laboratory Personnel’s Name', 'required');
+            $this->form_validation->set_rules('PI_telephone_number','Telephone', 'required|numeric');
+            $this->form_validation->set_rules('PI_reported_date','DATE', 'required');
+            $this->form_validation->set_rules('PI_reported_time','TIME', 'required');
+            
+            //IDENTIFY THE DIRECT AND CONTRIBUTING CAUSES OF THE INCIDENT
+            $this->form_validation->set_rules('incident_description','Describe the incident','required');
+            //checkbox data----here---missing
+            $this->form_validation->set_rules('incident_contribution','Contributed to the incident', 'required');
+            $this->form_validation->set_rules('incident_personal_factors','Personal factors', 'required');
+            $this->form_validation->set_rules('incident_corrective_actions','Corrective actions', 'required');
+            $this->form_validation->set_rules('incident_responsible','Responsible for implementing corrective actions', 'required');
+            
+            //signature
+            $this->form_validation->set_rules('signature_PI_name','PI Name', 'required');
+            $this->form_validation->set_rules('signature_PI_date','PI Date', 'required');
 
         
             if($this->form_validation->run()== FALSE) 
