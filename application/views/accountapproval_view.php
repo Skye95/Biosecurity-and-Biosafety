@@ -66,10 +66,17 @@ if($this->session->userdata('account_type') != 2){
                                         }
                             ?></td>
                         <td><?php echo $row->account_date; ?></td>
+                        <!--
                         <td class="text-center">
                             <a class="btn btn-success" href="<?php echo base_url(); ?>index.php/accountapproval/approve/<?php echo $row->account_id; ?>" title="Approve"><i class="fa fa-check"></i></a>
                             <hr/>
                             <a class="btn btn-danger" href="<?php echo base_url(); ?>index.php/accountapproval/reject/<?php echo $row->account_id; ?>" title="Reject"><i class="fa fa-times"></i></a>
+                        </td>
+                        -->
+                        <td class="text-center">
+                            <button class="btn btn-success" onclick="approve(<?php echo $row->account_id; ?>)" title="Approve"><i class="fa fa-check"></i></button>
+                            <hr/>
+                            <button class="btn btn-danger" onclick="reject(<?php echo $row->account_id; ?>)" title="Reject"><i class="fa fa-times"></i></button>
                         </td>
                     </tr>
                 <?php endforeach; ?>
@@ -93,19 +100,14 @@ if($this->session->userdata('account_type') != 2){
     </script>
     
     <script>
-        function approve_details(i){
-            if (document.getElementById("tr"+i).style.display == "table-row"){
-                document.getElementById("tr"+i).style.display = "none";
-            } else {
-                document.getElementById("tr"+i).style.display = "table-row";
-            }
+        function approve(i){
+            window.location = "<?php echo base_url(); ?>index.php/accountapproval/approve/" + i;
         }
         
-        function reject_details(i){
-            if (document.getElementById("tr"+i).style.display == "table-row"){
-                document.getElementById("tr"+i).style.display = "none";
-            } else {
-                document.getElementById("tr"+i).style.display = "table-row";
+        function reject(i){
+            var j = prompt("Reason for Rejecting:", "Invalid email/name");
+            if (j != null) {
+                window.location = "<?php echo base_url(); ?>index.php/accountapproval/reject/" + i + "/" + j;
             }
         }
     </script>
