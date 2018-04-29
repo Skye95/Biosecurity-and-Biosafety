@@ -9,6 +9,14 @@ class applicationpage extends CI_Controller {
         
         $this->load->database();
         $this->load->model('notification_model');
+		$this->load->library('breadcrumbs');
+
+		//breadcrum
+		$this->breadcrumbs->unshift('Home', '/');
+		$this->breadcrumbs->push('Page2', '/section/page', true);
+		$this->breadcrumbs->push('Page1', '/annex2', true);
+		$this->breadcrumbs->push('Page3', '/applicationpage', true);
+		
     }
 		
 		public function index(){
