@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 27, 2018 at 08:11 PM
+-- Generation Time: Apr 28, 2018 at 03:01 PM
 -- Server version: 10.1.26-MariaDB
 -- PHP Version: 7.1.9
 
@@ -174,7 +174,8 @@ CREATE TABLE `annex4` (
   `personnel_employment_status` int(1) NOT NULL,
   `personnel_employment_duration` varchar(100) NOT NULL,
   `exposure_location` varchar(500) NOT NULL,
-  `exposure_date` datetime DEFAULT NULL,
+  `exposure_date` date DEFAULT NULL,
+  `exposure_time` varchar(10) NOT NULL,
   `exposure_diagnosis` varchar(500) NOT NULL,
   `exposure_treatment` int(1) NOT NULL,
   `exposure_medical_cert` int(1) NOT NULL,
@@ -185,14 +186,23 @@ CREATE TABLE `annex4` (
   `exposure_symptoms` varchar(500) NOT NULL,
   `exposure_symptoms_duration` varchar(100) NOT NULL,
   `signature_PI_name` varchar(100) DEFAULT NULL,
-  `signature_PI_date` datetime DEFAULT NULL,
+  `signature_PI_date` date DEFAULT NULL,
   `signature_BO_name` varchar(100) DEFAULT NULL,
-  `signature_BO_date` datetime DEFAULT NULL,
+  `signature_BO_date` date DEFAULT NULL,
   `signature_IBC_name` varchar(100) DEFAULT NULL,
-  `signature_IBC_date` datetime DEFAULT NULL,
-  `application_approved` int(1) NOT NULL,
-  `popularity` int(10) UNSIGNED NOT NULL
+  `signature_IBC_date` date DEFAULT NULL,
+  `IBC_approval` int(1) DEFAULT NULL,
+  `IBC_termination` int(1) DEFAULT NULL,
+  `application_approved` int(1) DEFAULT NULL,
+  `popularity` int(10) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `annex4`
+--
+
+INSERT INTO `annex4` (`application_id`, `account_id`, `approver_id`, `reference_no`, `personnel_name`, `personnel_NRIC`, `personnel_age`, `personnel_race`, `personnel_telephone_number`, `personnel_office_number`, `personnel_ext_number`, `personnel_employment_job`, `personnel_employment_faculty`, `personnel_employment_status`, `personnel_employment_duration`, `exposure_location`, `exposure_date`, `exposure_time`, `exposure_diagnosis`, `exposure_treatment`, `exposure_medical_cert`, `exposure_medical_cert_duration`, `exposure_work_description`, `exposure_hazard_or_agent`, `exposure_duration`, `exposure_symptoms`, `exposure_symptoms_duration`, `signature_PI_name`, `signature_PI_date`, `signature_BO_name`, `signature_BO_date`, `signature_IBC_name`, `signature_IBC_date`, `IBC_approval`, `IBC_termination`, `application_approved`, `popularity`) VALUES
+(1, 1, NULL, '123', 'Kim', 2147483647, 23, 'Chinese', 123, 123, 123, 'Student', 'BCS', 0, '3 years', 'Lab A', '2018-04-03', '16:50:00.0', 'Diagnosis given', 3, 1, '3 days', 'Handling Chemicals', 'Acid', '2 minutes', 'Burning ', '', 'Kim', '2018-04-03', '', '0000-00-00', '', '0000-00-00', NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -431,32 +441,32 @@ CREATE TABLE `forme` (
   `organization` varchar(100) NOT NULL,
   `applicant_name_PI` varchar(100) NOT NULL,
   `position` varchar(100) NOT NULL,
-  `telephone_office` int(20) DEFAULT NULL,
-  `telephone_mobile` int(20) DEFAULT NULL,
-  `fax` int(20) DEFAULT NULL,
-  `email_address` int(100) NOT NULL,
-  `postal_address` int(100) NOT NULL,
-  `project_title2` int(100) NOT NULL,
+  `telephone_office` varchar(20) NOT NULL,
+  `telephone_mobile` varchar(20) DEFAULT NULL,
+  `fax` varchar(20) DEFAULT NULL,
+  `email_address` varchar(100) NOT NULL,
+  `postal_address` varchar(100) NOT NULL,
+  `project_title2` varchar(100) NOT NULL,
   `IBC_project_identification_no` int(10) DEFAULT NULL,
-  `notified_first` int(1) NOT NULL,
+  `notified_first` varchar(10) NOT NULL,
   `NBB_reference` varchar(500) DEFAULT NULL,
   `NBB_difference` varchar(500) DEFAULT NULL,
   `importer_organization` varchar(100) NOT NULL,
   `importer_contact_person` varchar(100) NOT NULL,
   `importer_position` varchar(100) NOT NULL,
-  `importer_telephone_office` int(20) DEFAULT NULL,
-  `importer_telephone_mobile` int(20) DEFAULT NULL,
-  `importer_fax` int(20) DEFAULT NULL,
+  `importer_telephone_office` varchar(20) DEFAULT NULL,
+  `importer_telephone_mobile` varchar(20) DEFAULT NULL,
+  `importer_fax` varchar(20) DEFAULT NULL,
   `importer_email_address` varchar(100) NOT NULL,
   `importer_postal_address` varchar(100) NOT NULL,
   `IBC_organization_name` varchar(100) NOT NULL,
   `IBC_chairperson` varchar(100) NOT NULL,
-  `IBC_telephone_number` int(20) NOT NULL,
-  `IBC_fax` int(20) DEFAULT NULL,
+  `IBC_telephone_number` varchar(20) NOT NULL,
+  `IBC_fax` varchar(20) DEFAULT NULL,
   `IBC_email_address` varchar(100) NOT NULL,
   `IBC_PI_name` varchar(100) NOT NULL,
   `IBC_project_title` varchar(100) NOT NULL,
-  `IBC_date` datetime DEFAULT NULL,
+  `IBC_date` date DEFAULT NULL,
   `IBC_adequate` int(1) NOT NULL,
   `IBC_checklist_activities` int(1) NOT NULL,
   `IBC_checklist_description` int(1) NOT NULL,
@@ -466,13 +476,13 @@ CREATE TABLE `forme` (
   `IBC_biosafety_approved` int(1) NOT NULL,
   `signature_statutory_endorsed` int(1) DEFAULT NULL,
   `signature_statutory_applicant_free` int(1) DEFAULT NULL,
-  `applicant_PI_signature_date` datetime DEFAULT NULL,
+  `applicant_PI_signature_date` date DEFAULT NULL,
   `applicant_PI_signature_name` varchar(100) DEFAULT NULL,
   `applicant_PI_signature_stamp` varchar(100) DEFAULT NULL,
-  `IBC_chairperson_signature_date` datetime DEFAULT NULL,
+  `IBC_chairperson_signature_date` date DEFAULT NULL,
   `IBC_chairperson_signature_name` varchar(100) DEFAULT NULL,
   `IBC_chairperson_signature_stamp` varchar(100) DEFAULT NULL,
-  `organization_representative_signature_date` datetime DEFAULT NULL,
+  `organization_representative_signature_date` date DEFAULT NULL,
   `organization_representative_signature_name` varchar(100) DEFAULT NULL,
   `organization_representative_signature_stamp` varchar(100) DEFAULT NULL,
   `project_team_name` varchar(100) NOT NULL,
@@ -486,10 +496,10 @@ CREATE TABLE `forme` (
   `project_intro_activities` blob,
   `project_intro_BSL` int(1) NOT NULL,
   `project_intro_duration` blob,
-  `project_intro_intended_date_commencement` datetime DEFAULT NULL,
-  `project_intro_expected_date_completion` datetime DEFAULT NULL,
-  `project_intro_importation_date` datetime DEFAULT NULL,
-  `project_intro_field_experiment` int(1) NOT NULL,
+  `project_intro_intended_date_commencement` date DEFAULT NULL,
+  `project_intro_expected_date_completion` date DEFAULT NULL,
+  `project_intro_importation_date` date DEFAULT NULL,
+  `project_intro_field_experiment` int(1) DEFAULT NULL,
   `LMO_desc_name_parent` varchar(500) NOT NULL,
   `LMO_desc_name_donor` varchar(500) NOT NULL,
   `LMO_desc_method` varchar(500) NOT NULL,
@@ -527,21 +537,28 @@ CREATE TABLE `forme` (
   `premise_type` varchar(250) NOT NULL,
   `premise_BSL` varchar(500) NOT NULL,
   `premise_IBC` varchar(500) NOT NULL,
-  `premise_IBC_date` datetime DEFAULT NULL,
-  `premise_certification_date` datetime DEFAULT NULL,
+  `premise_IBC_date` date DEFAULT NULL,
+  `premise_certification_date` date DEFAULT NULL,
   `premise_certification_no` varchar(10) DEFAULT NULL,
   `premise_certification_report` blob,
   `premise_address` varchar(100) NOT NULL,
   `premise_officer_name` varchar(100) DEFAULT NULL,
-  `premise_telephone_business` int(20) DEFAULT NULL,
-  `premise_telephone_mobile` int(20) DEFAULT NULL,
-  `premise_fax` int(20) DEFAULT NULL,
+  `premise_telephone_business` varchar(20) DEFAULT NULL,
+  `premise_telephone_mobile` varchar(20) DEFAULT NULL,
+  `premise_fax` varchar(20) DEFAULT NULL,
   `premise_email` varchar(100) NOT NULL,
   `confidential_description` varchar(500) NOT NULL,
   `reference_description` varchar(500) NOT NULL,
   `application_approved` int(1) NOT NULL,
   `popularity` int(10) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `forme`
+--
+
+INSERT INTO `forme` (`application_id`, `account_id`, `approver_id`, `project_title`, `checklist_form`, `checklist_coverletter`, `checklist_IBC`, `checklist_IBC_report`, `checklist_clearance`, `checklist_CBI`, `checklist_CBI_submit`, `checklist_support`, `checklist_RnD`, `organization`, `applicant_name_PI`, `position`, `telephone_office`, `telephone_mobile`, `fax`, `email_address`, `postal_address`, `project_title2`, `IBC_project_identification_no`, `notified_first`, `NBB_reference`, `NBB_difference`, `importer_organization`, `importer_contact_person`, `importer_position`, `importer_telephone_office`, `importer_telephone_mobile`, `importer_fax`, `importer_email_address`, `importer_postal_address`, `IBC_organization_name`, `IBC_chairperson`, `IBC_telephone_number`, `IBC_fax`, `IBC_email_address`, `IBC_PI_name`, `IBC_project_title`, `IBC_date`, `IBC_adequate`, `IBC_checklist_activities`, `IBC_checklist_description`, `IBC_checklist_emergency_response`, `IBC_checklist_trained`, `IBC_form_approved`, `IBC_biosafety_approved`, `signature_statutory_endorsed`, `signature_statutory_applicant_free`, `applicant_PI_signature_date`, `applicant_PI_signature_name`, `applicant_PI_signature_stamp`, `IBC_chairperson_signature_date`, `IBC_chairperson_signature_name`, `IBC_chairperson_signature_stamp`, `organization_representative_signature_date`, `organization_representative_signature_name`, `organization_representative_signature_stamp`, `project_team_name`, `project_team_address`, `project_team_telephone_number`, `project_team_email_address`, `project_team_qualification`, `project_team_designation`, `project_intro_objective`, `project_intro_specifics`, `project_intro_activities`, `project_intro_BSL`, `project_intro_duration`, `project_intro_intended_date_commencement`, `project_intro_expected_date_completion`, `project_intro_importation_date`, `project_intro_field_experiment`, `LMO_desc_name_parent`, `LMO_desc_name_donor`, `LMO_desc_method`, `LMO_desc_class`, `LMO_desc_trait`, `LMO_desc_genes`, `LMO_desc_genes_function`, `risk_assessment_genes_potential_hazard`, `risk_assessment_genes_comments`, `risk_assessment_genes_management`, `risk_assessment_genes_residual`, `risk_assessment_admin_potential_hazard`, `risk_assessment_admin_comments`, `risk_assessment_admin_management`, `risk_assessment_admin_residual`, `risk_assessment_containment_potential_hazard`, `risk_assessment_containment_comments`, `risk_assessment_containment_management`, `risk_assessment_containment_residual`, `risk_assessment_special_potential_hazard`, `risk_assessment_special_comments`, `risk_assessment_special_management`, `risk_assessment_special_residual`, `risk_management_transport`, `risk_management_disposed`, `risk_management_wastes`, `risk_management_wastewater`, `risk_management_decontaminated`, `risk_response_environment`, `risk_response_plan`, `risk_response_disposal`, `risk_response_isolation`, `risk_response_contigency`, `premise_name`, `premise_type`, `premise_BSL`, `premise_IBC`, `premise_IBC_date`, `premise_certification_date`, `premise_certification_no`, `premise_certification_report`, `premise_address`, `premise_officer_name`, `premise_telephone_business`, `premise_telephone_mobile`, `premise_fax`, `premise_email`, `confidential_description`, `reference_description`, `application_approved`, `popularity`) VALUES
+(1, 1, NULL, 'New Title', 1, 1, 1, 1, 1, 1, 1, 1, 1, 'Swinburne', 'scacasc', 'sacacasc', '1234556', '1243433454363', '1234341143', 'PI@gmail.com', 'postal address', 'new title', 123, 'yes', '123', NULL, 'sdcsds', 'sddcsvdvv', 'dvsddvssd', '123233', '12313', NULL, 'importer@gmail.com', 'importer address', 'Swinburne', 'IBc namw', '123-1234567', '123-1234567', 'IBC@gmail.com', 'Kim', 'IBc title', '2018-04-02', 1, 1, 1, 0, 1, 0, 1, NULL, NULL, '2018-04-02', 'Kim', 'Stamp here', '2018-04-02', 'IBC chairperson', 'new stamp', '2018-04-22', 'Kim yeung', 'Stamp organization', 'Team name,,,,', 'team address,,,,', 12345578, 'team@gmail.com,,,,', 'No experience,,,,', 'Student,,,,', 'General Objectie', 'Specific Objective', NULL, 3, NULL, '2018-04-23', '2018-04-23', '2018-04-24', NULL, 'parent name,,', 'donor name,,', 'vector,,', 'trait class,,', 'modified trait,,', NULL, 'gene fucntion,,', 'gene modification,,', 'gene risk,,', 'gene management,,', 'gene risk,,', 'admin hazard,,', 'admin risk,,', 'admin management,,', 'admin residual,,', 'containment hazard,,', 'containment risk,,', 'containment management,,', 'containment residual,,', 'special hazard,,', 'special comments,,', 'special management,,', 'special residual,,', 'wadscdacsa', 'ascascascascascv', 'sacascascascasc', 'ascacacsacasc', 'ascacsacasasas', 'sacsaasavsas', 'scascasasxcasx', 'scasasvsa assa', 'vsvsavsavsxva', 'sxzbfdbdzfrbbzdcf', 'Premise 1 name,,,', 'Premise type 1,,,', '3,,,', 'IBC,,,', '2018-04-29', '2018-04-02', '2,,,', NULL, 'premise address,,,', 'contact,,,', '123-1234567,,,', '123-1234567,,,', '123-1234567,,,', 'premise@gmail.com,,,', 'ascsavadvadbadbvdsx', 'dxv dvx dxvxzdv sxazdxv', 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -1021,8 +1038,8 @@ CREATE TABLE `pc1` (
   `project_supervisor_department` varchar(100) NOT NULL,
   `project_supervisor_campus` varchar(100) NOT NULL,
   `project_supervisor_postal_address` varchar(100) NOT NULL,
-  `project_supervisor_telephone` int(20) NOT NULL,
-  `project_supervisor_fax` int(20) DEFAULT NULL,
+  `project_supervisor_telephone` varchar(20) NOT NULL,
+  `project_supervisor_fax` varchar(20) DEFAULT NULL,
   `project_supervisor_email_address` varchar(100) NOT NULL,
   `project_add_title` varchar(500) DEFAULT NULL,
   `project_add_name` varchar(500) DEFAULT NULL,
@@ -1033,8 +1050,8 @@ CREATE TABLE `pc1` (
   `project_add_telephone` varchar(100) DEFAULT NULL,
   `project_add_fax` varchar(100) DEFAULT NULL,
   `project_add_email_address` varchar(500) DEFAULT NULL,
-  `dealing_type_a` int(1) NOT NULL,
-  `dealing_type_c` int(1) NOT NULL,
+  `dealing_type_a` int(1) DEFAULT NULL,
+  `dealing_type_c` int(1) DEFAULT NULL,
   `project_summary` varchar(500) NOT NULL,
   `GMO_name` varchar(100) NOT NULL,
   `GMO_method` varchar(250) NOT NULL,
@@ -1058,6 +1075,13 @@ CREATE TABLE `pc1` (
   `popularity` int(10) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `pc1`
+--
+
+INSERT INTO `pc1` (`application_id`, `account_id`, `approver_id`, `date_received`, `SBC_reference_no`, `project_title`, `project_supervisor_title`, `project_supervisor_name`, `project_supervisor_qualification`, `project_supervisor_department`, `project_supervisor_campus`, `project_supervisor_postal_address`, `project_supervisor_telephone`, `project_supervisor_fax`, `project_supervisor_email_address`, `project_add_title`, `project_add_name`, `project_add_qualification`, `project_add_department`, `project_add_campus`, `project_add_postal_address`, `project_add_telephone`, `project_add_fax`, `project_add_email_address`, `dealing_type_a`, `dealing_type_c`, `project_summary`, `GMO_name`, `GMO_method`, `GMO_origin`, `modified_trait_class`, `modified_trait_description`, `project_hazard_staff`, `project_hazard_environment`, `project_hazard_steps`, `project_transport`, `project_disposal`, `project_SOP`, `project_facilities_building_no`, `project_facilities_room_no`, `project_facilities_containment_level`, `project_facilities_certification_no`, `officer_notified`, `officer_name`, `laboratory_manager`, `application_approved`, `popularity`) VALUES
+(1, 1, NULL, NULL, '', 'Project title', 'Dr', 'Kim', 'Student', 'BCS', 'Swinburne', 'somewhere', '123', '123', 'random@gmail.com', 'professor,', 'Random,', 'PostGraduate,', 'BCS,', 'Swinburne,', 'Random address,', '123-4567890,', '123-4567890,', 'professor@gmail.com,', NULL, 1, 'New Project Summary', 'GMO name', 'GMO method', 'GMO species', 'Trait Class', 'Trait Details', 'Possible hazard', 'Hazard environment', 'Steps taken', 'Transport through wagon', 'Trashcan', NULL, 'B Block', '103', 0, '123', 1, 'Ms Chua', 'Manager ', 0, NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -1068,7 +1092,7 @@ CREATE TABLE `pc2` (
   `application_id` int(10) UNSIGNED NOT NULL,
   `account_id` int(10) UNSIGNED NOT NULL,
   `approver_id` int(10) UNSIGNED DEFAULT NULL,
-  `date_received` datetime DEFAULT NULL,
+  `date_received` date DEFAULT NULL,
   `SBC_reference_no` varchar(10) DEFAULT NULL,
   `project_title` varchar(100) NOT NULL,
   `project_supervisor_title` varchar(100) NOT NULL,
@@ -1089,20 +1113,20 @@ CREATE TABLE `pc2` (
   `project_add_telephone` varchar(100) DEFAULT NULL,
   `project_add_fax` varchar(100) DEFAULT NULL,
   `project_add_email_address` varchar(500) DEFAULT NULL,
-  `dealing_type_a` int(1) NOT NULL,
-  `dealing_type_aa` int(1) NOT NULL,
-  `dealing_type_b` int(1) NOT NULL,
-  `dealing_type_c` int(1) NOT NULL,
-  `dealing_type_d` int(1) NOT NULL,
-  `dealing_type_e` int(1) NOT NULL,
-  `dealing_type_f` int(1) NOT NULL,
-  `dealing_type_g` int(1) NOT NULL,
-  `dealing_type_h` int(1) NOT NULL,
-  `dealing_type_i` int(1) NOT NULL,
-  `dealing_type_j` int(1) NOT NULL,
-  `dealing_type_k` int(1) NOT NULL,
-  `dealing_type_l` int(1) NOT NULL,
-  `dealing_type_m` int(1) NOT NULL,
+  `dealing_type_a` int(1) DEFAULT NULL,
+  `dealing_type_aa` int(1) DEFAULT NULL,
+  `dealing_type_b` int(1) DEFAULT NULL,
+  `dealing_type_c` int(1) DEFAULT NULL,
+  `dealing_type_d` int(1) DEFAULT NULL,
+  `dealing_type_e` int(1) DEFAULT NULL,
+  `dealing_type_f` int(1) DEFAULT NULL,
+  `dealing_type_g` int(1) DEFAULT NULL,
+  `dealing_type_h` int(1) DEFAULT NULL,
+  `dealing_type_i` int(1) DEFAULT NULL,
+  `dealing_type_j` int(1) DEFAULT NULL,
+  `dealing_type_k` int(1) DEFAULT NULL,
+  `dealing_type_l` int(1) DEFAULT NULL,
+  `dealing_type_m` int(1) DEFAULT NULL,
   `project_summary` varchar(500) NOT NULL,
   `GMO_name` varchar(100) NOT NULL,
   `GMO_method` varchar(250) NOT NULL,
@@ -1117,14 +1141,21 @@ CREATE TABLE `pc2` (
   `project_SOP` blob,
   `project_facilities_building_no` varchar(100) NOT NULL,
   `project_facilities_room_no` varchar(100) NOT NULL,
-  `project_facilities_containment_level` int(1) NOT NULL,
+  `project_facilities_containment_level` varchar(25) NOT NULL,
   `project_facilities_certification_no` varchar(10) DEFAULT NULL,
   `officer_notified` int(1) DEFAULT NULL,
   `officer_name` varchar(100) DEFAULT NULL,
   `laboratory_manager` varchar(100) DEFAULT NULL,
-  `application_approved` int(1) NOT NULL,
+  `application_approved` int(1) DEFAULT NULL,
   `popularity` int(10) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `pc2`
+--
+
+INSERT INTO `pc2` (`application_id`, `account_id`, `approver_id`, `date_received`, `SBC_reference_no`, `project_title`, `project_supervisor_title`, `project_supervisor_name`, `project_supervisor_qualification`, `project_supervisor_department`, `project_supervisor_campus`, `project_supervisor_postal_address`, `project_supervisor_telephone`, `project_supervisor_fax`, `project_supervisor_email_address`, `project_add_title`, `project_add_name`, `project_add_qualification`, `project_add_department`, `project_add_campus`, `project_add_postal_address`, `project_add_telephone`, `project_add_fax`, `project_add_email_address`, `dealing_type_a`, `dealing_type_aa`, `dealing_type_b`, `dealing_type_c`, `dealing_type_d`, `dealing_type_e`, `dealing_type_f`, `dealing_type_g`, `dealing_type_h`, `dealing_type_i`, `dealing_type_j`, `dealing_type_k`, `dealing_type_l`, `dealing_type_m`, `project_summary`, `GMO_name`, `GMO_method`, `GMO_origin`, `modified_trait_class`, `modified_trait_description`, `project_hazard_staff`, `project_hazard_environment`, `project_hazard_steps`, `project_transport`, `project_disposal`, `project_SOP`, `project_facilities_building_no`, `project_facilities_room_no`, `project_facilities_containment_level`, `project_facilities_certification_no`, `officer_notified`, `officer_name`, `laboratory_manager`, `application_approved`, `popularity`) VALUES
+(1, 1, NULL, NULL, '', 'asdcasdcas', 'ascsc', 'ascasccs', 'ascsca', 'ascascasc', 'sacasc', 'acscsac', 123, 123, 'First@gmail.com', 'Dr,', 'Something,', 'Postgraduate,', 'Biotech,', 'Swinburne,', 'Somewhere Here,', '123-1234567,', '123-1234567,', 'Dr@gmail.com,', 1, 1, 1, NULL, 1, 1, 1, 1, NULL, 1, NULL, NULL, 0, 0, 'Summary Here', 'GMO name', 'GMo vector', 'Gnee name', 'Trait class', 'Trait details', 'asacasfcasfsf', 'sdvdvsvdsvs', 'dvvdsvsdvsdvsv', 'sdvsdvdvdsvvdsv', 'sdvdsvsvVzsfbsfz', NULL, 'G block', '518', '0', '123', 1, 'Ms Chua', 'manager name here', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1408,7 +1439,7 @@ ALTER TABLE `annex3`
 -- AUTO_INCREMENT for table `annex4`
 --
 ALTER TABLE `annex4`
-  MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `annex5`
@@ -1444,7 +1475,7 @@ ALTER TABLE `exemptdealing`
 -- AUTO_INCREMENT for table `forme`
 --
 ALTER TABLE `forme`
-  MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `formf`
@@ -1498,13 +1529,13 @@ ALTER TABLE `notificationlmobiohazardousmaterial`
 -- AUTO_INCREMENT for table `pc1`
 --
 ALTER TABLE `pc1`
-  MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `pc2`
 --
 ALTER TABLE `pc2`
-  MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `storage`

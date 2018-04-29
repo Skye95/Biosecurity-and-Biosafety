@@ -1,8 +1,14 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+if(!$this->session->userdata('isLogin')){
+    redirect('landing/index');
+}
+?>
 <!DOCTYPE html>
 <html>
     <head>
         <link rel="stylesheet" href="<?php echo base_url()?>assets/css/styles.css" type="text/css">
-        <title>Biosafety and Biosecurity Online System - Application for Biosafety Clearance for use of exempt dealings</title>
+        <title>Biosafety and Biosecurity Online System - Form E</title>
     
         <style>
             body {
@@ -81,6 +87,103 @@
         
         <?php include_once 'template/navbar.php' ?>
         
+        <?php
+    
+    if(isset($load)){
+        foreach($retrieved as $item){
+            
+            $new1 = $item->project_team_name;
+            $new2 = $item->project_team_address;
+            $new3 = $item->project_team_telephone_number;
+            $new4 = $item->project_team_email_address;
+            $new5 = $item->project_team_qualification;
+            $new6 = $item->project_team_designation;
+            $new7 = $item->LMO_desc_name_parent;
+            $new8 = $item->LMO_desc_name_donor;
+            $new9 = $item->LMO_desc_method;
+            $new10 = $item->LMO_desc_class;
+            $new11 = $item->LMO_desc_trait;
+            $new12 = $item->LMO_desc_genes_function;
+            $new13 = $item->risk_assessment_genes_potential_hazard;
+            $new14 = $item->risk_assessment_genes_comments;
+            $new15 = $item->risk_assessment_genes_management;
+            $new16 = $item->risk_assessment_genes_residual;
+            $new17 = $item->risk_assessment_admin_potential_hazard;
+            $new18 = $item->risk_assessment_admin_comments;
+            $new19 = $item->risk_assessment_admin_management;
+            $new20 = $item->risk_assessment_admin_residual;
+            $new21 = $item->risk_assessment_containment_potential_hazard;
+            $new22 = $item->risk_assessment_containment_comments;
+            $new23 = $item->risk_assessment_containment_management;
+            $new24 = $item->risk_assessment_containment_residual;
+            $new25 = $item->risk_assessment_special_potential_hazard;
+            $new26 = $item->risk_assessment_special_comments;
+            $new27 = $item->risk_assessment_special_management;
+            $new28 = $item->risk_assessment_special_residual;
+            $new29 = $item->premise_name;
+            $new30 = $item->premise_type;
+            $new31 = $item->premise_BSL;
+            $new32 = $item->premise_IBC;
+            $new33 = $item->premise_IBC_date;
+            $new34 = $item->premise_certification_date;
+            $new35 = $item->premise_certification_no;
+            $new36 = $item->premise_address;
+            $new37 = $item->premise_officer_name;
+            $new38 = $item->premise_telephone_business;
+            $new39 = $item->premise_telephone_mobile;
+            $new40 = $item->premise_fax;
+            $new41 = $item->premise_email;
+            
+            $a = explode(",", $new1);
+            $b = explode(",", $new2);
+            $c = explode(",", $new3);
+            $d = explode(",", $new4);
+            $e = explode(",", $new5);
+            $f = explode(",", $new6);
+            $g = explode(",", $new7);
+            $h = explode(",", $new8);
+            $i = explode(",", $new9);
+            $j = explode(",", $new10);
+            $k = explode(",", $new11);
+            $l = explode(",", $new12);
+            $m = explode(",", $new13);
+            $n = explode(",", $new14);
+            $o = explode(",", $new15);
+            $p = explode(",", $new16);
+            $q = explode(",", $new17);
+            $r = explode(",", $new18);
+            $s = explode(",", $new19);
+            $t = explode(",", $new20);
+            $u = explode(",", $new21);
+            $v = explode(",", $new22);
+            $w = explode(",", $new23);
+            $x = explode(",", $new24);
+            $y = explode(",", $new25);
+            $z = explode(",", $new26);
+            $aa = explode(",", $new27);
+            $ab = explode(",", $new28);
+            $ac = explode(",", $new29);
+            $ad = explode(",", $new30);
+            $ae = explode(",", $new31);
+            $af = explode(",", $new32);
+            $ag = explode(",", $new33);
+            $ah = explode(",", $new34);
+            $ai = explode(",", $new35);
+            $aj = explode(",", $new36);
+            $ak = explode(",", $new37);
+            $al = explode(",", $new38);
+            $am = explode(",", $new39);
+            $an = explode(",", $new40);
+            $ao = explode(",", $new41);
+        }
+        
+        
+    }else{
+           
+        }
+    
+    ?>
+        
         <div class="container">
             <div id='breadcrumb1'>
             <ul>
@@ -95,7 +198,14 @@
             <div class="row">
                 
                 <div class="col-md-11">
-                    <form class="form-horizontal">
+                    <?php echo form_open('forme/index'); ?>
+                    
+                    
+                    <div>
+                        <br/>
+                        <?php echo $this->session->flashdata('msg'); ?>
+                    </div>
+                    
                         <div>
                             <h5 class="centering"><strong>BIOSAFETY ACT 2007</strong></h5>
                              <br>
@@ -117,7 +227,7 @@
                         
                         <div class="form-group">
                             <label class="control-label" for="project_title"><h6><strong>PROJECT TITLE:</strong></h6></label>
-                            <input type="text" class="form-control col-md-5" name="project_title">
+                            <input type="text" class="form-control col-md-5" name="project_title" value="<?php if(isset($load)){echo set_value('project_title', $item->project_title);}else{echo set_value('project_title');} ?>">
                         </div>
                         
                         <br>
@@ -128,7 +238,7 @@
                                 <td>1. Form NBB/N/CU/15/FORM E is complete with the relevant signatures</td>
                                 <td>
                                     <div class="checkbox">
-                                      <label><input type="checkbox" value="" name="checklist_form"></label>
+                                      <label><input type="checkbox" value="1" name="checklist_form" <?php echo set_checkbox('checklist_form', '1'); ?> <?php if(isset($load)){if($item->checklist_form==1){echo "checked=checked";}}else{} ?> ></label>
                                     </div>
                                 </td>
                             </tr>
@@ -136,7 +246,7 @@
                                 <td>2. Cover letter from applicant's institute provided</td>
                                 <td>
                                     <div class="checkbox">
-                                      <label><input type="checkbox" value="" name="checklist_coverletter"></label>
+                                      <label><input type="checkbox" value="1" name="checklist_coverletter" <?php echo set_checkbox('checklist_coverletter', '1'); ?> <?php if(isset($load)){if($item->checklist_coverletter==1){echo "checked=checked";}}else{} ?> ></label>
                                     </div>
                                 </td>
                             </tr>
@@ -144,7 +254,7 @@
                                 <td>3. Notification has been assessed and sent through the IBC (if relevant)</td>
                                 <td>
                                     <div class="checkbox">
-                                      <label><input type="checkbox" value="" name="checklist_IBC"></label>
+                                      <label><input type="checkbox" value="1" name="checklist_IBC" <?php echo set_checkbox('checklist_IBC', '1'); ?> <?php if(isset($load)){if($item->checklist_IBC==1){echo "checked=checked";}}else{} ?> ></label>
                                     </div>
                                 </td>
                             </tr>
@@ -152,7 +262,7 @@
                                 <td>4. IBC Assesment Report (hardcopy and softcopy) </td>
                                 <td>
                                     <div class="checkbox">
-                                      <label><input type="checkbox" value="" name="checklist_IBC_report"></label>
+                                      <label><input type="checkbox" value="1" name="checklist_IBC_report" <?php echo set_checkbox('checklist_IBC_report', '1'); ?> <?php if(isset($load)){if($item->checklist_IBC_report==1){echo "checked=checked";}}else{} ?> ></label>
                                     </div>
                                 </td>
                             </tr>
@@ -160,7 +270,7 @@
                                 <td>5. A copy of clearance documents from the relevant Government agencies (if required) </td>
                                 <td>
                                     <div class="checkbox">
-                                      <label><input type="checkbox" value="" name="checklist_clearance"></label>
+                                      <label><input type="checkbox" value="1" name="checklist_clearance" <?php echo set_checkbox('checklist_clearance', '1'); ?> <?php if(isset($load)){if($item->checklist_clearance==1){echo "checked=checked";}}else{} ?> ></label>
                                     </div>
                                 </td>
                             </tr>
@@ -168,7 +278,7 @@
                                 <td>6. Any information to be treated as confidential business information has been clearly marked "CBI" in the notification </td>
                                 <td>
                                     <div class="checkbox">
-                                      <label><input type="checkbox" value="" name="checklist_CBI"></label>
+                                      <label><input type="checkbox" value="1" name="checklist_CBI" <?php echo set_checkbox('checklist_CBI', '1'); ?> <?php if(isset($load)){if($item->checklist_CBI==1){echo "checked=checked";}}else{} ?> ></label>
                                     </div>
                                 </td>
                             </tr>
@@ -176,7 +286,7 @@
                                 <td>7. One(1) original and six(6) hardcopies of the completed notification are submitted. A soft copy of the submitted notification that does not contain any CBI. </td>
                                 <td>
                                     <div class="checkbox">
-                                      <label><input type="checkbox" value="" name="checklist_CBI_submit"></label>
+                                      <label><input type="checkbox" value="1" name="checklist_CBI_submit" <?php echo set_checkbox('checklist_CBI_submit', '1'); ?> <?php if(isset($load)){if($item->checklist_CBI_submit==1){echo "checked=checked";}}else{} ?> ></label>
                                     </div>
                                 </td>
                             </tr>
@@ -184,7 +294,7 @@
                                 <td>8. All supporting documents/attachments required (e.g. SOPs, references) </td>
                                 <td>
                                     <div class="checkbox">
-                                      <label><input type="checkbox" value="" name="checklist_support"></label>
+                                      <label><input type="checkbox" value="1" name="checklist_support" <?php echo set_checkbox('checklist_support', '1'); ?> <?php if(isset($load)){if($item->checklist_support==1){echo "checked=checked";}}else{} ?> ></label>
                                     </div>
                                 </td>
                             </tr>
@@ -192,7 +302,7 @@
                                 <td>9. A copy of letter of authorization from R&D collaboration involving more than one premises (if any)</td>
                                 <td>
                                     <div class="checkbox">
-                                      <label><input type="checkbox" value="" name="checklist_RnD"></label>
+                                      <label><input type="checkbox" value="1" name="checklist_RnD" <?php echo set_checkbox('checklist_RnD', '1'); ?> <?php if(isset($load)){if($item->checklist_RnD==1){echo "checked=checked";}}else{} ?> ></label>
                                     </div>
                                 </td>
                             </tr>
@@ -205,53 +315,53 @@
                             <h8><strong>Preliminary information</strong></h8>
                             <tr>
                                 <td>1.  Organization:</td>
-                                <td><input type="text" class="form-control" name="organization"></td>
+                                <td><input type="text" class="form-control" name="organization" value="<?php if(isset($load)){echo set_value('organization', $item->organization);}else{echo set_value('organization');} ?>" ></td>
                             </tr>
                             <tr>
                                 <td>2.  Name of Applicant(Principal Investigator):</td>
-                                <td><input type="text" class="form-control" name="applicant_name_PI"></td>
+                                <td><input type="text" class="form-control" name="applicant_name_PI" value="<?php if(isset($load)){echo set_value('applicant_name_PI', $item->applicant_name_PI);}else{echo set_value('applicant_name_PI');} ?>" ></td>
                             </tr>
                             <tr>
                                 <td colspan="2">
                                     <table class="table table-bordered">
                                         <tr>
                                             <td width="515">3. Position in Organization:</td>
-                                            <td><input type="text" class="form-control" name="position"></td>
+                                            <td><input type="text" class="form-control" name="position" value="<?php if(isset($load)){echo set_value('position', $item->position);}else{echo set_value('position');} ?>" ></td>
                                         </tr>
                                         <tr>
                                             <td>Telephone(office):</td>
-                                            <td><input type="tel" class="form-control" name="telephone_office"></td>
+                                            <td><input type="tel" class="form-control" name="telephone_office" value="<?php if(isset($load)){echo set_value('telephone_office', $item->telephone_office);}else{echo set_value('telephone_office');} ?>" ></td>
                                         </tr>
                                         <tr>
                                             <td>Telephone(mobile):</td>
-                                            <td><input type="tel" class="form-control" name="telephone_mobile"></td>
+                                            <td><input type="tel" class="form-control" name="telephone_mobile" value="<?php if(isset($load)){echo set_value('telephone_mobile', $item->telephone_mobile);}else{echo set_value('telephone_mobile');} ?>" ></td>
                                         </tr>
                                         <tr>
                                             <td>Fax number:</td>
-                                            <td><input type="text" class="form-control" name="fax"></td>
+                                            <td><input type="text" class="form-control" name="fax" value="<?php if(isset($load)){echo set_value('fax', $item->fax);}else{echo set_value('fax');} ?>" ></td>
                                         </tr>
                                         <tr>
                                             <td>Email address:</td>
-                                            <td><input type="email" class="form-control" name="email_address"></td>
+                                            <td><input type="email" class="form-control" name="email_address" value="<?php if(isset($load)){echo set_value('email_address', $item->email_address);}else{echo set_value('email_address');} ?>" ></td>
                                         </tr>
                                         <tr>
                                             <td>Postal address:</td>
-                                            <td><input type="text" class="form-control" name="postal_address"></td>
+                                            <td><input type="text" class="form-control" name="postal_address" value="<?php if(isset($load)){echo set_value('postal_address', $item->postal_address);}else{echo set_value('postal_address');} ?>" ></td>
                                         </tr>
                                     </table>
                                 </td>
                             </tr>
                             <tr>
                                 <td>Project Title:</td>
-                                <td><input type="text" class="form-control" name="project_title2"></td>
+                                <td><input type="text" class="form-control" name="project_title2" value="<?php if(isset($load)){echo set_value('project_title2', $item->project_title2);}else{echo set_value('project_title2');} ?>" ></td>
                             </tr>
                             <tr>
                                 <td>IBC Project Identification No.:</td>
-                                <td><input type="text" class="form-control" name="IBC_project_identification_no"></td>
+                                <td><input type="text" class="form-control" name="IBC_project_identification_no" value="<?php if(isset($load)){echo set_value('IBC_project_identification_no', $item->IBC_project_identification_no);}else{echo set_value('IBC_project_identification_no');} ?>" ></td>
                             </tr>
                             <tr>
                                 <td>Is this the first time the activity is being notified:</td>
-                                <td><input type="text" class="form-control" name="notified_first"></td>
+                                <td><input type="text" class="form-control" name="notified_first" value="<?php if(isset($load)){echo set_value('notified_first', $item->notified_first);}else{echo set_value('notified_first');} ?>" ></td>
                             </tr>
                             <tr>
                                 <td colspan="2">
@@ -262,7 +372,7 @@
                                                
                                             </td>
                                             <td>
-                                                <input type="text" class="form-control" name="NBB_reference">
+                                                <input type="text" class="form-control" name="NBB_reference" value="<?php if(isset($load)){echo set_value('NBB_reference', $item->NBB_reference);}else{echo set_value('NBB_reference');} ?>" >
                                             </td>
                                         </tr>
                                         <tr>
@@ -270,7 +380,7 @@
                                                 ii)How is this notification different from the previous notification submitted for this activity?(please provide an attachment if additional space is required)
                                             </td>
                                             <td>
-                                                <textarea rows="5" class="form-control" name="NBB_difference"></textarea>
+                                                <textarea rows="5" class="form-control" name="NBB_difference"><?php if(isset($load)){echo set_value('NBB_difference', $item->NBB_difference);}else{echo set_value('NBB_difference');} ?></textarea>
                                             </td>
                                         </tr>
                                     </table>
@@ -288,38 +398,38 @@
                             
                             <tr>
                                 <td>8. Organization:</td>
-                                <td><input type="text" class="form-control" name="importer_organization"></td>
+                                <td><input type="text" class="form-control" name="importer_organization" value="<?php if(isset($load)){echo set_value('importer_organization', $item->importer_organization);}else{echo set_value('importer_organization');} ?>"></td>
                             </tr>
                             <tr>
                                 <td>9. Contact Person:</td>
-                                <td><input type="text" class="form-control" name="importer_contact_person"></td>
+                                <td><input type="text" class="form-control" name="importer_contact_person" value="<?php if(isset($load)){echo set_value('importer_contact_person', $item->importer_contact_person);}else{echo set_value('importer_contact_person');} ?>" ></td>
                             </tr>
                             <tr>
                                 <td colspan="2">
                                     <table class="table table-bordered">
                                         <tr>
                                             <td width="310">10. Position in Organization:</td>
-                                            <td><input type="text" class="form-control" name="importer_position"></td>
+                                            <td><input type="text" class="form-control" name="importer_position" value="<?php if(isset($load)){echo set_value('importer_position', $item->importer_position);}else{echo set_value('importer_position');} ?>" ></td>
                                         </tr>
                                         <tr>
                                             <td>Telephone(office):</td>
-                                            <td><input type="tel" class="form-control" name="importer_telephone_office"></td>
+                                            <td><input type="tel" class="form-control" name="importer_telephone_office" value="<?php if(isset($load)){echo set_value('importer_telephone_office', $item->importer_telephone_office);}else{echo set_value('importer_telephone_office');} ?>" ></td>
                                         </tr>
                                         <tr>
                                             <td>Telephone(mobile):</td>
-                                            <td><input type="tel" class="form-control" name="importer_telephone_mobile"></td>
+                                            <td><input type="tel" class="form-control" name="importer_telephone_mobile" value="<?php if(isset($load)){echo set_value('importer_telephone_mobile', $item->importer_telephone_mobile);}else{echo set_value('importer_telephone_mobile');} ?>" ></td>
                                         </tr>
                                         <tr>
                                             <td>Fax number:</td>
-                                            <td><input type="text" class="form-control" name="importer_fax"></td>
+                                            <td><input type="text" class="form-control" name="importer_fax" value="<?php if(isset($load)){echo set_value('importer_fax', $item->importer_fax);}else{echo set_value('importer_fax');} ?>" ></td>
                                         </tr>
                                         <tr>
                                             <td>Email address:</td>
-                                            <td><input type="email" class="form-control" name="importer_email_address"></td>
+                                            <td><input type="email" class="form-control" name="importer_email_address" value="<?php if(isset($load)){echo set_value('importer_email_address', $item->importer_email_address);}else{echo set_value('importer_email_address');} ?>" ></td>
                                         </tr>
                                         <tr>
                                             <td>Postal address:</td>
-                                            <td><input type="text" class="form-control" name="importer_postal_address"></td>
+                                            <td><input type="text" class="form-control" name="importer_postal_address" value="<?php if(isset($load)){echo set_value('importer_postal_address', $item->importer_postal_address);}else{echo set_value('importer_postal_address');} ?>" ></td>
                                         </tr>
                                     </table>
                                 </td>
@@ -340,7 +450,7 @@
                             <tr>
                                 <td>1</td>
                                 <td>Name of Organization:</td>
-                                <td><input type="text" class="form-control" name="IBC_organization_name"></td>
+                                <td><input type="text" class="form-control" name="IBC_organization_name" value="<?php if(isset($load)){echo set_value('IBC_organization_name', $item->IBC_organization_name);}else{echo set_value('IBC_organization_name');} ?>" ></td>
                             </tr>
                             <tr>
                                 <td>2</td>
@@ -350,17 +460,17 @@
                                             <td>
                                                 <tr>
                                                     <td>Name of IBC Chairperson:</td>
-                                                    <td colspan="3"><input type="text" class="form-control" name="IBC_chairperson"></td>
+                                                    <td colspan="3"><input type="text" class="form-control" name="IBC_chairperson" value="<?php if(isset($load)){echo set_value('IBC_chairperson', $item->IBC_chairperson);}else{echo set_value('IBC_chairperson');} ?>" ></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Telephone Number:</td>
-                                                    <td><input type="tel" class="form-control" name="IBC_telephone_number"></td>
+                                                    <td><input type="tel" class="form-control" name="IBC_telephone_number" value="<?php if(isset($load)){echo set_value('IBC_telephone_number', $item->IBC_telephone_number);}else{echo set_value('IBC_telephone_number');} ?>" ></td>
                                                     <td>Fax:</td>
-                                                    <td><input type="text" class="form-control" name="IBC_fax"></td>
+                                                    <td><input type="text" class="form-control" name="IBC_fax" value="<?php if(isset($load)){echo set_value('IBC_fax', $item->IBC_fax);}else{echo set_value('IBC_fax');} ?>" ></td>
                                                 </tr>
                                                 <tr>
                                                     <td>E-mail address:</td>
-                                                    <td colspan="3"><input type="email" class="form-control" name="IBC_email_address"></td>
+                                                    <td colspan="3"><input type="email" class="form-control" name="IBC_email_address" value="<?php if(isset($load)){echo set_value('IBC_email_address', $item->IBC_email_address);}else{echo set_value('IBC_email_address');} ?>" ></td>
                                                 </tr>
                                             </td>
                                         
@@ -370,18 +480,18 @@
                             <tr>
                                 <td>3</td>
                                 <td>Name of Principal Investigator:</td>
-                                <td><input type="text" class="form-control" name="IBC_PI_name"></td>
+                                <td><input type="text" class="form-control" name="IBC_PI_name" value="<?php if(isset($load)){echo set_value('IBC_PI_name', $item->IBC_PI_name);}else{echo set_value('IBC_PI_name');} ?>"  ></td>
                             </tr>
                             <tr>
                                 <td>4</td>
                                 <td>Project Title:</td>
-                                <td><input type="text" class="form-control" name="IBC_project_title"></td>
+                                <td><input type="text" class="form-control" name="IBC_project_title" value="<?php if(isset($load)){echo set_value('IBC_project_title', $item->IBC_project_title);}else{echo set_value('IBC_project_title');} ?>"  ></td>
                             </tr>
                             <tr>
                                 <td>5</td>
                                 <td>Date of the IBC Assesment:</td>
                                 <td>
-                                    <input type="text" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" name="IBC_date">
+                                    <input type="text" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" name="IBC_date" value="<?php if(isset($load)){echo set_value('IBC_date', $item->IBC_date);}else{echo set_value('IBC_date');} ?>"  >
                                 </td>
                             </tr>
                             <tr>
@@ -389,8 +499,9 @@
                                 <td>
                                     Does the IBC consider that the Principal Investigator and every other person authorized to be involved in the contained use of the LMO have adequate training and experience for this task?:</td>
                                 <td>
-                                    <label class="radio-inline"><input type="radio" value="" name="IBC_adequate">Yes</label>
-                                    <label class="radio-inline"><input type="radio" value="" name="IBC_adequate">No</label>
+                                    <label class="radio-inline"><input type="radio" value="1" name="IBC_adequate" <?php echo set_checkbox('IBC_adequate', '1'); ?> <?php if(isset($load)){if($item->IBC_adequate==1){echo "checked=checked";}}else{} ?> >Yes</label>
+                                    
+                                    <label class="radio-inline"><input type="radio" value="0" name="IBC_adequate" <?php echo set_checkbox('IBC_adequate', '0'); ?> <?php if(isset($load)){if($item->IBC_adequate==0){echo "checked=checked";}}else{} ?> >No</label>
                                 </td>
                             </tr>
                             <tr>
@@ -407,11 +518,15 @@
                                     </ol>
                                 </td>
                                 <td>
-                                    <label class="radio-inline"><input type="radio" value="" name="IBC_checklist_activities">Yes</label>
-                                    <label class="radio-inline"><input type="radio" value="" name="IBC_checklist_activities">No</label>
+                                    <label class="radio-inline"><input type="radio" value="1" name="IBC_checklist_activities" <?php echo set_checkbox('IBC_checklist_activities', '1'); ?> <?php if(isset($load)){if($item->IBC_checklist_activities==0){echo "checked=checked";}}else{} ?> />Yes</label>
+                                    
+                                    <label class="radio-inline"><input type="radio" value="0" name="IBC_checklist_activities" <?php echo set_checkbox('IBC_checklist_activities', '0'); ?> <?php if(isset($load)){if($item->IBC_checklist_activities==0){echo "checked=checked";}}else{} ?> >No</label>
+                                    
                                     <br>
-                                    <label class="radio-inline"><input type="radio" value="" name="IBC_checklist_description">Yes</label>
-                                    <label class="radio-inline"><input type="radio" value="" name="IBC_checklist_description">No</label>
+                                    
+                                    <label class="radio-inline"><input type="radio" value="1" name="IBC_checklist_description" <?php echo set_checkbox('IBC_checklist_description', '1'); ?> <?php if(isset($load)){if($item->IBC_checklist_description==1){echo "checked=checked";}}else{} ?> >Yes</label>
+                                    
+                                    <label class="radio-inline"><input type="radio" value="0" name="IBC_checklist_description" <?php echo set_checkbox('IBC_checklist_description', '0'); ?> <?php if(isset($load)){if($item->IBC_checklist_description==0){echo "checked=checked";}}else{} ?> >No</label>
                                 </td>
                             </tr>
                             <tr>
@@ -422,11 +537,15 @@
                                     </ol>
                                 </td>
                                 <td>
-                                    <label class="radio-inline"><input type="radio" value="" name="IBC_checklist_emergency_response">Yes</label>
-                                    <label class="radio-inline"><input type="radio" value="" name="IBC_checklist_emergency_response">No</label>
+                                    <label class="radio-inline"><input type="radio" value="1" name="IBC_checklist_emergency_response"> <?php echo set_checkbox('IBC_checklist_emergency_response', '1'); ?> <?php if(isset($load)){if($item->IBC_checklist_emergency_response==1){echo "checked=checked";}}else{} ?> >Yes</label>
+                                    
+                                    <label class="radio-inline"><input type="radio" value="0" name="IBC_checklist_emergency_response" <?php echo set_checkbox('IBC_checklist_emergency_response', '0'); ?> <?php if(isset($load)){if($item->IBC_checklist_emergency_response==0){echo "checked=checked";}}else{} ?> >No</label>
+                                    
                                     <br><br><br>
-                                    <label class="radio-inline"><input type="radio" value="" name="IBC_checklist_trained">Yes</label>
-                                    <label class="radio-inline"><input type="radio" value="" name="IBC_checklist_trained">No</label>
+                                    
+                                    <label class="radio-inline"><input type="radio" value="1" name="IBC_checklist_trained" <?php echo set_checkbox('IBC_checklist_trained', '1'); ?> <?php if(isset($load)){if($item->IBC_checklist_trained==1){echo "checked=checked";}}else{} ?> >Yes</label>
+                                    
+                                    <label class="radio-inline"><input type="radio" value="0" name="IBC_checklist_trained" <?php echo set_checkbox('IBC_checklist_trained', '0'); ?> <?php if(isset($load)){if($item->IBC_checklist_trained==0){echo "checked=checked";}}else{} ?>>No</label>
                                 </td>
                             </tr>
                             <tr>
@@ -435,8 +554,9 @@
                                     Has the information provided in Form NBB/N/CU/15/FORM E been checked by the IBC and found to be complete?
                                 </td>
                                 <td>
-                                    <label class="radio-inline"><input type="radio" value="" name="IBC_form_approved">Yes</label>
-                                    <label class="radio-inline"><input type="radio" value="" name="IBC_form_approved">No</label>
+                                    <label class="radio-inline"><input type="radio" value="1" name="IBC_form_approved" <?php echo set_checkbox('IBC_form_approved', '1'); ?> <?php if(isset($load)){if($item->IBC_form_approved==1){echo "checked=checked";}}else{} ?> >Yes</label>
+                                    
+                                    <label class="radio-inline"><input type="radio" value="0" name="IBC_form_approved" <?php echo set_checkbox('IBC_form_approved', '0'); ?> <?php if(isset($load)){if($item->IBC_form_approved==0){echo "checked=checked";}}else{} ?> >No</label>
                                 </td>
                             </tr>
                             <tr>
@@ -459,8 +579,9 @@
                                     <p>A template of the IBC Assessment report (IBC/AP/15/ANNEX2) can be obtained at <a href="http://www.biosafety.nre.gov.my">http://www.biosafety.nre.gov.my</a></p>
                                 </td>
                                 <td>
-                                    <label class="radio-inline"><input type="radio" value="" name="IBC_biosafety_approved">Yes</label>
-                                    <label class="radio-inline"><input type="radio" value="" name="IBC_biosafety_approved">No</label>
+                                    <label class="radio-inline"><input type="radio" value="1" name="IBC_biosafety_approved" <?php echo set_checkbox('IBC_biosafety_approved', '1'); ?> <?php if(isset($load)){if($item->IBC_biosafety_approved==1){echo "checked=checked";}}else{} ?> >Yes</label>
+                                    
+                                    <label class="radio-inline"><input type="radio" value="0" name="IBC_biosafety_approved" <?php echo set_checkbox('IBC_biosafety_approved', '0'); ?> <?php if(isset($load)){if($item->IBC_biosafety_approved==0){echo "checked=checked";}}else{} ?> >No</label>
                                 </td>
                             </tr>
                         </table>
@@ -473,11 +594,11 @@
                             <h8><strong><em>Please mark [X] in the chosen box</em></strong></h8>
                             
                             <div class="checkbox">
-                              <label><input type="checkbox" value="" name="signature_statutory_endorsed">The contained use of LMO in within this project has been assessed as above and endorsed by the IBC.</label>
+                              <label><input type="checkbox" value="1" name="signature_statutory_endorsed" <?php echo set_checkbox('signature_statutory_endorsed', '1'); ?> <?php if(isset($load)){if($item->signature_statutory_endorsed==1){echo "checked=checked";}}else{} ?> >The contained use of LMO in within this project has been assessed as above and endorsed by the IBC.</label>
                             </div>
                             <div class="checkbox">
                               <label>
-                                  <input type="checkbox" value="" name="signature_statutory_applicant_free">Applicant is not involved in modern biotechnology research and development
+                                  <input type="checkbox" value="1" name="signature_statutory_applicant_free" <?php echo set_checkbox('signature_statutory_applicant_free', '1'); ?> <?php if(isset($load)){if($item->signature_statutory_applicant_free==1){echo "checked=checked";}}else{} ?> >Applicant is not involved in modern biotechnology research and development
                                 </label>
                             </div>
                             
@@ -493,8 +614,9 @@
                                     <tr>
                                         <td>Signature:</td>
                                         <td><input type="text" class="form-control"></td>
+                                        
                                         <td>Date:</td>
-                                        <td><input type="text" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" name="applicant_PI_signature_date"></td>
+                                        <td><input type="text" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" name="applicant_PI_signature_date" value="<?php if(isset($load)){echo set_value('applicant_PI_signature_date', $item->applicant_PI_signature_date);}else{echo set_value('applicant_PI_signature_date');} ?>"></td>
                                     </tr>
                                 </table>
                             </div>
@@ -503,14 +625,14 @@
                                 <table class="table">
                                     <tr>
                                         <td>Name as in Identity Card/Passport:</td>
-                                        <td><input type="text" class="form-control" name="applicant_PI_signature_name"></td>
+                                        <td><input type="text" class="form-control" name="applicant_PI_signature_name" value="<?php if(isset($load)){echo set_value('applicant_PI_signature_name', $item->applicant_PI_signature_name);}else{echo set_value('applicant_PI_signature_name');} ?>" ></td>
                                     </tr>
                                 </table>
                             </div>
                             
                             <div>
                                 Official Stamp:
-                                <textarea rows="5" class="form-control" name="applicant_PI_signature_stamp"></textarea>
+                                <textarea rows="5" class="form-control" name="applicant_PI_signature_stamp"><?php if(isset($load)){echo set_value('applicant_PI_signature_stamp', $item->applicant_PI_signature_stamp);}else{echo set_value('applicant_PI_signature_stamp');} ?></textarea>
                             </div>
                             
                             <br>
@@ -525,8 +647,9 @@
                                     <tr>
                                         <td>Signature:</td>
                                         <td><input type="text" class="form-control"></td>
+                                        
                                         <td>Date:</td>
-                                        <td><input type="text" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" name="IBC_chairperson_signature_date"></td>
+                                        <td><input type="text" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" name="IBC_chairperson_signature_date" value="<?php if(isset($load)){echo set_value('IBC_chairperson_signature_date', $item->IBC_chairperson_signature_date);}else{echo set_value('IBC_chairperson_signature_date');} ?>" ></td>
                                     </tr>
                                 </table>
                             </div>
@@ -535,14 +658,14 @@
                                 <table class="table">
                                     <tr>
                                         <td>Name as in Identity Card/Passport:</td>
-                                        <td><input type="text" class="form-control" name="IBC_chairperson_signature_name"></td>
+                                        <td><input type="text" class="form-control" name="IBC_chairperson_signature_name" value="<?php if(isset($load)){echo set_value('IBC_chairperson_signature_name', $item->IBC_chairperson_signature_name);}else{echo set_value('IBC_chairperson_signature_name');} ?>" ></td>
                                     </tr>
                                 </table>
                             </div>
                             
                             <div>
                                 Official Stamp:
-                                <textarea rows="5" class="form-control" name="IBC_chairperson_signature_stamp"></textarea>
+                                <textarea rows="5" class="form-control" name="IBC_chairperson_signature_stamp"><?php if(isset($load)){echo set_value('IBC_chairperson_signature_stamp', $item->IBC_chairperson_signature_stamp);}else{echo set_value('IBC_chairperson_signature_stamp');} ?></textarea>
                             </div>
                             
                             <br>
@@ -556,8 +679,9 @@
                                     <tr>
                                         <td>Signature:</td>
                                         <td><input type="text" class="form-control"></td>
+                                        
                                         <td>Date:</td>
-                                        <td><input type="text" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" name="organization_representative_signature_date "></td>
+                                        <td><input type="text" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" name="organization_representative_signature_date" value="<?php if(isset($load)){echo set_value('organization_representative_signature_date', $item->organization_representative_signature_date);}else{echo set_value('organization_representative_signature_date');} ?>"></td>
                                     </tr>
                                 </table>
                             </div>
@@ -566,14 +690,14 @@
                                 <table class="table">
                                     <tr>
                                         <td>Name as in Identity Card/Passport:</td>
-                                        <td><input type="text" class="form-control" name="organization_representative_signature_name"></td>
+                                        <td><input type="text" class="form-control" name="organization_representative_signature_name" value="<?php if(isset($load)){echo set_value('organization_representative_signature_name', $item->organization_representative_signature_name);}else{echo set_value('organization_representative_signature_name');} ?>" ></td>
                                     </tr>
                                 </table>
                             </div>
                             
                             <div>
                                 Official Stamp:
-                                <textarea rows="5" class="form-control" name="organization_representative_signature_stamp"></textarea>
+                                <textarea rows="5" class="form-control" name="organization_representative_signature_stamp"><?php if(isset($load)){echo set_value('organization_representative_signature_stamp', $item->organization_representative_signature_stamp);}else{echo set_value('organization_representative_signature_stamp');} ?></textarea>
                             </div>
                             
                         </div>
@@ -602,54 +726,69 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td><input type="text" class="form-control" name="project_team_name" ></td>
+                                        <td><input type="text" class="form-control" name="project_team_name[0]" value="<?php if(isset($load)){echo set_value('project_team_name[0]', $a[0]);}else{echo set_value('project_team_name[0]');} ?>" ></td>
                                         <td>
-                                            <textarea rows="5" class="form-control" name="project_team_address" placeholder="address"></textarea><br>
-                                            <input type="tel" class="form-control" name="project_team_telephone_number" placeholder="contact no"><br>
-                                            <input type="email" class="form-control" name="project_team_email_address" placeholder="email">
+                                            <textarea rows="5" class="form-control" name="project_team_address[0]" placeholder="address"><?php if(isset($load)){echo set_value('project_team_address[0]', $b[0]);}else{echo set_value('project_team_address[0]');} ?></textarea><br>
+                                            
+                                            <input type="tel" class="form-control" name="project_team_telephone_number[0]" placeholder="contact no" value="<?php if(isset($load)){echo set_value('project_team_telephone_number[0]', $c[0]);}else{echo set_value('project_team_telephone_number[0]');} ?>" ><br>
+                                            
+                                            <input type="email" class="form-control" name="project_team_email_address[0]" placeholder="email" value="<?php if(isset($load)){echo set_value('project_team_email_address[0]', $d[0]);}else{echo set_value('project_team_email_address[0]');} ?>" >
                                         </td>
-                                        <td><input type="text" class="form-control" name="project_team_qualification"></td>
-                                        <td><input type="text" class="form-control" name="project_team_designation"></td>
+                                        <td><input type="text" class="form-control" name="project_team_qualification[0]" value="<?php if(isset($load)){echo set_value('project_team_qualification[0]', $e[0]);}else{echo set_value('project_team_qualification[0]');} ?>" ></td>
+                                        
+                                        <td><input type="text" class="form-control" name="project_team_designation[0]" value="<?php if(isset($load)){echo set_value('project_team_designation[0]', $f[0]);}else{echo set_value('project_team_designation[0]');} ?>"></td>
                                     </tr>
                                     <tr>
-                                        <td><input type="text" class="form-control" name="project_team_name" ></td>
+                                        <td><input type="text" class="form-control" name="project_team_name[1]" value="<?php if(isset($load)){echo set_value('project_team_name[1]', $a[1]);}else{echo set_value('project_team_name[1]');} ?>" ></td>
                                         <td>
-                                            <textarea rows="5" class="form-control" name="project_team_address" placeholder="address"></textarea><br>
-                                            <input type="tel" class="form-control" name="project_team_telephone_number" placeholder="contact no"><br>
-                                            <input type="email" class="form-control" name="project_team_email_address" placeholder="email">
+                                            <textarea rows="5" class="form-control" name="project_team_address[1]" placeholder="address"><?php if(isset($load)){echo set_value('project_team_address[1]', $b[1]);}else{echo set_value('project_team_address[1]');} ?></textarea><br>
+                                            
+                                            <input type="tel" class="form-control" name="project_team_telephone_number[1]" placeholder="contact no" value="<?php if(isset($load)){echo set_value('project_team_telephone_number[1]', $c[1]);}else{echo set_value('project_team_telephone_number[1]');} ?>" ><br>
+                                            
+                                            <input type="email" class="form-control" name="project_team_email_address[1]" placeholder="email" value="<?php if(isset($load)){echo set_value('project_team_email_address[1]', $d[1]);}else{echo set_value('project_team_email_address[1]');} ?>" >
                                         </td>
-                                        <td><input type="text" class="form-control" name="project_team_qualification"></td>
-                                        <td><input type="text" class="form-control" name="project_team_designation"></td>
+                                        <td><input type="text" class="form-control" name="project_team_qualification[1]" value="<?php if(isset($load)){echo set_value('project_team_qualification[1]', $e[1]);}else{echo set_value('project_team_qualification[1]');} ?>" ></td>
+                                        
+                                        <td><input type="text" class="form-control" name="project_team_designation[1]" value="<?php if(isset($load)){echo set_value('project_team_designation[1]', $f[1]);}else{echo set_value('project_team_designation[1]');} ?>"></td>
                                     </tr>
                                     <tr>
-                                        <td><input type="text" class="form-control" name="project_team_name" ></td>
+                                        <td><input type="text" class="form-control" name="project_team_name[2]" value="<?php if(isset($load)){echo set_value('project_team_name[2]', $a[2]);}else{echo set_value('project_team_name[2]');} ?>" ></td>
                                         <td>
-                                            <textarea rows="5" class="form-control" name="project_team_address" placeholder="address"></textarea><br>
-                                            <input type="tel" class="form-control" name="project_team_telephone_number" placeholder="contact no"><br>
-                                            <input type="email" class="form-control" name="project_team_email_address" placeholder="email">
+                                            <textarea rows="5" class="form-control" name="project_team_address[2]" placeholder="address"><?php if(isset($load)){echo set_value('project_team_address[2]', $b[2]);}else{echo set_value('project_team_address[2]');} ?></textarea><br>
+                                            
+                                            <input type="tel" class="form-control" name="project_team_telephone_number[2]" placeholder="contact no" value="<?php if(isset($load)){echo set_value('project_team_telephone_number[2]', $c[2]);}else{echo set_value('project_team_telephone_number[2]');} ?>" ><br>
+                                            
+                                            <input type="email" class="form-control" name="project_team_email_address[2]" placeholder="email" value="<?php if(isset($load)){echo set_value('project_team_email_address[2]', $d[2]);}else{echo set_value('project_team_email_address[2]');} ?>" >
                                         </td>
-                                        <td><input type="text" class="form-control" name="project_team_qualification"></td>
-                                        <td><input type="text" class="form-control" name="project_team_designation"></td>
+                                        <td><input type="text" class="form-control" name="project_team_qualification[2]" value="<?php if(isset($load)){echo set_value('project_team_qualification[2]', $e[2]);}else{echo set_value('project_team_qualification[2]');} ?>" ></td>
+                                        
+                                        <td><input type="text" class="form-control" name="project_team_designation[2]" value="<?php if(isset($load)){echo set_value('project_team_designation[2]', $f[2]);}else{echo set_value('project_team_designation[2]');} ?>"></td>
                                     </tr>
                                     <tr>
-                                        <td><input type="text" class="form-control" name="project_team_name" ></td>
+                                        <td><input type="text" class="form-control" name="project_team_name[3]" value="<?php if(isset($load)){echo set_value('project_team_name[3]', $a[3]);}else{echo set_value('project_team_name[3]');} ?>" ></td>
                                         <td>
-                                            <textarea rows="5" class="form-control" name="project_team_address" placeholder="address"></textarea><br>
-                                            <input type="tel" class="form-control" name="project_team_telephone_number" placeholder="contact no"><br>
-                                            <input type="email" class="form-control" name="project_team_email_address" placeholder="email">
+                                            <textarea rows="5" class="form-control" name="project_team_address[3]" placeholder="address"><?php if(isset($load)){echo set_value('project_team_address[3]', $b[3]);}else{echo set_value('project_team_address[3]');} ?></textarea><br>
+                                            
+                                            <input type="tel" class="form-control" name="project_team_telephone_number[3]" placeholder="contact no" value="<?php if(isset($load)){echo set_value('project_team_telephone_number[3]', $c[3]);}else{echo set_value('project_team_telephone_number[3]');} ?>" ><br>
+                                            
+                                            <input type="email" class="form-control" name="project_team_email_address[3]" placeholder="email" value="<?php if(isset($load)){echo set_value('project_team_email_address[3]', $d[3]);}else{echo set_value('project_team_email_address[3]');} ?>" >
                                         </td>
-                                        <td><input type="text" class="form-control" name="project_team_qualification"></td>
-                                        <td><input type="text" class="form-control" name="project_team_designation"></td>
+                                        <td><input type="text" class="form-control" name="project_team_qualification[3]" value="<?php if(isset($load)){echo set_value('project_team_qualification[3]', $e[3]);}else{echo set_value('project_team_qualification[3]');} ?>" ></td>
+                                        
+                                        <td><input type="text" class="form-control" name="project_team_designation[3]" value="<?php if(isset($load)){echo set_value('project_team_designation[3]', $f[3]);}else{echo set_value('project_team_designation[3]');} ?>"></td>
                                     </tr>
                                     <tr>
-                                        <td><input type="text" class="form-control" name="project_team_name" ></td>
+                                        <td><input type="text" class="form-control" name="project_team_name[4]" value="<?php if(isset($load)){echo set_value('project_team_name[4]', $a[4]);}else{echo set_value('project_team_name[4]');} ?>" ></td>
                                         <td>
-                                            <textarea rows="5" class="form-control" name="project_team_address" placeholder="address"></textarea><br>
-                                            <input type="tel" class="form-control" name="project_team_telephone_number" placeholder="contact no"><br>
-                                            <input type="email" class="form-control" name="project_team_email_address" placeholder="email">
+                                            <textarea rows="5" class="form-control" name="project_team_address[4]" placeholder="address"><?php if(isset($load)){echo set_value('project_team_address[4]', $b[4]);}else{echo set_value('project_team_address[4]');} ?></textarea><br>
+                                            
+                                            <input type="tel" class="form-control" name="project_team_telephone_number[4]" placeholder="contact no" value="<?php if(isset($load)){echo set_value('project_team_telephone_number[4]', $c[4]);}else{echo set_value('project_team_telephone_number[4]');} ?>" ><br>
+                                            
+                                            <input type="email" class="form-control" name="project_team_email_address[4]" placeholder="email" value="<?php if(isset($load)){echo set_value('project_team_email_address[4]', $d[4]);}else{echo set_value('project_team_email_address[4]');} ?>" >
                                         </td>
-                                        <td><input type="text" class="form-control" name="project_team_qualification"></td>
-                                        <td><input type="text" class="form-control" name="project_team_designation"></td>
+                                        <td><input type="text" class="form-control" name="project_team_qualification[4]" value="<?php if(isset($load)){echo set_value('project_team_qualification[4]', $e[4]);}else{echo set_value('project_team_qualification[4]');} ?>" ></td>
+                                        
+                                        <td><input type="text" class="form-control" name="project_team_designation[4]" value="<?php if(isset($load)){echo set_value('project_team_designation[4]', $f[4]);}else{echo set_value('project_team_designation[4]');} ?>"></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -663,20 +802,24 @@
                             
                             <ol type="1" start="2">
                                 <li>
-                                    General Objective:<input type="text" class="form-control" name="project_intro_objective"><br>
-                                    Specific Objective(s): <strong>(if any)</strong><input type="text" class="form-control" name="project_intro_specifics"><br>
+                                    General Objective:<input type="text" class="form-control" name="project_intro_objective" value="<?php if(isset($load)){echo set_value('project_intro_objective', $item->project_intro_objective);}else{echo set_value('project_intro_objective');} ?>" ><br>
+                                    
+                                    Specific Objective(s): <strong>(if any)</strong><input type="text" class="form-control" name="project_intro_specifics" value="<?php if(isset($load)){echo set_value('project_intro_specifics', $item->project_intro_specifics);}else{echo set_value('project_intro_specifics');} ?>" ><br>
                                 </li>
                                 <li>
                                     Description of project activities (please provide flowchart of the activities and the premises where each activity is conducted):
-                                    <input type="file" class="form-control" name="project_intro_activities" multiple><br>
+                                    <input type="file" class="form-control" name="project_intro_activities"><br>
                                 </li>
                                 <li>
                                     Biosafety Level (BSL) of the proposed activity:<br>
                                     (the biosafety containment level is determined by the risk assessment of the activity)<br>
-                                     <label class="radio-inline"><input type="radio" name="project_intro_BSL">BSL 1</label>
-                                     <label class="radio-inline"><input type="radio" name="project_intro_BSL">BSL 2</label>
-                                     <label class="radio-inline"><input type="radio" name="project_intro_BSL">BSL 3</label> 
-                                     <label class="radio-inline"><input type="radio" name="project_intro_BSL">BSL 4</label> 
+                                     <label class="radio-inline"><input type="radio" value="1" name="project_intro_BSL" <?php echo set_radio('project_intro_BSL', '1'); ?> <?php if(isset($load)){if($item->project_intro_BSL==1){echo "checked=checked";}}else{} ?> >BSL 1</label>
+                                    
+                                     <label class="radio-inline"><input type="radio" value="2" name="project_intro_BSL" <?php echo set_radio('project_intro_BSL', '2'); ?> <?php if(isset($load)){if($item->project_intro_BSL==2){echo "checked=checked";}}else{} ?>>BSL 2</label>
+                                    
+                                     <label class="radio-inline"><input type="radio" value="3" name="project_intro_BSL" <?php echo set_radio('project_intro_BSL', '3'); ?> <?php if(isset($load)){if($item->project_intro_BSL==3){echo "checked=checked";}}else{} ?>>BSL 3</label> 
+                                    
+                                     <label class="radio-inline"><input type="radio" value="4" name="project_intro_BSL" <?php echo set_radio('project_intro_BSL', '4'); ?> <?php if(isset($load)){if($item->project_intro_BSL==4){echo "checked=checked";}}else{} ?>>BSL 4</label> 
                                 </li>
                                 <li>
                                     Estimated duration of activity(please provide Gantt Chart):
@@ -684,20 +827,21 @@
                                 </li>
                                 <li>
                                     Intended Date of Commencement:
-                                    <input type="text" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" name="project_intro_intended_date_commencement">
+                                    <input type="text" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" name="project_intro_intended_date_commencement" value="<?php if(isset($load)){echo set_value('project_intro_intended_date_commencement', $item->project_intro_intended_date_commencement);}else{echo set_value('project_intro_intended_date_commencement');} ?>" >
                                 </li>
                                 <li>
                                     Expected Date of Completion:
-                                    <input type="text" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" name="project_intro_expected_date_completion">
+                                    <input type="text" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" name="project_intro_expected_date_completion" value="<?php if(isset($load)){echo set_value('project_intro_expected_date_completion', $item->project_intro_expected_date_completion);}else{echo set_value('project_intro_expected_date_completion');} ?>">
                                 </li>
                                 <li>
                                     Date of importation or intended importation (for an imported LMO)
-                                    <input type="text" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" name="project_intro_importation_date">
+                                    <input type="text" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" name="project_intro_importation_date" value="<?php if(isset($load)){echo set_value('project_intro_importation_date', $item->project_intro_importation_date);}else{echo set_value('project_intro_importation_date');} ?>" >
                                 </li>
                                 <li>
                                     If the experiments are succesful, are there plans for field experiment?<br>
-                                    <label class="radio-inline"><input type="radio" name="project_intro_field_experiment">Yes</label>
-                                    <label class="radio-inline"><input type="radio" name="project_intro_field_experiment">No</label>
+                                    <label class="radio-inline"><input type="radio" value="1" name="project_intro_field_experiment" <?php echo set_radio('project_intro_field_experiment', '1'); ?> <?php if(isset($load)){if($item->project_intro_field_experiment==1){echo "checked=checked";}}else{} ?> >Yes</label>
+                                    
+                                    <label class="radio-inline"><input type="radio" value="0" name="project_intro_field_experiment" <?php echo set_radio('project_intro_field_experiment', '0'); ?> <?php if(isset($load)){if($item->project_intro_field_experiment==0){echo "checked=checked";}}else{} ?> >No</label>
                                 </li>
                             </ol>
                         </div>
@@ -726,33 +870,75 @@
                                 <tbody>
                                     <tr>
                                         <td>1</td>
-                                        <td><input type="text" class="form-control" name="LMO_desc_name_parent"></td>
-                                        <td><input type="text" class="form-control" name="LMO_desc_name_donor"></td>
-                                        <td><input type="text" class="form-control" name="LMO_desc_method"></td>
-                                        <td><input type="text" class="form-control" name="LMO_desc_class"></td>
-                                        <td><input type="text" class="form-control" name="LMO_desc_trait"></td>
-                                        <td><input type="file" class="form-control" name="LMO_desc_genes" placeholder="choose file"></td>
-                                        <td><input type="text" class="form-control" name="LMO_desc_genes_function"></td>
+                                        <td><input type="text" class="form-control" name="LMO_desc_name_parent[0]" value="<?php if(isset($load)){echo set_value('LMO_desc_name_parent[0]', $g[0]);}else{echo set_value('LMO_desc_name_parent[0]');} ?>" ></td>
+                                        
+                                        <td><input type="text" class="form-control" name="LMO_desc_name_donor[0]" value="<?php if(isset($load)){echo set_value('LMO_desc_name_donor[0]', $h[0]);}else{echo set_value('LMO_desc_name_donor[0]');} ?>"></td>
+                                        
+                                        <td><input type="text" class="form-control" name="LMO_desc_method[0]" value="<?php if(isset($load)){echo set_value('LMO_desc_method[0]', $i[0]);}else{echo set_value('LMO_desc_method[0]');} ?>"></td>
+                                        
+                                        <td><input type="text" class="form-control" name="LMO_desc_class[0]" value="<?php if(isset($load)){echo set_value('LMO_desc_class[0]', $j[0]);}else{echo set_value('LMO_desc_class[0]');} ?>" ></td>
+                                        
+                                        <td><input type="text" class="form-control" name="LMO_desc_trait[0]" value="<?php if(isset($load)){echo set_value('LMO_desc_trait[0]', $k[0]);}else{echo set_value('LMO_desc_trait[0]');} ?>" ></td>
+                                        
+                                        <td>
+                                            <div class="file-input-wrapper">
+                                                  <button class="btn-file-input">Attach report</button>
+                                                  <input type="file" name="premise_certification_report" id="image" value="" />      
+                                                </div>
+                                                <span id="img_text" style="float: right;
+                                                margin-right: -80px;
+                                                margin-top: -14px;"></span>
+                                        </td>
+                                        
+                                        <td><input type="text" class="form-control" name="LMO_desc_genes_function[0]" value="<?php if(isset($load)){echo set_value('LMO_desc_genes_function[0]', $l[0]);}else{echo set_value('LMO_desc_genes_function[0]');} ?>"></td>
                                     </tr>
                                     <tr>
                                         <td>2</td>
-                                        <td><input type="text" class="form-control" name="LMO_desc_name_parent"></td>
-                                        <td><input type="text" class="form-control" name="LMO_desc_name_donor"></td>
-                                        <td><input type="text" class="form-control" name="LMO_desc_method"></td>
-                                        <td><input type="text" class="form-control" name="LMO_desc_class"></td>
-                                        <td><input type="text" class="form-control" name="LMO_desc_trait"></td>
-                                        <td><input type="file" class="form-control" name="LMO_desc_genes" placeholder="choose file"></td>
-                                        <td><input type="text" class="form-control" name="LMO_desc_genes_function"></td>
+                                        <td><input type="text" class="form-control" name="LMO_desc_name_parent[1]" value="<?php if(isset($load)){echo set_value('LMO_desc_name_parent[1]', $g[1]);}else{echo set_value('LMO_desc_name_parent[1]');} ?>" ></td>
+                                        
+                                        <td><input type="text" class="form-control" name="LMO_desc_name_donor[1]" value="<?php if(isset($load)){echo set_value('LMO_desc_name_donor[1]', $h[1]);}else{echo set_value('LMO_desc_name_donor[1]');} ?>"></td>
+                                        
+                                        <td><input type="text" class="form-control" name="LMO_desc_method[1]" value="<?php if(isset($load)){echo set_value('LMO_desc_method[1]', $i[1]);}else{echo set_value('LMO_desc_method[1]');} ?>"></td>
+                                        
+                                        <td><input type="text" class="form-control" name="LMO_desc_class[1]" value="<?php if(isset($load)){echo set_value('LMO_desc_class[1]', $j[1]);}else{echo set_value('LMO_desc_class[1]');} ?>" ></td>
+                                        
+                                        <td><input type="text" class="form-control" name="LMO_desc_trait[1]" value="<?php if(isset($load)){echo set_value('LMO_desc_trait[1]', $k[1]);}else{echo set_value('LMO_desc_trait[1]');} ?>" ></td>
+                                        
+                                        <td>
+                                            <div class="file-input-wrapper">
+                                                  <button class="btn-file-input">Attach report</button>
+                                                  <input type="file" name="premise_certification_report" id="image" value="" />      
+                                                </div>
+                                                <span id="img_text" style="float: right;
+                                                margin-right: -80px;
+                                                margin-top: -14px;"></span>
+                                        </td>
+                                        
+                                        <td><input type="text" class="form-control" name="LMO_desc_genes_function[1]" value="<?php if(isset($load)){echo set_value('LMO_desc_genes_function[1]', $l[1]);}else{echo set_value('LMO_desc_genes_function[1]');} ?>"></td>
                                     </tr>
                                     <tr>
                                         <td>3</td>
-                                        <td><input type="text" class="form-control" name="LMO_desc_name_parent"></td>
-                                        <td><input type="text" class="form-control" name="LMO_desc_name_donor"></td>
-                                        <td><input type="text" class="form-control" name="LMO_desc_method"></td>
-                                        <td><input type="text" class="form-control" name="LMO_desc_class"></td>
-                                        <td><input type="text" class="form-control" name="LMO_desc_trait"></td>
-                                        <td><input type="file" class="form-control" name="LMO_desc_genes" placeholder="choose file"></td>
-                                        <td><input type="text" class="form-control" name="LMO_desc_genes_function"></td>
+                                        <td><input type="text" class="form-control" name="LMO_desc_name_parent[2]" value="<?php if(isset($load)){echo set_value('LMO_desc_name_parent[2]', $g[2]);}else{echo set_value('LMO_desc_name_parent[2]');} ?>" ></td>
+                                        
+                                        <td><input type="text" class="form-control" name="LMO_desc_name_donor[2]" value="<?php if(isset($load)){echo set_value('LMO_desc_name_donor[2]', $h[2]);}else{echo set_value('LMO_desc_name_donor[2]');} ?>"></td>
+                                        
+                                        <td><input type="text" class="form-control" name="LMO_desc_method[2]" value="<?php if(isset($load)){echo set_value('LMO_desc_method[2]', $i[2]);}else{echo set_value('LMO_desc_method[2]');} ?>"></td>
+                                        
+                                        <td><input type="text" class="form-control" name="LMO_desc_class[2]" value="<?php if(isset($load)){echo set_value('LMO_desc_class[2]', $j[2]);}else{echo set_value('LMO_desc_class[2]');} ?>" ></td>
+                                        
+                                        <td><input type="text" class="form-control" name="LMO_desc_trait[2]" value="<?php if(isset($load)){echo set_value('LMO_desc_trait[2]', $k[2]);}else{echo set_value('LMO_desc_trait[2]');} ?>" ></td>
+                                        
+                                        <td>
+                                            <div class="file-input-wrapper">
+                                                  <button class="btn-file-input">Attach report</button>
+                                                  <input type="file" name="premise_certification_report" id="image" value="" />      
+                                                </div>
+                                                <span id="img_text" style="float: right;
+                                                margin-right: -80px;
+                                                margin-top: -14px;"></span>
+                                        </td>
+                                        
+                                        <td><input type="text" class="form-control" name="LMO_desc_genes_function[2]" value="<?php if(isset($load)){echo set_value('LMO_desc_genes_function[2]', $l[2]);}else{echo set_value('LMO_desc_genes_function[2]');} ?>"></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -783,93 +969,125 @@
                                     <tr>
                                         <td class="bluerow">Science of Genetic modification </td>
                                         <td>
-                                            <input type="text" class="form-control" name="risk_assessment_genes_potential_hazard" placeholder="click to enter text">
-                                            <input type="text" class="form-control" name="risk_assessment_genes_potential_hazard" placeholder="click to enter text">
-                                            <input type="text" class="form-control" name="risk_assessment_genes_potential_hazard" placeholder="click to enter text">
+                                            <input type="text" class="form-control" name="risk_assessment_genes_potential_hazard[0]" placeholder="click to enter text" value="<?php if(isset($load)){echo set_value('risk_assessment_genes_potential_hazard[0]', $m[0]);}else{echo set_value('risk_assessment_genes_potential_hazard[0]');} ?>" >
+                                            
+                                            <input type="text" class="form-control" name="risk_assessment_genes_potential_hazard[1]" placeholder="click to enter text" value="<?php if(isset($load)){echo set_value('risk_assessment_genes_potential_hazard[1]', $m[1]);}else{echo set_value('risk_assessment_genes_potential_hazard[1]');} ?>" >
+                                            
+                                            <input type="text" class="form-control" name="risk_assessment_genes_potential_hazard[2]" placeholder="click to enter text" value="<?php if(isset($load)){echo set_value('risk_assessment_genes_potential_hazard[2]', $m[2]);}else{echo set_value('risk_assessment_genes_potential_hazard[2]');} ?>" >
                                         </td>
                                         <td>
-                                            <input type="text" class="form-control" name="risk_assessment_genes_comments" placeholder="click to enter text">
-                                            <input type="text" class="form-control" name="risk_assessment_genes_comments" placeholder="click to enter text">
-                                            <input type="text" class="form-control" name="risk_assessment_genes_comments" placeholder="click to enter text">
+                                            <input type="text" class="form-control" name="risk_assessment_genes_comments[0]" placeholder="click to enter text" value="<?php if(isset($load)){echo set_value('risk_assessment_genes_comments[0]', $n[0]);}else{echo set_value('risk_assessment_genes_comments[0]');} ?>" >
+                                            
+                                            <input type="text" class="form-control" name="risk_assessment_genes_comments[1]" placeholder="click to enter text" value="<?php if(isset($load)){echo set_value('risk_assessment_genes_comments[1]', $n[1]);}else{echo set_value('risk_assessment_genes_comments[1]');} ?>" >
+                                            
+                                            <input type="text" class="form-control" name="risk_assessment_genes_comments[2]" placeholder="click to enter text" value="<?php if(isset($load)){echo set_value('risk_assessment_genes_comments[2]', $n[2]);}else{echo set_value('risk_assessment_genes_comments[2]');} ?>" >
                                         </td>
                                         <td>
-                                            <input type="text" class="form-control" name="risk_assessment_genes_management" placeholder="click to enter text">
-                                            <input type="text" class="form-control" name="risk_assessment_genes_management" placeholder="click to enter text">
-                                            <input type="text" class="form-control" name="risk_assessment_genes_management" placeholder="click to enter text">
+                                            <input type="text" class="form-control" name="risk_assessment_genes_management[0]" placeholder="click to enter text" value="<?php if(isset($load)){echo set_value('risk_assessment_genes_management[0]', $o[0]);}else{echo set_value('risk_assessment_genes_management[0]');} ?>" >
+                                            
+                                            <input type="text" class="form-control" name="risk_assessment_genes_management[1]" placeholder="click to enter text" value="<?php if(isset($load)){echo set_value('risk_assessment_genes_management[1]', $o[1]);}else{echo set_value('risk_assessment_genes_management[1]');} ?>" >
+                                            
+                                            <input type="text" class="form-control" name="risk_assessment_genes_management[2]" placeholder="click to enter text" value="<?php if(isset($load)){echo set_value('risk_assessment_genes_management[2]', $o[2]);}else{echo set_value('risk_assessment_genes_management[2]');} ?>" >
                                         </td>
                                         <td>
-                                            <input type="text" class="form-control" name="risk_assessment_genes_residual" placeholder="click to enter text">
-                                            <input type="text" class="form-control" name="risk_assessment_genes_residual" placeholder="click to enter text">
-                                            <input type="text" class="form-control" name="risk_assessment_genes_residual" placeholder="click to enter text">
+                                            <input type="text" class="form-control" name="risk_assessment_genes_residual[0]" placeholder="click to enter text" value="<?php if(isset($load)){echo set_value('risk_assessment_genes_residual[0]', $p[0]);}else{echo set_value('risk_assessment_genes_residual[0]');} ?>" >
+                                            
+                                            <input type="text" class="form-control" name="risk_assessment_genes_residual[1]" placeholder="click to enter text" value="<?php if(isset($load)){echo set_value('risk_assessment_genes_residual[1]', $p[1]);}else{echo set_value('risk_assessment_genes_residual[1]');} ?>" >
+                                            
+                                            <input type="text" class="form-control" name="risk_assessment_genes_residual[2]" placeholder="click to enter text" value="<?php if(isset($load)){echo set_value('risk_assessment_genes_residual[2]', $p[2]);}else{echo set_value('risk_assessment_genes_residual[2]');} ?>" >
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="bluerow">Admin. Policy, People and Practice </td>
                                         <td>
-                                            <input type="text" class="form-control" name="risk_assessment_admin_potential_hazard" placeholder="click to enter text">
-                                            <input type="text" class="form-control" name="risk_assessment_admin_potential_hazard" placeholder="click to enter text">
-                                            <input type="text" class="form-control" name="risk_assessment_admin_potential_hazard" placeholder="click to enter text">
+                                            <input type="text" class="form-control" name="risk_assessment_admin_potential_hazard[0]" placeholder="click to enter text" value="<?php if(isset($load)){echo set_value('risk_assessment_admin_potential_hazard[0]', $q[0]);}else{echo set_value('risk_assessment_admin_potential_hazard[0]');} ?>">
+                                            
+                                            <input type="text" class="form-control" name="risk_assessment_admin_potential_hazard[1]" placeholder="click to enter text" value="<?php if(isset($load)){echo set_value('risk_assessment_admin_potential_hazard[1]', $q[1]);}else{echo set_value('risk_assessment_admin_potential_hazard[1]');} ?>" >
+                                            
+                                            <input type="text" class="form-control" name="risk_assessment_admin_potential_hazard[2]" placeholder="click to enter text" value="<?php if(isset($load)){echo set_value('risk_assessment_admin_potential_hazard[2]', $q[2]);}else{echo set_value('risk_assessment_admin_potential_hazard[2]');} ?>" >
                                         </td>
                                         <td>
-                                            <input type="text" class="form-control" name="risk_assessment_admin_comments" placeholder="click to enter text">
-                                            <input type="text" class="form-control" name="risk_assessment_admin_comments" placeholder="click to enter text">
-                                            <input type="text" class="form-control" name="risk_assessment_admin_comments" placeholder="click to enter text">
+                                            <input type="text" class="form-control" name="risk_assessment_admin_comments[0]" placeholder="click to enter text" value="<?php if(isset($load)){echo set_value('risk_assessment_admin_comments[0]', $r[0]);}else{echo set_value('risk_assessment_admin_comments[0]');} ?>">
+                                            
+                                            <input type="text" class="form-control" name="risk_assessment_admin_comments[1]" placeholder="click to enter text" value="<?php if(isset($load)){echo set_value('risk_assessment_admin_comments[1]', $r[1]);}else{echo set_value('risk_assessment_admin_comments[1]');} ?>" >
+                                            
+                                            <input type="text" class="form-control" name="risk_assessment_admin_comments[2]" placeholder="click to enter text" value="<?php if(isset($load)){echo set_value('risk_assessment_admin_comments[2]', $r[2]);}else{echo set_value('risk_assessment_admin_comments[2]');} ?>" >
                                         </td>
                                         <td>
-                                            <input type="text" class="form-control" name="risk_assessment_admin_management" placeholder="click to enter text">
-                                            <input type="text" class="form-control" name="risk_assessment_admin_management" placeholder="click to enter text">
-                                            <input type="text" class="form-control" name="risk_assessment_admin_management" placeholder="click to enter text">
+                                            <input type="text" class="form-control" name="risk_assessment_admin_management[0]" placeholder="click to enter text" value="<?php if(isset($load)){echo set_value('risk_assessment_admin_management[0]', $s[0]);}else{echo set_value('risk_assessment_admin_management[0]');} ?>" >
+                                            
+                                            <input type="text" class="form-control" name="risk_assessment_admin_management[1]" placeholder="click to enter text" value="<?php if(isset($load)){echo set_value('risk_assessment_admin_management[1]', $s[1]);}else{echo set_value('risk_assessment_admin_management[1]');} ?>" >
+                                            
+                                            <input type="text" class="form-control" name="risk_assessment_admin_management[2]" placeholder="click to enter text" value="<?php if(isset($load)){echo set_value('risk_assessment_admin_management[2]', $s[2]);}else{echo set_value('risk_assessment_admin_management[2]');} ?>" >
                                         </td>
                                         <td>
-                                            <input type="text" class="form-control" name="risk_assessment_admin_residual" placeholder="click to enter text">
-                                            <input type="text" class="form-control" name="risk_assessment_admin_residual" placeholder="click to enter text">
-                                            <input type="text" class="form-control" name="risk_assessment_admin_residual" placeholder="click to enter text">
+                                            <input type="text" class="form-control" name="risk_assessment_admin_residual[0]" placeholder="click to enter text" value="<?php if(isset($load)){echo set_value('risk_assessment_admin_residual[0]', $t[0]);}else{echo set_value('risk_assessment_admin_residual[0]');} ?>" >
+                                            
+                                            <input type="text" class="form-control" name="risk_assessment_admin_residual[1]" placeholder="click to enter text" value="<?php if(isset($load)){echo set_value('risk_assessment_admin_residual[1]', $t[1]);}else{echo set_value('risk_assessment_admin_residual[1]');} ?>" >
+                                            
+                                            <input type="text" class="form-control" name="risk_assessment_admin_residual[2]" placeholder="click to enter text" value="<?php if(isset($load)){echo set_value('risk_assessment_admin_residual[2]', $t[2]);}else{echo set_value('risk_assessment_admin_residual[2]');} ?>" >
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="bluerow">Containment integrity</td>
                                         <td>
-                                            <input type="text" class="form-control" name="risk_assessment_containment_potential_hazard" placeholder="click to enter text">
-                                            <input type="text" class="form-control" name="risk_assessment_containment_potential_hazard" placeholder="click to enter text">
-                                            <input type="text" class="form-control" name="risk_assessment_containment_potential_hazard" placeholder="click to enter text">
+                                            <input type="text" class="form-control" name="risk_assessment_containment_potential_hazard[0]" placeholder="click to enter text" value="<?php if(isset($load)){echo set_value('risk_assessment_containment_potential_hazard[0]', $u[0]);}else{echo set_value('risk_assessment_containment_potential_hazard[0]');} ?>">
+                                            
+                                            <input type="text" class="form-control" name="risk_assessment_containment_potential_hazard[1]" placeholder="click to enter text" value="<?php if(isset($load)){echo set_value('risk_assessment_containment_potential_hazard[1]', $u[1]);}else{echo set_value('risk_assessment_containment_potential_hazard[1]');} ?>">
+                                            
+                                            <input type="text" class="form-control" name="risk_assessment_containment_potential_hazard[2]" placeholder="click to enter text" value="<?php if(isset($load)){echo set_value('risk_assessment_containment_potential_hazard[2]', $u[2]);}else{echo set_value('risk_assessment_containment_potential_hazard[2]');} ?>" >
                                         </td>
                                         <td>
-                                            <input type="text" class="form-control" name="risk_assessment_containment_comments" placeholder="click to enter text">
-                                            <input type="text" class="form-control" name="risk_assessment_containment_comments" placeholder="click to enter text">
-                                            <input type="text" class="form-control" name="risk_assessment_containment_comments" placeholder="click to enter text">
+                                            <input type="text" class="form-control" name="risk_assessment_containment_comments[0]" placeholder="click to enter text" value="<?php if(isset($load)){echo set_value('risk_assessment_containment_comments[0]', $v[0]);}else{echo set_value('risk_assessment_containment_comments[0]');} ?>" >
+                                            
+                                            <input type="text" class="form-control" name="risk_assessment_containment_comments[1]" placeholder="click to enter text" value="<?php if(isset($load)){echo set_value('risk_assessment_containment_comments[1]', $v[1]);}else{echo set_value('risk_assessment_containment_comments[1]');} ?>" >
+                                            
+                                            <input type="text" class="form-control" name="risk_assessment_containment_comments[2]" placeholder="click to enter text" value="<?php if(isset($load)){echo set_value('risk_assessment_containment_comments[2]', $v[2]);}else{echo set_value('risk_assessment_containment_comments[2]');} ?>" >
                                         </td>
                                         <td>
-                                            <input type="text" class="form-control" name="risk_assessment_containment_management" placeholder="click to enter text">
-                                            <input type="text" class="form-control" name="risk_assessment_containment_management" placeholder="click to enter text">
-                                            <input type="text" class="form-control" name="risk_assessment_containment_management" placeholder="click to enter text">
+                                            <input type="text" class="form-control" name="risk_assessment_containment_management[0]" placeholder="click to enter text" value="<?php if(isset($load)){echo set_value('risk_assessment_containment_management[0]', $w[0]);}else{echo set_value('risk_assessment_containment_management[0]');} ?>" >
+                                            
+                                            <input type="text" class="form-control" name="risk_assessment_containment_management[1]" placeholder="click to enter text" value="<?php if(isset($load)){echo set_value('risk_assessment_containment_management[1]', $w[1]);}else{echo set_value('risk_assessment_containment_management[1]');} ?>" >
+                                            
+                                            <input type="text" class="form-control" name="risk_assessment_containment_management[2]" placeholder="click to enter text" value="<?php if(isset($load)){echo set_value('risk_assessment_containment_management[2]', $w[2]);}else{echo set_value('risk_assessment_containment_management[2]');} ?>" >
                                         </td>
                                         <td>
-                                            <input type="text" class="form-control" name="risk_assessment_containment_residual" placeholder="click to enter text">
-                                            <input type="text" class="form-control" name="risk_assessment_containment_residual" placeholder="click to enter text">
-                                            <input type="text" class="form-control" name="risk_assessment_containment_residual" placeholder="click to enter text">
+                                            <input type="text" class="form-control" name="risk_assessment_containment_residual[0]" placeholder="click to enter text" value="<?php if(isset($load)){echo set_value('risk_assessment_containment_residual[0]', $x[0]);}else{echo set_value('risk_assessment_containment_residual[0]');} ?>">
+                                            
+                                            <input type="text" class="form-control" name="risk_assessment_containment_residual[1]" placeholder="click to enter text" value="<?php if(isset($load)){echo set_value('risk_assessment_containment_residual[1]', $x[1]);}else{echo set_value('risk_assessment_containment_residual[1]');} ?>">
+                                            
+                                            <input type="text" class="form-control" name="risk_assessment_containment_residual[2]" placeholder="click to enter text" value="<?php if(isset($load)){echo set_value('risk_assessment_containment_residual[2]', $x[2]);}else{echo set_value('risk_assessment_containment_residual[2]');} ?>">
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="bluerow">Special risks unique to notification</td>
                                         <td>
-                                            <input type="text" class="form-control" name="risk_assessment_special_potential_hazard" placeholder="click to enter text">
-                                            <input type="text" class="form-control" name="risk_assessment_special_potential_hazard" placeholder="click to enter text">
-                                            <input type="text" class="form-control" name="risk_assessment_special_potential_hazard" placeholder="click to enter text">
+                                            <input type="text" class="form-control" name="risk_assessment_special_potential_hazard[0]" placeholder="click to enter text" value="<?php if(isset($load)){echo set_value('risk_assessment_special_potential_hazard[0]', $y[0]);}else{echo set_value('risk_assessment_special_potential_hazard[0]');} ?>" >
+                                            
+                                            <input type="text" class="form-control" name="risk_assessment_special_potential_hazard[1]" placeholder="click to enter text" value="<?php if(isset($load)){echo set_value('risk_assessment_special_potential_hazard[1]', $y[1]);}else{echo set_value('risk_assessment_special_potential_hazard[1]');} ?>" >
+                                            
+                                            <input type="text" class="form-control" name="risk_assessment_special_potential_hazard[2]" placeholder="click to enter text" value="<?php if(isset($load)){echo set_value('risk_assessment_special_potential_hazard[2]', $y[2]);}else{echo set_value('risk_assessment_special_potential_hazard[2]');} ?>" >
                                         </td>
                                         <td>
-                                            <input type="text" class="form-control" name="risk_assessment_special_comments" placeholder="click to enter text">
-                                            <input type="text" class="form-control" name="risk_assessment_special_comments" placeholder="click to enter text">
-                                            <input type="text" class="form-control" name="risk_assessment_special_comments" placeholder="click to enter text">
+                                            <input type="text" class="form-control" name="risk_assessment_special_comments[0]" placeholder="click to enter text" value="<?php if(isset($load)){echo set_value('risk_assessment_special_comments[0]', $z[0]);}else{echo set_value('risk_assessment_special_comments[0]');} ?>" >
+                                            
+                                            <input type="text" class="form-control" name="risk_assessment_special_comments[1]" placeholder="click to enter text" value="<?php if(isset($load)){echo set_value('risk_assessment_special_comments[1]', $z[1]);}else{echo set_value('risk_assessment_special_comments[1]');} ?>">
+                                            
+                                            <input type="text" class="form-control" name="risk_assessment_special_comments[2]" placeholder="click to enter text" value="<?php if(isset($load)){echo set_value('risk_assessment_special_comments[2]', $z[2]);}else{echo set_value('risk_assessment_special_comments[2]');} ?>">
                                         </td>
                                         <td>
-                                            <input type="text" class="form-control" name="risk_assessment_special_management" placeholder="click to enter text">
-                                            <input type="text" class="form-control" name="risk_assessment_special_management" placeholder="click to enter text">
-                                            <input type="text" class="form-control" name="risk_assessment_special_management" placeholder="click to enter text">
+                                            <input type="text" class="form-control" name="risk_assessment_special_management[0]" placeholder="click to enter text" value="<?php if(isset($load)){echo set_value('risk_assessment_special_management[0]', $aa[0]);}else{echo set_value('risk_assessment_special_management[0]');} ?>" >
+                                            
+                                            <input type="text" class="form-control" name="risk_assessment_special_management[1]" placeholder="click to enter text" value="<?php if(isset($load)){echo set_value('risk_assessment_special_management[1]', $aa[1]);}else{echo set_value('risk_assessment_special_management[1]');} ?>">
+                                            
+                                            <input type="text" class="form-control" name="risk_assessment_special_management[2]" placeholder="click to enter text" value="<?php if(isset($load)){echo set_value('risk_assessment_special_management[2]', $aa[2]);}else{echo set_value('risk_assessment_special_management[2]');} ?>">
                                         </td>
                                         <td>
-                                            <input type="text" class="form-control" name="risk_assessment_special_residual" placeholder="click to enter text">
-                                            <input type="text" class="form-control" name="risk_assessment_special_residual" placeholder="click to enter text">
-                                            <input type="text" class="form-control" name="risk_assessment_special_residual" placeholder="click to enter text">
+                                            <input type="text" class="form-control" name="risk_assessment_special_residual[0]" placeholder="click to enter text" value="<?php if(isset($load)){echo set_value('risk_assessment_special_residual[0]', $ab[0]);}else{echo set_value('risk_assessment_special_residual[0]');} ?>" >
+                                            
+                                            <input type="text" class="form-control" name="risk_assessment_special_residual[1]" placeholder="click to enter text" value="<?php if(isset($load)){echo set_value('risk_assessment_special_residual[1]', $ab[1]);}else{echo set_value('risk_assessment_special_residual[1]');} ?>" >
+                                            
+                                            <input type="text" class="form-control" name="risk_assessment_special_residual[2]" placeholder="click to enter text" value="<?php if(isset($load)){echo set_value('risk_assessment_special_residual[2]', $ab[2]);}else{echo set_value('risk_assessment_special_residual[2]');} ?>" >
                                         </td>
                                     </tr>
                                 </tbody>
@@ -882,27 +1100,27 @@
                                 <li>
                                     Do you propose to transport the LMO outside the premises or between premises?
                                     <p><em>If yes, provide specific Standard Operating Procedures (SOPs) which are compliant with the Biosafety Guidelines. Please ensure all the premises used are included in Part E of this form.</em></p>
-                                    <textarea rows="5" class="form-control" name="risk_management_transport"></textarea>
+                                    <textarea rows="5" class="form-control" name="risk_management_transport"><?php if(isset($load)){echo set_value('risk_management_transport', $item->risk_management_transport);}else{echo set_value('risk_management_transport');} ?></textarea>
                                 </li>
                                 <li>
                                     How will the LMO be disposed of?
                                     <p><em>Provide specific Standard Operating Procedures (SOPs) which are compliant with the Biosafety Guidelines. If the activity invovlves LMO at various growth stages (seedlings,trees), the SOP should cover the disposal of LMO at each growth stage. </em></p>
-                                    <textarea rows="6" class="form-control" name="risk_management_disposed"></textarea>
+                                    <textarea rows="6" class="form-control" name="risk_management_disposed"><?php if(isset($load)){echo set_value('risk_management_disposed', $item->risk_management_disposed);}else{echo set_value('risk_management_disposed');} ?></textarea>
                                 </li>
                                 <li>
                                     How will the solid and liquid wastes from the activities (e.g. media, disposable gloves, planting materials, plant parts, etc) be treated and disposed of?
                                     <p><em>Provide specific Standard Operating Procedures (SOPs) which are compliant with the Biosafety Guidelines.</em></p>
-                                    <textarea rows="6" class="form-control" name="risk_management_wastes"></textarea>
+                                    <textarea rows="6" class="form-control" name="risk_management_wastes"><?php if(isset($load)){echo set_value('risk_management_wastes', $item->risk_management_wastes);}else{echo set_value('risk_management_wastes');} ?></textarea>
                                 </li>
                                 <li>
                                     How will the wastewaters from the activities be disposed of?(e.g. water used for cleaning equipment, watering the plants, etc.)
                                     <p><em>Provide specific Standard Operating Procedures (SOPs) which are compliant with the Biosafety Guidelines.</em></p>
-                                    <textarea rows="6" class="form-control" name="risk_management_wastewater"></textarea>
+                                    <textarea rows="6" class="form-control" name="risk_management_wastewater"><?php if(isset($load)){echo set_value('risk_management_wastewater', $item->risk_management_wastewater);}else{echo set_value('risk_management_wastewater');} ?></textarea>
                                 </li>
                                 <li>
                                     How will the equipment/tools/surfaces used during the activities be decontaminated?(e.g.sharp, pipette, decontaminated glassware, etc)
                                     <p><em>Provide specific Standard Operating Procedures (SOPs) which are compliant with the Biosafety Guidelines.</em></p>
-                                    <textarea rows="6" class="form-control" name="risk_management_decontaminated"></textarea>
+                                    <textarea rows="6" class="form-control" name="risk_management_decontaminated"><?php if(isset($load)){echo set_value('risk_management_decontaminated', $item->risk_management_decontaminated);}else{echo set_value('risk_management_decontaminated');} ?></textarea>
                                 </li>
                             </ol>
                             
@@ -914,24 +1132,24 @@
                                 <li>
                                     Provide plans for protecting human and animal health and the environment in the case of the occurence of an undesirable effect observed during contained use of activities.
                                     <p><em>(e.g. medical management which includes first aid and hospitalization, line of communication both within and outside the organization.</em></p>
-                                    <textarea rows="6" class="form-control" name="risk_response_environment"></textarea>
+                                    <textarea rows="6" class="form-control" name="risk_response_environment"><?php if(isset($load)){echo set_value('risk_response_environment', $item->risk_response_environment);}else{echo set_value('risk_response_environment');} ?></textarea>
                                 </li>
                                 <li>
                                     Provide plans for removal of the LMO in the affected areas in the case of an unintentional release
                                     <p><em>(e.g. to contain and treat spillage)</em></p>
-                                    <textarea rows="6" class="form-control" name="risk_response_plan"></textarea>
+                                    <textarea rows="6" class="form-control" name="risk_response_plan"><?php if(isset($load)){echo set_value('risk_response_plan', $item->risk_response_plan);}else{echo set_value('risk_response_plan');} ?></textarea>
                                 </li>
                                 <li>
                                     Provide plans for disposal of plants, animals and any other organisms exposed during the unintentional release.
-                                    <textarea rows="6" class="form-control" name="risk_response_disposal"></textarea>
+                                    <textarea rows="6" class="form-control" name="risk_response_disposal"><?php if(isset($load)){echo set_value('risk_response_disposal', $item->risk_response_disposal);}else{echo set_value('risk_response_disposal');} ?></textarea>
                                 </li>
                                 <li>
                                     Provide plans for isolation of the area affected by the unintentional release <em>(e.g. evacuation and quarantine)</em>
-                                    <textarea rows="6" class="form-control" name="risk_response_isolation"></textarea>
+                                    <textarea rows="6" class="form-control" name="risk_response_isolation"><?php if(isset($load)){echo set_value('risk_response_isolation', $item->risk_response_isolation);}else{echo set_value('risk_response_isolation');} ?></textarea>
                                 </li>
                                 <li>
                                     Provide details of any other contingency measure that will be in place to rectify any unintended consequences if an adverse effect becomes evident during the contained use of activities or when an unintentional release occurs.
-                                    <textarea rows="6" class="form-control" name="risk_response_contigency"></textarea>
+                                    <textarea rows="6" class="form-control" name="risk_response_contigency"><?php if(isset($load)){echo set_value('risk_response_contigency', $item->risk_response_contigency);}else{echo set_value('risk_response_contigency');} ?></textarea>
                                 </li>
                             </ol>                         
                         </div>
@@ -960,10 +1178,13 @@
                                     <tbody>
                                         <tr>
                                             <td>1. Name of premises:</td>
-                                            <td><input type="text" class="form-control" name="premise_name"></td>
-                                            <td><input type="text" class="form-control" name="premise_name"></td>
-                                            <td><input type="text" class="form-control" name="premise_name"></td>
-                                            <td><input type="text" class="form-control" name="premise_name"></td>
+                                            <td><input type="text" class="form-control" name="premise_name[0]" value="<?php if(isset($load)){echo set_value('premise_name[0]', $ac[0]);}else{echo set_value('premise_name[0]');} ?>" ></td>
+                                            
+                                            <td><input type="text" class="form-control" name="premise_name[1]" value="<?php if(isset($load)){echo set_value('premise_name[1]', $ac[1]);}else{echo set_value('premise_name[1]');} ?>" ></td>
+                                            
+                                            <td><input type="text" class="form-control" name="premise_name[2]" value="<?php if(isset($load)){echo set_value('premise_name[2]', $ac[2]);}else{echo set_value('premise_name[2]');} ?>" ></td>
+                                            
+                                            <td><input type="text" class="form-control" name="premise_name[3]" value="<?php if(isset($load)){echo set_value('premise_name[3]', $ac[3]);}else{echo set_value('premise_name[3]');} ?>" ></td>
                                         </tr>
                                         <tr>
                                            <td>
@@ -975,31 +1196,45 @@
                                                 <em>(Please specify if it is a large scale facility involving culture volume greater than or equal to 10L of culture of any LMO)</em>
                                                </p>
                                             </td> 
-                                            <td><input type="text" class="form-control" name="premise_type"></td>
-                                            <td><input type="text" class="form-control" name="premise_type"></td>
-                                            <td><input type="text" class="form-control" name="premise_type"></td>
-                                            <td><input type="text" class="form-control" name="premise_type"></td>
+                                            <td><input type="text" class="form-control" name="premise_type[0]" value="<?php if(isset($load)){echo set_value('premise_type[0]', $ad[0]);}else{echo set_value('premise_type[0]');} ?>"></td>
+                                            
+                                            <td><input type="text" class="form-control" name="premise_type[1]" value="<?php if(isset($load)){echo set_value('premise_type[1]', $ad[1]);}else{echo set_value('premise_type[1]');} ?>"></td>
+                                            
+                                            <td><input type="text" class="form-control" name="premise_type[2]" value="<?php if(isset($load)){echo set_value('premise_type[2]', $ad[2]);}else{echo set_value('premise_type[2]');} ?>"></td>
+                                            
+                                            <td><input type="text" class="form-control" name="premise_type[3]" value="<?php if(isset($load)){echo set_value('premise_type[3]', $ad[3]);}else{echo set_value('premise_type[3]');} ?>"></td>
                                         </tr>
                                         <tr>
                                             <td>3. Biosafety level (BSL):</td>
-                                            <td><input type="text" class="form-control" name="premise_BSL"></td>
-                                            <td><input type="text" class="form-control" name="premise_BSL"></td>
-                                            <td><input type="text" class="form-control" name="premise_BSL"></td>
-                                            <td><input type="text" class="form-control" name="premise_BSL"></td>
+                                            <td><input type="text" class="form-control" name="premise_BSL[0]" value="<?php if(isset($load)){echo set_value('premise_BSL[0]', $ae[0]);}else{echo set_value('premise_BSL[0]');} ?>" ></td>
+                                            
+                                            <td><input type="text" class="form-control" name="premise_BSL[1]" value="<?php if(isset($load)){echo set_value('premise_BSL[1]', $ae[1]);}else{echo set_value('premise_BSL[1]');} ?>" ></td>
+                                            
+                                            <td><input type="text" class="form-control" name="premise_BSL[2]" value="<?php if(isset($load)){echo set_value('premise_BSL[2]', $ae[2]);}else{echo set_value('premise_BSL[2]');} ?>" ></td>
+                                            
+                                            <td><input type="text" class="form-control" name="premise_BSL[3]" value="<?php if(isset($load)){echo set_value('premise_BSL[3]', $ae[3]);}else{echo set_value('premise_BSL[3]');} ?>" ></td>
                                         </tr>
                                         <tr>
                                             <td>4. Who undertook the inspection of the premises? <p><em>(please indicate which IBC)</em></p></td>
-                                            <td><input type="text" class="form-control" name="premise_IBC"></td>
-                                            <td><input type="text" class="form-control" name="premise_IBC"></td>
-                                            <td><input type="text" class="form-control" name="premise_IBC"></td>
-                                            <td><input type="text" class="form-control" name="premise_IBC"></td>
+                                            
+                                            <td><input type="text" class="form-control" name="premise_IBC[0]" value="<?php if(isset($load)){echo set_value('premise_IBC[0]', $af[0]);}else{echo set_value('premise_IBC[0]');} ?>" ></td>
+                                            
+                                            <td><input type="text" class="form-control" name="premise_IBC[1]" value="<?php if(isset($load)){echo set_value('premise_IBC[1]', $af[1]);}else{echo set_value('premise_IBC[1]');} ?>" ></td>
+                                            
+                                            <td><input type="text" class="form-control" name="premise_IBC[2]" value="<?php if(isset($load)){echo set_value('premise_IBC[2]', $af[2]);}else{echo set_value('premise_IBC[2]');} ?>" ></td>
+                                            
+                                            <td><input type="text" class="form-control" name="premise_IBC[3]" value="<?php if(isset($load)){echo set_value('premise_IBC[3]', $af[3]);}else{echo set_value('premise_IBC[3]');} ?>" ></td>
                                         </tr>
                                         <tr>
                                             <td>5. Date of the most recent inspection: <p>Attach lastest inspection report</p></td>
-                                            <td><input type="text" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" name="premise_IBC_date" placeholder="date"></td>
-                                            <td><input type="text" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" name="premise_IBC_date" placeholder="date"></td>
-                                            <td><input type="text" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" name="premise_IBC_date" placeholder="date"></td>
-                                            <td><input type="text" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" name="premise_IBC_date" placeholder="date"></td>
+                                            
+                                            <td><input type="text" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" name="premise_IBC_date[0]" placeholder="date" value="<?php if(isset($load)){echo set_value('premise_IBC_date[0]', $ag[0]);}else{echo set_value('premise_IBC_date[0]');} ?>" ></td>
+                                            
+                                            <td><input type="text" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" name="premise_IBC_date[1]" placeholder="date" value="<?php if(isset($load)){echo set_value('premise_IBC_date[1]', $ag[1]);}else{echo set_value('premise_IBC_date[1]');} ?>" ></td>
+                                            
+                                            <td><input type="text" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" name="premise_IBC_date[2]" placeholder="date" value="<?php if(isset($load)){echo set_value('premise_IBC_date[2]', $ag[2]);}else{echo set_value('premise_IBC_date[2]');} ?>" ></td>
+                                            
+                                            <td><input type="text" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" name="premise_IBC_date[3]" placeholder="date" value="<?php if(isset($load)){echo set_value('premise_IBC_date[3]', $ag[3]);}else{echo set_value('premise_IBC_date[3]');} ?>" ></td>
                                         </tr>
                                         <tr>
                                             <td>6. Fill the following if premises is BSL 3 or BSL 4: <p>Date of certification by competent authority</p>
@@ -1007,8 +1242,10 @@
                                                 <p>Attach latest inspection report</p>
                                             </td>
                                             <td>
-                                                <input type="text" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" name="premise_certification_date" placeholder="date"><br>
-                                                <input type="text" class="form-control" name="premise_certification_no" placeholder="certificate no"><br>
+                                                <input type="text" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" name="premise_certification_date[0]" placeholder="date" value="<?php if(isset($load)){echo set_value('premise_certification_date[0]', $ah[0]);}else{echo set_value('premise_certification_date[0]');} ?>"><br>
+                                                
+                                                <input type="text" class="form-control" name="premise_certification_no[0]" placeholder="certificate no" value="<?php if(isset($load)){echo set_value('premise_certification_no[0]', $ai[0]);}else{echo set_value('premise_certification_no[0]');} ?>"><br>
+                                                
                                                 <div class="file-input-wrapper">
                                                   <button class="btn-file-input">Attach report</button>
                                                   <input type="file" name="premise_certification_report" id="image" value="" />      
@@ -1018,8 +1255,10 @@
                                                 margin-top: -14px;"></span>
                                             </td>
                                             <td>
-                                                <input type="text" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" name="premise_certification_date" placeholder="date"><br>
-                                                <input type="text" class="form-control" name="premise_certification_no" placeholder="certificate no"><br>
+                                                <input type="text" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" name="premise_certification_date[1]" placeholder="date" value="<?php if(isset($load)){echo set_value('premise_certification_date[1]', $ah[1]);}else{echo set_value('premise_certification_date[1]');} ?>"><br>
+                                                
+                                                <input type="text" class="form-control" name="premise_certification_no[1]" placeholder="certificate no" value="<?php if(isset($load)){echo set_value('premise_certification_no[1]', $ai[1]);}else{echo set_value('premise_certification_no[1]');} ?>"><br>
+                                                
                                                 <div class="file-input-wrapper">
                                                   <button class="btn-file-input">Attach report</button>
                                                   <input type="file" name="premise_certification_report" id="image" value="" />      
@@ -1029,8 +1268,10 @@
                                                 margin-top: -14px;"></span>
                                             </td>
                                             <td>
-                                                <input type="text" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" name="premise_certification_date" placeholder="date"><br>
-                                                <input type="text" class="form-control" name="premise_certification_no" placeholder="certificate no"><br>
+                                                <input type="text" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" name="premise_certification_date[2]" placeholder="date" value="<?php if(isset($load)){echo set_value('premise_certification_date[2]', $ah[2]);}else{echo set_value('premise_certification_date[2]');} ?>"><br>
+                                                
+                                                <input type="text" class="form-control" name="premise_certification_no[2]" placeholder="certificate no" value="<?php if(isset($load)){echo set_value('premise_certification_no[2]', $ai[2]);}else{echo set_value('premise_certification_no[2]');} ?>"><br>
+                                                
                                                 <div class="file-input-wrapper">
                                                   <button class="btn-file-input">Attach report</button>
                                                   <input type="file" name="premise_certification_report" id="image" value="" />      
@@ -1040,8 +1281,10 @@
                                                 margin-top: -14px;"></span>
                                             </td>
                                             <td>
-                                                <input type="text" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" name="premise_certification_date" placeholder="date"><br>
-                                                <input type="text" class="form-control" name="premise_certification_no" placeholder="certificate no"><br>
+                                                <input type="text" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" name="premise_certification_date[3]" placeholder="date" value="<?php if(isset($load)){echo set_value('premise_certification_date[3]', $ah[3]);}else{echo set_value('premise_certification_date[3]');} ?>"><br>
+                                                
+                                                <input type="text" class="form-control" name="premise_certification_no[3]" placeholder="certificate no" value="<?php if(isset($load)){echo set_value('premise_certification_no[3]', $ai[3]);}else{echo set_value('premise_certification_no[3]');} ?>"><br>
+                                                
                                                 <div class="file-input-wrapper">
                                                   <button class="btn-file-input">Attach report</button>
                                                   <input type="file" name="premise_certification_report" id="image" value="" />      
@@ -1053,45 +1296,60 @@
                                         </tr>
                                         <tr>
                                             <td>7. Address of premises:</td>
-                                            <td><input type="text" class="form-control" name="premise_address"></td>
-                                            <td><input type="text" class="form-control" name="premise_address"></td>
-                                            <td><input type="text" class="form-control" name="premise_address"></td>
-                                            <td><input type="text" class="form-control" name="premise_address"></td>
+                                            <td><input type="text" class="form-control" name="premise_address[0]" value="<?php if(isset($load)){echo set_value('premise_address[0]', $aj[0]);}else{echo set_value('premise_address[0]');} ?>"></td>
+                                            
+                                            <td><input type="text" class="form-control" name="premise_address[1]" value="<?php if(isset($load)){echo set_value('premise_address[1]', $aj[1]);}else{echo set_value('premise_address[1]');} ?>"></td>
+                                            
+                                            <td><input type="text" class="form-control" name="premise_address[2]" value="<?php if(isset($load)){echo set_value('premise_address[3]', $aj[2]);}else{echo set_value('premise_address[2]');} ?>"></td>
+                                            
+                                            <td><input type="text" class="form-control" name="premise_address[3]" value="<?php if(isset($load)){echo set_value('premise_address[3]', $aj[3]);}else{echo set_value('premise_address[3]');} ?>"></td>
                                         </tr>
                                         <tr>
                                             <td>8. Name of contact person for premises/Biosafety Officer Name:</td>
-                                            <td><input type="text" class="form-control" name="premise_officer_name"></td>
-                                            <td><input type="text" class="form-control" name="premise_officer_name"></td>
-                                            <td><input type="text" class="form-control" name="premise_officer_name"></td>
-                                            <td><input type="text" class="form-control" name="premise_officer_name"></td>
+                                            <td><input type="text" class="form-control" name="premise_officer_name[0]" value="<?php if(isset($load)){echo set_value('premise_officer_name[0]', $ak[0]);}else{echo set_value('premise_officer_name[0]');} ?>"></td>
+                                            <td><input type="text" class="form-control" name="premise_officer_name[1]" value="<?php if(isset($load)){echo set_value('premise_officer_name[1]', $ak[1]);}else{echo set_value('premise_officer_name[1]');} ?>"></td>
+                                            <td><input type="text" class="form-control" name="premise_officer_name[2]" value="<?php if(isset($load)){echo set_value('premise_officer_name[2]', $ak[2]);}else{echo set_value('premise_officer_name[2]');} ?>"></td>
+                                            <td><input type="text" class="form-control" name="premise_officer_name[3]" value="<?php if(isset($load)){echo set_value('premise_officer_name[3]', $ak[3]);}else{echo set_value('premise_officer_name[3]');} ?>"></td>
                                         </tr>
                                         <tr>
                                             <td>9. Business phone number:</td>
-                                            <td><input type="tel" class="form-control" name="premise_telephone_business"></td>
-                                            <td><input type="text" class="form-control" name="premise_telephone_business"></td>
-                                            <td><input type="text" class="form-control" name="premise_telephone_business"></td>
-                                            <td><input type="text" class="form-control" name="premise_telephone_business"></td>
+                                            <td><input type="text" class="form-control" name="premise_telephone_business[0]" value="<?php if(isset($load)){echo set_value('premise_telephone_business[0]', $al[0]);}else{echo set_value('premise_telephone_business[0]');} ?>"></td>
+                                            
+                                            <td><input type="text" class="form-control" name="premise_telephone_business[1]" value="<?php if(isset($load)){echo set_value('premise_telephone_business[1]', $al[1]);}else{echo set_value('premise_telephone_business[1]');} ?>"></td>
+                                            
+                                            <td><input type="text" class="form-control" name="premise_telephone_business[2]" value="<?php if(isset($load)){echo set_value('premise_telephone_business[2]', $al[2]);}else{echo set_value('premise_telephone_business[2]');} ?>"></td>
+                                            
+                                            <td><input type="text" class="form-control" name="premise_telephone_business[3]" value="<?php if(isset($load)){echo set_value('premise_telephone_business[3]', $al[3]);}else{echo set_value('premise_telephone_business[3]');} ?>"></td>
                                         </tr>
                                         <tr>
                                             <td>10. Mobile phone number:</td>
-                                            <td><input type="tel" class="form-control" name="premise_telephone_mobile"></td>
-                                            <td><input type="text" class="form-control" name="premise_telephone_mobile"></td>
-                                            <td><input type="text" class="form-control" name="premise_telephone_mobile"></td>
-                                            <td><input type="text" class="form-control" name="premise_telephone_mobile"></td>
+                                            <td><input type="text" class="form-control" name="premise_telephone_mobile[0]" value="<?php if(isset($load)){echo set_value('premise_telephone_mobile[0]', $am[0]);}else{echo set_value('premise_telephone_mobile[0]');} ?>"></td>
+                                            
+                                            <td><input type="text" class="form-control" name="premise_telephone_mobile[1]" value="<?php if(isset($load)){echo set_value('premise_telephone_mobile[1]', $am[1]);}else{echo set_value('premise_telephone_mobile[1]');} ?>"></td>
+                                            
+                                            <td><input type="text" class="form-control" name="premise_telephone_mobile[2]" value="<?php if(isset($load)){echo set_value('premise_telephone_mobile[2]', $am[2]);}else{echo set_value('premise_telephone_mobile[2]');} ?>"></td>
+                                            
+                                            <td><input type="text" class="form-control" name="premise_telephone_mobile[3]" value="<?php if(isset($load)){echo set_value('premise_telephone_mobile[3]', $am[3]);}else{echo set_value('premise_telephone_mobile[3]');} ?>"></td>
                                         </tr>
                                         <tr>
                                             <td>11. Fax number:</td>
-                                            <td><input type="tel" class="form-control" name="premise_fax"></td>
-                                            <td><input type="tel" class="form-control" name="premise_fax"></td>
-                                            <td><input type="tel" class="form-control" name="premise_fax"></td>
-                                            <td><input type="tel" class="form-control" name="premise_fax"></td>
+                                            <td><input type="text" class="form-control" name="premise_fax[0]" value="<?php if(isset($load)){echo set_value('premise_fax[0]', $an[0]);}else{echo set_value('premise_fax[0]');} ?>"></td>
+                                            
+                                            <td><input type="text" class="form-control" name="premise_fax[1]" value="<?php if(isset($load)){echo set_value('premise_fax[1]', $an[1]);}else{echo set_value('premise_fax[1]');} ?>"></td>
+                                            
+                                            <td><input type="text" class="form-control" name="premise_fax[2]" value="<?php if(isset($load)){echo set_value('premise_fax[2]', $an[2]);}else{echo set_value('premise_fax[2]');} ?>"></td>
+                                            
+                                            <td><input type="text" class="form-control" name="premise_fax[3]" value="<?php if(isset($load)){echo set_value('premise_fax[3]', $an[3]);}else{echo set_value('premise_fax[3w]');} ?>"></td>
                                         </tr>
                                         <tr>
                                             <td>12. E-mail address:</td>
-                                            <td><input type="email" class="form-control" name="premise_email"></td>
-                                            <td><input type="email" class="form-control" name="premise_email"></td>
-                                            <td><input type="email" class="form-control" name="premise_email"></td>
-                                            <td><input type="email" class="form-control" name="premise_email"></td>
+                                            <td><input type="email" class="form-control" name="premise_email[0]" value="<?php if(isset($load)){echo set_value('premise_email[0]', $ao[0]);}else{echo set_value('premise_email[0]');} ?>" ></td>
+                                            
+                                            <td><input type="email" class="form-control" name="premise_email[1]" value="<?php if(isset($load)){echo set_value('premise_email[1]', $ao[1]);}else{echo set_value('premise_email[1]');} ?>"></td>
+                                            
+                                            <td><input type="email" class="form-control" name="premise_email[2]" value="<?php if(isset($load)){echo set_value('premise_email[2]', $ao[2]);}else{echo set_value('premise_email[2]');} ?>"></td>
+                                            
+                                            <td><input type="email" class="form-control" name="premise_email[3]" value="<?php if(isset($load)){echo set_value('premise_email[3]', $ao[3]);}else{echo set_value('premise_email[3]');} ?>"></td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -1115,13 +1373,13 @@
                                 </li>
                             </ol>
                             
-                            <textarea rows="7" class="form-control" name="confidential_description"></textarea>
+                            <textarea rows="7" class="form-control" name="confidential_description"><?php if(isset($load)){echo set_value('confidential_description', $item->confidential_description);}else{echo set_value('confidential_description');} ?></textarea>
                         </div>
                         
                         <div id="part_g">
                             <h8><strong>Part G: List of references</strong></h8>
                             
-                            <textarea rows="7" class="form-control" name="reference_description"></textarea>
+                            <textarea rows="7" class="form-control" name="reference_description"><?php if(isset($load)){echo set_value('reference_description', $item->reference_description);}else{echo set_value('reference_description');} ?></textarea>
                         </div>
                         <br>
                         <br>
@@ -1323,9 +1581,13 @@
                             </div>
                             
                         </div>
-                        
-                        
-                    </form>
+                    
+                    <div>
+                       <button name="submit" type="submit" class="btn btn-primary">Submit</button>
+                       <a class="btn btn-primary" href="<?php echo base_url(); ?>index.php/forme/load_form">Load</a>
+                   </div>
+                    
+               <?php echo form_close(); ?>
                 </div>
                 
                  <div class="col-md-1">

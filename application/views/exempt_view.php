@@ -229,7 +229,7 @@ if(!$this->session->userdata('isLogin')){
                    </table>
                    
                    <table class="table table-bordered">
-                      <tr>
+                                     <tr>
                                            <td width="90px">Title: <input type="text" class="form-control" name="project_add_title[1]" value="<?php if(isset($load)){echo set_value('project_add_title[1]', $a[1]);}else{echo set_value('project_add_title[1]');} ?>"></td>
                                            
                                            <td>Name: <input type="text" class="form-control" name="project_add_name[1]" value="<?php if(isset($load)){echo set_value('project_add_name[1]', $b[1]);}else{echo set_value('project_add_name[1]');} ?>"></td>
@@ -435,9 +435,9 @@ if(!$this->session->userdata('isLogin')){
                                            <td>
                                                Has/have the Biosafety Officer(s)/Lab Manager responsible for the facilities where the dealing is to be conducted been made aware of this application? &nbsp;&nbsp;
                                                
-                                               <label class="checkbox-inline"><input type="checkbox" value="1" name="officer_notified" <?php echo set_checkbox('officer_notified', '1'); ?> <?php if(isset($load)){if($item->officer_notified==1){echo "checked=checked";}}else{} ?>>Yes</label>
+                                               <label class="radio-inline"><input type="radio" value="1" name="officer_notified" <?php echo set_radio('officer_notified', '1'); ?> <?php if(isset($load)){if($item->officer_notified==1){echo "checked=checked";}}else{} ?>>Yes</label>
                                                
-                                               <label class="checkbox-inline"><input type="checkbox" value="0" name="officer_notified" <?php echo set_checkbox('officer_notified', '0'); ?> <?php if(isset($load)){if($item->officer_notified==0){echo "checked=checked";}}else{} ?>>No</label>
+                                               <label class="radio-inline"><input type="radio" value="0" name="officer_notified" <?php echo set_radio('officer_notified', '0'); ?> <?php if(isset($load)){if($item->officer_notified==0){echo "checked=checked";}}else{} ?>>No</label>
 
                                            </td>
                                        </tr>
