@@ -66,6 +66,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </a>
 			
         </div>
+        <br/>
 	</div>
 		
 		<div class="col-lg-7">
@@ -97,6 +98,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		</div>
 	</div>					
 	</div>
-
+<br/>
 </body>
 </html>

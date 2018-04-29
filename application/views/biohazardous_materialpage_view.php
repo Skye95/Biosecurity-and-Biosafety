@@ -3,6 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="<?php echo base_url()?>assets/css/styles.css" type="text/css">
     <title>Swinburne Biosafety and Biosecurity Online System - Biohazardous Material</title>
     
     <style>
@@ -28,52 +29,38 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <!-- Page Content -->
     <div class="container">
         <!-- Page Heading -->
-        <h2 class="my-4 text-center">Welcome, <?php echo $this->session->userdata('account_name'); ?></h2>
+        <h2 class="my-4 text-center">Biohazardous Material Form Page</h2>
 
-        <button type="button" class="btn" onclick="window.location='<?php echo base_url("index.php/newapplicationpage");?>'">Return</button>		
-		<h3>Biohazardous Material Page</h3>
+        <div id='breadcrumb1'><?php echo $this->breadcrumbs->show(); ?></div>
 		<hr>
 	<div class="row" >
 	<div class="col-lg-5" >
-		<div>		
-			<div class="row">
-				<div class="col-md-7">
-					<a href="<?php echo base_url(); ?>index.php/livingmodifiedorganismpage">
-						<img class="img-fluid rounded mb-3 mb-md-0" src="<?php echo base_url('assets\images\form\biohazardous.jpg') ?>" 
-						alt="" title="SBC - Application for biosafety clearance for use of Biohazardous materials">
-					</a>
-				</div>				
-			</div>
-			<hr>
+        <div class="row">
+            <a href="<?php echo base_url(); ?>index.php/biohazard">		
+                    <div class="option1 card col-md-9 hover1" title="SBC - Application for Biosafety Clearance for use of Exempt Dealings">
+                        <h5><span>APPLICATION FOR BIOSAFETY CLEARANCE FOR USE OF BIOHAZARDOUS MATERIALS</span></h5>		
+                    </div>				
+            </a>
 		</div>
-		
-		
-		<div>		
-			<div class="row">
-				<div class="col-md-7">
-					<a href="<?php echo base_url(); ?>index.php/annex5">
-						<img class="img-fluid rounded mb-3 mb-md-0" src="<?php echo base_url('assets\images\form\hirarc.jpg') ?>" 
-						alt=""title="OHS-F-4.5.X HIRARC Form - Hazard Identification, Risk Assessment, Risk Control (HIRARC) Form">
-					</a>
-				</div>				
-			</div>
-			<hr>
+        
+        <div class="row">
+            <a href="<?php echo base_url(); ?>index.php/hirarc">		
+                    <div class="option1 card col-md-9 hover1" title="Hazard Identification, Risk Assessment, Risk Control (HIRARC) Form">
+                        <h5><span>OHS-F-4.5.X HIRARC FORM</span></h5>		
+                    </div>				
+            </a>
 		</div>
-		
-		
-		<div>		
-			<div class="row">
-				<div class="col-md-7">
-					<a href="#">
-						<img class="img-fluid rounded mb-3 mb-md-0" src="<?php echo base_url('assets\images\form\swp.jpg') ?>" 
-						alt="" title="SSBC_001 Safe Work Procedure (SWP)">
-					</a>
-				</div>				
-			</div>
-			<hr>
+        
+        <div class="row">
+            <a href="<?php echo base_url(); ?>index.php/swp">		
+                    <div class="option1 card col-md-9 hover1" title="SSBC_001 Safe Work Procedure (SWP)">
+                        <h5><span>SSBC SAFE WORK PROCEDURE</span></h5>		
+                    </div>				
+            </a>
+		</div>				
+				<br/>
 		</div>
-		</div>
-		
+
 		<div class="col-lg-7">
 			<div>		
 				<h4>Announcements</h4>
@@ -103,9 +90,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		</div>
 	</div>					
 	</div>
-
-	</div>
-		
-    </div>
+<br/>
 </body>
 </html>

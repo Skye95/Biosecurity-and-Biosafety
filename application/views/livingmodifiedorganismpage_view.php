@@ -32,15 +32,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <!-- Page Heading -->
         <h2 class="my-4 text-center">Living Modified Organism Form Page</h2>
         
-        <div id='breadcrumb1'>
-            <ul>
-               <li><a href='<?php echo base_url(); ?>index.php/home'>Home</a></li>
-               <li><a href='<?php echo base_url(); ?>index.php/applicationpage'>Application</a></li>
-               <li><a href='<?php echo base_url(); ?>index.php/newapplicationpage'>New Application</a></li>
-               <li class='active'><a>Living Modified Organism Form</a></li>
-                
-            </ul>
-        </div>
+        <div id='breadcrumb1'><?php echo $this->breadcrumbs->show(); ?></div>
 		
 		<hr>
 	<div class="row" >
@@ -92,6 +84,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </div>				
             </a>
 		</div>
+        <br/>
     </div>
 		
 		<div class="col-lg-7">
@@ -121,11 +114,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				</div>
 			</div>
 		</div>
-	</div>					
+	</div>	
 	</div>
-
-	</div>
-		
-    </div>
+        <br/>
 </body>
 </html>

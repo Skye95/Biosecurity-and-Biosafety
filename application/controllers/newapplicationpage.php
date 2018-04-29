@@ -9,6 +9,11 @@ class newapplicationpage extends CI_Controller {
         
         $this->load->database();
         $this->load->model('notification_model');
+        
+        //breadcrum
+		$this->breadcrumbs->unshift('Home', '/');	
+		$this->breadcrumbs->push('Application','/applicationpage', true);
+        $this->breadcrumbs->push('New Application', true);
     }
 		
 		public function index(){
