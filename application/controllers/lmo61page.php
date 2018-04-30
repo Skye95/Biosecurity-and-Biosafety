@@ -18,7 +18,7 @@ class lmo61page extends CI_Controller {
     }
 		
 		public function index(){
-			 $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id') );
+			 $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );
             $this->load->template('lmo61page_view',$data);
         }
 }

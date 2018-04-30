@@ -17,7 +17,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         
         public function index()
         {
-            $data['readnotif'] = $this->notification_model->get_read($this->session->userdata('account_id'));
+            $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );
             
             $this->form_validation->set_rules('reference_no','Reference No.', 'required');
             $this->form_validation->set_rules('organization','Organization', 'required');

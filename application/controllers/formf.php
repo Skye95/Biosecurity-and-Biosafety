@@ -17,8 +17,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         public function index()
         {
 
-            
-            $data['readnotif'] = $this->notification_model->get_read($this->session->userdata('account_id'));
+            $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );
             //echo 'Form validation testing OK';
             $this->form_validation->set_rules('exporter_organization','Organization', 'required');
             $this->form_validation->set_rules('exporter_name','Name of Applicant', 'required|callback_fullname_check');

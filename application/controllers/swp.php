@@ -14,7 +14,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         
         public function index(){
             
-            $data['readnotif'] = $this->notification_model->get_read($this->session->userdata('account_id'));
+            $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );
             
             $this->form_validation->set_rules('SWP_prepared_by', 'Staff/student_no', 'required');
             $this->form_validation->set_rules('SWP_staff_student_no', 'Staff/student_no', 'required');
