@@ -14,7 +14,7 @@ class landing extends CI_Controller {
     
 	public function index()
 	{
-        $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id') );
+        $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );
         
         $account_email = $this->input->post('account_email');
         $account_password = $this->input->post('account_password');

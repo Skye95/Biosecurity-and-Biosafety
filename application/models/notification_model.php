@@ -26,23 +26,40 @@ class notification_model extends CI_Model
         }
 	}
     
-    function get_read($id) {
+    function insert_new_notification($id, $type, $title, $msg) {
+        $data =  array(
+            'account_id' => $id,
+            'notification_type' => $type,
+            'notification_title' => $title,
+            'notification_description' => $msg
+        );
+        
+        return $this->db->insert('notification', $data);
+    }
+    
+    function get_read($id, $type) {
         $notif = [];
         $this->db->where('account_id', $id);
+        if ($type == 2) {
+            $this->db->or_where(array('notification_type' => 2));
+        }
         $query = $this->db->get('notification');
         foreach ($query->result() as $i) {
             array_push($notif, $i->notification_read);
         }
-        if (in_array(0, $notif)){
-            return 0;
+        if (in_array(0, $notif)) {
+            return array(0, count((array)$notif));
         } else {
-            return 1;
+            return array(1, 0);
         }
     }
     
-    function update_read($id)
+    function update_read($id, $type)
     {
         $this->db->where('account_id', $id);
+        if ($type == 2) {
+            $this->db->or_where(array('notification_type' => 2));
+        }
         $this->db->update('notification', array('notification_read' => 1));
         return true;
     }

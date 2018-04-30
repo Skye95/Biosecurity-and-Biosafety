@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.7.9
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 28, 2018 at 03:01 PM
--- Server version: 10.1.26-MariaDB
--- PHP Version: 7.1.9
+-- Generation Time: Apr 30, 2018 at 08:28 AM
+-- Server version: 10.1.31-MariaDB
+-- PHP Version: 7.2.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -47,7 +47,8 @@ CREATE TABLE `accounts` (
 
 INSERT INTO `accounts` (`account_id`, `account_email`, `account_fullname`, `account_password`, `account_type`, `account_approved`, `account_date`) VALUES
 (1, '100061722@students.swinburne.edu.my', 'Eugene Chiang', 'lagoon', 2, 1, '2018-04-10 05:44:22'),
-(2, 'testing@students.swinburne.edu.my', 'Eugene Chiang 2', 'lagoon2', 1, 0, '2018-04-10 05:44:22');
+(2, 'testing@students.swinburne.edu.my', 'Eugene 2', 'lagoon2', 1, 0, '2018-04-10 05:44:22'),
+(3, 'cedricang@test.com', 'Cedric Ang', 'red', 3, 0, '2018-04-30 06:11:59');
 
 -- --------------------------------------------------------
 
@@ -890,7 +891,7 @@ INSERT INTO `materialriskassessment` (`application_id`, `account_id`, `approver_
 
 CREATE TABLE `notification` (
   `notification_id` int(10) UNSIGNED NOT NULL,
-  `account_id` int(10) UNSIGNED NOT NULL,
+  `account_id` int(10) UNSIGNED DEFAULT NULL,
   `notification_type` int(1) DEFAULT '1',
   `notification_title` varchar(100) DEFAULT NULL,
   `notification_description` varchar(500) NOT NULL,
@@ -903,9 +904,10 @@ CREATE TABLE `notification` (
 --
 
 INSERT INTO `notification` (`notification_id`, `account_id`, `notification_type`, `notification_title`, `notification_description`, `notification_date`, `notification_read`) VALUES
-(1, 1, 2, 'Test', 'Hello, This is to test out notification number 1 from account id 1!!!', '2018-04-23 20:27:40', 1),
+(1, 1, 2, 'Test', 'Hello, This is to test out notification number 1 from account id 1!!!', '2018-04-23 20:27:40', 0),
 (2, 2, 1, 'Test 2', 'This is from account 2. Krappa', '2018-04-23 20:28:25', 0),
-(3, 1, 1, 'Test 1+2', 'SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT ', '2018-04-23 20:29:12', 1);
+(3, 1, 1, 'Test 1+2', 'SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT ', '2018-04-23 20:29:12', 0),
+(4, NULL, 2, 'New Registration', 'The following user has requested for an account: Cedric Ang', '2018-04-30 14:11:59', 0);
 
 -- --------------------------------------------------------
 
@@ -1424,7 +1426,7 @@ ALTER TABLE `swp`
 -- AUTO_INCREMENT for table `accounts`
 --
 ALTER TABLE `accounts`
-  MODIFY `account_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `account_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `annex2`
@@ -1514,7 +1516,7 @@ ALTER TABLE `materialriskassessment`
 -- AUTO_INCREMENT for table `notification`
 --
 ALTER TABLE `notification`
-  MODIFY `notification_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `notification_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `notificationexportingbiologicalmaterial`
@@ -1532,7 +1534,7 @@ ALTER TABLE `notificationlmobiohazardousmaterial`
 -- AUTO_INCREMENT for table `pc1`
 --
 ALTER TABLE `pc1`
-  MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `pc2`

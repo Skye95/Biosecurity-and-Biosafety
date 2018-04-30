@@ -15,7 +15,7 @@ class settings extends CI_Controller {
 	public function index()
 	{
         $data['accountdetails'] = $this->account_model->get_account_by_id($this->session->userdata('account_id'));
-        $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id') );
+        $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );
         
         #$this->form_validation->set_rules('account_email', 'Email', 'required|valid_email|is_unique[accounts.account_email]');
         $this->form_validation->set_rules('account_password', 'Password', 'required');
