@@ -24,19 +24,30 @@ class accountapproval extends CI_Controller {
     public function approve($id)
     {
         $id = $this->uri->segment(3);
-        $this->account_model->update_approval($id, 1);
         
-        redirect('accountapproval/index');
+        if($this->account_model->update_approval($id, 1)){
+            $this->notification_model->insert_new_notification($id, 1, "Registration Approved", "Your account has been approved by: " . $this->session->userdata('account_name'));
+            $this->session->set_flashdata('msg','<div class="alert alert-success text-center">You have successfully approved the registration!</div>');
+            redirect('accountapproval/index');
+        } else {
+            $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">An error has occured. Please try again later.</div>');
+            redirect('accountapproval/index');
+        }
+        
     }
     
     public function reject($id)
     {
         $id = $this->uri->segment(3);
         $msg = base64_decode($this->uri->segment(4));
-        $this->account_model->update_approval($id, 0);
         
-        redirect('accountapproval/index');
+        if($this->account_model->update_approval($id, 0)){
+            $this->notification_model->insert_new_notification($id, 1, "Registration Approved", "Your account has been rejected by: " . $this->session->userdata('account_name') . " due to " . $msg);
+            $this->session->set_flashdata('msg','<div class="alert alert-success text-center">You have successfully rejected the registration!</div>');
+            redirect('accountapproval/index');
+        } else {
+            $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">An error has occured. Please try again later.</div>');
+            redirect('accountapproval/index');
+        }
     }
 }
-
-?>
