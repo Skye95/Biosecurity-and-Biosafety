@@ -7,8 +7,17 @@ class annex2_model extends CI_Model
     {
         parent::__construct();
     }
+    
+    function get_all_form() 
+    {
+        $this->db->select('*');
+        $this->db->from('annex2');
+        $this->db->join('accounts', 'annex2.account_id = accounts.account_id');
+        $query = $this->db->get();
+		return $query->result();
+    }
 	
-    # Retrieves Annex 2 form by users ID for now
+    
 	function get_form_by_id($id)
 	{
 		$this->db->where('account_id', $id);

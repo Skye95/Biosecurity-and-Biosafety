@@ -59,7 +59,7 @@ if($this->session->userdata('account_type') != 2){
                     <a href="#"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\History.jpg') ?>" alt=""></a>
                     <div class="card-body">
                         <h6 class="card-title">
-                            <a href="#">Application Approvals</a>
+                            <a href="<?php echo base_url(); ?>index.php/applicationapproval/index">Application Approvals</a>
                         </h6>
                         <p class="card-text"></p>
                     </div>

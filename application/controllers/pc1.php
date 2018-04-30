@@ -60,6 +60,30 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             else
             {
                 
+                
+                $config['upload_path'] = './uploads/';
+                $config['allowed_types'] = '*';
+                //$config['file_name'] = $_FILES['project_SOP']['name'];
+                $config['max_size'] = '15000';
+                $config['max_width'] = '1024';
+                $config['max_height'] = '768';
+
+                //Load upload library and initialize configuration
+                $this->load->library('upload',$config);
+                //$this->upload->initialize($config);
+                    
+                if ( ! $this->upload->do_upload('project_SOP'))
+                {
+                        $error = array('error' => $this->upload->display_errors());
+
+                }
+                else
+                {
+                        $data = array('upload_data' => $this->upload->data());
+
+                }
+                
+                
                 $ar1 = implode(',',$this->input->post('project_add_qualification'));
                 $ar2 = implode(',',$this->input->post('project_add_name'));
                 $ar3 = implode(',',$this->input->post('project_add_department'));
@@ -112,7 +136,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     'project_facilities_certification_no' => $this->input->post('project_facilities_certification_no'),
                     'officer_notified' => $this->input->post('officer_notified'),
                     'officer_name' => $this->input->post('officer_name'),
-                    'laboratory_manager' => $this->input->post('laboratory_manager')
+                    'laboratory_manager' => $this->input->post('laboratory_manager'),
+                    'project_SOP' => $this->upload->data('file_name')
+                    
                     
                     
                 );

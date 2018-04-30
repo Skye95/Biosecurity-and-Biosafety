@@ -14,7 +14,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         
         public function index(){
             
-            $data['readnotif'] = $this->notification_model->get_read($this->session->userdata('account_id'));
+            $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );
             
             $this->form_validation->set_rules('applicant_name', 'Name', 'required|callback_fullname_check');
             $this->form_validation->set_rules('institutional_address', 'Institutionl Address', 'required');
@@ -81,8 +81,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 
                 if($this->annex2_model->insert_new_applicant_data($data)){
                     
-                   $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">Success Has been achieved</div>', $data);
-                   redirect('annex2/index');
+                    $this->notification_model->insert_new_notification(null, 2, "New Registration", "The following user has requested for an account: " . $this->input->post('account_fullname'));
+                    
+                    $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">Success Has been achieved</div>', $data);
+                    redirect('annex2/index');
                     
                         
                 } else {
@@ -103,11 +105,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         
         public function load_form(){
             
-            $data['readnotif'] = $this->notification_model->get_read($this->session->userdata('account_id'));
+            $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );
             
             $data['load'] = "true";
             
-            $id = $this->session->userdata('account_id');
+            //$id = '$this->session->userdata('account_id')';
+            $id = $this->input->get('id');
             $data['retrieved'] = $this->annex2_model->get_form_by_id($id);
             
             $this->load->template('annex2_view', $data);

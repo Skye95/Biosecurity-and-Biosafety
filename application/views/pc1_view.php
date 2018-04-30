@@ -93,7 +93,7 @@ if(!$this->session->userdata('isLogin')){
             
             
             <div class="col-md-10">
-               <?php echo form_open('pc1/index'); ?>
+               <?php echo form_open_multipart('pc1/index'); ?>
                    <h4 class="centering"><u>Swinburne Biosafety Commitee</u></h4>
                    
                    <h3 class="centering">Application for Notifiable Low Risk Dealings</h3>
