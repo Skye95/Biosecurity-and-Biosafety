@@ -288,7 +288,6 @@ if(!$this->session->userdata('isLogin')){
                    
                    <div>
                        <button name="submit" type="submit" class="btn btn-primary">Submit</button>
-                       <a class="btn btn-primary" href="<?php echo base_url(); ?>index.php/annex2/load_form">Load</a>
                    </div>
                     
                <?php echo form_close(); ?>
