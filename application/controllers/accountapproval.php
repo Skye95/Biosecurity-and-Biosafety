@@ -15,7 +15,7 @@ class accountapproval extends CI_Controller {
 	public function index()
 	{
         
-        $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id') );
+        $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );
         $data['all_accounts'] = $this->account_model->get_all_account();
         
         $this->load->template('accountapproval_view', $data);
@@ -23,7 +23,6 @@ class accountapproval extends CI_Controller {
     
     public function approve($id)
     {
-        #$data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id') );
         $id = $this->uri->segment(3);
         $this->account_model->update_approval($id, 1);
         
@@ -32,9 +31,8 @@ class accountapproval extends CI_Controller {
     
     public function reject($id)
     {
-        #$data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id') );
         $id = $this->uri->segment(3);
-        #$id = $this->uri->segment(4);
+        $msg = base64_decode($this->uri->segment(4));
         $this->account_model->update_approval($id, 0);
         
         redirect('accountapproval/index');

@@ -107,7 +107,7 @@ if($this->session->userdata('account_type') != 2){
         function reject(i){
             var j = prompt("Reason for Rejecting:", "Invalid email/name");
             if (j != null) {
-                window.location = "<?php echo base_url(); ?>index.php/accountapproval/reject/" + i + "/" + j;
+                window.location = "<?php echo base_url(); ?>index.php/accountapproval/reject/" + i + "/" + btoa(j);
             }
         }
     </script>

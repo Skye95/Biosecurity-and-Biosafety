@@ -158,7 +158,8 @@ $config['composer_autoload'] = FALSE;
 | DO NOT CHANGE THIS UNLESS YOU FULLY UNDERSTAND THE REPERCUSSIONS!!
 |
 */
-$config['permitted_uri_chars'] = 'a-z 0-9~%.:_\-';
+# Aethylwyne: Added '=' into permitted uri chars for base64 encoding
+$config['permitted_uri_chars'] = 'a-z 0-9~%.:_\-=';
 
 /*
 |--------------------------------------------------------------------------

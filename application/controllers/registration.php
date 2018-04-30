@@ -14,7 +14,7 @@ class registration extends CI_Controller {
     
 	public function index()
 	{
-        $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id') );
+        $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );
         
         $this->form_validation->set_rules('account_fullname', 'Name', 'required|callback_fullname_check');
         $this->form_validation->set_rules('account_email', 'Email', 'required|valid_email|is_unique[accounts.account_email]');
@@ -34,6 +34,7 @@ class registration extends CI_Controller {
             );
             
             if($this->account_model->insert_new_account($data)){
+                $this->notification_model->insert_new_notification(null, 2, "New Registration", "The following user has requested for an account: " . $this->input->post('account_fullname'));
                 $this->session->set_flashdata('msg','<div class="alert alert-success text-center">You have successfully registered for an account! Please wait while your account is being approved by an administrator.</div>');
                 redirect('registration/index');
             } else {
