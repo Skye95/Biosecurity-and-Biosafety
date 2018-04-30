@@ -31,33 +31,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <!-- Page Heading -->
         <h2 class="my-4 text-center">Incident Accident Reporting Page</h2>
 
-        <div id='breadcrumb1'>
-            <ul>
-               <li><a href='<?php echo base_url(); ?>index.php/home'>Home</a></li>
-               <li class='active'><a>Incident Accident Reporting</a></li>
-            </ul>
-        </div>			
+        <div id='breadcrumb1'><?php echo $this->breadcrumbs->show(); ?></div>			
 
 		<hr>
 	<div class="row" >
 	<div class="col-lg-5" >
         <div class="row">
-            <a href="<?php echo base_url(); ?>index.php/formf">		
+            <a href="<?php echo base_url(); ?>index.php/lmo61page">		
                     <div class="option1 card col-md-9 hover1" title="Living Modified Organism (LMO) Form">
-                        <h5><span>Living Modified Organism (LMO)</span></h5>		
+                        <h5><span>LIVING MODIFIED ORGANISM (LMO)</span></h5>		
                     </div>				
             </a>
 		</div>
         
         <div class="row">
-            <a href="<?php echo base_url(); ?>index.php/notification_of_exporting_biological_material">		
-                    <div class="option1 card col-md-9 hover1" title="Exempt Dealing or Biohazardous Material Form">
-                        <h5><span>Exempt Dealing or Biohazardous Material</span></h5>		
+            <a href="<?php echo base_url(); ?>index.php/incidentaccidentreport">		
+                    <div class="option1 card col-md-9 hover1" title="OHS-F-4.20.X Incident Accident Report Form">
+                        <h5><span>EXEMPT DEALING OR BIOHAZARDOUS MATERIAL</span></h5>		
                     </div>				
             </a>
 		</div>
-        
-			
+        <br/>	
 		</div>
 		
 		<div class="col-lg-7">
@@ -89,9 +83,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		</div>
 	</div>					
 	</div>
-
-	</div>
-		
-    </div>
+<br/>
 </body>
 </html>

@@ -10,6 +10,10 @@ class annualfinalreportpage extends CI_Controller {
         
         $this->load->database();
         $this->load->model('notification_model');
+        
+        //breadcrum
+		$this->breadcrumbs->unshift('Home', '/');	
+		$this->breadcrumbs->push('Annual or Final Report', true);
     }
 		
 		public function index(){

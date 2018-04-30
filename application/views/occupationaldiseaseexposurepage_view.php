@@ -29,22 +29,29 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <!-- Page Content -->
     <div class="container">
         <!-- Page Heading -->
-        <h2 class="my-4 text-center">Notification of LMO and Biohazardous Material Form Page</h2>
+        <h2 class="my-4 text-center">Major Biological Incident or Accident Form Page</h2>
 
-        <div id='breadcrumb1'><?php echo $this->breadcrumbs->show(); ?></div>		
+        <div id='breadcrumb1'><?php echo $this->breadcrumbs->show(); ?></div>			
 
 		<hr>
 	<div class="row" >
 	<div class="col-lg-5" >
-        
         <div class="row">
-            <a href="<?php echo base_url(); ?>index.php/notification_of_LMO_and_BM">		
-                    <div class="option1 card col-md-9 hover1" title="SSBC_002 Notification of LMO and Biohazardous Material">
-                        <h5><span>SSBC NOTIFICATION OF LMO AND BIOHAZARDOUS MATERIAL</span></h5>
+            <a href="<?php echo base_url(); ?>index.php/annex4">		
+                    <div class="option1 card col-md-9 hover1" title="Annex 4 Occupational Disease or Exposure Investigation Form">
+                        <h5><span>ANNEX 4 OCCUPATIONAL DISEASE OR EXPOSURE INVESTIGATION</span></h5>		
                     </div>				
             </a>
 		</div>
-			<br/>
+        
+        <div class="row">
+            <a href="<?php echo base_url(); ?>index.php/incidentaccidentreport">		
+                    <div class="option1 card col-md-9 hover1" title="OHS-F-4.20.X Incident Accident Report Form_V3">
+                        <h5><span>OHS-F-4.20.X INCIDENT ACCIDENT REPORT</span></h5>		
+                    </div>				
+            </a>
+		</div>
+        <br/>	
 		</div>
 		
 		<div class="col-lg-7">

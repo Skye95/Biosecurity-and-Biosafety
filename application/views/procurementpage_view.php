@@ -40,7 +40,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="row">
             <a href="<?php echo base_url(); ?>index.php/procurement">		
                     <div class="option1 card col-md-9 hover1" title="OHS-F-4.18.X Pre-Purchase Material Risk Assessment Form">
-                        <h5><span>OHS-F-4.18.X Pre-Purchase Material Risk Assessment</span></h5>
+                        <h5><span>OHS-F-4.18.X PRE-PURCHASE MATERIAL RISK ASSESSMENT</span></h5>
                     </div>				
             </a>
 		</div>				

@@ -29,15 +29,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <!-- Page Content -->
     <div class="container">
         <!-- Page Heading -->
-        <h2 class="my-4 text-center">Annual or Final Report Page</h2>
+        <h2 class="my-4 text-center">Annual or Final Report Form Page</h2>
         
-        <div id='breadcrumb1'>
-            <ul>
-               <li><a href='<?php echo base_url(); ?>index.php/home'>Home</a></li>  
-               <li class='active'><a>Annual or Final Report </a></li>
-            </ul>
-        </div>
-		
+        <div id='breadcrumb1'><?php echo $this->breadcrumbs->show(); ?></div>			
+	
 		<hr>
 	<div class="row" >
 	<div class="col-lg-5" >
