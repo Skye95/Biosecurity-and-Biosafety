@@ -29,14 +29,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <!-- Page Content -->
     <div class="container">
         <!-- Page Heading -->
-        <h2 class="my-4 text-center">Exporting of Biological Material Page</h2>
+        <h2 class="my-4 text-center">Exporting of Biological Material Form Page</h2>
 
-        <div id='breadcrumb1'>
-            <ul>
-               <li><a href='<?php echo base_url(); ?>index.php/home'>Home</a></li>
-               <li class='active'><a>Exporting of Biological Material</a></li>
-            </ul>
-        </div>			
+        <div id='breadcrumb1'><?php echo $this->breadcrumbs->show(); ?></div>		
 
 		<hr>
 	<div class="row" >
@@ -44,7 +39,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="row">
             <a href="<?php echo base_url(); ?>index.php/formf">		
                     <div class="option1 card col-md-9 hover1" title="Living Modified Organism (LMO) Form">
-                        <h5><span>Living Modified Organism (LMO)</span></h5>		
+                        <h5><span>LIVING MODIFIED ORGANISM (LMO)</span></h5>		
                     </div>				
             </a>
 		</div>
@@ -52,12 +47,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="row">
             <a href="<?php echo base_url(); ?>index.php/notification_of_exporting_biological_material">		
                     <div class="option1 card col-md-9 hover1" title="Exempt Dealing or Biohazardous Material Form">
-                        <h5><span>Exempt Dealing or Biohazardous Material</span></h5>		
+                        <h5><span>EXEMPT DEALING OR BIOHAZARDOUS MATERIAL</span></h5>		
                     </div>				
             </a>
 		</div>
-        
-			
+			 <br/>
 		</div>
 		
 		<div class="col-lg-7">
@@ -89,9 +83,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		</div>
 	</div>					
 	</div>
-
-	</div>
-		
-    </div>
+<br/>
 </body>
 </html>
