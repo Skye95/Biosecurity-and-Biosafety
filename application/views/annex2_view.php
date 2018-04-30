@@ -48,17 +48,8 @@ if(!$this->session->userdata('isLogin')){
     
     <div class="container">
         
-        <div id='breadcrumb1'>
-            <ul>
-               <li><a href='<?php echo base_url(); ?>index.php/home'>Home</a></li>
-               <li><a href='<?php echo base_url(); ?>index.php/applicationpage'>Application</a></li>
-               <li><a href='<?php echo base_url(); ?>index.php/newapplicationpage'>New Application</a></li>
-               <li><a href='<?php echo base_url(); ?>index.php/livingmodifiedorganismpage'>Living Modified Organism Form</a></li>
-               <li class='active'><a>Annex 2 Form</a></li>
-                
-                
-            </ul>
-        </div>
+        <div id='breadcrumb1'><?php echo $this->breadcrumbs->show(); ?></div>
+        <hr>
         <div class="row">
         
             
