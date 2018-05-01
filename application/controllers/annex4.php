@@ -11,6 +11,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $this->load->database();
             $this->load->model('annex4_model');
             $this->load->model('notification_model');
+            
+            //breadcrum
+            $this->breadcrumbs->unshift('Home', '/');	
+            $this->breadcrumbs->push('Incident Accident Reporting','/incidentaccidentreportingpage', true);
+            $this->breadcrumbs->push('Living Modified Organism (LMO)','lmo61page',true);
+            $this->breadcrumbs->push('Occupational disease or exposure','occupationaldiseaseexposurepage',true);
+            $this->breadcrumbs->push('Annex 4',true);
         }
         
         public function index()
