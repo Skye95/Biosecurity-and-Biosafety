@@ -58,7 +58,9 @@ class notification_model extends CI_Model
         }
         $query = $this->db->get('notification');
         foreach ($query->result() as $i) {
-            array_push($notif, $i->notification_read);
+            if ($i->notification_read == 0) {
+                array_push($notif, $i->notification_read);
+            }
         }
         if (in_array(0, $notif)) {
             return array(0, count((array)$notif));
