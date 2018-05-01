@@ -21,7 +21,7 @@ class accountapproval extends CI_Controller {
         $this->load->template('accountapproval_view', $data);
 	}
     
-    public function approve($id)
+    public function approve()
     {
         $id = $this->uri->segment(3);
         
@@ -36,7 +36,7 @@ class accountapproval extends CI_Controller {
         
     }
     
-    public function reject($id)
+    public function reject()
     {
         $id = $this->uri->segment(3);
         $msg = base64_decode($this->uri->segment(4));

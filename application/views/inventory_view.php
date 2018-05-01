@@ -71,13 +71,13 @@ if(!$this->session->userdata('isLogin')){
                         <td><?php echo $row->biohazard_id; ?></td>
                         <td class="text-center">
                             <?php if($this->session->userdata('account_id') == $row->account_id) { ?>
-                            <i class="fa fa-bars btn btn-info" onclick="view_details(<?php echo $row->inventory_id; ?>)"></i>
+                            <i class="fa fa-bars btn btn-info" onclick="view_details(<?php echo $row->inventory_id; ?>)" title="Details"></i>
                             <hr/>
-                            <i class="fa fa-edit btn btn-warning" onclick="view_details(<?php echo $row->inventory_id; ?>)"></i>
+                            <i class="fa fa-edit btn btn-warning" onclick="edit_inventory_details(<?php echo $row->inventory_id; ?>)" title="Edit"></i>
                             <hr/>
-                            <i class="fa fa-times btn btn-danger" onclick="view_details(<?php echo $row->inventory_id; ?>)"></i>
+                            <i class="fa fa-times btn btn-danger" onclick="delete_inventory_details(<?php echo $row->inventory_id; ?>)" title="Remove"></i>
                             <?php } else { ?>
-                            <i class="fa fa-bars btn btn-info" onclick="view_details(<?php echo $row->inventory_id; ?>)"></i>
+                            <i class="fa fa-bars btn btn-info" onclick="view_details(<?php echo $row->inventory_id; ?>)" title="Details"></i>
                             <?php } ?>
                         </td>
                     </tr>
@@ -113,6 +113,17 @@ if(!$this->session->userdata('isLogin')){
                     document.getElementById("tr"+i).style.display = "table-row";
                 }
             }
+            
+            function edit_inventory_details(i){
+                window.location = "<?php echo base_url(); ?>index.php/inventory/edit/" + i;
+            }
+
+            function delete_inventory_details(i){
+                var j = prompt("Reason for Deleting:", "Out of Stock");
+                if (j != null) {
+                    window.location = "<?php echo base_url(); ?>index.php/inventory/delete/" + i + "/" + btoa(j);
+                }
+            }
         </script>
         <?php } else { ?>
         
@@ -142,13 +153,13 @@ if(!$this->session->userdata('isLogin')){
                         <td><?php echo $row->log_in_personnel; ?></td>
                         <td class="text-center">
                             <?php if($this->session->userdata('account_id') == $row->account_id) { ?>
-                            <i class="fa fa-bars btn btn-info" onclick="view_details(<?php echo $row->storage_id; ?>)"></i>
+                            <i class="fa fa-bars btn btn-info" onclick="view_details(<?php echo $row->storage_id; ?>)" title="Details"></i>
                             <hr/>
-                            <i class="fa fa-edit btn btn-warning" onclick="view_details(<?php echo $row->storage_id; ?>)"></i>
+                            <i class="fa fa-edit btn btn-warning" onclick="edit_storage_details(<?php echo $row->storage_id; ?>)" title="Edit"></i>
                             <hr/>
-                            <i class="fa fa-times btn btn-danger" onclick="view_details(<?php echo $row->storage_id; ?>)"></i>
+                            <i class="fa fa-times btn btn-danger" onclick="delete_storage_details(<?php echo $row->storage_id; ?>)" title="Remove"></i>
                             <?php } else { ?>
-                            <i class="fa fa-bars btn btn-info" onclick="view_details(<?php echo $row->storage_id; ?>)"></i>
+                            <i class="fa fa-bars btn btn-info" onclick="view_details(<?php echo $row->storage_id; ?>)" title="Details"></i>
                             <?php } ?>
                         </td>
                     </tr>
@@ -173,20 +184,33 @@ if(!$this->session->userdata('isLogin')){
                     });
                 });
             });
+            
+        </script>
+        
+        <script>
+            function view_details(i){
+                if (document.getElementById("tr"+i).style.display == "table-row"){
+                    document.getElementById("tr"+i).style.display = "none";
+                } else {
+                    document.getElementById("tr"+i).style.display = "table-row";
+                }
+            }
+            
+            function edit_storage_details(i){
+                window.location = "<?php echo base_url(); ?>index.php/inventory/edit2/" + i;
+            }
+
+            function delete_storage_details(i){
+                var j = prompt("Reason for Deleting:", "Out of Stock");
+                if (j != null) {
+                    window.location = "<?php echo base_url(); ?>index.php/inventory/delete2/" + i + "/" + btoa(j);
+                }
+            }
         </script>
         
         <?php } ?>
         <br/>
     </div>
     
-    <script>
-        function view_details(i){
-            if (document.getElementById("tr"+i).style.display == "table-row"){
-                document.getElementById("tr"+i).style.display = "none";
-            } else {
-                document.getElementById("tr"+i).style.display = "table-row";
-            }
-        }
-    </script>
 </body>
 </html>

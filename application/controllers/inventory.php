@@ -25,6 +25,46 @@ class inventory extends CI_Controller {
         $this->load->template('inventory_view', $data);
 	}
     
+    public function edit() {
+        
+    }
+    
+    public function edit2() {
+        
+    }
+    
+    public function delete() {
+        $id = $this->uri->segment(3);
+        $msg = base64_decode($this->uri->segment(4));
+        
+        #$details = $this->inventory_model->get_inventory_by_id($id);
+        
+        if( $this->inventory_model->delete_item($id, 1) ){
+            $this->notification_model->insert_new_notification($this->session->userdata('account_id'), 2, "Inventory Deleted", "Inventory has been deleted by: " . $this->session->userdata('account_name') . ", due to: " . $msg);
+            $this->session->set_flashdata('msg','<div class="alert alert-success text-center">You have successfully approved the registration!</div>');
+            redirect('inventory/index');
+        } else {
+            $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">An error has occured. Please try again later.</div>');
+            redirect('inventory/index');
+        }
+    }
+    
+    public function delete2() {
+        $id = $this->uri->segment(3);
+        $msg = base64_decode($this->uri->segment(4));
+        
+        #$details = $this->inventory_model->get_storage_by_id($id);
+        
+        if( $this->inventory_model->delete_item($id, 2) ){
+            $this->notification_model->insert_new_notification($this->session->userdata('account_id'), 2, "Storage Deleted", "Storage has been deleted by: " . $this->session->userdata('account_name') . ", due to: " . $msg);
+            $this->session->set_flashdata('msg','<div class="alert alert-success text-center">You have successfully approved the registration!</div>');
+            redirect('inventory/index2');
+        } else {
+            $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">An error has occured. Please try again later.</div>');
+            redirect('inventory/index2');
+        }
+    }
+    
     public function new_inventory()
 	{
         $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );

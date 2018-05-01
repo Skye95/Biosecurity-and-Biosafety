@@ -65,8 +65,8 @@ class account_model extends CI_Model
     function update_approval($id, $type)
     {
         if ($type == 0) {
-            #$data = array('account_approved' => 2);
-            $data = array('account_approved' => 0);
+            #$data = array('account_approved' => 0);
+            $data = array('account_approved' => 2);
             $this->db->where('account_id', $id);
             $this->db->update('accounts', $data);
         } elseif ($type == 1) {
