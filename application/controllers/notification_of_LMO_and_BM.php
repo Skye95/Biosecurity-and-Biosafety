@@ -11,11 +11,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $this->load->database();
             $this->load->model('notification_of_LMO_and_BM_model');
             $this->load->model('notification_model');
+            
+            //breadcrum
+            $this->breadcrumbs->unshift('Home', '/');	
+            $this->breadcrumbs->push('Notification of LMO and Biohazardous Material','/notificationbiohazardouspage', true);
+            $this->breadcrumbs->push('SSBC Notification of LMO and Biohazardous Material', true);
         }
         
         public function index(){
             
-            $data['readnotif'] = $this->notification_model->get_read($this->session->userdata('account_id'));
+            $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );
             
             $this->form_validation->set_rules('personnel_name', 'Name', 'required|callback_fullname_check');
             $this->form_validation->set_rules('personnel_staff_student_no', 'Staff/student no', 'required');

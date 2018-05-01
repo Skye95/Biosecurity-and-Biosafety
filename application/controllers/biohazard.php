@@ -10,11 +10,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $this->load->database();
             $this->load->model('biohazard_model');
             $this->load->model('notification_model');
+            
+            //breadcrumb
+            $this->breadcrumbs->unshift('Home', '/');	
+            $this->breadcrumbs->push('Application','/applicationpage', true);
+            $this->breadcrumbs->push('New Application','/newapplicationpage', true);
+            $this->breadcrumbs->push('Biohazardous Material','/biohazardous_materialpage',true);
+            $this->breadcrumbs->push('Application for biosafety clearance Form', true);
         }
         
         public function index(){
             
-            $data['readnotif'] = $this->notification_model->get_read($this->session->userdata('account_id'));
+            $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );
             
             $this->form_validation->set_rules('project_title', 'Project title', 'required');
             $this->form_validation->set_rules('project_supervisor_name', 'Project supervisor name', 'required|callback_fullname_check');

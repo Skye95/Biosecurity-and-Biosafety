@@ -10,11 +10,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $this->load->database();
             $this->load->model('procurement_model');
             $this->load->model('notification_model');
+            
+            //breadcrum
+            $this->breadcrumbs->unshift('Home', '/');	
+            $this->breadcrumbs->push('Procurement of Biological Material','/procurementpage', true);
+            $this->breadcrumbs->push('OHS-F-4.18.X Pre-Purchase Material Risk Assessment', true);
         }
         
         public function index(){
             
-            $data['readnotif'] = $this->notification_model->get_read($this->session->userdata('account_id'));
+            $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );
             
             $this->form_validation->set_rules('Sec1_chemical', 'Section 1 chemical', 'required');
             $this->form_validation->set_rules('Sec1_biological_material', 'Sec1 biological material', 'required');

@@ -11,7 +11,8 @@ class inventory_model extends CI_Model
 	function get_all_inventory()
 	{
         #$query = $this->db->select('*')->from('inventory')->get();
-        #$this->db->where('approval', 1);
+        $this->db->where('approval', 0);
+        $this->db->or_where('approval', 1);
         $query = $this->db->get('inventory');
 		return $query->result();
 	}
@@ -19,7 +20,8 @@ class inventory_model extends CI_Model
     function get_all_storage()
 	{
         #$query = $this->db->select('*')->from('storage')->get();
-        #$this->db->where('approval', 1);
+        $this->db->where('approval', 0);
+        $this->db->or_where('approval', 1);
         $query = $this->db->get('storage');
 		return $query->result();
 	}
@@ -51,5 +53,32 @@ class inventory_model extends CI_Model
     {
 		return $this->db->insert('storage', $data);
 	}
+    
+    function update_inventory($id, $data)
+    {
+        $this->db->where('inventory_id', $id);
+        $this->db->update('inventory', $data);
+		return true;
+	}
+    
+    function update_storage($id, $data)
+    {   
+        $this->db->where('storage_id', $id);
+        $this->db->update('storage', $data);
+		return true;
+	}
+    
+    function delete_item($id, $type) {
+        if ($type == 1) {
+            $data = array('approval' => 2);
+            $this->db->where('inventory_id', $id);
+            $this->db->update('inventory', $data);
+        } elseif ($type == 2) {
+            $data = array('approval' => 2);
+            $this->db->where('storage_id', $id);
+            $this->db->update('storage', $data);
+        }
+        return true;
+    }
 }
 ?>

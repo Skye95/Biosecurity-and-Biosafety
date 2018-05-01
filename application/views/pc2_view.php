@@ -7,6 +7,8 @@ if(!$this->session->userdata('isLogin')){
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" href="<?php echo base_url()?>assets/css/styles.css" type="text/css">
+    
     <title>Biosafety and Biosecurity Online System - PC1 Form</title>
     
     <style>
@@ -89,6 +91,9 @@ if(!$this->session->userdata('isLogin')){
     ?>
     
     <div class="container">
+        <br/>
+        <div id='breadcrumb1'><?php echo $this->breadcrumbs->show(); ?></div>
+        <hr>
         <div class="row">
             
             

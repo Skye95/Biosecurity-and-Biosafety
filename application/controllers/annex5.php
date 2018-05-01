@@ -10,10 +10,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $this->load->database();
 			$this->load->model('notification_model');
             $this->load->model('annex5_model');
+            
+            //breadcrum
+		    $this->breadcrumbs->unshift('Home', '/');	
+		    $this->breadcrumbs->push('Application','/applicationpage' ,true);
+            $this->breadcrumbs->push('Extension OR Termination of Approved Project', true);
+            
         }
         
         public function index(){
-			$data['readnotif'] = $this->notification_model->get_read($this->session->userdata('account_id'));
+			$data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );
             
             $this->form_validation->set_rules('identification_PI_name', 'Name', 'required|callback_fullname_check');
             $this->form_validation->set_rules('identification_email_address', 'Email', 'required|valid_email');

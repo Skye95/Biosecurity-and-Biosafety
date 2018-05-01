@@ -37,10 +37,20 @@ if(!$this->session->userdata('isLogin')){
         </div>
         <br/>
         <input class="form-control" id="searchbar" type="text" placeholder="Search here">
-        <br/>
+        <div class="row">
+            <div class="col-md-1">
+            </div>
+            <div class="col-md-10 text-center">
+                <br/>
+                <?php echo $this->session->flashdata('msg'); ?>
+            </div>
+            <div class="col-md-1">
+            </div>
+        </div>
         
         <?php if(isset($inventory)) { ?>
         
+        <h5>Inventory Database</h5>
         <div class="table-responsive">
             <table class="table table-hover table-bordered">
                 <thead>
@@ -70,7 +80,15 @@ if(!$this->session->userdata('isLogin')){
                         <td><?php echo $row->biohazard_name; ?></td>
                         <td><?php echo $row->biohazard_id; ?></td>
                         <td class="text-center">
-                            <button class="btn btn-info" onclick="view_details(<?php echo $row->inventory_id; ?>)"><i class="fa fa-bars"></i></button>
+                            <?php if($this->session->userdata('account_id') == $row->account_id) { ?>
+                            <i class="fa fa-bars btn btn-info" onclick="view_details(<?php echo $row->inventory_id; ?>)" title="Details"></i>
+                            <hr/>
+                            <i class="fa fa-edit btn btn-warning" onclick="edit_inventory_details(<?php echo $row->inventory_id; ?>)" title="Edit"></i>
+                            <hr/>
+                            <i class="fa fa-times btn btn-danger" onclick="delete_inventory_details(<?php echo $row->inventory_id; ?>)" title="Remove"></i>
+                            <?php } else { ?>
+                            <i class="fa fa-bars btn btn-info" onclick="view_details(<?php echo $row->inventory_id; ?>)" title="Details"></i>
+                            <?php } ?>
                         </td>
                     </tr>
                     <tr id="tr<?php echo $row->inventory_id; ?>" style="display:none;">
@@ -105,9 +123,21 @@ if(!$this->session->userdata('isLogin')){
                     document.getElementById("tr"+i).style.display = "table-row";
                 }
             }
+            
+            function edit_inventory_details(i){
+                window.location = "<?php echo base_url(); ?>index.php/inventory/edit/" + i;
+            }
+
+            function delete_inventory_details(i){
+                var j = prompt("Reason for Deleting:", "Out of Stock");
+                if (j != null) {
+                    window.location = "<?php echo base_url(); ?>index.php/inventory/delete/" + i + "/" + btoa(j);
+                }
+            }
         </script>
         <?php } else { ?>
         
+        <h5>Storage Database</h5>
         <div class="table-responsive">
             <table class="table table-hover table-bordered">
                 <thead>
@@ -133,7 +163,15 @@ if(!$this->session->userdata('isLogin')){
                         <td><?php echo $row->keeper_name; ?></td>
                         <td><?php echo $row->log_in_personnel; ?></td>
                         <td class="text-center">
-                            <button class="btn btn-info" onclick="view_details(<?php echo $row->storage_id; ?>)"><i class="fa fa-bars"></i></button>
+                            <?php if($this->session->userdata('account_id') == $row->account_id) { ?>
+                            <i class="fa fa-bars btn btn-info" onclick="view_details(<?php echo $row->storage_id; ?>)" title="Details"></i>
+                            <hr/>
+                            <i class="fa fa-edit btn btn-warning" onclick="edit_storage_details(<?php echo $row->storage_id; ?>)" title="Edit"></i>
+                            <hr/>
+                            <i class="fa fa-times btn btn-danger" onclick="delete_storage_details(<?php echo $row->storage_id; ?>)" title="Remove"></i>
+                            <?php } else { ?>
+                            <i class="fa fa-bars btn btn-info" onclick="view_details(<?php echo $row->storage_id; ?>)" title="Details"></i>
+                            <?php } ?>
                         </td>
                     </tr>
                     <tr id="tr<?php echo $row->storage_id; ?>" style="display:none;">
@@ -157,20 +195,33 @@ if(!$this->session->userdata('isLogin')){
                     });
                 });
             });
+            
+        </script>
+        
+        <script>
+            function view_details(i){
+                if (document.getElementById("tr"+i).style.display == "table-row"){
+                    document.getElementById("tr"+i).style.display = "none";
+                } else {
+                    document.getElementById("tr"+i).style.display = "table-row";
+                }
+            }
+            
+            function edit_storage_details(i){
+                window.location = "<?php echo base_url(); ?>index.php/inventory/edit2/" + i;
+            }
+
+            function delete_storage_details(i){
+                var j = prompt("Reason for Deleting:", "Out of Stock");
+                if (j != null) {
+                    window.location = "<?php echo base_url(); ?>index.php/inventory/delete2/" + i + "/" + btoa(j);
+                }
+            }
         </script>
         
         <?php } ?>
         <br/>
     </div>
     
-    <script>
-        function view_details(i){
-            if (document.getElementById("tr"+i).style.display == "table-row"){
-                document.getElementById("tr"+i).style.display = "none";
-            } else {
-                document.getElementById("tr"+i).style.display = "table-row";
-            }
-        }
-    </script>
 </body>
 </html>

@@ -32,7 +32,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <h2 class="my-4 text-center">Major Biological Incident or Accident Form Page</h2>
 
         <div id='breadcrumb1'><?php echo $this->breadcrumbs->show(); ?></div>			
-
 		<hr>
 	<div class="row" >
 	<div class="col-lg-5" >

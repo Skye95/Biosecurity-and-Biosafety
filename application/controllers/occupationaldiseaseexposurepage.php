@@ -14,11 +14,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		$this->breadcrumbs->unshift('Home', '/');	
 		$this->breadcrumbs->push('Incident Accident Reporting','/incidentaccidentreportingpage', true);
         $this->breadcrumbs->push('Living Modified Organism (LMO)','lmo61page',true);
-        $this->breadcrumbs->push('Major Biological Incident or Accident','lmo61page',true);
+        $this->breadcrumbs->push('Occupational disease or exposure',true);
     }
 		
 		public function index(){
-			 $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id') );
+			 $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );
             $this->load->template('occupationaldiseaseexposurepage_view',$data);
         }
         
