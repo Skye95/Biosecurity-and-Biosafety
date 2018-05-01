@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 if(!$this->session->userdata('isLogin')){
     redirect('landing/index');
 }
-if($this->session->userdata('account_type') != 2){
+if($this->session->userdata('account_type') != 2 && $this->session->userdata('account_type') != 4){
     redirect('home/index');
 }
 ?><!DOCTYPE html>
@@ -59,7 +59,7 @@ if($this->session->userdata('account_type') != 2){
                     <a href="#"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\History.jpg') ?>" alt=""></a>
                     <div class="card-body">
                         <h6 class="card-title">
-                            <a href="<?php echo base_url(); ?>index.php/applicationapproval/index">Application Approvals</a>
+                            <a href="<?php echo base_url(); ?>index.php/applicationapproval">Application Approvals</a>
                         </h6>
                         <p class="card-text"></p>
                     </div>

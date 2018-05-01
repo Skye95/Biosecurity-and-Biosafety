@@ -35,8 +35,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $this->form_validation->set_rules('PI_other', 'Other', 'required');
             $this->form_validation->set_rules('personnel_involved[0]', 'Personnel Involved', 'required|callback_fullname_check');
             $this->form_validation->set_rules('personnel_designation[0]', 'Personnel Designation', 'required|alpha_numeric_spaces');
-            $this->form_validation->set_rules('IBC_name', 'IBC name', 'required');
-            $this->form_validation->set_rules('IBC_date', 'IBC date', 'required');
+            //$this->form_validation->set_rules('IBC_name', 'IBC name', 'required');
+            //$this->form_validation->set_rules('IBC_date', 'IBC date', 'required');
             
             
             
@@ -81,7 +81,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 
                 if($this->annex2_model->insert_new_applicant_data($data)){
                     
-                    $this->notification_model->insert_new_notification(null, 2, "New Registration", "The following user has requested for an account: " . $this->input->post('account_fullname'));
+                    $this->notification_model->insert_new_notification(null, 2, "New Registration", "The following use has submitted an Annex 2 form: " . $this->input->post('applicant_name'));
                     
                     $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">Success Has been achieved</div>', $data);
                     redirect('annex2/index');
