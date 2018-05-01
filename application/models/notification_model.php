@@ -14,8 +14,8 @@ class notification_model extends CI_Model
             $account_type = $row->account_type;
         }
         if($account_type == 1){
-            #$this->db->where(array('account_id' => $id, 'notification_type' => 1));
-            $this->db->where('account_id', $id);
+            $this->db->where(array('account_id' => $id, 'notification_type' => 1));
+            #$this->db->where('account_id', $id);
             $query = $this->db->get('notification');
             return $query->result();
         }
@@ -26,14 +26,14 @@ class notification_model extends CI_Model
             return $query->result();
         }
         if($account_type == 3){
-            #$this->db->where(array('account_id' => $id, 'notification_type' => 3));
-            $this->db->where('account_id', $id);
+            $this->db->where(array('account_id' => $id, 'notification_type' => 3));
+            #$this->db->where('account_id', $id);
             $query = $this->db->get('notification');
             return $query->result();
         }
         if($account_type == 4){
-            #$this->db->where(array('notification_type' => 1, 'notification_type' => 4));
-            $this->db->where('account_id', $id);
+            $this->db->where(array('notification_type' => 1, 'notification_type' => 4));
+            #$this->db->where('account_id', $id);
             $query = $this->db->get('notification');
             return $query->result();
         }
@@ -52,9 +52,11 @@ class notification_model extends CI_Model
     
     function get_read($id, $type) {
         $notif = [];
-        $this->db->where('account_id', $id);
+        $this->db->where(array('account_id' => $id));
         if ($type == 2) {
             $this->db->or_where(array('notification_type' => 2));
+        } else {
+            $this->db->where(array('notification_type' => $type));
         }
         $query = $this->db->get('notification');
         foreach ($query->result() as $i) {
@@ -74,6 +76,8 @@ class notification_model extends CI_Model
         $this->db->where('account_id', $id);
         if ($type == 2) {
             $this->db->or_where(array('notification_type' => 2));
+        } else {
+            $this->db->where(array('notification_type' => $type));
         }
         $this->db->update('notification', array('notification_read' => 1));
         return true;
