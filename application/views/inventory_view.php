@@ -50,6 +50,7 @@ if(!$this->session->userdata('isLogin')){
         
         <?php if(isset($inventory)) { ?>
         
+        <h5>Inventory Database</h5>
         <div class="table-responsive">
             <table class="table table-hover table-bordered">
                 <thead>
@@ -136,6 +137,7 @@ if(!$this->session->userdata('isLogin')){
         </script>
         <?php } else { ?>
         
+        <h5>Storage Database</h5>
         <div class="table-responsive">
             <table class="table table-hover table-bordered">
                 <thead>
