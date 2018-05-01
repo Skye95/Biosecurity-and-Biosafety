@@ -37,7 +37,16 @@ if(!$this->session->userdata('isLogin')){
         </div>
         <br/>
         <input class="form-control" id="searchbar" type="text" placeholder="Search here">
-        <br/>
+        <div class="row">
+            <div class="col-md-1">
+            </div>
+            <div class="col-md-10 text-center">
+                <br/>
+                <?php echo $this->session->flashdata('msg'); ?>
+            </div>
+            <div class="col-md-1">
+            </div>
+        </div>
         
         <?php if(isset($inventory)) { ?>
         

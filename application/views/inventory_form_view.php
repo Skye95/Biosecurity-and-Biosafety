@@ -23,7 +23,46 @@ if(!$this->session->userdata('isLogin')){
 <body>
     <!-- Navigation -->
     <?php include_once 'template/navbar.php' ?>
-
+    
+    <?php 
+        if (isset($details)) {
+            foreach ($details as $detail) {
+                $form_id = $detail->inventory_id;
+                $form_program = $detail->program;
+                $form_program_type = $detail->program_type;
+                $form_unit_convenor = $detail->unit_convenor;
+                $form_project_investigator = $detail->project_investigator;
+                $form_unit_name = $detail->unit_name;
+                $form_experiment_title = $detail->experiment_title;
+                $form_project_title = $detail->project_title;
+                $form_project_reference_no = $detail->project_reference_no;
+                $form_biohazard_type = $detail->biohazard_type;
+                $form_biohazard_name = $detail->biohazard_name;
+                $form_biohazard_id = $detail->biohazard_id;
+                $form_date_received = $detail->date_received;
+                $form_log_in_personnel = $detail->log_in_personnel;
+                $form_keeper_name = $detail->keeper_name;
+                $form_remarks = $detail->remarks;
+            }
+        } else {
+            $form_program = "";
+            $form_program_type = "";
+            $form_unit_convenor = "";
+            $form_project_investigator = "";
+            $form_unit_name = "";
+            $form_experiment_title = "";
+            $form_project_title = "";
+            $form_project_reference_no = "";
+            $form_biohazard_type = "";
+            $form_biohazard_name = "";
+            $form_biohazard_id = "";
+            $form_date_received = "";
+            $form_log_in_personnel = "";
+            $form_keeper_name = "";
+            $form_remarks = "";
+        }
+    ?>
+    
     <!-- Page Content -->
     <div class="container">
         <div class="text-center">
@@ -47,98 +86,104 @@ if(!$this->session->userdata('isLogin')){
                 <div class="col-md-1">
                 </div>
                 <div class="col-md-10 bg-white">
-                    <?php echo form_open('inventory/new_inventory'); ?>
+                    <?php 
+                        if(isset($details)){
+                            echo form_open('inventory/edit/'.$form_id);
+                        } else {
+                            echo form_open('inventory/new_inventory');
+                        }
+                    ?>
                         <br/>
                         <legend>New Inventory Application</legend>
                         <br/>
                         <div class="form-group">
                             <label for="programname">Program:</label>
-                            <input class="form-control" id="programname" name="program" placeholder="Enter program name here." type="text" value="<?php echo set_value('program'); ?>" />
+                            <input class="form-control" id="programname" name="program" placeholder="Enter program name here." type="text" value="<?php echo set_value('program', $form_program); ?>" />
                             <span class="text-danger"><?php echo form_error('program'); ?></span>
                         </div>
                     
                         <div class="form-group">
                             <label for="programtype">Program Type:</label>
-                            <input class="form-control" id="programtype" name="program_type" placeholder="Enter program type here." type="text" value="<?php echo set_value('program_type'); ?>" />
+                            <input class="form-control" id="programtype" name="program_type" placeholder="Enter program type here." type="text" value="<?php echo set_value('program_type', $form_program_type); ?>" />
                             <span class="text-danger"><?php echo form_error('program_type'); ?></span>
                         </div>
                     
                         <div class="row">
                             <div class="form-group col-md-6">
                                 <label for="unitconvenor">Unit Convenor:</label>
-                                <input class="form-control" id="unitconvenor" name="unit_convenor" placeholder="Enter the unit convenor here." type="text" value="<?php echo set_value('unit_convenor'); ?>" />
+                                <input class="form-control" id="unitconvenor" name="unit_convenor" placeholder="Enter the unit convenor here." type="text" value="<?php echo set_value('unit_convenor', $form_unit_convenor); ?>" />
                             </div>
 
                             <div class="form-group col-md-6">
                                 <label for="projectinvestigator">Project Investigator:</label>
-                                <input class="form-control" id="projectinvestigator" name="project_investigator" placeholder="Enter the project investigator here." type="text" value="<?php echo set_value('project_investigator'); ?>" />
+                                <input class="form-control" id="projectinvestigator" name="project_investigator" placeholder="Enter the project investigator here." type="text" value="<?php echo set_value('project_investigator', $form_project_investigator); ?>" />
                             </div>
                         </div>
                     
                         <div class="row">
                             <div class="form-group col-md-6">
                                 <label for="unitname">Unit Name:</label>
-                                <input class="form-control" id="unitname" name="unit_name" placeholder="Enter unit name here." type="text" value="<?php echo set_value('unit_name'); ?>" />
+                                <input class="form-control" id="unitname" name="unit_name" placeholder="Enter unit name here." type="text" value="<?php echo set_value('unit_name', $form_unit_name); ?>" />
                             </div>
 
                             <div class="form-group col-md-6">
                                 <label for="experimenttitle">Experiment Title:</label>
-                                <input class="form-control" id="experimenttitle" name="experiment_title" placeholder="Enter experiment title here." type="text" value="<?php echo set_value('experiment_title'); ?>" />
+                                <input class="form-control" id="experimenttitle" name="experiment_title" placeholder="Enter experiment title here." type="text" value="<?php echo set_value('experiment_title', $form_experiment_title); ?>" />
                             </div>
                         </div>
                     
                         <div class="row">
                             <div class="form-group col-md-6">
                                 <label for="projecttitle">Project Title:</label>
-                                <input class="form-control" id="projecttitle" name="project_title" placeholder="Enter project title here." type="text" value="<?php echo set_value('project_title'); ?>" />
+                                <input class="form-control" id="projecttitle" name="project_title" placeholder="Enter project title here." type="text" value="<?php echo set_value('project_title', $form_project_title); ?>" />
                                 <p style="font-size:11px;"><em>* Please leave the Project Investigator section empty if this section is filled.</em></p>
                             </div>
 
                             <div class="form-group col-md-6">
                                 <label for="referenceno">Project Reference No:</label>
-                                <input class="form-control" id="referenceno" name="project_reference_no" placeholder="Enter project reference number here." type="text" value="<?php echo set_value('project_reference_no'); ?>" />
+                                <input class="form-control" id="referenceno" name="project_reference_no" placeholder="Enter project reference number here." type="text" value="<?php echo set_value('project_reference_no', $form_project_reference_no); ?>" />
                                 <p style="font-size:11px;"><em>* Please leave the Unit Convenor section empty if this section is filled.</em></p>
                             </div>
                         </div>
                     
                         <div class="form-group">
                             <label for="biohazardtype">Biohazard Type:</label>
-                            <input class="form-control" id="biohazardtype" name="biohazard_type" placeholder="Enter the biohazard type here." type="text" value="<?php echo set_value('biohazard_type'); ?>" />
+                            <input class="form-control" id="biohazardtype" name="biohazard_type" placeholder="Enter the biohazard type here." type="text" value="<?php echo set_value('biohazard_type', $form_biohazard_type); ?>" />
                             <span class="text-danger"><?php echo form_error('biohazard_type'); ?></span>
                         </div>
                     
                         <div class="form-group">
                             <label for="biohazardname">Biohazard Name:</label>
-                            <input class="form-control" id="biohazardname" name="biohazard_name" placeholder="Enter the biohazard name here." type="text" value="<?php echo set_value('biohazard_name'); ?>" />
+                            <input class="form-control" id="biohazardname" name="biohazard_name" placeholder="Enter the biohazard name here." type="text" value="<?php echo set_value('biohazard_name', $form_biohazard_name); ?>" />
                             <span class="text-danger"><?php echo form_error('biohazard_name'); ?></span>
                         </div>
                     
                         <div class="form-group">
                             <label for="biohazardid">Biohazard ID:</label>
-                            <input class="form-control" id="biohazardid" name="biohazard_id" placeholder="Enter the biohazard ID here." type="text" value="<?php echo set_value('biohazard_id'); ?>" />
+                            <input class="form-control" id="biohazardid" name="biohazard_id" placeholder="Enter the biohazard ID here." type="text" value="<?php echo set_value('biohazard_id', $form_biohazard_id); ?>" />
                             <span class="text-danger"><?php echo form_error('biohazard_id'); ?></span>
                         </div>
                     
                         <div class="form-group">
                             <label for="datereceived">Date Received:</label>
-                            <input class="form-control" id="datereceived" name="date_received" placeholder="Enter the date here." type="date" value="<?php echo set_value('date_received'); ?>" />
+                            <input class="form-control" id="datereceived" name="date_received" placeholder="Enter the date here." type="date" value="<?php echo set_value('date_received', $form_date_received); ?>" />
                         </div>
                     
                         <div class="form-group">
                             <label for="loginpersonnel">Log In Personnel:</label>
-                            <input class="form-control" id="loginpersonnel" name="log_in_personnel" placeholder="Enter the log in personnel name here." type="text" value="<?php echo set_value('log_in_personnel'); ?>" />
+                            <input class="form-control" id="loginpersonnel" name="log_in_personnel" placeholder="Enter the log in personnel name here." type="text" value="<?php echo set_value('log_in_personnel', $form_log_in_personnel); ?>" />
                             <span class="text-danger"><?php echo form_error('log_in_personnel'); ?></span>
                         </div>
                     
                         <div class="form-group">
                             <label for="keepername">Keeper's Name:</label>
-                            <input class="form-control" id="keepername" name="keeper_name" placeholder="Enter the keeper's name here." type="text" value="<?php echo set_value('keeper_name'); ?>" />
+                            <input class="form-control" id="keepername" name="keeper_name" placeholder="Enter the keeper's name here." type="text" value="<?php echo set_value('keeper_name', $form_keeper_name); ?>" />
                             <span class="text-danger"><?php echo form_error('keeper_name'); ?></span>
                         </div>
                     
                         <div class="form-group">
                             <label for="remark">Remarks:</label>
-                            <input class="form-control" id="remark" name="remarks" placeholder="Enter remarks here." type="text" value="<?php echo set_value('remarks'); ?>" />
+                            <input class="form-control" id="remark" name="remarks" placeholder="Enter remarks here." type="text" value="<?php echo set_value('remarks', $form_remarks); ?>" />
                         </div>
                         
                         <div class="form-group text-center">
