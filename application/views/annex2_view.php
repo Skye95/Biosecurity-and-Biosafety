@@ -277,8 +277,10 @@ if(!$this->session->userdata('isLogin')){
                 
                 
                    
-                   <div>
-                       <button name="submit" type="submit" class="btn btn-primary">Submit</button>
+                   <div class="row">
+                       <span class="col-md-5"></span>
+                       <button name="submit" type="submit" class="btn btn-primary col-md-2">Submit</button>
+                       <span class="col-md-5"></span>
                    </div>
                     
                <?php echo form_close(); ?>
