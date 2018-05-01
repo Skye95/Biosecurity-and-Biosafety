@@ -93,7 +93,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			</div>				
 			<div>		
 				<div class="row">
-					<div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
+          <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
             <ol class="carousel-indicators">
               <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
               <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -121,17 +121,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           </div>				
 				</div>
 			</div>
-			<div>		
-				<div class="row">
-					<div class="card my-4">
-						<h5 class="card-header">Reminder</h5>
-						<div class="card-body">
-						test test test 1131231231231231231231231231231212331121321321321213213213 test test test 1131231231231231231231231231231212331121321321321213213213 
-						test test test 1131231231231231231231231231231212331121321321321213213213 test test test 1131231231231231231231231231231212331121321321321213213213 
-						</div>
-					</div>				
-				</div>
-			</div>
+			
 		</div>
 	</div>	
 	</div>
