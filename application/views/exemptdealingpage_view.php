@@ -67,28 +67,30 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<div>		
 				<h4>Announcements</h4>
 			</div>				
-			<div>		
-				<div class="row">
-					<div class="card my-4">
-						<h5 class="card-header">Form Guide</h5>
-						<div class="card-body">
-						test test test 1131231231231231231231231231231212331121321321321213213213 test test test 1131231231231231231231231231231212331121321321321213213213 
-						test test test 11312ahgsdfahdfashjf31231212331121321321321213213213 test test test 1131231231231231231231231231231212331121321321321213213213 
-						</div>
-					</div>				
+			<div class="row">
+          <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
+            <ol class="carousel-indicators">
+              <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            </ol>
+			<div class="carousel-inner" role="listbox">
+              <div class="carousel-item active">
+                <img class="d-block img-fluid" src="<?php echo base_url('assets\images\3_exemptedactivities\ea1.jpg') ?>" alt="First slide">
+			  </div>
+              <div class="carousel-item">
+                <img class="d-block img-fluid" src="<?php echo base_url('assets\images\3_exemptedactivities\ea2.jpg') ?>" alt="Second slide">
+			  </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>				
 				</div>
-			</div>
-			<div>		
-				<div class="row">
-					<div class="card my-4">
-						<h5 class="card-header">Reminder</h5>
-						<div class="card-body">
-						test test test 1131231231231231231231231231231212331121321321321213213213 test test test 1131231231231231231231231231231212331121321321321213213213 
-						test test test 1131231231231231231231231231231212331121321321321213213213 test test test 1131231231231231231231231231231212331121321321321213213213 
-						</div>
-					</div>				
-				</div>
-			</div>
 		</div>
 	</div>					
 	</div>
