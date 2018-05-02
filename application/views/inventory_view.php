@@ -70,7 +70,7 @@ if(!$this->session->userdata('isLogin')){
                 <tbody id="inventory">
                 <?php $i=0; foreach($inventory as $row): ?>
                     <tr class="searchable">
-                        <td><?php echo $i = $i+1 ?></td>
+                        <td class="text-center"><?php echo $i = $i+1 ?></td>
                         <td><?php echo $row->program; ?></td>
                         <td><?php echo $row->program_type; ?></td>
                         <td><?php echo $row->unit_convenor . $row->project_investigator; ?></td>
@@ -155,7 +155,7 @@ if(!$this->session->userdata('isLogin')){
                 <tbody id="storage">
                 <?php $i=0; foreach($storage as $row): ?>
                     <tr class="searchable">
-                        <td><?php echo $i = $i+1 ?></td>
+                        <td class="text-center"><?php echo $i = $i+1 ?></td>
                         <td><?php echo $row->biohazard_id; ?></td>
                         <td><?php echo $row->biohazard_name; ?></td>
                         <td><?php echo $row->risk_group; ?></td>

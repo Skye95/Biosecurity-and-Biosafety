@@ -10,7 +10,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Swinburne Biosafety and Biosecurity Online System - Admin Panel</title>
+    <title>Swinburne Biosafety and Biosecurity Online System - New Application</title>
     
     <style>
         body {
@@ -39,8 +39,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
 
     <!-- Page Content -->
     <div class="container">
-        <!-- Page Heading -->
-        <h2 class="my-4 text-center">Welcome to your Administrator Panel, <?php echo $this->session->userdata('account_name'); ?></h2>
+        <br>
         
         <div class="row">
             <div class="col-lg-3 col-md-4 col-sm-6 col-6 portfolio-item">
@@ -48,7 +47,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                     <a href="<?php echo base_url(); ?>index.php/accountapproval/index"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\History.jpg') ?>" alt=""></a>
                     <div class="card-body">
                         <h6 class="card-title">
-                            <a href="<?php echo base_url(); ?>index.php/accountapproval/index">Account Approvals</a>
+                            <a href="<?php echo base_url(); ?>index.php/applicationapproval/index">LMO</a>
                         </h6>
                         <p class="card-text"></p>
                     </div>
@@ -59,7 +58,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                     <a href="#"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\History.jpg') ?>" alt=""></a>
                     <div class="card-body">
                         <h6 class="card-title">
-                            <a href="<?php echo base_url(); ?>index.php/newapplication">New Application</a>
+                            <a href="">Exempt Dealing</a>
                         </h6>
                         <p class="card-text"></p>
                     </div>
@@ -70,18 +69,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                     <a href="#"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\History.jpg') ?>" alt=""></a>
                     <div class="card-body">
                         <h6 class="card-title">
-                            <a href="<?php echo base_url(); ?>index.php/procurementapproval">Procurement of Biological Material</a>
-                        </h6>
-                        <p class="card-text"></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 col-6 portfolio-item">
-                <div class="card card-block justify-content-center align-items-center">
-                    <a href="#"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\History.jpg') ?>" alt=""></a>
-                    <div class="card-body">
-                        <h6 class="card-title">
-                            <a href="<?php echo base_url(); ?>index.php/notification_of_LMO_and_BM_approval">Notification of LMO and Biohazardous Materials</a>
+                            <a href="#">Biohazardous Materials</a>
                         </h6>
                         <p class="card-text"></p>
                     </div>

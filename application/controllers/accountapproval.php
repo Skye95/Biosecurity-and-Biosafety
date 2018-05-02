@@ -51,3 +51,5 @@ class accountapproval extends CI_Controller {
         }
     }
 }
+
+?>

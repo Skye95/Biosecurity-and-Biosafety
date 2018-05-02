@@ -170,11 +170,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         
         public function load_form(){
             
-            $data['readnotif'] = $this->notification_model->get_read($this->session->userdata('account_id'));
+            $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );
             
             $data['load'] = "true";
             
-            $id = $this->session->userdata('account_id');
+            //$id = $this->session->userdata('account_id');
+            $id = $this->input->get('id');
             $data['retrieved'] = $this->pc1_model->get_form_by_id($id);
             
             $this->load->template('pc1_view', $data);

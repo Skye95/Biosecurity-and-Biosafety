@@ -31,11 +31,18 @@ class annex2_model extends CI_Model
     
 	function get_form_by_id($id)
 	{
-		$this->db->where('account_id', $id);
+		$this->db->where('application_id', $id);
         $query = $this->db->get('annex2');
 		return $query->result();
 	}
 	
+    function get_form_by_account_id($id)
+	{
+		$this->db->where('account_id', $id);
+        $query = $this->db->get('annex2');
+		return $query->result();
+	}
+    
 	# Insert New Account
 	function insert_new_applicant_data($data)
     {
@@ -46,7 +53,7 @@ class annex2_model extends CI_Model
     {
         if ($type == 0) {
             
-            $data = array('application_approved' => 0, 'approver_id' => $approver_id );
+            $data = array('application_approved' => 3, 'approver_id' => $approver_id );
             $this->db->where('account_id', $id);
             $this->db->update('annex2', $data);
         } elseif ($type == 1) {
@@ -61,7 +68,7 @@ class annex2_model extends CI_Model
     {
         if ($type == 0) {
             
-            $data = array('application_approved' => 1, 'approver_id' => $approver_id );
+            $data = array('application_approved' => 3, 'approver_id' => $approver_id );
             $this->db->where('account_id', $id);
             $this->db->update('annex2', $data);
         } elseif ($type == 1) {
