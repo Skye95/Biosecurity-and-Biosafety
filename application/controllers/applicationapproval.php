@@ -11,6 +11,11 @@ class applicationapproval extends CI_Controller {
         $this->load->model('notification_model');
         $this->load->model('account_model');
         $this->load->model('annex2_model');
+        $this->load->model('forme_model');
+        $this->load->model('hirarc_model');
+        $this->load->model('pc1_model');
+        $this->load->model('pc2_model');
+        $this->load->model('swp_model');
     }
     
 	public function index()
@@ -19,10 +24,22 @@ class applicationapproval extends CI_Controller {
         $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );
         $data['all_annex2'] = $this->annex2_model->get_all_form();
         $data['all_annex2_SSBC'] = $this->annex2_model->get_all_form2();
+        $data['all_forme'] = $this->forme_model->get_all_form();
+        $data['all_forme_SSBC'] = $this->forme_model->get_all_form2();
+        $data['all_hirarc'] = $this->hirarc_model->get_all_form();
+        $data['all_hirarc_SSBC'] = $this->hirarc_model->get_all_form2();
+        $data['all_pc1'] = $this->pc1_model->get_all_form();
+        $data['all_pc1_SSBC'] = $this->pc1_model->get_all_form2();
+        $data['all_pc2'] = $this->pc2_model->get_all_form();
+        $data['all_pc2_SSBC'] = $this->pc2_model->get_all_form2();
+        $data['all_swp'] = $this->pc2_model->get_all_form();
+        $data['all_swp_SSBC'] = $this->pc2_model->get_all_form2();
+        
         
         $this->load->template('applicationapproval_view', $data);
 	}
     
+    //Methods For Approving And Rejecting Annex 2 Forms
     public function approve($id)
     {
         $approver_id = $this->session->userdata('account_id');
@@ -42,21 +59,11 @@ class applicationapproval extends CI_Controller {
         redirect('applicationapproval/index');
     }
     
-    public function approve2($id, $email)
+    public function approve2($id)
     {
         $approver_id = $this->session->userdata('account_id');
         $id = $this->uri->segment(3);
         $this->annex2_model->update_approval_SSBC($id, 1, $approver_id);
-        
-        /*$this->load->library('email');
-
-        $this->email->from($this->session->userdata('account_email'), 'SSBC Chair/SSBC Member');
-        $this->email->to($email);
-
-        $this->email->subject('Annex 2 Form Submission Approved');
-        $this->email->message('Testing the email class.');
-
-        $this->email->send();*/
         
         redirect('applicationapproval/index');
     }
@@ -70,6 +77,208 @@ class applicationapproval extends CI_Controller {
         
         redirect('applicationapproval/index');
     }
+    
+    
+    //Methods For Approving And Rejecting Form E forms
+    public function approve_forme($id)
+    {
+        $approver_id = $this->session->userdata('account_id');
+        $id = $this->uri->segment(3);
+        $this->forme_model->update_approval($id, 1, $approver_id);
+        
+        redirect('applicationapproval/index');
+    }
+    
+    public function reject_forme($id)
+    {
+        $approver_id = ' ';
+        $id = $this->uri->segment(3);
+        $msg = base64_decode($this->uri->segment(4));
+        $this->forme_model->update_approval($id, 0, $approver_id);
+        
+        redirect('applicationapproval/index');
+    }
+    
+    public function approve_forme2($id)
+    {
+        $approver_id = $this->session->userdata('account_id');
+        $id = $this->uri->segment(3);
+        $this->forme_model->update_approval_SSBC($id, 1, $approver_id);
+        
+        redirect('applicationapproval/index');
+    }
+    
+    public function reject_forme2($id)
+    {
+        $approver_id = ' ';
+        $id = $this->uri->segment(3);
+        $msg = base64_decode($this->uri->segment(4));
+        $this->forme_model->update_approval_SSBC($id, 0, $approver_id);
+        
+        redirect('applicationapproval/index');
+    } 
+    
+    
+    //Methods For Approving And Rejecting HIRARC forms
+    public function approve_hirarc($id)
+    {
+        $approver_id = $this->session->userdata('account_id');
+        $id = $this->uri->segment(3);
+        $this->hirarc_model->update_approval($id, 1, $approver_id);
+        
+        redirect('applicationapproval/index');
+    }
+    
+    public function reject_hirarc($id)
+    {
+        $approver_id = ' ';
+        $id = $this->uri->segment(3);
+        $msg = base64_decode($this->uri->segment(4));
+        $this->hirarc_model->update_approval($id, 0, $approver_id);
+        
+        redirect('applicationapproval/index');
+    }
+    
+    public function approve_hirarc2($id)
+    {
+        $approver_id = $this->session->userdata('account_id');
+        $id = $this->uri->segment(3);
+        $this->hirarc_model->update_approval_SSBC($id, 1, $approver_id);
+        
+        redirect('applicationapproval/index');
+    }
+    
+    public function reject_hirarc2($id)
+    {
+        $approver_id = ' ';
+        $id = $this->uri->segment(3);
+        $msg = base64_decode($this->uri->segment(4));
+        $this->hirarc_model->update_approval_SSBC($id, 0, $approver_id);
+        
+        redirect('applicationapproval/index');
+    } 
+    
+    
+    //Methods For Approving And Rejecting PC1 forms
+    public function approve_pc1($id)
+    {
+        $approver_id = $this->session->userdata('account_id');
+        $id = $this->uri->segment(3);
+        $this->pc1_model->update_approval($id, 1, $approver_id);
+        
+        redirect('applicationapproval/index');
+    }
+    
+    public function reject_pc1($id)
+    {
+        $approver_id = ' ';
+        $id = $this->uri->segment(3);
+        $msg = base64_decode($this->uri->segment(4));
+        $this->pc1_model->update_approval($id, 0, $approver_id);
+        
+        redirect('applicationapproval/index');
+    }
+    
+    public function approve_pc1_2($id)
+    {
+        $approver_id = $this->session->userdata('account_id');
+        $id = $this->uri->segment(3);
+        $this->pc1_model->update_approval_SSBC($id, 1, $approver_id);
+        
+        redirect('applicationapproval/index');
+    }
+    
+    public function reject_pc1_2($id)
+    {
+        $approver_id = ' ';
+        $id = $this->uri->segment(3);
+        $msg = base64_decode($this->uri->segment(4));
+        $this->pc1_model->update_approval_SSBC($id, 0, $approver_id);
+        
+        redirect('applicationapproval/index');
+    } 
+    
+    
+    //Methods For Approving And Rejecting PC2 forms
+    public function approve_pc2($id)
+    {
+        $approver_id = $this->session->userdata('account_id');
+        $id = $this->uri->segment(3);
+        $this->pc2_model->update_approval($id, 1, $approver_id);
+        
+        redirect('applicationapproval/index');
+    }
+    
+    public function reject_pc2($id)
+    {
+        $approver_id = ' ';
+        $id = $this->uri->segment(3);
+        $msg = base64_decode($this->uri->segment(4));
+        $this->pc2_model->update_approval($id, 0, $approver_id);
+        
+        redirect('applicationapproval/index');
+    }
+    
+    public function approve_pc2_2($id)
+    {
+        $approver_id = $this->session->userdata('account_id');
+        $id = $this->uri->segment(3);
+        $this->pc2_model->update_approval_SSBC($id, 1, $approver_id);
+        
+        redirect('applicationapproval/index');
+    }
+    
+    public function reject_pc2_2($id)
+    {
+        $approver_id = ' ';
+        $id = $this->uri->segment(3);
+        $msg = base64_decode($this->uri->segment(4));
+        $this->pc2_model->update_approval_SSBC($id, 0, $approver_id);
+        
+        redirect('applicationapproval/index');
+    } 
+    
+    //Methods For Approving And Rejecting SWP forms
+    public function approve_swp($id)
+    {
+        $approver_id = $this->session->userdata('account_id');
+        $id = $this->uri->segment(3);
+        $this->swp_model->update_approval($id, 1, $approver_id);
+        
+        redirect('applicationapproval/index');
+    }
+    
+    public function reject_swp($id)
+    {
+        $approver_id = ' ';
+        $id = $this->uri->segment(3);
+        $msg = base64_decode($this->uri->segment(4));
+        $this->swp_model->update_approval($id, 0, $approver_id);
+        
+        redirect('applicationapproval/index');
+    }
+    
+    public function approve_swp_2($id)
+    {
+        $approver_id = $this->session->userdata('account_id');
+        $id = $this->uri->segment(3);
+        $this->swp_model->update_approval_SSBC($id, 1, $approver_id);
+        
+        redirect('applicationapproval/index');
+    }
+    
+    public function reject_swp_2($id)
+    {
+        $approver_id = ' ';
+        $id = $this->uri->segment(3);
+        $msg = base64_decode($this->uri->segment(4));
+        $this->swp_model->update_approval_SSBC($id, 0, $approver_id);
+        
+        redirect('applicationapproval/index');
+    } 
+    
+    
+    
 }
 
 ?>

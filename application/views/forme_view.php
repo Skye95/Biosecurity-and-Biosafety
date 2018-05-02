@@ -71,7 +71,8 @@ if(!$this->session->userdata('isLogin')){
             
             .tbheader1{
             background-color:  #95a5a6 ;
-        }
+            }
+            
             .tbheader2{
                 background-color: palegreen;
                 text-align: center;
@@ -88,6 +89,7 @@ if(!$this->session->userdata('isLogin')){
         <?php include_once 'template/navbar.php' ?>
         
         <?php
+    
     
     if(isset($load)){
         foreach($retrieved as $item){
@@ -219,7 +221,7 @@ if(!$this->session->userdata('isLogin')){
                         
                         <div class="form-group">
                             <label class="control-label" for="project_title"><h6><strong>PROJECT TITLE:</strong></h6></label>
-                            <input type="text" class="form-control col-md-5" name="project_title" value="<?php if(isset($load)){echo set_value('project_title', $item->project_title);}else{echo set_value('project_title');} ?>">
+                            <input type="text" class="form-control col-md-5" name="project_title" value="<?php if(isset($load)){echo set_value('project_title', $item->project_title);}else{echo set_value('project_title');} ?>" >
                         </div>
                         
                         <br>

@@ -46,7 +46,7 @@ class annex2_model extends CI_Model
     {
         if ($type == 0) {
             
-            $data = array('application_approved' => 0, 'approver_id' => $approver_id );
+            $data = array('application_approved' => 3, 'approver_id' => $approver_id );
             $this->db->where('account_id', $id);
             $this->db->update('annex2', $data);
         } elseif ($type == 1) {
@@ -61,7 +61,7 @@ class annex2_model extends CI_Model
     {
         if ($type == 0) {
             
-            $data = array('application_approved' => 1, 'approver_id' => $approver_id );
+            $data = array('application_approved' => 3, 'approver_id' => $approver_id );
             $this->db->where('account_id', $id);
             $this->db->update('annex2', $data);
         } elseif ($type == 1) {
