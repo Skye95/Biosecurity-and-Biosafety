@@ -11,7 +11,7 @@ class incidentaccidentreport_model extends CI_Model
     
 	function get_form_by_id($id)
 	{
-		$this->db->where('account_id', $id);
+		$this->db->where('application_id', $id);
         $query = $this->db->get('incidentaccidentreport');
 		return $query->result();
 	}

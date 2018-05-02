@@ -8,10 +8,10 @@ class annex5_model extends CI_Model
         parent::__construct();
     }
 	
-    # Retrieves Annex 2 form by users ID for now
+    
 	function get_form_by_id($id)
 	{
-		$this->db->where('account_id', $id);
+		$this->db->where('application_id', $id);
         $query = $this->db->get('annex5');
 		return $query->result();
 	}
