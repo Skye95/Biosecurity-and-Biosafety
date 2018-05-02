@@ -1573,12 +1573,12 @@ if(!$this->session->userdata('isLogin')){
                             </div>
                             
                         </div>
-                    
-                    <div>
-                       <button name="submit" type="submit" class="btn btn-primary">Submit</button>
-                       <a class="btn btn-primary" href="<?php echo base_url(); ?>index.php/forme/load_form">Load</a>
-                   </div>
-                    
+                        <hr>
+                    <div style="text-align: center">
+                       <button name="submit" type="submit" class="btn btn-primary col-md-2">Submit</button>
+                       <a class="btn btn-primary col-md-2" href="<?php echo base_url(); ?>index.php/forme/load_form">Load</a>
+                </div>
+
                <?php echo form_close(); ?>
                 </div>
                 

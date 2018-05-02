@@ -468,9 +468,10 @@ if(!$this->session->userdata('isLogin')){
                    </div>
                    
                    <br>
-                   
-                   <input type="submit" class="btn btn-primary" name="submit" value="Submit">
-                <a class="btn btn-primary" href="<?php echo base_url(); ?>index.php/hirarc/load_form">Load</a>
+                   <div style="text-align: center">
+                       <button name="submit" type="submit" class="btn btn-primary col-md-2">Submit</button>
+                       <a class="btn btn-primary col-md-2" href="<?php echo base_url(); ?>index.php/hirarc/load_form">Load</a>
+                    </div>
                    
                <?php echo form_close(); ?>
             </div>
