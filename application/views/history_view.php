@@ -87,11 +87,11 @@ if(!$this->session->userdata('isLogin')){
                 }
 
                 function edit_details(i, j){
-                    
+                    alert(j);
                 }
 
                 function delete_details(i, j){
-                    
+                    alert(j);
                 }
             </script>
         </div>
