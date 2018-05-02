@@ -11,6 +11,7 @@ if(!$this->session->userdata('isLogin')){
     <title>Biosafety and Biosecurity Online System - Annex 3</title>
     
     <style>
+        
         body {
             padding-top: 82px;
         }
@@ -374,10 +375,17 @@ if(!$this->session->userdata('isLogin')){
                    </div>
                    <hr>
 				   
+<<<<<<< HEAD
+                  <div style="text-align: center">
+                       <button name="submit" type="submit" class="btn btn-primary col-md-2">Submit</button>
+                       <a class="btn btn-primary col-md-2" href="<?php echo base_url(); ?>index.php/annex3/load_form">Load</a>
+=======
 				   <div>
                        <button name="submit" type="submit" class="btn btn-primary">Submit</button>
                        <a class="btn btn-primary" href="<?php echo base_url(); ?>index.php/annex3/load_form">Load</a>
+>>>>>>> 9c24e6794e93825be2aeafcaa7810fb859eb99b9
                    </div>
+				   
                     
                <?php echo form_close(); ?>
             </div>
