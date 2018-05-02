@@ -59,7 +59,7 @@ if(!$this->session->userdata('isLogin')){
             <div class="col-md-9">
                <?php echo form_open('annex4/index'); ?>
                 
-                <p><?php echo $error;?></p>
+                
                    <div class="text-muted">
                        <h5>Guidelines for Institutional Biosafety Committees:<br>
                        Use of Living Modified Organisms and Related Materials

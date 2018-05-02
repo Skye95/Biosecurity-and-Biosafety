@@ -91,7 +91,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 if($this->annualfinalreport_model->insert_new_applicant_data($data))
                     {
                     
-                       $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">Your Form has been Submited</div>', $data);
+                       $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Your Form has been Submited</div>', $data);
                        redirect('annualfinalreport/index');
                      
                     } 
