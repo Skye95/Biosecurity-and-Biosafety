@@ -32,7 +32,13 @@ class notification_model extends CI_Model
             return $query->result();
         }
         if($account_type == 4){
-            $this->db->where(array('notification_type' => 1, 'notification_type' => 4));
+            $this->db->where('account_id', $id);
+            $this->db->or_where('notification_type', 4);
+            $query = $this->db->get('notification');
+            return $query->result();
+        }
+        if($account_type == 5){
+            $this->db->where(array('notification_type' => 1, 'notification_type' => 5));
             #$this->db->where('account_id', $id);
             $query = $this->db->get('notification');
             return $query->result();
@@ -55,6 +61,8 @@ class notification_model extends CI_Model
         $this->db->where(array('account_id' => $id));
         if ($type == 2) {
             $this->db->or_where(array('notification_type' => 2));
+        } elseif ($type == 4) {
+            $this->db->or_where(array('notification_type' => 4));
         } else {
             $this->db->where(array('notification_type' => $type));
         }
@@ -76,6 +84,8 @@ class notification_model extends CI_Model
         $this->db->where('account_id', $id);
         if ($type == 2) {
             $this->db->or_where(array('notification_type' => 2));
+        } elseif ($type == 4) {
+            $this->db->or_where(array('notification_type' => 4));
         } else {
             $this->db->where(array('notification_type' => $type));
         }
