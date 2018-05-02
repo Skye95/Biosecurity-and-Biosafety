@@ -31,7 +31,7 @@ class history_model extends CI_Model
 	{
         $result = [];
         
-        $i = $this->annex2_model->get_form_by_id($id);
+        $i = $this->annex2_model->get_form_by_account_id($id);
         foreach ($i as $row) {
             $data = [
                 'type' => 'Annex 2',
@@ -41,7 +41,7 @@ class history_model extends CI_Model
             array_push($result, $data);
         }
         
-        $i = $this->annex3_model->get_form_by_id($id);
+        $i = $this->annex3_model->get_form_by_account_id($id);
         foreach ($i as $row) {
             $data = [
                 'type' => 'Annex 3',
@@ -51,7 +51,7 @@ class history_model extends CI_Model
             array_push($result, $data);
         }
         
-        $i = $this->annex4_model->get_form_by_id($id);
+        $i = $this->annex4_model->get_form_by_account_id($id);
         foreach ($i as $row) {
             $data = [
                 'type' => 'Annex 4',
@@ -61,7 +61,7 @@ class history_model extends CI_Model
             array_push($result, $data);
         }
         
-        $i = $this->annex5_model->get_form_by_id($id);
+        $i = $this->annex5_model->get_form_by_account_id($id);
         foreach ($i as $row) {
             $data = [
                 'type' => 'Annex 5',
@@ -71,7 +71,7 @@ class history_model extends CI_Model
             array_push($result, $data);
         }
         
-        $i = $this->annualfinalreport_model->get_form_by_id($id);
+        $i = $this->annualfinalreport_model->get_form_by_account_id($id);
         foreach ($i as $row) {
             $data = [
                 'type' => 'Annual / Final Report',
@@ -81,7 +81,7 @@ class history_model extends CI_Model
             array_push($result, $data);
         }
         
-        $i = $this->biohazard_model->get_form_by_id($id);
+        $i = $this->biohazard_model->get_form_by_account_id($id);
         foreach ($i as $row) {
             $data = [
                 'type' => 'Biohazardous',
@@ -91,7 +91,7 @@ class history_model extends CI_Model
             array_push($result, $data);
         }
         
-        $i = $this->exempt_model->get_form_by_id($id);
+        $i = $this->exempt_model->get_form_by_account_id($id);
         foreach ($i as $row) {
             $data = [
                 'type' => 'Exempt',
@@ -101,7 +101,7 @@ class history_model extends CI_Model
             array_push($result, $data);
         }
         
-        $i = $this->forme_model->get_form_by_id($id);
+        $i = $this->forme_model->get_form_by_account_id($id);
         foreach ($i as $row) {
             $data = [
                 'type' => 'Form E',
@@ -111,7 +111,7 @@ class history_model extends CI_Model
             array_push($result, $data);
         }
         
-        $i = $this->formf_model->get_form_by_id($id);
+        $i = $this->formf_model->get_form_by_account_id($id);
         foreach ($i as $row) {
             $data = [
                 'type' => 'Form F',
@@ -121,7 +121,7 @@ class history_model extends CI_Model
             array_push($result, $data);
         }
         
-        $i = $this->hirarc_model->get_form_by_id($id);
+        $i = $this->hirarc_model->get_form_by_account_id($id);
         foreach ($i as $row) {
             $data = [
                 'type' => 'HIRARC Form',
@@ -131,7 +131,7 @@ class history_model extends CI_Model
             array_push($result, $data);
         }
         
-        $i = $this->incidentaccidentreport_model->get_form_by_id($id);
+        $i = $this->incidentaccidentreport_model->get_form_by_account_id($id);
         foreach ($i as $row) {
             $data = [
                 'type' => 'Incident Accident Report',
@@ -141,7 +141,7 @@ class history_model extends CI_Model
             array_push($result, $data);
         }
         
-        $i = $this->notification_of_exporting_biological_material_model->get_form_by_id($id);
+        $i = $this->notification_of_exporting_biological_material_model->get_form_by_account_id($id);
         foreach ($i as $row) {
             $data = [
                 'type' => 'Notification Of Exporting Biological Material',
@@ -151,7 +151,7 @@ class history_model extends CI_Model
             array_push($result, $data);
         }
         
-        $i = $this->notification_of_LMO_and_BM_model->get_form_by_id($id);
+        $i = $this->notification_of_LMO_and_BM_model->get_form_by_account_id($id);
         foreach ($i as $row) {
             $data = [
                 'type' => 'Notification Of LMO and Biohazardous Materials',
@@ -161,7 +161,7 @@ class history_model extends CI_Model
             array_push($result, $data);
         }
         
-        $i = $this->pc1_model->get_form_by_id($id);
+        $i = $this->pc1_model->get_form_by_account_id($id);
         foreach ($i as $row) {
             $data = [
                 'type' => 'PC1',
@@ -171,17 +171,17 @@ class history_model extends CI_Model
             array_push($result, $data);
         }
         
-        $i = $this->pc2_model->get_form_by_id($id);
+        $i = $this->pc2_model->get_form_by_account_id($id);
         foreach ($i as $row) {
             $data = [
                 'type' => 'PC2',
                 'application_id' => $row->application_id,
                 'approval' => $row->application_approved
             ];
-            array_push($result, $data);
         }
+            array_push($result, $data);
         
-        $i = $this->procurement_model->get_form_by_id($id);
+        $i = $this->procurement_model->get_form_by_account_id($id);
         foreach ($i as $row) {
             $data = [
                 'type' => 'Procurement',
@@ -191,7 +191,7 @@ class history_model extends CI_Model
             array_push($result, $data);
         }
         
-        $i = $this->swp_model->get_form_by_id($id);
+        $i = $this->swp_model->get_form_by_account_id($id);
         foreach ($i as $row) {
             $data = [
                 'type' => 'Safety Work Procedure Form',

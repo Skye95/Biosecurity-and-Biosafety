@@ -8,7 +8,6 @@ class annex3_model extends CI_Model
         parent::__construct();
     }
 
-    
     function get_form_by_id($id)
 	{
 		$this->db->where('application_id', $id);
@@ -16,7 +15,13 @@ class annex3_model extends CI_Model
 		return $query->result();
 	}
 	
-	
+    function get_form_by_account_id($id)
+	{
+		$this->db->where('account_id', $id);
+        $query = $this->db->get('annex3');
+		return $query->result();
+	}
+    
 	function insert_new_applicant_data($data)
     {
 		return $this->db->insert('annex3', $data);

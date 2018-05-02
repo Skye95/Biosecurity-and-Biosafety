@@ -25,6 +25,12 @@ class notification_of_LMO_and_BM_model extends CI_Model
 		return $query->result();
 	}
 	
+    function get_form_by_account_id($id)
+	{
+		$this->db->where('account_id', $id);
+        $query = $this->db->get('notificationlmobiohazardousmaterial');
+		return $query->result();
+	}
 	
 	function insert_new_applicant_data($data)
     {
