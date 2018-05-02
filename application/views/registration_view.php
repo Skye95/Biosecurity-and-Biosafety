@@ -75,7 +75,8 @@ if($this->session->userdata('isLogin')){
                                 <option value="1">Applicant / PI</option>
                                 <option value="2">SSBC Chair / SSBC Members</option>
                                 <option value="3">Students / Postgraduates</option>
-                                <option value="4">BSO / HSO / Lab Officer</option>
+                                <option value="4">BSO</option>
+                                <option value="5">HSO / Lab Officer</option>
                             </select>
                         </div>
 

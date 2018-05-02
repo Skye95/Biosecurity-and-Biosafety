@@ -55,14 +55,21 @@ if(!$this->session->userdata('isLogin')){
                     <tbody id="inventory">
                     <?php $i=0; foreach($past as $row): ?>
                         <tr class="searchable">
-                            <td><?php echo $i = $i + 1; ?></td>
+                            <td class="text-center"><?php echo $i = $i + 1; ?></td>
                             <td><?php echo $row['type']; ?></td>
-                            <td><?php echo $row['approval']; ?></td>
+                            <td><?php 
+                                if($row['approval'] == 0 || $row['approval'] == null){
+                                    echo "Awaiting Approval";
+                                } else {
+                                    echo $row['approval'];
+                                }
+                                ?>
+                            </td>
                             <td class="text-center">
-                                <i class="fa fa-bars btn btn-info" onclick="view_details(<?php echo $row['application_id']; ?>, <?php echo $row['type']; ?>)" title="Details"></i>
-                                <i class="fa fa-edit btn btn-warning" onclick="edit_details(<?php echo $row['application_id']; ?>, <?php echo $row['type']; ?>)" title="Edit"></i>
-                                <i class="fa fa-clock btn btn-primary" onclick="delete_details(<?php echo $row['application_id']; ?>, <?php echo $row['type']; ?>)" title="Extend"></i>
-                                <i class="fa fa-times btn btn-danger" onclick="view_details(<?php echo $row['application_id']; ?>, <?php echo $row['type']; ?>)" title="Terminate"></i>
+                                <i class="fa fa-bars btn btn-info" onclick="view_details(<?php echo $row['application_id']; ?>, '<?php echo $row['type']; ?>')" title="Details"></i>
+                                <i class="fa fa-edit btn btn-warning" onclick="edit_details(<?php echo $row['application_id']; ?>, '<?php echo $row['type']; ?>')" title="Edit"></i>
+                                <i class="fa fa-clock btn btn-primary" onclick="delete_details(<?php echo $row['application_id']; ?>, '<?php echo $row['type']; ?>')" title="Extend"></i>
+                                <i class="fa fa-times btn btn-danger" onclick="view_details(<?php echo $row['application_id']; ?>, '<?php echo $row['type']; ?>')" title="Terminate"></i>
                             </td>
                         </tr>
                     <?php endforeach; ?>
@@ -82,16 +89,18 @@ if(!$this->session->userdata('isLogin')){
             </script>
 
             <script>
-                function view_details(i){
-                    
+                function view_details(i, j){
+                    if(j=="Annex 2"){
+                        window.location = "<?php echo base_url(); ?>index.php/annex2/load_form/" + i;
+                    }
                 }
 
-                function edit_details(i){
-                    
+                function edit_details(i, j){
+                    alert(j);
                 }
 
-                function delete_details(i){
-                    
+                function delete_details(i, j){
+                    alert(j);
                 }
             </script>
         </div>

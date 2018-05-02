@@ -29,11 +29,11 @@ if(!$this->session->userdata('isLogin')){
     
     <!-- Page Content -->
     <div class="container">
-        <div class="text-center">
-            <a href="<?php echo base_url(); ?>index.php/inventory/index"><button class="btn btn-info button_right">Inventory Database</button></a>
-            <a href="<?php echo base_url(); ?>index.php/inventory/index2"><button class="btn btn-info button_right">Storage Database</button></a>
-            <a href="<?php echo base_url(); ?>index.php/inventory/new_inventory"><button class="btn btn-info button_right">New Inventory Application</button></a>
-            <a href="<?php echo base_url(); ?>index.php/inventory/new_storage"><button class="btn btn-info button_right">New Storage Application</button></a>
+        <div class="text-center row">
+            <a href="<?php echo base_url(); ?>index.php/inventory/index" class="col-md-3"><button class="btn btn-info button_right">Inventory Database</button></a>
+            <a href="<?php echo base_url(); ?>index.php/inventory/index2" class="col-md-3"><button class="btn btn-info button_right">Storage Database</button></a>
+            <a href="<?php echo base_url(); ?>index.php/inventory/new_inventory" class="col-md-3"><button class="btn btn-info button_right">New Inventory Application</button></a>
+            <a href="<?php echo base_url(); ?>index.php/inventory/new_storage" class="col-md-3"><button class="btn btn-info button_right">New Storage Application</button></a>
         </div>
         <br/>
         <input class="form-control" id="searchbar" type="text" placeholder="Search here">
@@ -70,7 +70,7 @@ if(!$this->session->userdata('isLogin')){
                 <tbody id="inventory">
                 <?php $i=0; foreach($inventory as $row): ?>
                     <tr class="searchable">
-                        <td><?php echo $i = $i+1 ?></td>
+                        <td class="text-center"><?php echo $i = $i+1 ?></td>
                         <td><?php echo $row->program; ?></td>
                         <td><?php echo $row->program_type; ?></td>
                         <td><?php echo $row->unit_convenor . $row->project_investigator; ?></td>
@@ -155,7 +155,7 @@ if(!$this->session->userdata('isLogin')){
                 <tbody id="storage">
                 <?php $i=0; foreach($storage as $row): ?>
                     <tr class="searchable">
-                        <td><?php echo $i = $i+1 ?></td>
+                        <td class="text-center"><?php echo $i = $i+1 ?></td>
                         <td><?php echo $row->biohazard_id; ?></td>
                         <td><?php echo $row->biohazard_name; ?></td>
                         <td><?php echo $row->risk_group; ?></td>

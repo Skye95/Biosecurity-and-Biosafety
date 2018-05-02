@@ -8,8 +8,6 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
-
-
                     <li class="nav-item">
                         <?php if($readnotif[0] ==0) { ?>
                             <a class="nav-link" href="<?php echo base_url(); ?>index.php/notification/index">
