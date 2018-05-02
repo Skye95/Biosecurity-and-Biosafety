@@ -59,10 +59,10 @@ if(!$this->session->userdata('isLogin')){
                             <td><?php echo $row['type']; ?></td>
                             <td><?php echo $row['approval']; ?></td>
                             <td class="text-center">
-                                <i class="fa fa-bars btn btn-info" onclick="view_details(<?php echo $row['application_id']; ?>, <?php echo $row['type']; ?>)" title="Details"></i>
-                                <i class="fa fa-edit btn btn-warning" onclick="edit_details(<?php echo $row['application_id']; ?>, <?php echo $row['type']; ?>)" title="Edit"></i>
-                                <i class="fa fa-clock btn btn-primary" onclick="delete_details(<?php echo $row['application_id']; ?>, <?php echo $row['type']; ?>)" title="Extend"></i>
-                                <i class="fa fa-times btn btn-danger" onclick="view_details(<?php echo $row['application_id']; ?>, <?php echo $row['type']; ?>)" title="Terminate"></i>
+                                <i class="fa fa-bars btn btn-info" onclick="view_details(<?php echo $row['application_id']; ?>, '<?php echo $row['type']; ?>')" title="Details"></i>
+                                <i class="fa fa-edit btn btn-warning" onclick="edit_details(<?php echo $row['application_id']; ?>, '<?php echo $row['type']; ?>')" title="Edit"></i>
+                                <i class="fa fa-clock btn btn-primary" onclick="delete_details(<?php echo $row['application_id']; ?>, '<?php echo $row['type']; ?>')" title="Extend"></i>
+                                <i class="fa fa-times btn btn-danger" onclick="view_details(<?php echo $row['application_id']; ?>, '<?php echo $row['type']; ?>')" title="Terminate"></i>
                             </td>
                         </tr>
                     <?php endforeach; ?>
@@ -82,15 +82,15 @@ if(!$this->session->userdata('isLogin')){
             </script>
 
             <script>
-                function view_details(i){
+                function view_details(i, j){
+                    alert(j);
+                }
+
+                function edit_details(i, j){
                     
                 }
 
-                function edit_details(i){
-                    
-                }
-
-                function delete_details(i){
+                function delete_details(i, j){
                     
                 }
             </script>
