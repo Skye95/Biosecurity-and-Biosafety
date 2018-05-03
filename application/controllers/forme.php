@@ -299,7 +299,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 
                 if($this->forme_model->insert_new_applicant_data($data)){
                     
-                   $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">Success Has been achieved</div>', $data);
+                   $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Success Has been achieved</div>', $data);
                    redirect('forme/index');
                     
                         
@@ -322,7 +322,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $data['load'] = "true";
             
             //$id = $this->session->userdata('account_id');
-            $id = $this->input->get('id');
+            $id = $this->uri->segment(3);
             $data['retrieved'] = $this->forme_model->get_form_by_id($id);
             
             $this->load->template('forme_view', $data);

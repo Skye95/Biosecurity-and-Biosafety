@@ -53,7 +53,7 @@ if(!$this->session->userdata('isLogin')){
                         </tr>
                     </thead>
                     <tbody id="inventory">
-                    <?php $i=0; foreach($past as $row): ?>
+                    <?php $i=0; foreach(/*array_reverse($past)*/ $past as $row): ?>
                         <tr class="searchable">
                             <td class="text-center"><?php echo $i = $i + 1; ?></td>
                             <td><?php echo $row['type']; ?></td>
@@ -66,10 +66,10 @@ if(!$this->session->userdata('isLogin')){
                                 ?>
                             </td>
                             <td class="text-center">
-                                <i class="fa fa-bars btn btn-info" onclick="view_details(<?php echo $row['application_id']; ?>, '<?php echo $row['type']; ?>')" title="Details"></i>
-                                <i class="fa fa-edit btn btn-warning" onclick="edit_details(<?php echo $row['application_id']; ?>, '<?php echo $row['type']; ?>')" title="Edit"></i>
-                                <i class="fa fa-clock btn btn-primary" onclick="delete_details(<?php echo $row['application_id']; ?>, '<?php echo $row['type']; ?>')" title="Extend"></i>
-                                <i class="fa fa-times btn btn-danger" onclick="view_details(<?php echo $row['application_id']; ?>, '<?php echo $row['type']; ?>')" title="Terminate"></i>
+                                <i class="fa fa-bars btn btn-info" onclick="view_application(<?php echo $row['application_id']; ?>, '<?php echo $row['type']; ?>')" title="Details"></i>
+                                <i class="fa fa-edit btn btn-warning" onclick="edit_application(<?php echo $row['application_id']; ?>, '<?php echo $row['type']; ?>')" title="Edit"></i>
+                                <i class="fa fa-clock btn btn-primary" onclick="extend_application(<?php echo $row['application_id']; ?>, '<?php echo $row['type']; ?>')" title="Extend"></i>
+                                <i class="fa fa-times btn btn-danger" onclick="terminate_application(<?php echo $row['application_id']; ?>, '<?php echo $row['type']; ?>')" title="Terminate"></i>
                             </td>
                         </tr>
                     <?php endforeach; ?>
@@ -89,7 +89,7 @@ if(!$this->session->userdata('isLogin')){
             </script>
 
             <script>
-                function view_details(i, j){
+                function view_application(i, j){
                     if(j == "Annex 2"){
                         window.location = "<?php echo base_url(); ?>index.php/annex2/load_form/" + i;
                     } else if (j == "Annex 3"){
@@ -127,11 +127,15 @@ if(!$this->session->userdata('isLogin')){
                     }
                 }
 
-                function edit_details(i, j){
+                function edit_application(i, j){
                     alert(j);
                 }
 
-                function delete_details(i, j){
+                function extend_application(i, j){
+                    alert(j);
+                }
+                
+                function terminate_application(i, j){
                     alert(j);
                 }
             </script>

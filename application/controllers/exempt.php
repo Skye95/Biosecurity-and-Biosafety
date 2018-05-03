@@ -109,7 +109,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 
                 if($this->exempt_model->insert_new_applicant_data($data)){
                     
-                   $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">Success Has been achieved</div>', $data);
+                   $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Success Has been achieved</div>', $data);
                    redirect('exempt/index');
                     
                         
