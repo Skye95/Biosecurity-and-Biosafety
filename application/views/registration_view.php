@@ -65,18 +65,18 @@ if($this->session->userdata('isLogin')){
 
                         <div class="form-group">
                             <label for="confirmpassword">Confirm Password:</label>
-                            <input class="form-control" id="confirmpassword" name="account_confirmpassword" placeholder="Reenter your password here." type="password" />
+                            <input class="form-control" id="confirmpassword" name="account_confirmpassword" placeholder="Re-enter your password here." type="password" />
                             <span class="text-danger"><?php echo form_error('account_confirmpassword'); ?></span>
                         </div>
 
                         <div class="form-group">
                             <label for="type">Account Type:</label>
                             <select class="form-control" id="type" name="account_type" >
-                                <option value="1">Applicant / PI</option>
-                                <option value="2">SSBC Chair / SSBC Members</option>
-                                <option value="3">Students / Postgraduates</option>
-                                <option value="4">BSO</option>
-                                <option value="5">HSO / Lab Officer</option>
+                                <option value="1">Applicant / Project Investigator</option>
+                                <option value="2">SSBC Chair / SSBC Member</option>
+                                <option value="3">Student / Postgraduate</option>
+                                <option value="4">Biosafety Officer</option>
+                                <option value="5">Health and Safety Officer / Lab Officer</option>
                             </select>
                         </div>
 
