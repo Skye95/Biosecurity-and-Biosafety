@@ -41,6 +41,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $this->form_validation->set_rules('project_hazard_staff', 'project hazard staff', 'required');
             $this->form_validation->set_rules('project_hazard_environment', 'project hazard environment', 'required');
             $this->form_validation->set_rules('project_hazard_steps', 'project hazard steps', 'required');
+            $this->form_validation->set_rules('project_SOP', 'project SOP', 'required');
             $this->form_validation->set_rules('project_transport', 'project transport', 'required');
             $this->form_validation->set_rules('project_disposal', 'Project disposal', 'required');
             $this->form_validation->set_rules('project_facilities_building_no', 'Building No', 'required');
@@ -65,29 +66,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             }
             else
             {
-                
-                
-                $config['upload_path'] = './uploads/';
-                $config['allowed_types'] = '*';
-                //$config['file_name'] = $_FILES['project_SOP']['name'];
-                $config['max_size'] = '15000';
-                $config['max_width'] = '1024';
-                $config['max_height'] = '768';
-
-                //Load upload library and initialize configuration
-                $this->load->library('upload',$config);
-                //$this->upload->initialize($config);
-                    
-                if ( ! $this->upload->do_upload('project_SOP'))
-                {
-                        $error = array('error' => $this->upload->display_errors());
-
-                }
-                else
-                {
-                        $data = array('upload_data' => $this->upload->data());
-
-                }
                 
                 
                 $ar1 = implode(',',$this->input->post('project_add_qualification'));
@@ -136,6 +114,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     'project_hazard_steps' => $this->input->post('project_hazard_steps'),
                     'project_transport' => $this->input->post('project_transport'),
                     'project_disposal' => $this->input->post('project_disposal'),
+                    'project_SOP' => $this->input->post('project_SOP'),
                     'project_facilities_building_no' => $this->input->post('project_facilities_building_no'),
                     'project_facilities_room_no' => $this->input->post('project_facilities_room_no'),
                     'project_facilities_containment_level' => $this->input->post('project_facilities_containment_level'),

@@ -44,6 +44,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $this->form_validation->set_rules('project_hazard_steps', 'project hazard steps', 'required');
             $this->form_validation->set_rules('project_transport', 'project transport', 'required');
             $this->form_validation->set_rules('project_disposal', 'Project disposal', 'required');
+            $this->form_validation->set_rules('project_SOP', 'Project SOP', 'required');
             $this->form_validation->set_rules('project_facilities_building_no', 'Building No', 'required');
             $this->form_validation->set_rules('project_facilities_room_no', 'Room no', 'required');
             $this->form_validation->set_rules('project_facilities_containment_level', 'Containment level', 'required');
@@ -125,6 +126,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     'project_hazard_steps' => $this->input->post('project_hazard_steps'),
                     'project_transport' => $this->input->post('project_transport'),
                     'project_disposal' => $this->input->post('project_disposal'),
+                    'project_SOP' => $this->input->post('project_SOP'),
                     'project_facilities_building_no' => $this->input->post('project_facilities_building_no'),
                     'project_facilities_room_no' => $this->input->post('project_facilities_room_no'),
                     'project_facilities_containment_level' => $this->input->post('project_facilities_containment_level'),

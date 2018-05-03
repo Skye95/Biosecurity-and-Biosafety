@@ -79,6 +79,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                      'project_summary' => $this->input->post('project_summary'),
                      'project_outline' => $this->input->post('project_outline'),
                      'project_incidents' => $this->input->post('project_incidents'),
+                     'project_SOP' => $this->input->post('project_SOP'),
                      'project_facility_changes' => $this->input->post('project_facility_changes'),
                      'project_facility_room_number' => $this->input->post('project_facility_room_number'),
                      'project_facility_building_number' => $this->input->post('project_facility_building_number'),

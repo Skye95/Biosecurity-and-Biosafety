@@ -11,7 +11,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Swinburne Biosafety and Biosecurity Online System - Account Approval</title>
+    <title>Swinburne Biosafety and Biosecurity Online System - Application Approval</title>
     
     <style>
         body {

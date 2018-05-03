@@ -297,7 +297,7 @@ if(!$this->session->userdata('isLogin')){
                        <tbody>
                            <tr>
                                <td colspan="2">
-                                   <div class="form-group"><input type="file" name="project_SOP" class="form-control" ></div>
+                                   <div class="form-group"><input type="text" name="project_SOP" class="form-control" ></div>
                                </td>
                            </tr>
                        </tbody>

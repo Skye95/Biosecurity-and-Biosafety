@@ -676,7 +676,7 @@ if(!$this->session->userdata('isLogin')){
                            <tr>
                                <td colspan="2">
                                    <div class="form-group">
-                                       <input type="file" class="form-control" name="project_SOP" />
+                                       <input type="text" class="form-control" name="project_SOP" value="<?php if(isset($load)){echo set_value('project_SOP', $item->project_SOP);}else{echo set_value('project_SOP');} ?>" />
                                    </div>
                                </td>
                            </tr>
