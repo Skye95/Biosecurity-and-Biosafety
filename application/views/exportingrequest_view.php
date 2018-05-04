@@ -58,7 +58,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                     <a href="#"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\History.jpg') ?>" alt=""></a>
                     <div class="card-body">
                         <h6 class="card-title">
-                            <a href="">Exempt Dealing or Biohazardous Material</a>
+                            <a href="<?php echo base_url(); ?>index.php/export_exempt_BM/index">Exempt Dealing or Biohazardous Material</a>
                         </h6>
                         <p class="card-text"></p>
                     </div>
