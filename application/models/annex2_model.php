@@ -43,7 +43,7 @@ class annex2_model extends CI_Model
 		return $query->result();
 	}
     
-	# Insert New Account
+	
 	function insert_new_applicant_data($data)
     {
 		return $this->db->insert('annex2', $data);
