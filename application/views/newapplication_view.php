@@ -44,7 +44,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
         <div class="row">
             <div class="col-lg-3 col-md-4 col-sm-6 col-6 portfolio-item">
                 <div class="card card-block justify-content-center align-items-center">
-                    <a href="<?php echo base_url(); ?>index.php/accountapproval/index"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\History.jpg') ?>" alt=""></a>
+                    <a href="<?php echo base_url(); ?>index.php/applicationapproval/index"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\History.jpg') ?>" alt=""></a>
                     <div class="card-body">
                         <h6 class="card-title">
                             <a href="<?php echo base_url(); ?>index.php/applicationapproval/index">LMO</a>
@@ -55,10 +55,10 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6 col-6 portfolio-item">
                 <div class="card card-block justify-content-center align-items-center">
-                    <a href="#"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\History.jpg') ?>" alt=""></a>
+                    <a href="<?php echo base_url(); ?>index.php/exempt_approval/index"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\History.jpg') ?>" alt=""></a>
                     <div class="card-body">
                         <h6 class="card-title">
-                            <a href="">Exempt Dealing</a>
+                            <a href="<?php echo base_url(); ?>index.php/exempt_approval/index">Exempt Dealing</a>
                         </h6>
                         <p class="card-text"></p>
                     </div>
@@ -69,7 +69,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                     <a href="#"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\History.jpg') ?>" alt=""></a>
                     <div class="card-body">
                         <h6 class="card-title">
-                            <a href="#">Biohazardous Materials</a>
+                            <a href="<?php echo base_url(); ?>index.php/biohazard_approval/index">Biohazardous Materials</a>
                         </h6>
                         <p class="card-text"></p>
                     </div>
@@ -77,7 +77,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6 col-6 portfolio-item">
                 <div class="card card-block justify-content-center align-items-center">
-                    <a href="#"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\History.jpg') ?>" alt=""></a>
+                    <a href="<?php echo base_url(); ?>index.php/extension_termination_approval/index"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\History.jpg') ?>" alt=""></a>
                     <div class="card-body">
                         <h6 class="card-title">
                             <a href="<?php echo base_url(); ?>index.php/extension_termination_approval/index">Extension Or Termination</a>

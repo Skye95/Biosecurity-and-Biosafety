@@ -116,7 +116,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             
             $data['load'] = "true";
             
-            $id = $this->uri->segment(3);
+            //$id = $this->uri->segment(3);
+            $id = $this->input->get('id');
             $data['retrieved'] = $this->biohazard_model->get_form_by_id($id);
             
             $this->load->template('biohazard_view', $data);

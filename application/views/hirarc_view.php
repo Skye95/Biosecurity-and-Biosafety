@@ -99,6 +99,12 @@ if(!$this->session->userdata('isLogin')){
                    <div>
                        <h5><strong>PLEASE FILL OUT ALL INFORMATION REQUESTED</strong></h5>
                    </div>
+                
+                <div>
+                    <?php if(isset($refer)) { ?>
+                    <p><?php echo $refer; ?></p>
+                    <?php } ?>
+                </div>
                    
                    <br>
                    
@@ -295,6 +301,8 @@ if(!$this->session->userdata('isLogin')){
                        <span class="text-danger"><?php echo form_error('HIRARC_control_measure[0]'); ?></span>
                        <span class="text-danger"><?php echo form_error('HIRARC_PIC[0]'); ?></span>
                    </div>
+                
+                <input type="hidden" value="<?php echo $hirarctype ?>" name="application_type" />
                    
                    <br>
                    

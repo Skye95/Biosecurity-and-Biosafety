@@ -128,7 +128,7 @@ if(!$this->session->userdata('isLogin')){
                 <span class="text-danger"><?php echo form_error('SWP_project_title'); ?></span>
                 <span class="text-danger"><?php echo form_error('SWP_location'); ?></span>
                    
-                   <br>
+                   <br><input type="hidden" value="<?php echo $hirarctype ?>" name="application_type" />
                    
                    <table width="920" class="table table-bordered">
                        <thead>

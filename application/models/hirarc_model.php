@@ -8,22 +8,90 @@ class hirarc_model extends CI_Model
         parent::__construct();
     }
 	
-    function get_all_form() 
+    function get_all_hirarc1_form() 
     {
         $this->db->select('*');
         $this->db->from('hirarc');
         $this->db->join('accounts', 'hirarc.account_id = accounts.account_id');
         $this->db->where('hirarc.application_approved IS NULL', null, false);
+        $this->db->where('hirarc.application_type', 1);
         $query = $this->db->get();
 		return $query->result();
     }
     
-    function get_all_form2() 
+    function get_all_hirarc1_form2() 
     {
         $this->db->select('*');
         $this->db->from('hirarc');
         $this->db->join('accounts', 'hirarc.account_id = accounts.account_id');
         $this->db->where('hirarc.application_approved', 1);
+        $this->db->where('hirarc.application_type', 1);
+        $query = $this->db->get();
+		return $query->result();
+    }
+    
+    function get_all_hirarc2_form() 
+    {
+        $this->db->select('*');
+        $this->db->from('hirarc');
+        $this->db->join('accounts', 'hirarc.account_id = accounts.account_id');
+        $this->db->where('hirarc.application_approved IS NULL', null, false);
+        $this->db->where('hirarc.application_type', 2);
+        $query = $this->db->get();
+		return $query->result();
+    }
+    
+    function get_all_hirarc2_form2() 
+    {
+        $this->db->select('*');
+        $this->db->from('hirarc');
+        $this->db->join('accounts', 'hirarc.account_id = accounts.account_id');
+        $this->db->where('hirarc.application_approved', 1);
+        $this->db->where('hirarc.application_type', 2);
+        $query = $this->db->get();
+		return $query->result();
+    }
+    
+    function get_all_hirarc3_form() 
+    {
+        $this->db->select('*');
+        $this->db->from('hirarc');
+        $this->db->join('accounts', 'hirarc.account_id = accounts.account_id');
+        $this->db->where('hirarc.application_approved IS NULL', null, false);
+        $this->db->where('hirarc.application_type', 3);
+        $query = $this->db->get();
+		return $query->result();
+    }
+    
+    function get_all_hirarc3_form2() 
+    {
+        $this->db->select('*');
+        $this->db->from('hirarc');
+        $this->db->join('accounts', 'hirarc.account_id = accounts.account_id');
+        $this->db->where('hirarc.application_approved', 1);
+        $this->db->where('hirarc.application_type', 3);
+        $query = $this->db->get();
+		return $query->result();
+    }
+    
+    function get_all_hirarc4_form() 
+    {
+        $this->db->select('*');
+        $this->db->from('hirarc');
+        $this->db->join('accounts', 'hirarc.account_id = accounts.account_id');
+        $this->db->where('hirarc.application_approved IS NULL', null, false);
+        $this->db->where('hirarc.application_type', 4);
+        $query = $this->db->get();
+		return $query->result();
+    }
+    
+    function get_all_hirarc4_form2() 
+    {
+        $this->db->select('*');
+        $this->db->from('hirarc');
+        $this->db->join('accounts', 'hirarc.account_id = accounts.account_id');
+        $this->db->where('hirarc.application_approved', 1);
+        $this->db->where('hirarc.application_type', 4);
         $query = $this->db->get();
 		return $query->result();
     }

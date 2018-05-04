@@ -76,7 +76,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                                             echo "HSO / Lab Officer";
                                         }
                             ?></td>
-                        <td><button type="button" name = 'load' value = 'Load' onclick="location.href='<?php echo site_url().'/annex2/load_form?id='.$row->account_id;?>'" class="btn btn-primary">Load</button></td>
+                        <td><button type="button" name = 'load' value = 'Load' onclick="location.href='<?php echo site_url().'/annex2/load_form?id='.$row->application_id;?>'" class="btn btn-primary">Load</button></td>
                         <!--
                         <td class="text-center">
                             <a class="btn btn-success" href="<?php echo base_url(); ?>index.php/accountapproval/approve/<?php echo $row->account_id; ?>" title="Approve"><i class="fa fa-check"></i></a>
@@ -138,7 +138,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                                             echo "HSO / Lab Officer";
                                         }
                             ?></td>
-                        <td><button type="button" name = 'load' value = 'Load' onclick="location.href='<?php echo site_url().'/annex2/load_form?id='.$row->account_id;?>'" class="btn btn-primary">Load</button></td>
+                        <td><button type="button" name = 'load' value = 'Load' onclick="location.href='<?php echo site_url().'/annex2/load_form?id='.$row->application_id;?>'" class="btn btn-primary">Load</button></td>
                         
                         <td class="text-center">
                             <button class="btn btn-success" onclick="approve2(<?php echo $row->account_id; ?>)" title="Approve"><i class="fa fa-check"></i></button>
@@ -196,7 +196,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                                             echo "HSO / Lab Officer";
                                         }
                             ?></td>
-                        <td><button type="button" name = 'forme_load' value = 'Load' onclick="location.href='<?php echo site_url().'/forme/load_form?id='.$row->account_id;?>'" class="btn btn-primary">Load</button></td>
+                        <td><button type="button" name = 'forme_load' value = 'Load' onclick="location.href='<?php echo site_url().'/forme/load_form?id='.$row->application_id;?>'" class="btn btn-primary">Load</button></td>
                         <!--
                         <td class="text-center">
                             <a class="btn btn-success" href="<?php echo base_url(); ?>index.php/accountapproval/approve/<?php echo $row->account_id; ?>" title="Approve"><i class="fa fa-check"></i></a>
@@ -258,7 +258,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                                             echo "HSO / Lab Officer";
                                         }
                             ?></td>
-                        <td><button type="button" name = 'forme_load' value = 'Load' onclick="location.href='<?php echo site_url().'/forme/load_form?id='.$row->account_id;?>'" class="btn btn-primary">Load</button></td>
+                        <td><button type="button" name = 'forme_load' value = 'Load' onclick="location.href='<?php echo site_url().'/forme/load_form?id='.$row->application_id;?>'" class="btn btn-primary">Load</button></td>
                         <!--
                         <td class="text-center">
                             <a class="btn btn-success" href="<?php echo base_url(); ?>index.php/accountapproval/approve/<?php echo $row->account_id; ?>" title="Approve"><i class="fa fa-check"></i></a>
@@ -322,7 +322,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                                             echo "HSO / Lab Officer";
                                         }
                             ?></td>
-                        <td><button type="button" name = 'hirarc_load' value = 'Load' onclick="location.href='<?php echo site_url().'/hirarc/load_form?id='.$row->account_id;?>'" class="btn btn-primary">Load</button></td>
+                        <td><button type="button" name = 'hirarc_load' value = 'Load' onclick="location.href='<?php echo site_url().'/hirarc/load_form?id='.$row->application_id;?>'" class="btn btn-primary">Load</button></td>
                         <!--
                         <td class="text-center">
                             <a class="btn btn-success" href="<?php echo base_url(); ?>index.php/accountapproval/approve/<?php echo $row->account_id; ?>" title="Approve"><i class="fa fa-check"></i></a>
@@ -384,7 +384,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                                             echo "HSO / Lab Officer";
                                         }
                             ?></td>
-                        <td><button type="button" name = 'hirarc_load' value = 'Load' onclick="location.href='<?php echo site_url().'/hirarc/load_form?id='.$row->account_id;?>'" class="btn btn-primary">Load</button></td>
+                        <td><button type="button" name = 'hirarc_load' value = 'Load' onclick="location.href='<?php echo site_url().'/hirarc/load_form?id='.$row->application_id;?>'" class="btn btn-primary">Load</button></td>
                         <!--
                         <td class="text-center">
                             <a class="btn btn-success" href="<?php echo base_url(); ?>index.php/accountapproval/approve/<?php echo $row->account_id; ?>" title="Approve"><i class="fa fa-check"></i></a>
@@ -448,7 +448,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                                             echo "HSO / Lab Officer";
                                         }
                             ?></td>
-                        <td><button type="button" name = 'pc1_load' value = 'Load' onclick="location.href='<?php echo site_url().'/pc1/load_form?id='.$row->account_id;?>'" class="btn btn-primary">Load</button></td>
+                        <td><button type="button" name = 'pc1_load' value = 'Load' onclick="location.href='<?php echo site_url().'/pc1/load_form?id='.$row->application_id;?>'" class="btn btn-primary">Load</button></td>
                         <!--
                         <td class="text-center">
                             <a class="btn btn-success" href="<?php echo base_url(); ?>index.php/accountapproval/approve/<?php echo $row->account_id; ?>" title="Approve"><i class="fa fa-check"></i></a>
@@ -510,7 +510,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                                             echo "HSO / Lab Officer";
                                         }
                             ?></td>
-                        <td><button type="button" name = 'pc1_load' value = 'Load' onclick="location.href='<?php echo site_url().'/pc1/load_form?id='.$row->account_id;?>'" class="btn btn-primary">Load</button></td>
+                        <td><button type="button" name = 'pc1_load' value = 'Load' onclick="location.href='<?php echo site_url().'/pc1/load_form?id='.$row->application_id;?>'" class="btn btn-primary">Load</button></td>
                         <!--
                         <td class="text-center">
                             <a class="btn btn-success" href="<?php echo base_url(); ?>index.php/accountapproval/approve/<?php echo $row->account_id; ?>" title="Approve"><i class="fa fa-check"></i></a>
@@ -574,7 +574,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                                             echo "HSO / Lab Officer";
                                         }
                             ?></td>
-                        <td><button type="button" name = 'pc2_load' value = 'Load' onclick="location.href='<?php echo site_url().'/pc2/load_form?id='.$row->account_id;?>'" class="btn btn-primary">Load</button></td>
+                        <td><button type="button" name = 'pc2_load' value = 'Load' onclick="location.href='<?php echo site_url().'/pc2/load_form?id='.$row->application_id;?>'" class="btn btn-primary">Load</button></td>
                         <!--
                         <td class="text-center">
                             <a class="btn btn-success" href="<?php echo base_url(); ?>index.php/accountapproval/approve/<?php echo $row->account_id; ?>" title="Approve"><i class="fa fa-check"></i></a>
@@ -636,7 +636,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                                             echo "HSO / Lab Officer";
                                         }
                             ?></td>
-                        <td><button type="button" name = 'pc2_load' value = 'Load' onclick="location.href='<?php echo site_url().'/pc2/load_form?id='.$row->account_id;?>'" class="btn btn-primary">Load</button></td>
+                        <td><button type="button" name = 'pc2_load' value = 'Load' onclick="location.href='<?php echo site_url().'/pc2/load_form?id='.$row->application_id;?>'" class="btn btn-primary">Load</button></td>
                         <!--
                         <td class="text-center">
                             <a class="btn btn-success" href="<?php echo base_url(); ?>index.php/accountapproval/approve/<?php echo $row->account_id; ?>" title="Approve"><i class="fa fa-check"></i></a>
@@ -663,7 +663,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
         <!-- SWP Form  -->
         <!-- IF current user is BSO, then show applications that have not been approved -->
         <?php if($this->session->userdata('account_type') == 4) { ?>
-        <?php if(isset($all_pc1)) { ?>
+        <?php if(isset($all_swp)) { ?>
         
         <div class="table-responsive">
             <table class="table table-hover table-bordered">
@@ -701,7 +701,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                                             echo "HSO / Lab Officer";
                                         }
                             ?></td>
-                        <td><button type="button" name = 'swp_load' value = 'Load' onclick="location.href='<?php echo site_url().'/swp/load_form?id='.$row->account_id;?>'" class="btn btn-primary">Load</button></td>
+                        <td><button type="button" name = 'swp_load' value = 'Load' onclick="location.href='<?php echo site_url().'/swp/load_form?id='.$row->application_id;?>'" class="btn btn-primary">Load</button></td>
                         <!--
                         <td class="text-center">
                             <a class="btn btn-success" href="<?php echo base_url(); ?>index.php/accountapproval/approve/<?php echo $row->account_id; ?>" title="Approve"><i class="fa fa-check"></i></a>
@@ -725,7 +725,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
         
         <!-- IF current user is SSBC Chair/SSBC Members, then show applications that were approved by BSO -->
         <?php if($this->session->userdata('account_type') == 2) { ?>
-        <?php if(isset($all_pc2_SSBC)) { ?>
+        <?php if(isset($all_swp_SSBC)) { ?>
         
         <div class="table-responsive">
             <table class="table table-hover table-bordered">
@@ -763,7 +763,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                                             echo "HSO / Lab Officer";
                                         }
                             ?></td>
-                        <td><button type="button" name = 'swp_load' value = 'Load' onclick="location.href='<?php echo site_url().'/swp/load_form?id='.$row->account_id;?>'" class="btn btn-primary">Load</button></td>
+                        <td><button type="button" name = 'swp_load' value = 'Load' onclick="location.href='<?php echo site_url().'/swp/load_form?id='.$row->application_id;?>'" class="btn btn-primary">Load</button></td>
                         <!--
                         <td class="text-center">
                             <a class="btn btn-success" href="<?php echo base_url(); ?>index.php/accountapproval/approve/<?php echo $row->account_id; ?>" title="Approve"><i class="fa fa-check"></i></a>
@@ -784,7 +784,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
         
         <?php } ?>
         <?php } ?>
-        <!-- End Of PC2 Form -->
+        <!-- End Of SWP Form -->
         
         
         <br/>
@@ -966,7 +966,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
             }
         }
     </script>
-    <!-- END of PC2 -->
+    <!-- END of SWP -->
 
 
 </body>

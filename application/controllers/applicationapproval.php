@@ -26,14 +26,14 @@ class applicationapproval extends CI_Controller {
         $data['all_annex2_SSBC'] = $this->annex2_model->get_all_form2();
         $data['all_forme'] = $this->forme_model->get_all_form();
         $data['all_forme_SSBC'] = $this->forme_model->get_all_form2();
-        $data['all_hirarc'] = $this->hirarc_model->get_all_form();
-        $data['all_hirarc_SSBC'] = $this->hirarc_model->get_all_form2();
+        $data['all_hirarc'] = $this->hirarc_model->get_all_hirarc1_form();
+        $data['all_hirarc_SSBC'] = $this->hirarc_model->get_all_hirarc1_form2();
         $data['all_pc1'] = $this->pc1_model->get_all_form();
         $data['all_pc1_SSBC'] = $this->pc1_model->get_all_form2();
         $data['all_pc2'] = $this->pc2_model->get_all_form();
         $data['all_pc2_SSBC'] = $this->pc2_model->get_all_form2();
-        $data['all_swp'] = $this->pc2_model->get_all_form();
-        $data['all_swp_SSBC'] = $this->pc2_model->get_all_form2();
+        $data['all_swp'] = $this->swp_model->get_all_swp1_form();
+        $data['all_swp_SSBC'] = $this->swp_model->get_all_swp1_form2();
         
         
         $this->load->template('applicationapproval_view', $data);

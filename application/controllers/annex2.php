@@ -118,7 +118,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             
             //$id = '$this->session->userdata('account_id')';
             $id = $this->input->get('id');
-            $data['retrieved'] = $this->annex2_model->get_form_by_account_id($id);
+            $data['retrieved'] = $this->annex2_model->get_form_by_id($id);
             
             $this->load->template('annex2_view', $data);
             

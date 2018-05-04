@@ -16,6 +16,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             
             $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );
             
+            $data['hirarctype']= $this->input->get('type');
+               
+            
             $this->form_validation->set_rules('company_name', 'Company name', 'required|callback_fullname_check');
             $this->form_validation->set_rules('date', 'Date', 'required');
             $this->form_validation->set_rules('process_location', 'Process location', 'required');
@@ -39,12 +42,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             
             
             
+
+            
             if ($this->form_validation->run() == FALSE)
             {
                 
                 $this->load->template('hirarc_view', $data);
 
-                
             }
             else
             {
@@ -57,6 +61,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 $ar7 = implode(',',$this->input->post('HIRARC_RR'));
                 $ar8 = implode(',',$this->input->post('HIRARC_control_measure'));
                 $ar9 = implode(',',$this->input->post('HIRARC_PIC'));
+                
+                
                 
                 $data = array(
                     'account_id' => $this->session->userdata('account_id'),
@@ -78,7 +84,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     'HIRARC_SEV' => $ar6,
                     'HIRARC_RR' => $ar7,
                     'HIRARC_control_measure' => $ar8,
-                    'HIRARC_PIC' => $ar9
+                    'HIRARC_PIC' => $ar9,
+                    'application_type' => $this->input->post('application_type')
                 );
                 
                 
@@ -105,12 +112,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             
             $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );
             
+            $data['hirarctype']= $this->input->get('type');
+            
             $data['load'] = "true";
             
             //$id = $this->session->userdata('account_id');
             //$id = $this->uri->segment(3);
             $id = $this->input->get('id');
-            $data['retrieved'] = $this->hirarc_model->get_form_by_account_id($id);
+            $data['retrieved'] = $this->hirarc_model->get_form_by_id($id);
             
             $this->load->template('hirarc_view', $data);
             
@@ -134,6 +143,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             } else {
                 return TRUE;
             }
+            
         }
         
     }

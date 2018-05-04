@@ -16,6 +16,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             
             $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );
             
+            $data['hirarctype']= $this->input->get('type');
+            
             $this->form_validation->set_rules('SWP_prepared_by', 'Staff/student_no', 'required');
             $this->form_validation->set_rules('SWP_staff_student_no', 'Staff/student_no', 'required');
             $this->form_validation->set_rules('SWP_designation', 'Designation', 'required');
@@ -79,7 +81,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     'SWP_approve_decline_remarks' => $this->input->post('SWP_approve_decline_remarks'),
                     'SWP_reviewed_by' => $this->input->post('SWP_reviewed_by'),
                     'SWP_reviewed_by_date' => $this->input->post('SWP_reviewed_by_date'),
-                    'SWP_reviewed_by_remarks' => $this->input->post('SWP_reviewed_by_remarks')
+                    'SWP_reviewed_by_remarks' => $this->input->post('SWP_reviewed_by_remarks'),
+                    'application_type' => $this->input->post('application_type')
                     
                 );
                 
@@ -107,12 +110,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             
             $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );
             
+            $data['hirarctype']= $this->input->get('type');
+            
             $data['load'] = "true";
             
             //$id = '$this->session->userdata('account_id')';
             //$id = $this->uri->segment(3);
             $id = $this->input->get('id');
-            $data['retrieved'] = $this->swp_model->get_form_by_account_id($id);
+            $data['retrieved'] = $this->swp_model->get_form_by_id($id);
             
             $this->load->template('swp_view', $data);
             

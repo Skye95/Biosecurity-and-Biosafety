@@ -70,7 +70,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		</div>
         
         <div class="row">
-            <a href="<?php echo base_url(); ?>index.php/hirarc">		
+            <a href="<?php echo base_url(); ?>index.php/hirarc?type=1">		
                     <div class="option1 card col-md-9 hover1" title="OHS-F-4.5.X HIRARC Form - Hazard Identification, Risk Assessment, Risk Control (HIRARC)">
                         <h5><span>OHS-F-4.5.X HIRARC FORM</span></h5>	
                     </div>				
@@ -78,7 +78,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		</div>
         
         <div class="row">
-            <a href="<?php echo base_url(); ?>index.php/swp">		
+            <a href="<?php echo base_url(); ?>index.php/swp?type=1">		
                     <div class="option1 card col-md-9 hover1" title="SSBC_001 Safe Work Procedure (SWP)">
                         <h5><span>SSBC SAFE WORK PROCEDURE</span></h5>	
                     </div>				
