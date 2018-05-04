@@ -56,7 +56,7 @@ if(!$this->session->userdata('isLogin')){
             <div class="col-md-10">
                 
                 <?php echo form_open('annex2/index'); ?>
-                
+                <?php if(isset($disabled)){ echo "<fieldset disabled='disabled'>"; } ?>
                 
                     <div>
                         <br/>
@@ -283,6 +283,7 @@ if(!$this->session->userdata('isLogin')){
                        <span class="col-md-5"></span>
                    </div>
                     
+                <?php if(isset($disabled)){ echo "</fieldset>"; } ?>
                <?php echo form_close(); ?>
                 
                 

@@ -74,7 +74,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     'incident_date' => $this->input->post('incident_date'),
                     'incident_time' => $this->input->post('incident_time'),
                     'incident_location' => $this->input->post('incident_location'),
-                    'incident_type' => $this->input->post('incident_type'),
+                    'incident_type1' => $this->input->post('incident_type1'),
+                    'incident_type2' => $this->input->post('incident_type2'),
+                    'incident_type3' => $this->input->post('incident_type3'),
+                    'incident_type4' => $this->input->post('incident_type4'),
+                    'incident_type5' => $this->input->post('incident_type5'),
+                    'incident_type6' => $this->input->post('incident_type6'),
+                    'incident_type7' => $this->input->post('incident_type7'),
+                    'incident_type8' => $this->input->post('incident_type8'),
+                    'incident_type9' => $this->input->post('incident_type9'),
                     'incident_type_description' => $this->input->post('incident_type_description'),
                     'incident_injury' => $this->input->post('incident_injury'),
                     'incident_physician_or_hospital' => $this->input->post('incident_physician_or_hospital'),
@@ -124,8 +132,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $data['readnotif'] = $this->notification_model->get_read($this->session->userdata('account_id'), $this->session->userdata('account_type'));
             
             $data['load'] = "true";
+            $data['disabled'] = "true";
             
-            $id = $this->uri->segment(3);
+            //$id = $this->uri->segment(3);
+            $id = $this->input->get('id');
             $data['retrieved'] = $this->incidentaccidentreport_model->get_form_by_id($id);
             
             $this->load->template('incidentaccidentreport_view', $data);

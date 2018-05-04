@@ -115,6 +115,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $data['hirarctype']= $this->input->get('type');
             
             $data['load'] = "true";
+            $data['disabled'] = "true";
             
             //$id = $this->session->userdata('account_id');
             //$id = $this->uri->segment(3);

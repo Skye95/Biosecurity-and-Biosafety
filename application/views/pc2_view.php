@@ -99,6 +99,7 @@ if(!$this->session->userdata('isLogin')){
             
             <div class="col-md-10">
                <?php echo form_open('pc2/index'); ?>
+                <?php if(isset($disabled)){ echo "<fieldset disabled='disabled'>"; } ?>
                    <h4 class="centering"><u>Swinburne Biosafety Commitee</u></h4>
                    
                    <h3 class="centering">Application for Notifiable Low Risk Dealings</h3>
@@ -730,9 +731,9 @@ if(!$this->session->userdata('isLogin')){
                                            <td>
                                                Has/have the Biosafety Officer(s)/Lab Manager responsible for the facilities where the dealing is to be conducted been made aware of this application? &nbsp;&nbsp;
                                                
-                                               <label class="radio-inline"><input type="radio" value="1" name="officer_notified" <?php echo set_radio('officer_notified', '1'); ?> <?php if(isset($load)){if($item->officer_notified==1){echo "checked=checked";}}else{} ?>>Yes</label>
+                                               <label class="radio-inline"><input type="radio" value="1" name="officer_notified" <?php echo set_radio('officer_notified', '1'); ?> <?php if(isset($load)){if($item->officer_notified==1){echo "checked=checked";}}else{} ?>> Yes</label>
                                                
-                                               <label class="radio-inline"><input type="radio" value="0" name="officer_notified" <?php echo set_radio('officer_notified', '0'); ?> <?php if(isset($load)){if($item->officer_notified==0){echo "checked=checked";}}else{} ?>>No</label>
+                                               <label class="radio-inline"><input type="radio" value="0" name="officer_notified" <?php echo set_radio('officer_notified', '0'); ?> <?php if(isset($load)){if($item->officer_notified==0){echo "checked=checked";}}else{} ?>> No</label>
 
                                            </td>
                                        </tr>
@@ -762,7 +763,7 @@ if(!$this->session->userdata('isLogin')){
                    <div style="text-align: center">
                        <button name="submit" type="submit" class="btn btn-primary col-md-2">Submit</button>
                     </div>
-                   
+               <?php if(isset($disabled)){ echo "</fieldset>"; } ?>
                <?php echo form_close(); ?>
             </div>
             

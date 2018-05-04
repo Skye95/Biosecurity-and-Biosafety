@@ -96,6 +96,7 @@ if(!$this->session->userdata('isLogin')){
             
             <div class="col-md-10">
                <?php echo form_open('hirarc/index'); ?>
+                <?php if(isset($disabled)){ echo "<fieldset disabled='disabled'>"; } ?>
                    <div>
                        <h5><strong>PLEASE FILL OUT ALL INFORMATION REQUESTED</strong></h5>
                    </div>
@@ -479,7 +480,7 @@ if(!$this->session->userdata('isLogin')){
                    <div style="text-align: center">
                        <button name="submit" type="submit" class="btn btn-primary col-md-2">Submit</button>
                     </div>
-                   
+               <?php if(isset($disabled)){ echo "</fieldset>"; } ?>
                <?php echo form_close(); ?>
             </div>
             

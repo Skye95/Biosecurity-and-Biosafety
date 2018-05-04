@@ -81,6 +81,7 @@ if(!$this->session->userdata('isLogin')){
             
             <div class="col-md-10">
                <?php echo form_open('notification_of_exporting_biological_material/index'); ?>
+                <?php if(isset($disabled)){ echo "<fieldset disabled='disabled'>"; } ?>
                    <div>
                        <h5><strong>PLEASE FILL IN ALL INFORMATION REQUESTED</strong></h5>
                    </div>
@@ -413,10 +414,10 @@ if(!$this->session->userdata('isLogin')){
                            <tr>
                                <td>
                                 <div class="checkbox">
-                                     <label><input type="checkbox" name="notification_approved_by" value="1">Approved By:</label>
+                                     <label><input type="checkbox" name="notification_approved_by" value="1" <?php echo set_checkbox('notification_approved_by', '1'); ?> <?php if(isset($load)){if($item->notification_approved_by==1){echo "checked=checked";}}else{} ?>> Approved By:</label>
                                 </div>
                                 <div class="checkbox">
-                                     <label><input type="checkbox" name="notification_declined_by" value="1">Declined By:</label>
+                                     <label><input type="checkbox" name="notification_declined_by" value="1" <?php echo set_checkbox('notification_declined_by', '1'); ?> <?php if(isset($load)){if($item->notification_declined_by==1){echo "checked=checked";}}else{} ?>> Declined By:</label>
                                 </div>
                                </td>
                                <td style="width:450px">
@@ -472,7 +473,7 @@ if(!$this->session->userdata('isLogin')){
 					<div style="text-align: center">
                        <button name="submit" type="submit" class="btn btn-primary col-md-2">Submit</button>
                     </div>
-                   
+               <?php if(isset($disabled)){ echo "</fieldset>"; } ?>
                <?php echo form_close(); ?>
             </div>
             
