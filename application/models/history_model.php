@@ -34,7 +34,7 @@ class history_model extends CI_Model
         $i = $this->annex2_model->get_form_by_account_id($id);
         foreach ($i as $row) {
             $data = [
-                'type' => 'Annex 2',
+                'type' => 'ANNEX 2 FORM',
                 'application_id' => $row->application_id,
                 'approval' => $row->application_approved
             ];
@@ -44,7 +44,7 @@ class history_model extends CI_Model
         $i = $this->annex3_model->get_form_by_account_id($id);
         foreach ($i as $row) {
             $data = [
-                'type' => 'Annex 3',
+                'type' => 'ANNEX 3 FORM',
                 'application_id' => $row->application_id,
                 'approval' => $row->application_approved
             ];
@@ -54,7 +54,7 @@ class history_model extends CI_Model
         $i = $this->annex4_model->get_form_by_account_id($id);
         foreach ($i as $row) {
             $data = [
-                'type' => 'Annex 4',
+                'type' => 'ANNEX 4 FORM',
                 'application_id' => $row->application_id,
                 'approval' => $row->application_approved
             ];
@@ -64,7 +64,7 @@ class history_model extends CI_Model
         $i = $this->annex5_model->get_form_by_account_id($id);
         foreach ($i as $row) {
             $data = [
-                'type' => 'Annex 5',
+                'type' => 'ANNEX 5 FORM',
                 'application_id' => $row->application_id,
                 'approval' => $row->application_approved
             ];
@@ -74,7 +74,7 @@ class history_model extends CI_Model
         $i = $this->annualfinalreport_model->get_form_by_account_id($id);
         foreach ($i as $row) {
             $data = [
-                'type' => 'Annual / Final Report',
+                'type' => 'SBC ANNUAL OR FINAL REPORT FOR USE OF BIOHAZARDOUS MATERIALS',
                 'application_id' => $row->application_id,
                 'approval' => $row->application_approved
             ];
@@ -84,7 +84,7 @@ class history_model extends CI_Model
         $i = $this->biohazard_model->get_form_by_account_id($id);
         foreach ($i as $row) {
             $data = [
-                'type' => 'Biohazardous',
+                'type' => 'APPLICATION FOR BIOSAFETY CLEARANCE FORM',
                 'application_id' => $row->application_id,
                 'approval' => $row->application_approved
             ];
@@ -94,7 +94,7 @@ class history_model extends CI_Model
         $i = $this->exempt_model->get_form_by_account_id($id);
         foreach ($i as $row) {
             $data = [
-                'type' => 'Exempt',
+                'type' => 'APPLICATION FOR BIOSAFETY CLEARANCE EXEMPT DEALINGS FORM',
                 'application_id' => $row->application_id,
                 'approval' => $row->application_approved
             ];
@@ -104,7 +104,7 @@ class history_model extends CI_Model
         $i = $this->forme_model->get_form_by_account_id($id);
         foreach ($i as $row) {
             $data = [
-                'type' => 'Form E',
+                'type' => 'FORM E',
                 'application_id' => $row->application_id,
                 'approval' => $row->application_approved
             ];
@@ -114,7 +114,7 @@ class history_model extends CI_Model
         $i = $this->formf_model->get_form_by_account_id($id);
         foreach ($i as $row) {
             $data = [
-                'type' => 'Form F',
+                'type' => 'FORM F',
                 'application_id' => $row->application_id,
                 'approval' => $row->application_approved
             ];
@@ -124,7 +124,7 @@ class history_model extends CI_Model
         $i = $this->hirarc_model->get_form_by_account_id($id);
         foreach ($i as $row) {
             $data = [
-                'type' => 'HIRARC Form',
+                'type' => 'OHS-F-4.5.X HIRARC FORM',
                 'application_id' => $row->application_id,
                 'approval' => $row->application_approved
             ];
@@ -134,7 +134,7 @@ class history_model extends CI_Model
         $i = $this->incidentaccidentreport_model->get_form_by_account_id($id);
         foreach ($i as $row) {
             $data = [
-                'type' => 'Incident Accident Report',
+                'type' => 'OHS-F-4.20.X INCIDENT ACCIDENT REPORT',
                 'application_id' => $row->application_id,
                 'approval' => $row->application_approved
             ];
@@ -144,7 +144,7 @@ class history_model extends CI_Model
         $i = $this->notification_of_exporting_biological_material_model->get_form_by_account_id($id);
         foreach ($i as $row) {
             $data = [
-                'type' => 'Notification Of Exporting Biological Material',
+                'type' => 'SSBC NOTIFICATION OF EXPORTING LMO AND BIOHAZARDOUS MATERIAL',
                 'application_id' => $row->application_id,
                 'approval' => $row->application_approved
             ];
@@ -154,7 +154,7 @@ class history_model extends CI_Model
         $i = $this->notification_of_LMO_and_BM_model->get_form_by_account_id($id);
         foreach ($i as $row) {
             $data = [
-                'type' => 'Notification Of LMO and Biohazardous Materials',
+                'type' => 'NOTIFICATION OF LMO AND BIOHAZARDOUS MATERIAL',
                 'application_id' => $row->application_id,
                 'approval' => $row->application_approved
             ];
@@ -164,7 +164,7 @@ class history_model extends CI_Model
         $i = $this->pc1_model->get_form_by_account_id($id);
         foreach ($i as $row) {
             $data = [
-                'type' => 'PC1',
+                'type' => 'APPLICATION FOR NLRDS SUITABLE FOR PC1 FORM',
                 'application_id' => $row->application_id,
                 'approval' => $row->application_approved
             ];
@@ -174,7 +174,7 @@ class history_model extends CI_Model
         $i = $this->pc2_model->get_form_by_account_id($id);
         foreach ($i as $row) {
             $data = [
-                'type' => 'PC2',
+                'type' => 'APPLICATION FOR NLRDS SUITABLE FOR PC2 FORM',
                 'application_id' => $row->application_id,
                 'approval' => $row->application_approved
             ];
@@ -184,7 +184,7 @@ class history_model extends CI_Model
         $i = $this->procurement_model->get_form_by_account_id($id);
         foreach ($i as $row) {
             $data = [
-                'type' => 'Procurement',
+                'type' => 'OHS-F-4.18.X PRE-PURCHASE MATERIAL RISK ASSESSMENT',
                 'application_id' => $row->application_id,
                 'approval' => $row->application_approved
             ];
@@ -194,7 +194,7 @@ class history_model extends CI_Model
         $i = $this->swp_model->get_form_by_account_id($id);
         foreach ($i as $row) {
             $data = [
-                'type' => 'Safety Work Procedure Form',
+                'type' => 'SSBC SAFE WORK PROCEDURE',
                 'application_id' => $row->application_id,
                 'approval' => $row->application_approved
             ];

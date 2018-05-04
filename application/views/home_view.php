@@ -37,12 +37,12 @@ if(!$this->session->userdata('isLogin')){
     <!-- Page Content -->
     <div class="container">
         <!-- Page Heading -->
-        <h2 class="my-4 text-center">Welcome, <?php echo $this->session->userdata('account_name'); ?></h2>
-
+        <h2 class="my-4 text-center">Welcome, <?php echo $this->session->userdata('account_name'); ?> 
+<button class='btn btn-primary float-right'>Testing</button></h2>
         <div class="row">
             <div class="col-lg-3 col-md-4 col-sm-6 col-6 portfolio-item">
-                <div class="morph card card-block justify-content-center align-items-center">
-                    <a href="<?php echo base_url(); ?>index.php/applicationpage"><img class="morph card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\Application for Biosafety.jpg') ?>" alt=""></a>
+                <div class="card card-block justify-content-center align-items-center">
+                    <a href="<?php echo base_url(); ?>index.php/applicationpage"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\Application for Biosafety.jpg') ?>" alt=""></a>
                     <div style="text-align: center" class="card-body">
                         <h6 class="card-title">
                             <a href="<?php echo base_url(); ?>index.php/applicationpage">Application <br> <br> </a>
