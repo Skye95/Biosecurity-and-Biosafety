@@ -119,8 +119,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             
             $data['load'] = "true";
             
-            //$id = $this->uri->segment(3);
-            $id = $this->input->get('id');
+            $id = $this->uri->segment(3);
+            //$id = $this->input->get('id');
             $data['retrieved'] = $this->formf_model->get_form_by_id($id);
             
             $this->load->template('formf_view', $data);

@@ -58,19 +58,19 @@ if(!$this->session->userdata('isLogin')){
                         <tr class="searchable">
                             <td class="text-center"><?php echo $i = $i + 1; ?></td>
                             <td><?php echo $row['type']; ?></td>
-                            <td><?php 
+                            <td class="text-center"><?php 
                                 if($row['approval'] < 3 || $row['approval'] == null){
                                     echo "Awaiting Approval";
                                 } else {
-                                    echo $row['approval'];
+                                    echo "Approved";
                                 }
                                 ?>
                             </td>
                             <td class="text-center">
                                 <i class="fa fa-bars btn btn-info" onclick="view_application(<?php echo $row['application_id']; ?>, '<?php echo $row['type']; ?>')" title="Details"></i>
                                 <i class="fa fa-edit btn btn-warning" onclick="edit_application(<?php echo $row['application_id']; ?>, '<?php echo $row['type']; ?>')" title="Edit"></i>
-                                <i class="fa fa-clock btn btn-primary" onclick="extend_application(<?php echo $row['application_id']; ?>, '<?php echo $row['type']; ?>')" title="Extend"></i>
-                                <i class="fa fa-times btn btn-danger" onclick="terminate_application(<?php echo $row['application_id']; ?>, '<?php echo $row['type']; ?>')" title="Terminate"></i>
+                                <i class="fa fa-clock btn btn-primary" onclick="extend_application()" title="Extend"></i>
+                                <i class="fa fa-times btn btn-danger" onclick="terminate_application()" title="Terminate"></i>
                             </td>
                         </tr>
                         <?php endforeach; ?>
@@ -132,15 +132,17 @@ if(!$this->session->userdata('isLogin')){
                 }
 
                 function edit_application(i, j){
-                    alert(j);
+                    if(confirm("You will be submitting an edit request to the corresponding officer. Are you sure?")){
+                        /* window.location = "<?php echo base_url(); ?>index.php/annex2/load_form/" + i; */
+                    }
                 }
 
-                function extend_application(i, j){
-                    alert(j);
+                function extend_application(){
+                     window.location = "<?php echo base_url(); ?>index.php/annex5/";
                 }
                 
-                function terminate_application(i, j){
-                    alert(j);
+                function terminate_application(){
+                    window.location = "<?php echo base_url(); ?>index.php/annex5/";
                 }
             </script>
         </div>

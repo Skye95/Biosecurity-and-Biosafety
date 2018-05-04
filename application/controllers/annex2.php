@@ -115,9 +115,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );
             
             $data['load'] = "true";
+            $data['disabled'] = "true";
             
             //$id = '$this->session->userdata('account_id')';
-            $id = $this->input->get('id');
+            $id = $this->uri->segment(3);
             $data['retrieved'] = $this->annex2_model->get_form_by_account_id($id);
             
             $this->load->template('annex2_view', $data);

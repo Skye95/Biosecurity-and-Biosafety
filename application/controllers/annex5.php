@@ -112,8 +112,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             
             $data['load'] = "true";
             
-            //$id = $this->uri->segment(3);
-            $id = $this->input->get('id');
+            $id = $this->uri->segment(3);
+            //$id = $this->input->get('id');
             $data['retrieved'] = $this->annex5_model->get_form_by_account_id($id);
             
             $this->load->template('annex5_view', $data);

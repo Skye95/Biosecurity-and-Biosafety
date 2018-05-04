@@ -110,8 +110,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $data['load'] = "true";
             
             //$id = '$this->session->userdata('account_id')';
-            //$id = $this->uri->segment(3);
-            $id = $this->input->get('id');
+            $id = $this->uri->segment(3);
+            //$id = $this->input->get('id');
             $data['retrieved'] = $this->swp_model->get_form_by_account_id($id);
             
             $this->load->template('swp_view', $data);
