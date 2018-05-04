@@ -58,7 +58,7 @@ if(!$this->session->userdata('isLogin')){
             
             <div class="col-md-9">
                <?php echo form_open('annex4/index'); ?>
-                
+                <?php if(isset($disabled)){ echo "<fieldset disabled='disabled'>"; } ?>
                 
                    <div class="text-muted">
                        <h5>Guidelines for Institutional Biosafety Committees:<br>
@@ -363,14 +363,14 @@ if(!$this->session->userdata('isLogin')){
                        <div class="col-md-6 grey">
                            <p><strong>IBC Use Only</strong></p>
                            
-                            <div class="radio">
-                              <label><input type="radio" name="IBC_approval" value="1" <?php echo set_radio('exposure_medical_cert', '1'); ?> <?php if(isset($load)){if($item->exposure_medical_cert==1){echo "checked=checked";}}else{} ?>>Use /Possession Approved</label>
+                            <div class="checkbox">
+                              <label><input type="checkbox" name="IBC_approval" value="1" <?php echo set_checkbox('IBC_approval', '1'); ?> <?php if(isset($load)){if($item->IBC_approval==1){echo "checked=checked";}}else{} ?>> Use/Possession Approved</label>
                             </div>
-                            <div class="radio">
-                              <label><input type="radio" name="IBC_approval" value="0" <?php echo set_radio('exposure_medical_cert', '1'); ?> <?php if(isset($load)){if($item->exposure_medical_cert==1){echo "checked=checked";}}else{} ?>>Use/Possession Disapproved</label>
+                            <div class="checkbox">
+                              <label><input type="checkbox" name="IBC_approval" value="2" <?php echo set_checkbox('IBC_approval', '2'); ?> <?php if(isset($load)){if($item->IBC_approval==2){echo "checked=checked";}}else{} ?>> Use/Possession Disapproved</label>
                             </div>
-                            <div class="radio">
-                              <label><input type="radio" name="IBC_termination" value="1" <?php echo set_radio('exposure_medical_cert', '1'); ?> <?php if(isset($load)){if($item->exposure_medical_cert==1){echo "checked=checked";}}else{} ?>>Termination Approved</label>
+                            <div class="checkbox">
+                              <label><input type="checkbox" name="IBC_termination" value="1" <?php echo set_checkbox('IBC_termination', '1'); ?> <?php if(isset($load)){if($item->IBC_termination==1){echo "checked=checked";}}else{} ?> > Termination Approved</label>
                             </div> 
                        </div>
                    </div>
@@ -378,9 +378,8 @@ if(!$this->session->userdata('isLogin')){
 				   
 				   <div style="text-align: center">
                        <button name="submit" type="submit" class="btn btn-primary col-md-2">Submit</button>
-                       <a class="btn btn-primary col-md-2" href="<?php echo base_url(); ?>index.php/annex4/load_form">Load</a>
                    </div>
-                    
+                <?php if(isset($disabled)){ echo "</fieldset>"; } ?>
                <?php echo form_close(); ?>
             </div>
             

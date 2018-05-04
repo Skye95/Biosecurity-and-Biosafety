@@ -55,6 +55,7 @@ if(!$this->session->userdata('isLogin')){
             
             <div class="col-md-9">
                <?php echo form_open('annex5/index'); ?>
+                <?php if(isset($disabled)){ echo "<fieldset disabled='disabled'>"; } ?>
                    <div class="text-muted">
                        <h5>Guidelines for Institutional Biosafety Committees:<br>
                        Use of Living Modified Organisms and Related Materials
@@ -317,19 +318,13 @@ if(!$this->session->userdata('isLogin')){
                            <p><strong>IBC Use Only</strong></p>
                            
                             <div class="checkbox">
-                              <label>
-                                  <input type="checkbox" name="IBC_approval" value="1" <?php echo set_checkbox('IBC_approval', '1'); ?> <?php if(isset($load)){if($item->request_type==1){echo "checked=checked";}}else{} ?> >Use/Possession Approved
-                                </label>
+                              <label><input type="checkbox" name="IBC_approval" value="1" <?php echo set_checkbox('IBC_approval', '1'); ?> <?php if(isset($load)){if($item->IBC_approval==1){echo "checked=checked";}}else{} ?>> Use/Possession Approved</label>
                             </div>
                             <div class="checkbox">
-                              <label>
-                                  <input type="checkbox" name="IBC_approval" value="0" <?php echo set_checkbox('IBC_approval', '0'); ?> <?php if(isset($load)){if($item->request_type==0){echo "checked=checked";}}else{} ?> >Use/Possession Disapproved
-                                </label>
+                              <label><input type="checkbox" name="IBC_approval" value="2" <?php echo set_checkbox('IBC_approval', '2'); ?> <?php if(isset($load)){if($item->IBC_approval==2){echo "checked=checked";}}else{} ?>> Use/Possession Disapproved</label>
                             </div>
                             <div class="checkbox">
-                              <label>
-                                  <input type="checkbox" name="IBC_termination" value="1" <?php echo set_checkbox('IBC_termination', '1'); ?> <?php if(isset($load)){if($item->request_type==1){echo "checked=checked";}}else{} ?> >Termination Approved
-                                </label>
+                              <label><input type="checkbox" name="IBC_termination" value="1" <?php echo set_checkbox('IBC_termination', '1'); ?> <?php if(isset($load)){if($item->IBC_termination==1){echo "checked=checked";}}else{} ?> > Termination Approved</label>
                             </div> 
                        </div>
                    </div>
@@ -338,9 +333,8 @@ if(!$this->session->userdata('isLogin')){
                 
                    <div style="text-align: center">
                        <button name="submit" type="submit" class="btn btn-primary col-md-2">Submit</button>
-                       <a class="btn btn-primary col-md-2" href="<?php echo base_url(); ?>index.php/annex5/load_form">Load</a>
                    </div>
-                   
+               <?php if(isset($disabled)){ echo "</fieldset>"; } ?>
                <?php echo form_close(); ?>
             </div>
             

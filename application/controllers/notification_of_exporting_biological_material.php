@@ -124,9 +124,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $data['readnotif'] = $this->notification_model->get_read($this->session->userdata('account_id'), $this->session->userdata('account_type'));
             
             $data['load'] = "true";
+            $data['disabled'] = "true";
             
-            $id = $this->uri->segment(3);
-            $data['retrieved'] = $this->notification_of_exporting_biological_material_model->get_form_by_account_id($id);
+            //$id = $this->uri->segment(3);
+            $id = $this->input->get('id');
+            $data['retrieved'] = $this->notification_of_exporting_biological_material_model->get_form_by_id($id);
             
             $this->load->template('notification_of_exporting_biological_material_view', $data);
             

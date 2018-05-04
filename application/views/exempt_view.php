@@ -92,6 +92,7 @@ if(!$this->session->userdata('isLogin')){
             
             <div class="col-md-10">
                <?php echo form_open('exempt/index'); ?>
+                <?php if(isset($disabled)){ echo "<fieldset disabled='disabled'>"; } ?>
                 
                 
                    <h4 class="centering"><u>Swinburne Biosafety Commitee</u></h4>
@@ -458,9 +459,8 @@ if(!$this->session->userdata('isLogin')){
                 
                 <div style="text-align: center">
                        <button name="submit" type="submit" class="btn btn-primary col-md-2">Submit</button>
-                       <a class="btn btn-primary col-md-2" href="<?php echo base_url(); ?>index.php/exempt/load_form">Load</a>
                 </div>
-                   
+               <?php if(isset($disabled)){ echo "</fieldset>"; } ?>
                <?php echo form_close(); ?>
             </div>
             

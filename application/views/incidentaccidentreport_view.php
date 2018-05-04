@@ -68,6 +68,7 @@ if(!$this->session->userdata('isLogin')){
             
             <div class="col-md-10">
                <?php echo form_open('incidentaccidentreport/index'); ?>
+                <?php if(isset($disabled)){ echo "<fieldset disabled='disabled'>"; } ?>
                    <div>
                        <h5><strong>PLEASE FILL IN ALL INFORMATION REQUESTED</strong></h5>
                    </div>
@@ -141,35 +142,35 @@ if(!$this->session->userdata('isLogin')){
                                    <th class="tbheader1">2.4 Type of Incident:</th>
                                    <td colspan="1">										
 								   <div class="checkbox">
-											<label><input type="checkbox" name="incident_type1" value="1" <?php echo set_checkbox('incident_type1', '1'); ?> <?php if(isset($load)){if($item->incident_type==1){echo "checked=checked";}}else{} ?> > Slips, Trips and Falls</label>
+											<label><input type="checkbox" name="incident_type1" value="1" <?php echo set_checkbox('incident_type1', '1'); ?> <?php if(isset($load)){if($item->incident_type1==1){echo "checked=checked";}}else{} ?> > Slips, Trips and Falls</label>
 									</div>
 									<div class="checkbox">
-											<label><input type="checkbox" name="incident_type2" value="2" <?php echo set_checkbox('incident_type2', '2'); ?> <?php if(isset($load)){if($item->incident_type==2){echo "checked=checked";}}else{} ?> > Unsafe Act</label>
+											<label><input type="checkbox" name="incident_type2" value="2" <?php echo set_checkbox('incident_type2', '2'); ?> <?php if(isset($load)){if($item->incident_type2==2){echo "checked=checked";}}else{} ?> > Unsafe Act</label>
 									</div>
 									<div class="checkbox">
-											<label><input type="checkbox" name="incident_type3" value="3" <?php echo set_checkbox('incident_type3', '3'); ?> <?php if(isset($load)){if($item->incident_type==3){echo "checked=checked";}}else{} ?> > Burns/Fire</label>
+											<label><input type="checkbox" name="incident_type3" value="3" <?php echo set_checkbox('incident_type3', '3'); ?> <?php if(isset($load)){if($item->incident_type3==3){echo "checked=checked";}}else{} ?> > Burns/Fire</label>
 									</div>
 									<div class="checkbox">
-											<label><input type="checkbox" name="incident_type4" value="4" <?php echo set_checkbox('incident_type4', '4'); ?> <?php if(isset($load)){if($item->incident_type==4){echo "checked=checked";}}else{} ?> > Repetitive strain injury</label>
+											<label><input type="checkbox" name="incident_type4" value="4" <?php echo set_checkbox('incident_type4', '4'); ?> <?php if(isset($load)){if($item->incident_type4==4){echo "checked=checked";}}else{} ?> > Repetitive strain injury</label>
 									</div>
 									<div class="checkbox">
-											<label><input type="checkbox" name="incident_type5" value="5" <?php echo set_checkbox('incident_type5', '5'); ?> <?php if(isset($load)){if($item->incident_type==5){echo "checked=checked";}}else{} ?> > Cuts/Laceration</label>
+											<label><input type="checkbox" name="incident_type5" value="5" <?php echo set_checkbox('incident_type5', '5'); ?> <?php if(isset($load)){if($item->incident_type5==5){echo "checked=checked";}}else{} ?> > Cuts/Laceration</label>
 									</div>
 									
 									</td>
                                    
                                    <td colspan="2">
 									<div class="checkbox">
-											<label><input type="checkbox" name="incident_type6" value="6" <?php echo set_checkbox('incident_type6', '6'); ?> <?php if(isset($load)){if($item->incident_type==6){echo "checked=checked";}}else{} ?> > Bump/Crash/Impact injury</label>
+											<label><input type="checkbox" name="incident_type6" value="6" <?php echo set_checkbox('incident_type6', '6'); ?> <?php if(isset($load)){if($item->incident_type6==6){echo "checked=checked";}}else{} ?> > Bump/Crash/Impact injury</label>
 									</div>
 									<div class="checkbox">
-											<label><input type="checkbox" name="incident_type7" value="7" <?php echo set_checkbox('incident_type7', '7'); ?> <?php if(isset($load)){if($item->incident_type==7){echo "checked=checked";}}else{} ?> > Chemical/Biological Spillage</label>
+											<label><input type="checkbox" name="incident_type7" value="7" <?php echo set_checkbox('incident_type7', '7'); ?> <?php if(isset($load)){if($item->incident_type7==7){echo "checked=checked";}}else{} ?> > Chemical/Biological Spillage</label>
 									</div>
 									<div class="checkbox">
-											<label><input type="checkbox" name="incident_type8" value="8" <?php echo set_checkbox('incident_type8', '8'); ?> <?php if(isset($load)){if($item->incident_type==8){echo "checked=checked";}}else{} ?> > Occupational Health/Illness</label>
+											<label><input type="checkbox" name="incident_type8" value="8" <?php echo set_checkbox('incident_type8', '8'); ?> <?php if(isset($load)){if($item->incident_type8==8){echo "checked=checked";}}else{} ?> > Occupational Health/Illness</label>
 									</div>
 									<div class="checkbox">
-											<label><input type="checkbox" name="incident_type9" value="9" <?php echo set_checkbox('incident_type9', '9'); ?> <?php if(isset($load)){if($item->incident_type==9){echo "checked=checked";}}else{} ?> > Unsafe Workplace Condition</label>
+											<label><input type="checkbox" name="incident_type9" value="9" <?php echo set_checkbox('incident_type9', '9'); ?> <?php if(isset($load)){if($item->incident_type9==9){echo "checked=checked";}}else{} ?> > Unsafe Workplace Condition</label>
 									</div>
 									
 									<div> Others (specify):<input type="text" name="incident_type_description" class="form-control" value="<?php if(isset($load)){echo set_value('incident_type_description', $item->incident_type_description);}else{echo set_value('incident_type_description');} ?>" ></div>
@@ -369,9 +370,8 @@ if(!$this->session->userdata('isLogin')){
 				   <hr>
                    <div style="text-align: center">
                        <button name="submit" type="submit" class="btn btn-primary col-md-2">Submit</button>
-                       <a class="btn btn-primary col-md-2" href="<?php echo base_url(); ?>index.php/incidentaccidentreport/load_form">Load</a>
                     </div>
-                    
+                <?php if(isset($disabled)){ echo "</fieldset>"; } ?>
                <?php echo form_close(); ?>
             </div>
             

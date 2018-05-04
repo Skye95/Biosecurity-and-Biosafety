@@ -99,6 +99,7 @@ if(!$this->session->userdata('isLogin')){
             
             <div class="col-md-10">
                <?php echo form_open('pc2/index'); ?>
+                <?php if(isset($disabled)){ echo "<fieldset disabled='disabled'>"; } ?>
                    <h4 class="centering"><u>Swinburne Biosafety Commitee</u></h4>
                    
                    <h3 class="centering">Application for Notifiable Low Risk Dealings</h3>
@@ -762,7 +763,7 @@ if(!$this->session->userdata('isLogin')){
                    <div style="text-align: center">
                        <button name="submit" type="submit" class="btn btn-primary col-md-2">Submit</button>
                     </div>
-                   
+               <?php if(isset($disabled)){ echo "</fieldset>"; } ?>
                <?php echo form_close(); ?>
             </div>
             
