@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.9
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 04, 2018 at 02:39 PM
--- Server version: 10.1.31-MariaDB
--- PHP Version: 7.2.3
+-- Generation Time: May 04, 2018 at 04:30 PM
+-- Server version: 10.1.26-MariaDB
+-- PHP Version: 7.1.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -21,9 +21,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `biosafety_and_biosecurity`
 --
-
-CREATE DATABASE IF NOT EXISTS biosafety_and_biosecurity;
-USE biosafety_and_biosecurity;
 
 -- --------------------------------------------------------
 
@@ -148,7 +145,7 @@ CREATE TABLE `annex3` (
   `signature_IBC_date` date DEFAULT NULL,
   `IBC_approval` int(1) DEFAULT NULL,
   `IBC_termination` int(1) DEFAULT NULL,
-  `application_approved` int(1) NOT NULL,
+  `application_approved` int(1) DEFAULT NULL,
   `popularity` int(10) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -248,7 +245,7 @@ CREATE TABLE `annex5` (
   `signature_IBC_date` date DEFAULT NULL,
   `IBC_approval` int(1) DEFAULT NULL,
   `IBC_termination` int(1) DEFAULT NULL,
-  `application_approved` int(1) NOT NULL,
+  `application_approved` int(1) DEFAULT NULL,
   `popularity` int(10) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -358,7 +355,7 @@ CREATE TABLE `biohazardousmaterial` (
   `project_facilities_room` varchar(100) NOT NULL,
   `officer_notified` int(1) DEFAULT NULL,
   `officer_name` varchar(100) DEFAULT NULL,
-  `application_approved` int(1) NOT NULL,
+  `application_approved` int(1) DEFAULT NULL,
   `popularity` int(10) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -415,7 +412,7 @@ CREATE TABLE `exemptdealing` (
   `officer_notified` int(1) DEFAULT NULL,
   `officer_name` varchar(100) DEFAULT NULL,
   `laboratory_manager` varchar(100) DEFAULT NULL,
-  `application_approved` int(1) NOT NULL,
+  `application_approved` int(1) DEFAULT NULL,
   `popularity` int(10) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -652,6 +649,7 @@ CREATE TABLE `hirarc` (
   `HIRARC_RR` varchar(500) NOT NULL,
   `HIRARC_control_measure` varchar(500) NOT NULL,
   `HIRARC_PIC` varchar(500) NOT NULL,
+  `application_type` int(1) DEFAULT '0',
   `application_approved` int(1) DEFAULT NULL,
   `popularity` int(10) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -660,8 +658,8 @@ CREATE TABLE `hirarc` (
 -- Dumping data for table `hirarc`
 --
 
-INSERT INTO `hirarc` (`application_id`, `account_id`, `approver_id`, `company_name`, `date`, `process_location`, `conducted_name`, `conducted_designation`, `approved_name`, `approved_designation`, `date_from`, `date_to`, `review_date`, `document_no`, `HIRARC_activity`, `HIRARC_hazard`, `HIRARC_effects`, `HIRARC_risk_control`, `HIRARC_LLH`, `HIRARC_SEV`, `HIRARC_RR`, `HIRARC_control_measure`, `HIRARC_PIC`, `application_approved`, `popularity`) VALUES
-(1, 1, 1, 'My company', '2018-03-26', 'Swinburne', 'Me', 'Student', 'Ms Chua', 'Biosafety Officer', '2018-03-28', '2018-04-26', '2018-05-16', NULL, 'asfcaf,,,', 'sasfvasv,,,', 'asvasvasvas,,,', 'svavsv,,,', 'llh,,,', 'SEV,,,', 'RR,,,', 'asfasfasf,,,', 'Finished,,,', 2, NULL);
+INSERT INTO `hirarc` (`application_id`, `account_id`, `approver_id`, `company_name`, `date`, `process_location`, `conducted_name`, `conducted_designation`, `approved_name`, `approved_designation`, `date_from`, `date_to`, `review_date`, `document_no`, `HIRARC_activity`, `HIRARC_hazard`, `HIRARC_effects`, `HIRARC_risk_control`, `HIRARC_LLH`, `HIRARC_SEV`, `HIRARC_RR`, `HIRARC_control_measure`, `HIRARC_PIC`, `application_type`, `application_approved`, `popularity`) VALUES
+(1, 1, 1, 'My company', '2018-03-26', 'Swinburne', 'Me', 'Student', 'Ms Chua', 'Biosafety Officer', '2018-03-28', '2018-04-26', '2018-05-16', NULL, 'asfcaf,,,', 'sasfvasv,,,', 'asvasvasvas,,,', 'svavsv,,,', 'llh,,,', 'SEV,,,', 'RR,,,', 'asfasfasf,,,', 'Finished,,,', 0, 2, NULL);
 
 -- --------------------------------------------------------
 
@@ -1228,6 +1226,7 @@ CREATE TABLE `swp` (
   `SWP_control` varchar(500) NOT NULL,
   `SWP_declaration_name` varchar(100) NOT NULL,
   `SWP_declaration_date` date DEFAULT NULL,
+  `application_type` int(1) DEFAULT '0',
   `SWP_signature_prepared_by` varchar(100) DEFAULT NULL,
   `SWP_signature_prepared_by_date` date DEFAULT NULL,
   `SWP_signature_PI` varchar(100) DEFAULT NULL,
@@ -1242,7 +1241,7 @@ CREATE TABLE `swp` (
   `SWP_reviewed_by` varchar(100) DEFAULT NULL,
   `SWP_reviewed_by_date` date DEFAULT NULL,
   `SWP_reviewed_by_remarks` varchar(300) DEFAULT NULL,
-  `application_approved` int(1) NOT NULL,
+  `application_approved` int(1) DEFAULT NULL,
   `popularity` int(10) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -1250,8 +1249,8 @@ CREATE TABLE `swp` (
 -- Dumping data for table `swp`
 --
 
-INSERT INTO `swp` (`application_id`, `account_id`, `approver_id`, `date_received`, `SBC_reference_no`, `SWP_prepared_by`, `SWP_staff_student_no`, `SWP_designation`, `SWP_faculty`, `SWP_unit_title`, `SWP_project_title`, `SWP_location`, `SWP_description`, `SWP_preoperational`, `SWP_operational`, `SWP_postoperational`, `SWP_risk`, `SWP_control`, `SWP_declaration_name`, `SWP_declaration_date`, `SWP_signature_prepared_by`, `SWP_signature_prepared_by_date`, `SWP_signature_PI`, `SWP_signature_PI_date`, `SWP_lab_trained`, `SWP_lab_trainer`, `SWP_approval_by`, `SWP_approved_by`, `SWP_declined_by`, `SWP_approve_decline_date`, `SWP_approve_decline_remarks`, `SWP_reviewed_by`, `SWP_reviewed_by_date`, `SWP_reviewed_by_remarks`, `application_approved`, `popularity`) VALUES
-(1, 1, NULL, NULL, NULL, 'Heu', 100072290, 'Studnet', 'BCS', 'SE40001', 'FYP', 'Swinburne Sarawak', 'kdnflsnagvkldb gvg', 'bzdhshbbfdbhbhsdfrbbzsbsbzs', 'zsdtbsbstnbzndbsnb', 'fdbtsrnsrtnbrtsnsrnbzd', 'rtgfnrsnrssrnzrs', 'srnsrntsdbrnt', 'Declare name', '2018-02-06', 'Signature name', '2018-04-12', 'Verified name', '2018-04-23', 1, 'Me', 1, NULL, '', '0000-00-00', '', 'Damn', '0000-00-00', '', 0, NULL);
+INSERT INTO `swp` (`application_id`, `account_id`, `approver_id`, `date_received`, `SBC_reference_no`, `SWP_prepared_by`, `SWP_staff_student_no`, `SWP_designation`, `SWP_faculty`, `SWP_unit_title`, `SWP_project_title`, `SWP_location`, `SWP_description`, `SWP_preoperational`, `SWP_operational`, `SWP_postoperational`, `SWP_risk`, `SWP_control`, `SWP_declaration_name`, `SWP_declaration_date`, `application_type`, `SWP_signature_prepared_by`, `SWP_signature_prepared_by_date`, `SWP_signature_PI`, `SWP_signature_PI_date`, `SWP_lab_trained`, `SWP_lab_trainer`, `SWP_approval_by`, `SWP_approved_by`, `SWP_declined_by`, `SWP_approve_decline_date`, `SWP_approve_decline_remarks`, `SWP_reviewed_by`, `SWP_reviewed_by_date`, `SWP_reviewed_by_remarks`, `application_approved`, `popularity`) VALUES
+(1, 1, NULL, NULL, NULL, 'Heu', 100072290, 'Studnet', 'BCS', 'SE40001', 'FYP', 'Swinburne Sarawak', 'kdnflsnagvkldb gvg', 'bzdhshbbfdbhbhsdfrbbzsbsbzs', 'zsdtbsbstnbzndbsnb', 'fdbtsrnsrtnbrtsnsrnbzd', 'rtgfnrsnrssrnzrs', 'srnsrntsdbrnt', 'Declare name', '2018-02-06', NULL, 'Signature name', '2018-04-12', 'Verified name', '2018-04-23', 1, 'Me', 1, NULL, '', '0000-00-00', '', 'Damn', '0000-00-00', '', 0, NULL);
 
 --
 -- Indexes for dumped tables
