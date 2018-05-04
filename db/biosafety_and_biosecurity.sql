@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.7.9
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 02, 2018 at 05:32 PM
--- Server version: 10.1.26-MariaDB
--- PHP Version: 7.1.9
+-- Generation Time: May 04, 2018 at 02:39 PM
+-- Server version: 10.1.31-MariaDB
+-- PHP Version: 7.2.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -495,7 +495,7 @@ CREATE TABLE `forme` (
   `organization_representative_signature_stamp` varchar(100) DEFAULT NULL,
   `project_team_name` varchar(100) NOT NULL,
   `project_team_address` varchar(100) NOT NULL,
-  `project_team_telephone_number` int(20) NOT NULL,
+  `project_team_telephone_number` varchar(200) NOT NULL,
   `project_team_email_address` varchar(100) NOT NULL,
   `project_team_qualification` varchar(100) NOT NULL,
   `project_team_designation` varchar(300) NOT NULL,
@@ -545,8 +545,8 @@ CREATE TABLE `forme` (
   `premise_type` varchar(250) NOT NULL,
   `premise_BSL` varchar(500) NOT NULL,
   `premise_IBC` varchar(500) NOT NULL,
-  `premise_IBC_date` date DEFAULT NULL,
-  `premise_certification_date` date DEFAULT NULL,
+  `premise_IBC_date` varchar(200) DEFAULT NULL,
+  `premise_certification_date` varchar(200) DEFAULT NULL,
   `premise_certification_no` varchar(10) DEFAULT NULL,
   `premise_certification_report` blob,
   `premise_address` varchar(100) NOT NULL,
@@ -566,7 +566,7 @@ CREATE TABLE `forme` (
 --
 
 INSERT INTO `forme` (`application_id`, `account_id`, `approver_id`, `project_title`, `checklist_form`, `checklist_coverletter`, `checklist_IBC`, `checklist_IBC_report`, `checklist_clearance`, `checklist_CBI`, `checklist_CBI_submit`, `checklist_support`, `checklist_RnD`, `organization`, `applicant_name_PI`, `position`, `telephone_office`, `telephone_mobile`, `fax`, `email_address`, `postal_address`, `project_title2`, `IBC_project_identification_no`, `notified_first`, `NBB_reference`, `NBB_difference`, `importer_organization`, `importer_contact_person`, `importer_position`, `importer_telephone_office`, `importer_telephone_mobile`, `importer_fax`, `importer_email_address`, `importer_postal_address`, `IBC_organization_name`, `IBC_chairperson`, `IBC_telephone_number`, `IBC_fax`, `IBC_email_address`, `IBC_PI_name`, `IBC_project_title`, `IBC_date`, `IBC_adequate`, `IBC_checklist_activities`, `IBC_checklist_description`, `IBC_checklist_emergency_response`, `IBC_checklist_trained`, `IBC_form_approved`, `IBC_biosafety_approved`, `signature_statutory_endorsed`, `signature_statutory_applicant_free`, `applicant_PI_signature_date`, `applicant_PI_signature_name`, `applicant_PI_signature_stamp`, `IBC_chairperson_signature_date`, `IBC_chairperson_signature_name`, `IBC_chairperson_signature_stamp`, `organization_representative_signature_date`, `organization_representative_signature_name`, `organization_representative_signature_stamp`, `project_team_name`, `project_team_address`, `project_team_telephone_number`, `project_team_email_address`, `project_team_qualification`, `project_team_designation`, `project_intro_objective`, `project_intro_specifics`, `project_intro_activities`, `project_intro_BSL`, `project_intro_duration`, `project_intro_intended_date_commencement`, `project_intro_expected_date_completion`, `project_intro_importation_date`, `project_intro_field_experiment`, `LMO_desc_name_parent`, `LMO_desc_name_donor`, `LMO_desc_method`, `LMO_desc_class`, `LMO_desc_trait`, `LMO_desc_genes`, `LMO_desc_genes_function`, `risk_assessment_genes_potential_hazard`, `risk_assessment_genes_comments`, `risk_assessment_genes_management`, `risk_assessment_genes_residual`, `risk_assessment_admin_potential_hazard`, `risk_assessment_admin_comments`, `risk_assessment_admin_management`, `risk_assessment_admin_residual`, `risk_assessment_containment_potential_hazard`, `risk_assessment_containment_comments`, `risk_assessment_containment_management`, `risk_assessment_containment_residual`, `risk_assessment_special_potential_hazard`, `risk_assessment_special_comments`, `risk_assessment_special_management`, `risk_assessment_special_residual`, `risk_management_transport`, `risk_management_disposed`, `risk_management_wastes`, `risk_management_wastewater`, `risk_management_decontaminated`, `risk_response_environment`, `risk_response_plan`, `risk_response_disposal`, `risk_response_isolation`, `risk_response_contigency`, `premise_name`, `premise_type`, `premise_BSL`, `premise_IBC`, `premise_IBC_date`, `premise_certification_date`, `premise_certification_no`, `premise_certification_report`, `premise_address`, `premise_officer_name`, `premise_telephone_business`, `premise_telephone_mobile`, `premise_fax`, `premise_email`, `confidential_description`, `reference_description`, `application_approved`, `popularity`) VALUES
-(1, 1, 1, 'New Title', 1, 1, 1, 1, 1, 1, 1, 1, 1, 'Swinburne', 'scacasc', 'sacacasc', '1234556', '1243433454363', '1234341143', 'PI@gmail.com', 'postal address', 'new title', 123, 'yes', '123', NULL, 'sdcsds', 'sddcsvdvv', 'dvsddvssd', '123233', '12313', NULL, 'importer@gmail.com', 'importer address', 'Swinburne', 'IBc namw', '123-1234567', '123-1234567', 'IBC@gmail.com', 'Kim', 'IBc title', '2018-04-02', 1, 1, 1, 0, 1, 0, 1, NULL, NULL, '2018-04-02', 'Kim', 'Stamp here', '2018-04-02', 'IBC chairperson', 'new stamp', '2018-04-22', 'Kim yeung', 'Stamp organization', 'Team name,,,,', 'team address,,,,', 12345578, 'team@gmail.com,,,,', 'No experience,,,,', 'Student,,,,', 'General Objectie', 'Specific Objective', NULL, 3, NULL, '2018-04-23', '2018-04-23', '2018-04-24', NULL, 'parent name,,', 'donor name,,', 'vector,,', 'trait class,,', 'modified trait,,', NULL, 'gene fucntion,,', 'gene modification,,', 'gene risk,,', 'gene management,,', 'gene risk,,', 'admin hazard,,', 'admin risk,,', 'admin management,,', 'admin residual,,', 'containment hazard,,', 'containment risk,,', 'containment management,,', 'containment residual,,', 'special hazard,,', 'special comments,,', 'special management,,', 'special residual,,', 'wadscdacsa', 'ascascascascascv', 'sacascascascasc', 'ascacacsacasc', 'ascacsacasasas', 'sacsaasavsas', 'scascasasxcasx', 'scasasvsa assa', 'vsvsavsavsxva', 'sxzbfdbdzfrbbzdcf', 'Premise 1 name,,,', 'Premise type 1,,,', '3,,,', 'IBC,,,', '2018-04-29', '2018-04-02', '2,,,', NULL, 'premise address,,,', 'contact,,,', '123-1234567,,,', '123-1234567,,,', '123-1234567,,,', 'premise@gmail.com,,,', 'ascsavadvadbadbvdsx', 'dxv dvx dxvxzdv sxazdxv', 2, NULL);
+(1, 1, 1, 'New Title', 1, 1, 1, 1, 1, 1, 1, 1, 1, 'Swinburne', 'scacasc', 'sacacasc', '1234556', '1243433454363', '1234341143', 'PI@gmail.com', 'postal address', 'new title', 123, 'yes', '123', NULL, 'sdcsds', 'sddcsvdvv', 'dvsddvssd', '123233', '12313', NULL, 'importer@gmail.com', 'importer address', 'Swinburne', 'IBc namw', '123-1234567', '123-1234567', 'IBC@gmail.com', 'Kim', 'IBc title', '2018-04-02', 1, 1, 1, 0, 1, 0, 1, NULL, NULL, '2018-04-02', 'Kim', 'Stamp here', '2018-04-02', 'IBC chairperson', 'new stamp', '2018-04-22', 'Kim yeung', 'Stamp organization', 'Team name,,,,', 'team address,,,,', '12345578,,,,', 'team@gmail.com,,,,', 'No experience,,,,', 'Student,,,,', 'General Objectie', 'Specific Objective', NULL, 3, NULL, '2018-04-23', '2018-04-23', '2018-04-24', NULL, 'parent name,,', 'donor name,,', 'vector,,', 'trait class,,', 'modified trait,,', NULL, 'gene fucntion,,', 'gene modification,,', 'gene risk,,', 'gene management,,', 'gene risk,,', 'admin hazard,,', 'admin risk,,', 'admin management,,', 'admin residual,,', 'containment hazard,,', 'containment risk,,', 'containment management,,', 'containment residual,,', 'special hazard,,', 'special comments,,', 'special management,,', 'special residual,,', 'wadscdacsa', 'ascascascascascv', 'sacascascascasc', 'ascacacsacasc', 'ascacsacasasas', 'sacsaasavsas', 'scascasasxcasx', 'scasasvsa assa', 'vsvsavsavsxva', 'sxzbfdbdzfrbbzdcf', 'Premise 1 name,,,', 'Premise type 1,,,', '3,,,', 'IBC,,,', '2018-04-29,,,', '2018-04-02,,,', '2,,,', NULL, 'premise address,,,', 'contact,,,', '123-1234567,,,', '123-1234567,,,', '123-1234567,,,', 'premise@gmail.com,,,', 'ascsavadvadbadbvdsx', 'dxv dvx dxvxzdv sxazdxv', 2, NULL);
 
 -- --------------------------------------------------------
 
@@ -910,12 +910,12 @@ INSERT INTO `notification` (`notification_id`, `account_id`, `notification_type`
 (1, 1, 2, 'Test', 'Hello, This is to test out notification number 1 from account id 1!!!', '2018-04-23 20:27:40', 1),
 (2, 2, 1, 'Test 2', 'This is from account 2. Krappa', '2018-04-23 20:28:25', 0),
 (3, 1, 1, 'Test 1+2', 'SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT ', '2018-04-23 20:29:12', 1),
-(4, NULL, 2, 'New Registration', 'The following user has requested for an account: Cedric Ang', '2018-04-30 14:11:59', 1),
-(5, NULL, 2, 'New Registration', 'The following user has requested for an account: Si Kim Yeung', '2018-04-30 17:01:32', 1),
-(6, NULL, 2, 'New Registration', 'The following use has submitted an Annex 2 form: ', '2018-05-01 00:01:02', 1),
-(7, NULL, 2, 'New Registration', 'The following use has submitted an Annex 2 form: ', '2018-05-01 12:48:47', 1),
-(8, NULL, 2, 'New Registration', 'The following user has requested for an account: Biosafety Officer', '2018-05-01 15:58:17', 1),
-(9, NULL, 2, 'New Registration', 'The following use has submitted an Annex 2 form: Kim Yeung', '2018-05-02 21:04:24', 1);
+(4, NULL, 2, 'New Registration', 'The following user has requested for an account: Cedric Ang', '2018-04-30 14:11:59', 0),
+(5, NULL, 2, 'New Registration', 'The following user has requested for an account: Si Kim Yeung', '2018-04-30 17:01:32', 0),
+(6, NULL, 2, 'New Registration', 'The following use has submitted an Annex 2 form: ', '2018-05-01 00:01:02', 0),
+(7, 2, 1, 'New Registration', 'The following use has submitted an Annex 2 form: ', '2018-05-01 12:48:47', 0),
+(8, 3, 3, 'New Registration', 'The following user has requested for an account: Biosafety Officer', '2018-05-01 15:58:17', 0),
+(9, NULL, 2, 'New Registration', 'The following use has submitted an Annex 2 form: Kim Yeung', '2018-05-02 21:04:24', 0);
 
 -- --------------------------------------------------------
 
@@ -973,7 +973,7 @@ CREATE TABLE `notificationexportingbiologicalmaterial` (
 --
 
 INSERT INTO `notificationexportingbiologicalmaterial` (`application_id`, `account_id`, `approver_id`, `date_received`, `SBC_reference_no`, `personnel_name`, `personnel_staff_student_no`, `personnel_designation`, `personnel_faculty`, `personnel_project_title`, `personnel_reference_no`, `LMO_list`, `LMO_name`, `LMO_risk_level`, `LMO_category`, `LMO_quantity`, `LMO_volume`, `biological_list`, `biological_name`, `biological_risk_level`, `biological_category`, `biological_quantity`, `biological_volume`, `importing_country`, `importing_institude`, `importing_person_in_charge`, `importing_person_in_charge_telephone_no`, `declaration_name`, `declaration_date`, `signature_verified_by`, `signature_verified_date`, `notification_approved_by`, `notification_declined_by`, `notification_approve_decline_date`, `notification_approve_decline_remarks`, `notification_reviewed_by`, `notification_reviewed_by_date`, `notification_reviewed_by_remarks`, `delivered_date`, `incident_accident_report`, `application_approved`, `popularity`) VALUES
-(1, 1, NULL, NULL, NULL, 'Si Kim Yeung', 100072290, 'Student', 'BCS', 'Project Title', '123', 1, 'New LMO,,Lmo 2,,,', 'Low,,High,,,', 'A,,A,,,', '3,,5,,,', '20,,30,,,', NULL, ',,,,,', ',,,,,', ',,,,,', ',,,,,', ',,,,,', '', '', '0', 0, 'Si Kim Yeung', '2018-04-03', '', '2018-04-05', NULL, NULL, '0000-00-00', '', 'ms chua', '2018-04-23', 'Its ok', NULL, NULL, 0, NULL),
+(1, 1, NULL, NULL, NULL, 'Si Kim Yeung', 100072290, 'Student', 'BCS', 'Project Title', '123', 1, 'New LMO,,Lmo 2,,,', 'Low,,High,,,', 'A,,A,,,', '3,,5,,,', '20,,30,,,', NULL, ',,,,,', ',,,,,', ',,,,,', ',,,,,', ',,,,,', '', '', '0', 0, 'Si Kim Yeung', '2018-04-03', '', '2018-04-05', NULL, '1', '0000-00-00', '', 'ms chua', '2018-04-23', 'Its ok', NULL, NULL, 0, NULL),
 (2, 1, NULL, NULL, NULL, 'Si Kim', 100072290, 'Student', 'BCS', 'New Title', '123', 1, 'Amoeba,,,,,', 'Low,,,,,', 'A,,,,,', '3,,,,,', '20,,,,,', NULL, ',,,,,', ',,,,,', ',,,,,', ',,,,,', ',,,,,', 'Malaysia', 'Swinburne', '0', 123, 'Kim', '2018-04-02', '', '2018-04-04', NULL, NULL, '0000-00-00', '', '', '0000-00-00', '', NULL, NULL, 0, NULL),
 (3, 1, NULL, NULL, NULL, 'Si Kim', 100072290, 'Student', 'BCS', 'New Title', '123', 1, 'Amoeba,,,,,', 'Low,,,,,', 'A,,,,,', '3,,,,,', '20,,,,,', NULL, ',,,,,', ',,,,,', ',,,,,', ',,,,,', ',,,,,', 'Malaysia', 'Swinburne', 'ms chua', 123, 'Kim', '2018-04-02', '', '2018-04-04', NULL, NULL, '0000-00-00', '', '', '0000-00-00', '', '2018-04-23', 'No accidents lately', 0, NULL);
 
@@ -1518,7 +1518,7 @@ ALTER TABLE `inventory`
 -- AUTO_INCREMENT for table `materialriskassessment`
 --
 ALTER TABLE `materialriskassessment`
-  MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `notification`
