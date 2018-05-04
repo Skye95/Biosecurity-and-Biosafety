@@ -427,15 +427,15 @@ if(!$this->session->userdata('isLogin')){
                                <td>
                                 <div class="checkbox">
                                      <label><input type="checkbox" name="notification_approved_by" value="1" <?php echo set_checkbox('notification_approved_by', '1'); ?> <?php if(isset($load)){if($item->notification_approved_by==1){echo "checked=checked";}}else{} ?>> Approved By:</label>
-                                    <input type="text" class="form-control" name="notification_approver" value="">
+                                    <input type="text" class="form-control" name="notification_approver" value="<?php if(isset($load)){echo set_value('notification_approver', $item->notification_approver);}else{echo set_value('notification_approver');} ?>">
                                 </div>
                                 <div class="checkbox">
                                      <label><input type="checkbox" name="notification_declined_by" value="1" <?php echo set_checkbox('notification_declined_by', '1'); ?> <?php if(isset($load)){if($item->notification_declined_by==1){echo "checked=checked";}}else{} ?>> Declined By:</label>
-                                    <input type="text" class="form-control" name="notification_decliner" value="">
+                                    <input type="text" class="form-control" name="notification_decliner" value="<?php if(isset($load)){echo set_value('notification_decliner', $item->notification_decliner);}else{echo set_value('notification_decliner');} ?>">
                                 </div>
                                </td>
                                <td style="width:450px">
-                                   <input type="text" class="form-control" name="notification_reviewed_by" placeholder="Reviewed by:">
+                                   <input type="text" class="form-control" name="notification_reviewed_by" placeholder="Reviewed by:" value="<?php if(isset($load)){echo set_value('notification_reviewed_by', $item->notification_reviewed_by);}else{echo set_value('notification_reviewed_by');} ?>">
                                </td>
                            </tr>
                            <tr>
@@ -459,7 +459,6 @@ if(!$this->session->userdata('isLogin')){
                    </table>
                    <div style="text-align: center">
                        <button name="submit" type="submit" class="btn btn-primary col-md-2">Submit</button>
-                       <a class="btn btn-primary col-md-2" href="<?php echo base_url(); ?>index.php/notification_of_LMO_and_BM/load_form">Load</a>
                     </div>
                <?php if(isset($disabled)){ echo "</fieldset>"; } ?>
                <?php echo form_close(); ?>
