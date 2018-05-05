@@ -10,6 +10,7 @@ class registration extends CI_Controller {
         $this->load->database();
         $this->load->model('account_model');
         $this->load->model('notification_model');
+        $this->load->model('email_model');
     }
     
 	public function index()
@@ -36,6 +37,7 @@ class registration extends CI_Controller {
             if($this->account_model->insert_new_account($data)){
                 $this->notification_model->insert_new_notification(null, 2, "New Registration", "The following user has requested for an account: " . $this->input->post('account_fullname'));
                 $this->session->set_flashdata('msg','<div class="alert alert-success text-center">You have successfully registered for an account! Please wait while your account is being approved by an administrator.</div>');
+                $this->email_model->send_email($this->input->post('account_email'), "New Registration Request", "Dear ". $this->input->post('account_fullname') ."<br/><br/>You have successfully requested for an account. Please wait between 1-3 working days before logging in again.");
                 redirect('registration/index');
             } else {
                 $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">An error has occured. Please try again later.</div>');
