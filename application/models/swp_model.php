@@ -80,7 +80,7 @@ class swp_model extends CI_Model
         $this->db->from('swp');
         $this->db->join('accounts', 'swp.account_id = accounts.account_id');
         $this->db->where('swp.application_approved IS NULL', null, false);
-        $this->db->where('swp.application_type', 3);
+        $this->db->where('swp.application_type', 4);
         $query = $this->db->get();
 		return $query->result();
     }
@@ -91,7 +91,7 @@ class swp_model extends CI_Model
         $this->db->from('swp');
         $this->db->join('accounts', 'swp.account_id = accounts.account_id');
         $this->db->where('swp.application_approved', 1);
-        $this->db->where('swp.application_type', 3);
+        $this->db->where('swp.application_type', 4);
         $query = $this->db->get();
 		return $query->result();
     }
