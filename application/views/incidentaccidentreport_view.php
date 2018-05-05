@@ -74,6 +74,7 @@ if(!$this->session->userdata('isLogin')){
                    </div>
                                      		   
 				   <hr>
+                <input type="hidden" value="<?php echo $hirarctype ?>" name="application_type" />
                    
                    <table class="table table-bordered" id="section_1">
                            <thead>

@@ -22,6 +22,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             
             $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );
             
+            $data['hirarctype']= $this->input->get('type');
+            
             $this->form_validation->set_rules('victim_name', 'Victim name', 'required|callback_fullname_check');
             $this->form_validation->set_rules('victim_age', 'Victim age', 'required');
             $this->form_validation->set_rules('victim_citizenship', 'Victim citizenship', 'required');
@@ -101,7 +103,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     'investigation_preventive_by_whom' => $ar3,
                     'investigation_preventive_timeline' => $ar4,
                     'investigated_by' => $this->input->post('investigated_by'),
-                    'reviewed_by' => $this->input->post('reviewed_by')
+                    'reviewed_by' => $this->input->post('reviewed_by'),
+                    'application_type' => $this->input->post('application_type')
                 );
                 
                 
@@ -130,6 +133,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         public function load_form(){
             
             $data['readnotif'] = $this->notification_model->get_read($this->session->userdata('account_id'), $this->session->userdata('account_type'));
+            
+            $data['hirarctype']= $this->input->get('type');
             
             $data['load'] = "true";
             $data['disabled'] = "true";

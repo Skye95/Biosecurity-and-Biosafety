@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 if(!$this->session->userdata('isLogin')){
     redirect('landing/index');
 }
-if($this->session->userdata('account_type') != 2 && $this->session->userdata('account_type') != 4){
+if($this->session->userdata('account_type') != 2 && $this->session->userdata('account_type') != 4 && $this->session->userdata('account_type') != 5){
     redirect('home/index');
 }
 ?><!DOCTYPE html>
@@ -42,6 +42,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
         <!-- Page Heading -->
         <h2 class="my-4 text-center">Welcome to your Administrator Panel, <?php echo $this->session->userdata('account_name'); ?></h2>
         
+        <?php if($this->session->userdata('account_type') == 2 || $this->session->userdata('account_type') == 4 ) {  ?>
         <div class="row">
             <div class="col-lg-3 col-md-4 col-sm-6 col-6 portfolio-item">
                 <div class="card card-block justify-content-center align-items-center">
@@ -109,7 +110,35 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                     </div>
                 </div>
             </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 col-6 portfolio-item">
+                <div class="card card-block justify-content-center align-items-center">
+                    <a href="<?php echo base_url(); ?>index.php/incidentaccident_type"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\History.jpg') ?>" alt=""></a>
+                    <div class="card-body">
+                        <h6 class="card-title">
+                            <a href="<?php echo base_url(); ?>index.php/incidentaccident_type">Incident Accident Reporting</a>
+                        </h6>
+                        <p class="card-text"></p>
+                    </div>
+                </div>
+            </div>
         </div>
+        <?php } ?>
+        
+        <?php if($this->session->userdata('account_type') == 5 ){ ?>
+        <div class="row">
+            <div class="col-lg-3 col-md-4 col-sm-6 col-6 portfolio-item">
+                <div class="card card-block justify-content-center align-items-center">
+                    <a href="<?php echo base_url(); ?>index.php/incidentaccident_type"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\History.jpg') ?>" alt=""></a>
+                    <div class="card-body">
+                        <h6 class="card-title">
+                            <a href="<?php echo base_url(); ?>index.php/incidentaccident_type">Incident Accident Reporting</a>
+                        </h6>
+                        <p class="card-text"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <?php } ?>
     </div>
 </body>
 </html>

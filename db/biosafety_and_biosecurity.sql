@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 04, 2018 at 04:30 PM
+-- Generation Time: May 05, 2018 at 04:02 PM
 -- Server version: 10.1.26-MariaDB
 -- PHP Version: 7.1.9
 
@@ -47,7 +47,8 @@ INSERT INTO `accounts` (`account_id`, `account_email`, `account_fullname`, `acco
 (2, 'testing@students.swinburne.edu.my', 'Eugene 2', 'lagoon2', 1, 0, '2018-04-10 05:44:22'),
 (3, 'cedricang@test.com', 'Cedric Ang', 'red', 3, 1, '2018-04-30 06:11:59'),
 (4, '100072290@students.swinburne.edu.my', 'Si Kim Yeung', '123456', 1, 1, '2018-04-30 09:01:32'),
-(5, 'BSO@swinburne.edu.my', 'Biosafety Officer', 'BSOpassword', 4, 1, '2018-05-01 07:58:17');
+(5, 'BSO@swinburne.edu.my', 'Biosafety Officer', 'BSOpassword', 4, 1, '2018-05-01 07:58:17'),
+(6, 'HSO@gmail.com', 'HSO name', 'HSOpassword', 5, 1, '2018-05-05 08:38:52');
 
 -- --------------------------------------------------------
 
@@ -154,7 +155,7 @@ CREATE TABLE `annex3` (
 --
 
 INSERT INTO `annex3` (`application_id`, `account_id`, `approver_id`, `reference_no`, `organization`, `faculty`, `laboratory`, `date`, `PI_name`, `PI_telephone_number`, `PI_reported_date`, `PI_reported_time`, `incident_description`, `incident_cause_checklist_faulty_equipment`, `incident_cause_checklist_no_equipment`, `incident_cause_checklist_storage`, `incident_cause_checklist_weather`, `incident_cause_checklist_assistance`, `incident_cause_checklist_electrical`, `incident_cause_checklist_carelessness`, `incident_cause_checklist_terrain`, `incident_cause_checklist_workspace`, `incident_cause_checklist_training`, `incident_cause_checklist_poor_access`, `incident_cause_checklist_unknown`, `incident_cause_checklist_maintenance_staff`, `incident_cause_checklist_supervision`, `incident_cause_checklist_method`, `incident_cause_checklist_none`, `incident_cause_checklist_none_description`, `incident_LMO_rDNA_release`, `incident_LMO_rDNA_response`, `incident_contribution`, `incident_personal_factors`, `incident_corrective_actions`, `incident_responsible`, `signature_PI_name`, `signature_PI_date`, `signature_BO_name`, `signature_BO_date`, `signature_IBC_name`, `signature_IBC_date`, `IBC_approval`, `IBC_termination`, `application_approved`, `popularity`) VALUES
-(1, 1, NULL, '123', 'Swinburne', 'BCS', 'Lab A', '2018-04-16', 'Kim', 123, '2018-04-24', '2 Pm', 'Incident description', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, 1, 1, NULL, NULL, NULL, NULL, 'Some cause', 1, 'Response plan', 'Acts by staf and others', 'Inattention', 'Repair', 'The one who did it', 'Kim Yeung', '2018-04-24', '', '0000-00-00', '', '0000-00-00', 1, 1, 0, NULL);
+(1, 1, 1, '123', 'Swinburne', 'BCS', 'Lab A', '2018-04-16', 'Kim', 123, '2018-04-24', '2 Pm', 'Incident description', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, 1, 1, NULL, NULL, NULL, NULL, 'Some cause', 1, 'Response plan', 'Acts by staf and others', 'Inattention', 'Repair', 'The one who did it', 'Kim Yeung', '2018-04-24', '', '0000-00-00', '', '0000-00-00', 1, 1, 2, NULL);
 
 -- --------------------------------------------------------
 
@@ -207,7 +208,7 @@ CREATE TABLE `annex4` (
 --
 
 INSERT INTO `annex4` (`application_id`, `account_id`, `approver_id`, `reference_no`, `personnel_name`, `personnel_NRIC`, `personnel_age`, `personnel_race`, `personnel_telephone_number`, `personnel_office_number`, `personnel_ext_number`, `personnel_employment_job`, `personnel_employment_faculty`, `personnel_employment_status`, `personnel_employment_duration`, `exposure_location`, `exposure_date`, `exposure_time`, `exposure_diagnosis`, `exposure_treatment`, `exposure_medical_cert`, `exposure_medical_cert_duration`, `exposure_work_description`, `exposure_hazard_or_agent`, `exposure_duration`, `exposure_symptoms`, `exposure_symptoms_duration`, `signature_PI_name`, `signature_PI_date`, `signature_BO_name`, `signature_BO_date`, `signature_IBC_name`, `signature_IBC_date`, `IBC_approval`, `IBC_termination`, `application_approved`, `popularity`) VALUES
-(1, 1, NULL, '123', 'Kim', 2147483647, 23, 'Chinese', 123, 123, 123, 'Student', 'BCS', 0, '3 years', 'Lab A', '2018-04-03', '16:50:00.0', 'Diagnosis given', 3, 1, '3 days', 'Handling Chemicals', 'Acid', '2 minutes', 'Burning ', '', 'Kim', '2018-04-03', '', '0000-00-00', '', '0000-00-00', NULL, NULL, NULL, NULL);
+(1, 1, 6, '123', 'Kim', 2147483647, 23, 'Chinese', 123, 123, 123, 'Student', 'BCS', 0, '3 years', 'Lab A', '2018-04-03', '16:50:00.0', 'Diagnosis given', 3, 1, '3 days', 'Handling Chemicals', 'Acid', '2 minutes', 'Burning ', '', 'Kim', '2018-04-03', '', '0000-00-00', '', '0000-00-00', NULL, NULL, 3, NULL);
 
 -- --------------------------------------------------------
 
@@ -280,10 +281,10 @@ CREATE TABLE `annualfinalreport` (
   `application_id` int(10) UNSIGNED NOT NULL,
   `account_id` int(10) UNSIGNED NOT NULL,
   `approver_id` int(10) UNSIGNED DEFAULT NULL,
-  `date_received` datetime DEFAULT NULL,
+  `date_received` date DEFAULT NULL,
   `SBC_reference_no` varchar(10) DEFAULT NULL,
-  `project_approval_date` datetime DEFAULT NULL,
-  `project_report_date` datetime DEFAULT NULL,
+  `project_approval_date` date DEFAULT NULL,
+  `project_report_date` date DEFAULT NULL,
   `report_type` int(1) NOT NULL,
   `project_title` varchar(100) NOT NULL,
   `chief_investigator` varchar(100) DEFAULT NULL,
@@ -307,7 +308,7 @@ CREATE TABLE `annualfinalreport` (
   `project_facility_description` varchar(500) DEFAULT NULL,
   `project_sign_off_chief_investigator_name` varchar(100) DEFAULT NULL,
   `project_sign_off_BO_name` varchar(100) DEFAULT NULL,
-  `application_approved` int(1) NOT NULL,
+  `application_approved` int(1) DEFAULT NULL,
   `popularity` int(10) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -316,7 +317,7 @@ CREATE TABLE `annualfinalreport` (
 --
 
 INSERT INTO `annualfinalreport` (`application_id`, `account_id`, `approver_id`, `date_received`, `SBC_reference_no`, `project_approval_date`, `project_report_date`, `report_type`, `project_title`, `chief_investigator`, `personnel_extra`, `personnel_extra_title`, `personnel_extra_name`, `personnel_extra_qualifications`, `personnel_extra_department`, `personnel_extra_campus`, `personnel_extra_postal_address`, `personnel_extra_telephone`, `personnel_extra_fax`, `personnel_extra_email_address`, `project_summary`, `project_outline`, `project_incidents`, `project_SOP`, `project_facility_changes`, `project_facility_building_number`, `project_facility_room_number`, `project_facility_description`, `project_sign_off_chief_investigator_name`, `project_sign_off_BO_name`, `application_approved`, `popularity`) VALUES
-(1, 1, NULL, NULL, NULL, NULL, NULL, 0, 'New title', 'Chief Investigator person', 1, 'Title', 'Kim', 'Undergraduate', 'BCS', 'Swinburne sarawak', 'Somewhere in sarawask', 123, '123-1234567', '100072290@students.swinburne.edu.my', 'Biology stuff', 'Lazy', 'None at all', NULL, 1, '123', '609', NULL, 'Some random person', 'Ms Chua', 0, NULL);
+(1, 1, 1, NULL, NULL, NULL, NULL, 0, 'New title', 'Chief Investigator person', 1, 'Title', 'Kim', 'Undergraduate', 'BCS', 'Swinburne sarawak', 'Somewhere in sarawask', 123, '123-1234567', '100072290@students.swinburne.edu.my', 'Biology stuff', 'Lazy', 'None at all', NULL, 1, '123', '609', NULL, 'Some random person', 'Ms Chua', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -364,7 +365,7 @@ CREATE TABLE `biohazardousmaterial` (
 --
 
 INSERT INTO `biohazardousmaterial` (`application_id`, `account_id`, `approver_id`, `date_received`, `SBC_reference_no`, `project_title`, `project_supervisor_name`, `project_supervisor_department`, `project_supervisor_email_address`, `project_alt_person`, `project_alt_department`, `project_alt_email`, `project_personnel_name`, `project_personnel_role`, `proposed_work_known`, `proposed_work_may`, `proposed_work_unknown`, `proposed_work_isolation`, `proposed_work_risk`, `proposed_work_sensitive`, `proposed_work_other`, `project_summary`, `project_activity`, `project_SOP`, `project_SOP_title`, `project_SOP_risk_title`, `project_facilities_building`, `project_facilities_room`, `officer_notified`, `officer_name`, `application_approved`, `popularity`) VALUES
-(1, 1, NULL, NULL, NULL, 'New project title', 'Me', 'BCS', '100072290@students.swinburne.edu.my', 'Somebody Else', NULL, '100072290@students.swinburne.edu.my', 'Me,,,', 'Research assistant,,,', 1, 1, 1, NULL, NULL, NULL, NULL, 'Long ass summary', 'New breakthrough method', NULL, 'Not sure ,,', 'Anything,,', 'New Building,', '103,', NULL, NULL, 0, NULL);
+(1, 1, 5, NULL, NULL, 'New project title', 'Me', 'BCS', '100072290@students.swinburne.edu.my', 'Somebody Else', NULL, '100072290@students.swinburne.edu.my', 'Me,,,', 'Research assistant,,,', 1, 1, 1, NULL, NULL, NULL, NULL, 'Long ass summary', 'New breakthrough method', NULL, 'Not sure ,,', 'Anything,,', 'New Building,', '103,', NULL, NULL, 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -659,7 +660,8 @@ CREATE TABLE `hirarc` (
 --
 
 INSERT INTO `hirarc` (`application_id`, `account_id`, `approver_id`, `company_name`, `date`, `process_location`, `conducted_name`, `conducted_designation`, `approved_name`, `approved_designation`, `date_from`, `date_to`, `review_date`, `document_no`, `HIRARC_activity`, `HIRARC_hazard`, `HIRARC_effects`, `HIRARC_risk_control`, `HIRARC_LLH`, `HIRARC_SEV`, `HIRARC_RR`, `HIRARC_control_measure`, `HIRARC_PIC`, `application_type`, `application_approved`, `popularity`) VALUES
-(1, 1, 1, 'My company', '2018-03-26', 'Swinburne', 'Me', 'Student', 'Ms Chua', 'Biosafety Officer', '2018-03-28', '2018-04-26', '2018-05-16', NULL, 'asfcaf,,,', 'sasfvasv,,,', 'asvasvasvas,,,', 'svavsv,,,', 'llh,,,', 'SEV,,,', 'RR,,,', 'asfasfasf,,,', 'Finished,,,', 0, 2, NULL);
+(1, 1, 1, 'My company', '2018-03-26', 'Swinburne', 'Me', 'Student', 'Ms Chua', 'Biosafety Officer', '2018-03-28', '2018-04-26', '2018-05-16', NULL, 'asfcaf,,,', 'sasfvasv,,,', 'asvasvasvas,,,', 'svavsv,,,', 'llh,,,', 'SEV,,,', 'RR,,,', 'asfasfasf,,,', 'Finished,,,', 1, NULL, NULL),
+(2, 4, 1, 'My Company or Department', '2018-05-02', 'Swinburne', 'Me', 'Student', 'Name', 'Random', '2018-05-08', '2018-05-09', '2018-05-10', NULL, 'Activity 1,Test 4,,', 'Acid,test4,,', 'Burn,test4,,', 'None,test4,,', 'LLH,test4,,', 'SEV,t4,,', 'RR,t4,,', 'Recommended ,test4,,', 'Complete,test4,,', 4, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -710,7 +712,8 @@ CREATE TABLE `incidentaccidentreport` (
   `investigation_preventive_timeline` varchar(500) NOT NULL,
   `investigated_by` varchar(100) DEFAULT NULL,
   `reviewed_by` varchar(100) DEFAULT NULL,
-  `application_approved` int(1) NOT NULL,
+  `application_type` int(1) DEFAULT '0',
+  `application_approved` int(1) DEFAULT NULL,
   `popularity` int(10) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -718,8 +721,11 @@ CREATE TABLE `incidentaccidentreport` (
 -- Dumping data for table `incidentaccidentreport`
 --
 
-INSERT INTO `incidentaccidentreport` (`application_id`, `account_id`, `approver_id`, `victim_name`, `victim_gender`, `victim_age`, `victim_citizenship`, `victim_employment_designation`, `victim_faculty`, `doc_id`, `review_date`, `incident_date`, `incident_time`, `incident_location`, `incident_type1`, `incident_type2`, `incident_type3`, `incident_type4`, `incident_type5`, `incident_type6`, `incident_type7`, `incident_type8`, `incident_type9`, `incident_type_description`, `incident_injury`, `incident_physician_or_hospital`, `incident_details`, `incident_actions`, `reporter_name`, `reporter_designation`, `reporter_date`, `investigation_victim`, `investigation_victim_age`, `investigation_victim_citizenship`, `investigation_victim_job_description`, `investigation_findings`, `investigation_preventive_no`, `investigation_preventive_action`, `investigation_preventive_by_whom`, `investigation_preventive_timeline`, `investigated_by`, `reviewed_by`, `application_approved`, `popularity`) VALUES
-(1, 1, NULL, 'Kim yeung', 1, 23, 'Malaysian', 'Student', 'CS', NULL, '2018-04-02', '2018-04-04', '', 'B609', 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Stuff happened', 0, 0, 'Nothing serious', 'Investigations Commenced', 'This dude', 'Student', '2018-04-04', 0, '20', 'Malayisan', 'Student', 'Some dude messed up', '1,,,,,', 'remove stuff,,,,,', 'Lab manager,,,,,', '2018-04-03,,,,,', 'health and Safety Officer', 'Ms Chua', 0, NULL);
+INSERT INTO `incidentaccidentreport` (`application_id`, `account_id`, `approver_id`, `victim_name`, `victim_gender`, `victim_age`, `victim_citizenship`, `victim_employment_designation`, `victim_faculty`, `doc_id`, `review_date`, `incident_date`, `incident_time`, `incident_location`, `incident_type1`, `incident_type2`, `incident_type3`, `incident_type4`, `incident_type5`, `incident_type6`, `incident_type7`, `incident_type8`, `incident_type9`, `incident_type_description`, `incident_injury`, `incident_physician_or_hospital`, `incident_details`, `incident_actions`, `reporter_name`, `reporter_designation`, `reporter_date`, `investigation_victim`, `investigation_victim_age`, `investigation_victim_citizenship`, `investigation_victim_job_description`, `investigation_findings`, `investigation_preventive_no`, `investigation_preventive_action`, `investigation_preventive_by_whom`, `investigation_preventive_timeline`, `investigated_by`, `reviewed_by`, `application_type`, `application_approved`, `popularity`) VALUES
+(1, 1, 5, 'Kim yeung', 1, 23, 'Malaysian', 'Student', 'CS', NULL, '2018-04-02', '2018-04-04', '1PM', 'B609', 7, 2, 3, 4, NULL, 6, NULL, NULL, NULL, 'Stuff happened', 0, 0, 'Nothing serious', 'Investigations Commenced', 'This dude', 'Student', '2018-04-04', 0, '20', 'Malayisan', 'Student', 'Some dude messed up', '1,,,,,', 'remove stuff,,,,,', 'Lab manager,,,,,', '2018-04-03,,,,,', 'health and Safety Officer', 'Ms Chua', 1, 1, NULL),
+(2, 4, 5, 'Si Kim Yeung', 1, 23, 'Malaysian', 'Student', 'BCS', NULL, '2018-05-07', '2018-05-15', '2PM', '508', 1, 2, 3, NULL, NULL, 6, 7, 8, NULL, '', 0, 0, 'Random incident', 'Random actions', 'Me', 'Student', '2018-05-15', 1, '20', 'Malaysian', 'student', 'Random findings', '1,,,,,', 'Random action 1,,,,,', 'Person 1,,,,,', '2018-05-02,,,,,', '', '', 2, 1, NULL),
+(3, 4, 5, 'Random 3', 1, 23, 'Malaysian', 'Student', 'BCS', NULL, '2018-05-21', '2018-05-08', '3 PM', 'Lab A', 1, 2, 3, 4, 5, NULL, NULL, NULL, NULL, '', 1, 1, 'Burning acid', 'No actions', 'Someone', 'Lab Person', '2018-05-01', 1, '20', 'Malaysian', 'Student', 'Random Findings', '1,,,,,', 'Action 3,,,,,', 'Me 3,,,,,', '2018-05-08,,,,,', '', '', 3, 1, NULL),
+(4, 4, 5, 'Random name 4', 1, 24, 'Malaysian', 'Random Job', 'Biotech', NULL, '2018-05-21', '2018-05-09', '4 PM', 'Room 508', NULL, NULL, NULL, NULL, NULL, 6, 7, 8, 9, '', 1, 0, 'Some details here', 'actions taken here', 'Me 4', 'Student', '2018-05-29', 1, '24', 'Malaysian', 'Student', 'Findings here', '1,,,,,', 'Actions taken here,,,,,', 'By whom here,,,,,', '2018-05-10,,,,,', '', '', 4, 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -908,12 +914,13 @@ INSERT INTO `notification` (`notification_id`, `account_id`, `notification_type`
 (1, 1, 2, 'Test', 'Hello, This is to test out notification number 1 from account id 1!!!', '2018-04-23 20:27:40', 1),
 (2, 2, 1, 'Test 2', 'This is from account 2. Krappa', '2018-04-23 20:28:25', 0),
 (3, 1, 1, 'Test 1+2', 'SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT SAMPLETEXT ', '2018-04-23 20:29:12', 1),
-(4, NULL, 2, 'New Registration', 'The following user has requested for an account: Cedric Ang', '2018-04-30 14:11:59', 0),
-(5, NULL, 2, 'New Registration', 'The following user has requested for an account: Si Kim Yeung', '2018-04-30 17:01:32', 0),
-(6, NULL, 2, 'New Registration', 'The following use has submitted an Annex 2 form: ', '2018-05-01 00:01:02', 0),
+(4, NULL, 2, 'New Registration', 'The following user has requested for an account: Cedric Ang', '2018-04-30 14:11:59', 1),
+(5, NULL, 2, 'New Registration', 'The following user has requested for an account: Si Kim Yeung', '2018-04-30 17:01:32', 1),
+(6, NULL, 2, 'New Registration', 'The following use has submitted an Annex 2 form: ', '2018-05-01 00:01:02', 1),
 (7, 2, 1, 'New Registration', 'The following use has submitted an Annex 2 form: ', '2018-05-01 12:48:47', 0),
 (8, 3, 3, 'New Registration', 'The following user has requested for an account: Biosafety Officer', '2018-05-01 15:58:17', 0),
-(9, NULL, 2, 'New Registration', 'The following use has submitted an Annex 2 form: Kim Yeung', '2018-05-02 21:04:24', 0);
+(9, NULL, 2, 'New Registration', 'The following use has submitted an Annex 2 form: Kim Yeung', '2018-05-02 21:04:24', 1),
+(10, NULL, 2, 'New Registration', 'The following user has requested for an account: HSO name', '2018-05-05 16:38:52', 1);
 
 -- --------------------------------------------------------
 
@@ -1250,7 +1257,8 @@ CREATE TABLE `swp` (
 --
 
 INSERT INTO `swp` (`application_id`, `account_id`, `approver_id`, `date_received`, `SBC_reference_no`, `SWP_prepared_by`, `SWP_staff_student_no`, `SWP_designation`, `SWP_faculty`, `SWP_unit_title`, `SWP_project_title`, `SWP_location`, `SWP_description`, `SWP_preoperational`, `SWP_operational`, `SWP_postoperational`, `SWP_risk`, `SWP_control`, `SWP_declaration_name`, `SWP_declaration_date`, `application_type`, `SWP_signature_prepared_by`, `SWP_signature_prepared_by_date`, `SWP_signature_PI`, `SWP_signature_PI_date`, `SWP_lab_trained`, `SWP_lab_trainer`, `SWP_approval_by`, `SWP_approved_by`, `SWP_declined_by`, `SWP_approve_decline_date`, `SWP_approve_decline_remarks`, `SWP_reviewed_by`, `SWP_reviewed_by_date`, `SWP_reviewed_by_remarks`, `application_approved`, `popularity`) VALUES
-(1, 1, NULL, NULL, NULL, 'Heu', 100072290, 'Studnet', 'BCS', 'SE40001', 'FYP', 'Swinburne Sarawak', 'kdnflsnagvkldb gvg', 'bzdhshbbfdbhbhsdfrbbzsbsbzs', 'zsdtbsbstnbzndbsnb', 'fdbtsrnsrtnbrtsnsrnbzd', 'rtgfnrsnrssrnzrs', 'srnsrntsdbrnt', 'Declare name', '2018-02-06', NULL, 'Signature name', '2018-04-12', 'Verified name', '2018-04-23', 1, 'Me', 1, NULL, '', '0000-00-00', '', 'Damn', '0000-00-00', '', 0, NULL);
+(1, 1, NULL, NULL, NULL, 'Heu', 100072290, 'Studnet', 'BCS', 'SE40001', 'FYP', 'Swinburne Sarawak', 'kdnflsnagvkldb gvg', 'bzdhshbbfdbhbhsdfrbbzsbsbzs', 'zsdtbsbstnbzndbsnb', 'fdbtsrnsrtnbrtsnsrnbzd', 'rtgfnrsnrssrnzrs', 'srnsrntsdbrnt', 'Declare name', '2018-02-06', 1, 'Signature name', '2018-04-12', 'Verified name', '2018-04-23', 1, 'Me', 1, NULL, '', '0000-00-00', '', 'Damn', '0000-00-00', '', NULL, NULL),
+(2, 4, 1, NULL, NULL, 'Me', 100072290, 'Student', 'BCS', 'SWE40001', 'NEw Title 4', 'Lab A', 'test4', 'test4', 'test4', 'test4', 'test4', 'test4', 'Declaration name', '2018-05-08', 4, 'Me', '2018-05-17', 'Me', '2018-05-22', NULL, '', NULL, NULL, '', '0000-00-00', '', '', '0000-00-00', '', NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -1433,7 +1441,7 @@ ALTER TABLE `swp`
 -- AUTO_INCREMENT for table `accounts`
 --
 ALTER TABLE `accounts`
-  MODIFY `account_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `account_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `annex2`
@@ -1499,13 +1507,13 @@ ALTER TABLE `formf`
 -- AUTO_INCREMENT for table `hirarc`
 --
 ALTER TABLE `hirarc`
-  MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `incidentaccidentreport`
 --
 ALTER TABLE `incidentaccidentreport`
-  MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `inventory`
@@ -1523,7 +1531,7 @@ ALTER TABLE `materialriskassessment`
 -- AUTO_INCREMENT for table `notification`
 --
 ALTER TABLE `notification`
-  MODIFY `notification_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `notification_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `notificationexportingbiologicalmaterial`
@@ -1559,7 +1567,7 @@ ALTER TABLE `storage`
 -- AUTO_INCREMENT for table `swp`
 --
 ALTER TABLE `swp`
-  MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables

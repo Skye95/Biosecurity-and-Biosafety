@@ -20,7 +20,7 @@
                             <a class="nav-link" href="<?php echo base_url(); ?>index.php/notification/index"><i class="fa fa-bell fa-lg fa-fw"></i> Notifications</a>
                         <?php } ?>
                     </li>
-                    <?php if($this->session->userdata('account_type') == 2 || $this->session->userdata('account_type') == 4) { ?>
+                    <?php if($this->session->userdata('account_type') == 2 || $this->session->userdata('account_type') == 4 || $this->session->userdata('account_type') == 5 ) { ?>
                     <li class="nav-item">
                         <a class="nav-link" href="<?php echo base_url(); ?>index.php/adminpage/index"><i class="fa fa-tv fa-lg fa-fw"></i> Administrator Panel</a>
                     </li>

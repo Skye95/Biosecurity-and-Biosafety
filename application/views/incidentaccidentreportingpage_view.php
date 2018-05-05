@@ -45,7 +45,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		</div>
         
         <div class="row">
-            <a href="<?php echo base_url(); ?>index.php/incidentaccidentreport">		
+            <a href="<?php echo base_url(); ?>index.php/incidentaccidentreport?type=4">		
                     <div class="option1 card col-md-9 hover1" title="OHS-F-4.20.X Incident Accident Report Form">
                         <h5><span>EXEMPT DEALING OR BIOHAZARDOUS MATERIAL</span></h5>		
                     </div>				

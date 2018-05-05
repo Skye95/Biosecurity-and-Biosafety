@@ -39,7 +39,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<div class="col-lg-5" >
         
 		<div class="row">
-            <a href="<?php echo base_url(); ?>index.php/incidentaccidentreport">		
+            <a href="<?php echo base_url(); ?>index.php/incidentaccidentreport?type=1">		
                     <div class="option1 card col-md-9 hover1" title="New Application">
                         <h5><span>MINOR BIOLOGICAL INCIDENT OR ACCIDENT</span></h5>
                     </div>				
