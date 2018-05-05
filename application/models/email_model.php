@@ -10,21 +10,20 @@ class email_model extends CI_Model
     
 	function send_email($target, $title, $msg)
 	{
-        
         $config = Array(
             'protocol' => 'smtp',
             'smtp_host' => 'ssl://smtp.googlemail.com',
             'smtp_port' => 465,
-            'smtp_user' => '     email here   ',
-            'smtp_pass' => '    password here    ',
+            'smtp_user' => 'bbosswinburne@gmail.com',
+            'smtp_pass' => 'swinburne',
             'mailtype'  => 'html', 
-            'charset'   => 'iso-8859-1'
+            'charset'   => null
         );
         $this->load->library('email', $config);
         $this->email->set_newline("\r\n");
-
+        
         // Set to, from, message, etc.
-        $this->email->from('  email here   ', 'Swinburne BBOS');
+        $this->email->from('bbosswinburne@gmail.com', 'Swinburne BBOS');
         $this->email->to($target);
         $this->email->subject($title);
         $this->email->message($msg);
