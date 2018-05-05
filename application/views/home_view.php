@@ -7,6 +7,8 @@ if(!$this->session->userdata('isLogin')){
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
+<link rel="stylesheet" type="text/css" href="https://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css" />
+<link rel="stylesheet" href="<?php echo base_url()?>assets/css/styles.css" type="text/css">
     <title>Swinburne Biosafety and Biosecurity Online System - Homepage</title>
     
     <style>
@@ -38,7 +40,13 @@ if(!$this->session->userdata('isLogin')){
     <div class="container">
         <!-- Page Heading -->
         <h2 class="my-4 text-center">Welcome, <?php echo $this->session->userdata('account_name'); ?> 
-<button class='btn btn-primary float-right'>Testing</button></h2>
+			<div class="float-right">
+				<i class="hovicon small effect-1 sub-a icon-book" title="Click to Download User Manual"></i>
+				</br>
+				<text id="texthover">User Manual</text>
+			</div></h2>
+			</br>
+
         <div class="row">
             <div class="col-lg-3 col-md-4 col-sm-6 col-6 portfolio-item">
                 <div class="card card-block justify-content-center align-items-center">
@@ -129,6 +137,6 @@ if(!$this->session->userdata('isLogin')){
                 </div>
             </div>
         </div>
-    </div>
+	</div>
 </body>
 </html>
