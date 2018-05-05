@@ -40,10 +40,10 @@ if(!$this->session->userdata('isLogin')){
     <div class="container">
         <!-- Page Heading -->
         <h2 class="my-4 text-center">Welcome, <?php echo $this->session->userdata('account_name'); ?> 
-			<div class="float-right">
-				<i class="hovicon small effect-1 sub-a icon-book" title="Click to Download User Manual"></i>
+			<div onclick="location.href='<?=base_url ()?>index.php/download/SSBC_Manualv2.1.pdf';" class="float-right">
+				<i class="hovicon small effect-1 sub-a icon-book" title="Click to Download SSBC User Manual"></i>
 				</br>
-				<text id="texthover">User Manual</text>
+				<a href="<?=base_url ()?>index.php/download/SSBC_Manualv2.1.pdf" id="texthover">User Manual</a>
 			</div></h2>
 			</br>
 
