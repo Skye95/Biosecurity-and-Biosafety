@@ -85,6 +85,16 @@ class annex2_model extends CI_Model
         return true;
     }
     
+    function edit_request($id){
+        
+        $data = array('editable' => 0);
+        $this->db->where('application_id', $id);
+        $this->db->update('annex2', $data);
+        
+        return true;
+            
+    }
+    
     
 }
 ?>

@@ -29,6 +29,8 @@ if(!$this->session->userdata('isLogin')){
             $past = null;
         } 
     ?>
+    
+    
     <!-- Page Content -->
     <div class="container">
         <!-- Page Heading -->
@@ -71,7 +73,9 @@ if(!$this->session->userdata('isLogin')){
                         </td>
                         <td class="text-center">
                             <i class="fa fa-bars btn btn-info" onclick="view_application(<?php echo $row['application_id']; ?>, '<?php echo $row['type']; ?>')" title="Details"></i>
+                            
                             <i class="fa fa-edit btn btn-warning" onclick="edit_application(<?php echo $row['application_id']; ?>, '<?php echo $row['type']; ?>')" title="Edit"></i>
+                            
                             <i class="fa fa-clock btn btn-primary" onclick="extend_application()" title="Extend"></i>
                             <i class="fa fa-times btn btn-danger" onclick="terminate_application()" title="Terminate"></i>
                         </td>
@@ -133,9 +137,9 @@ if(!$this->session->userdata('isLogin')){
 
             function edit_application(i, j){
                 if(confirm("You will be submitting an edit request to the corresponding officer. Are you sure?")){
-                    /* window.location = "<?php echo base_url(); ?>index.php/annex2/load_form/" + i; */
+                    window.location = "<?php echo base_url(); ?>index.php/history/edit_application/" + i + "/" + j;
                 }
-            }
+            } 
 
             function extend_application(){
                  window.location = "<?php echo base_url(); ?>index.php/annex5/";
