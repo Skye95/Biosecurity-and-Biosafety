@@ -44,7 +44,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
         <div class="row">
             <div class="col-lg-3 col-md-4 col-sm-6 col-6 portfolio-item">
                 <div class="card card-block justify-content-center align-items-center">
-                    <a href="<?php echo base_url(); ?>index.php/accountapproval/index"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\History.jpg') ?>" alt=""></a>
+                    <a href="<?php echo base_url(); ?>index.php/export_LMO_approval/index"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\History.jpg') ?>" alt=""></a>
                     <div class="card-body">
                         <h6 class="card-title">
                             <a href="<?php echo base_url(); ?>index.php/export_LMO_approval/index">Living Modified Organisms (LMO)</a>
@@ -55,7 +55,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6 col-6 portfolio-item">
                 <div class="card card-block justify-content-center align-items-center">
-                    <a href="#"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\History.jpg') ?>" alt=""></a>
+                    <a href="<?php echo base_url(); ?>index.php/export_exempt_BM/index"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\History.jpg') ?>" alt=""></a>
                     <div class="card-body">
                         <h6 class="card-title">
                             <a href="<?php echo base_url(); ?>index.php/export_exempt_BM/index">Exempt Dealing or Biohazardous Material</a>

@@ -66,7 +66,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6 col-6 portfolio-item">
                 <div class="card card-block justify-content-center align-items-center">
-                    <a href="#"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\History.jpg') ?>" alt=""></a>
+                    <a href="<?php echo base_url(); ?>index.php/biohazard_approval/index"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\History.jpg') ?>" alt=""></a>
                     <div class="card-body">
                         <h6 class="card-title">
                             <a href="<?php echo base_url(); ?>index.php/biohazard_approval/index">Biohazardous Materials</a>
