@@ -8,6 +8,16 @@ class notification_of_exporting_biological_material_model extends CI_Model
         parent::__construct();
     }
     
+    function get_all_edit_request() 
+    {
+        $this->db->select('*');
+        $this->db->from('notificationexportingbiologicalmaterial');
+        $this->db->join('accounts', 'notificationexportingbiologicalmaterial.account_id = accounts.account_id');
+        $this->db->where('notificationexportingbiologicalmaterial.editable', 1);
+        $query = $this->db->get();
+		return $query->result();
+    }
+    
     function get_all_form() 
     {
         $this->db->select('*');
@@ -51,6 +61,16 @@ class notification_of_exporting_biological_material_model extends CI_Model
             $this->db->update('notificationexportingbiologicalmaterial', $data);
         }
         return true;
+    }
+    
+    function edit_request($id){
+        
+        $data = array('editable' => 1);
+        $this->db->where('application_id', $id);
+        $this->db->update('notificationexportingbiologicalmaterial', $data);
+        
+        return true;
+            
     }
 
     

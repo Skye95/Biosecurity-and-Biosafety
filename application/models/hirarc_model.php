@@ -7,6 +7,16 @@ class hirarc_model extends CI_Model
     {
         parent::__construct();
     }
+    
+    function get_all_edit_request() 
+    {
+        $this->db->select('*');
+        $this->db->from('hirarc');
+        $this->db->join('accounts', 'hirarc.account_id = accounts.account_id');
+        $this->db->where('hirarc.editable', 1);
+        $query = $this->db->get();
+		return $query->result();
+    }
 	
     function get_all_hirarc1_form() 
     {
@@ -144,6 +154,16 @@ class hirarc_model extends CI_Model
             $this->db->update('hirarc', $data);
         }
         return true;
+    }
+    
+    function edit_request($id){
+        
+        $data = array('editable' => 1);
+        $this->db->where('application_id', $id);
+        $this->db->update('hirarc', $data);
+        
+        return true;
+            
     }
     
     

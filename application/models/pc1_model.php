@@ -8,6 +8,16 @@ class pc1_model extends CI_Model
         parent::__construct();
     }
 	
+    function get_all_edit_request() 
+    {
+        $this->db->select('*');
+        $this->db->from('pc1');
+        $this->db->join('accounts', 'pc1.account_id = accounts.account_id');
+        $this->db->where('pc1.editable', 1);
+        $query = $this->db->get();
+		return $query->result();
+    }
+    
     function get_all_form() 
     {
         $this->db->select('*');
@@ -77,6 +87,15 @@ class pc1_model extends CI_Model
         return true;
     }
     
+    function edit_request($id){
+        
+        $data = array('editable' => 1);
+        $this->db->where('application_id', $id);
+        $this->db->update('pc1', $data);
+        
+        return true;
+            
+    }
     
     
 }

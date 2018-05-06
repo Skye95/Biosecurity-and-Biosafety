@@ -8,6 +8,25 @@ class annex2_model extends CI_Model
         parent::__construct();
     }
     
+    function get_editable_value($id)
+    {
+        $this->db->select('editable');
+        $this->db->from('annex2');
+        $this->db->where('application_id', $id);
+        $query = $this->db->get();
+		return $query->result();
+    }
+    
+    function get_all_edit_request() 
+    {
+        $this->db->select('*');
+        $this->db->from('annex2');
+        $this->db->join('accounts', 'annex2.account_id = accounts.account_id');
+        $this->db->where('annex2.editable', 1);
+        $query = $this->db->get();
+		return $query->result();
+    }
+    
     function get_all_form() 
     {
         $this->db->select('*');
@@ -87,12 +106,28 @@ class annex2_model extends CI_Model
     
     function edit_request($id){
         
-        $data = array('editable' => 0);
+        $data = array('editable' => 1);
         $this->db->where('application_id', $id);
         $this->db->update('annex2', $data);
         
         return true;
             
+    }
+    
+    function update_editable($id, $type, $approver_id)
+    {
+        if ($type == 0) {
+            
+            $data = array('editable' => 3, 'approver_id' => $approver_id );
+            $this->db->where('account_id', $id);
+            $this->db->update('annex2', $data);
+        } elseif ($type == 1) {
+            $data = array('editable' => 2, 'approver_id' => $approver_id);
+            $this->db->where('account_id', $id);
+            $this->db->update('annex2', $data);
+        }
+        return true;
+        
     }
     
     

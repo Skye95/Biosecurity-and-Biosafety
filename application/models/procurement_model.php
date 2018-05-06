@@ -8,6 +8,15 @@ class procurement_model extends CI_Model
         parent::__construct();
     }
 	
+    function get_all_edit_request() 
+    {
+        $this->db->select('*');
+        $this->db->from('materialriskassessment');
+        $this->db->join('accounts', 'materialriskassessment.account_id = accounts.account_id');
+        $this->db->where('materialriskassessment.editable', 1);
+        $query = $this->db->get();
+		return $query->result();
+    }
     
     function get_all_form() 
     {
@@ -52,6 +61,16 @@ class procurement_model extends CI_Model
             $this->db->update('materialriskassessment', $data);
         }
         return true;
+    }
+    
+    function edit_request($id){
+        
+        $data = array('editable' => 1);
+        $this->db->where('application_id', $id);
+        $this->db->update('materialriskassessment', $data);
+        
+        return true;
+            
     }
     
 }
