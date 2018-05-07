@@ -36,7 +36,8 @@ class history_model extends CI_Model
                 $data = [
                     'type' => 'ANNEX 2 FORM',
                     'application_id' => $row->application_id,
-                    'approval' => $row->application_approved
+                    'approval' => $row->application_approved,
+                    'editable' => $row->editable
                 ];
                 array_push($result, $data);
             }
@@ -48,7 +49,8 @@ class history_model extends CI_Model
                 $data = [
                     'type' => 'ANNEX 3 FORM',
                     'application_id' => $row->application_id,
-                    'approval' => $row->application_approved
+                    'approval' => $row->application_approved,
+                    'editable' => $row->editable
                 ];
                 array_push($result, $data);
             }
@@ -60,7 +62,8 @@ class history_model extends CI_Model
                 $data = [
                     'type' => 'ANNEX 4 FORM',
                     'application_id' => $row->application_id,
-                    'approval' => $row->application_approved
+                    'approval' => $row->application_approved,
+                    'editable' => $row->editable
                 ];
                 array_push($result, $data);
             }
@@ -72,7 +75,8 @@ class history_model extends CI_Model
                 $data = [
                     'type' => 'ANNEX 5 FORM',
                     'application_id' => $row->application_id,
-                    'approval' => $row->application_approved
+                    'approval' => $row->application_approved,
+                    'editable' => $row->editable
                 ];
                 array_push($result, $data);
             }
@@ -84,7 +88,8 @@ class history_model extends CI_Model
                 $data = [
                     'type' => 'SBC ANNUAL OR FINAL REPORT FOR USE OF BIOHAZARDOUS MATERIALS',
                     'application_id' => $row->application_id,
-                    'approval' => $row->application_approved
+                    'approval' => $row->application_approved,
+                    'editable' => $row->editable
                 ];
                 array_push($result, $data);
             }
@@ -96,7 +101,8 @@ class history_model extends CI_Model
                 $data = [
                     'type' => 'APPLICATION FOR BIOSAFETY CLEARANCE FORM',
                     'application_id' => $row->application_id,
-                    'approval' => $row->application_approved
+                    'approval' => $row->application_approved,
+                    'editable' => $row->editable
                 ];
                 array_push($result, $data);
             }
@@ -108,7 +114,8 @@ class history_model extends CI_Model
                 $data = [
                     'type' => 'APPLICATION FOR BIOSAFETY CLEARANCE EXEMPT DEALINGS FORM',
                     'application_id' => $row->application_id,
-                    'approval' => $row->application_approved
+                    'approval' => $row->application_approved,
+                    'editable' => $row->editable
                 ];
                 array_push($result, $data);
             }
@@ -120,7 +127,8 @@ class history_model extends CI_Model
                 $data = [
                     'type' => 'FORM E',
                     'application_id' => $row->application_id,
-                    'approval' => $row->application_approved
+                    'approval' => $row->application_approved,
+                    'editable' => $row->editable
                 ];
                 array_push($result, $data);
             }
@@ -132,7 +140,8 @@ class history_model extends CI_Model
                 $data = [
                     'type' => 'FORM F',
                     'application_id' => $row->application_id,
-                    'approval' => $row->application_approved
+                    'approval' => $row->application_approved,
+                    'editable' => $row->editable
                 ];
                 array_push($result, $data);
             }
@@ -144,7 +153,8 @@ class history_model extends CI_Model
                 $data = [
                     'type' => 'OHS-F-4.5.X HIRARC FORM',
                     'application_id' => $row->application_id,
-                    'approval' => $row->application_approved
+                    'approval' => $row->application_approved,
+                    'editable' => $row->editable
                 ];
                 array_push($result, $data);
             }
@@ -156,7 +166,8 @@ class history_model extends CI_Model
                 $data = [
                     'type' => 'OHS-F-4.20.X INCIDENT ACCIDENT REPORT',
                     'application_id' => $row->application_id,
-                    'approval' => $row->application_approved
+                    'approval' => $row->application_approved,
+                    'editable' => $row->editable
                 ];
                 array_push($result, $data);
             }
@@ -168,7 +179,8 @@ class history_model extends CI_Model
                 $data = [
                     'type' => 'SSBC NOTIFICATION OF EXPORTING LMO AND BIOHAZARDOUS MATERIAL',
                     'application_id' => $row->application_id,
-                    'approval' => $row->application_approved
+                    'approval' => $row->application_approved,
+                    'editable' => $row->editable
                 ];
                 array_push($result, $data);
             }
@@ -180,7 +192,8 @@ class history_model extends CI_Model
                 $data = [
                     'type' => 'NOTIFICATION OF LMO AND BIOHAZARDOUS MATERIAL',
                     'application_id' => $row->application_id,
-                    'approval' => $row->application_approved
+                    'approval' => $row->application_approved,
+                    'editable' => $row->editable
                 ];
                 array_push($result, $data);
             }
@@ -192,7 +205,8 @@ class history_model extends CI_Model
                 $data = [
                     'type' => 'APPLICATION FOR NLRDS SUITABLE FOR PC1 FORM',
                     'application_id' => $row->application_id,
-                    'approval' => $row->application_approved
+                    'approval' => $row->application_approved,
+                    'editable' => $row->editable
                 ];
                 array_push($result, $data);
             }
@@ -204,7 +218,8 @@ class history_model extends CI_Model
                 $data = [
                     'type' => 'APPLICATION FOR NLRDS SUITABLE FOR PC2 FORM',
                     'application_id' => $row->application_id,
-                    'approval' => $row->application_approved
+                    'approval' => $row->application_approved,
+                    'editable' => $row->editable
                 ];
                 array_push($result, $data);
             }
@@ -216,7 +231,8 @@ class history_model extends CI_Model
                 $data = [
                     'type' => 'OHS-F-4.18.X PRE-PURCHASE MATERIAL RISK ASSESSMENT',
                     'application_id' => $row->application_id,
-                    'approval' => $row->application_approved
+                    'approval' => $row->application_approved,
+                    'editable' => $row->editable
                 ];
                 array_push($result, $data);
             }
@@ -228,7 +244,8 @@ class history_model extends CI_Model
                 $data = [
                     'type' => 'SSBC SAFE WORK PROCEDURE',
                     'application_id' => $row->application_id,
-                    'approval' => $row->application_approved
+                    'approval' => $row->application_approved,
+                    'editable' => $row->editable
                 ];
                 array_push($result, $data);
             }

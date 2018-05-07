@@ -74,7 +74,7 @@ if(!$this->session->userdata('isLogin')){
                         <td class="text-center">
                             <i class="fa fa-bars btn btn-info" onclick="view_application(<?php echo $row['application_id']; ?>, '<?php echo $row['type']; ?>')" title="Details"></i>
                             
-                            <i class="fa fa-edit btn btn-warning" onclick="location.href='<?php echo site_url().'/history/edit_application/'.$row['application_id'].'/'.$row['type']; ?>'" title="Edit"></i>
+                            <i class="fa fa-edit btn btn-warning" onclick="location.href='<?php echo site_url().'/history/edit_application/'.$row['application_id'].'/'.$row['type'].'/'.$row['editable']; ?>'" title="Edit"></i>
                             
                             <i class="fa fa-clock btn btn-primary" onclick="extend_application()" title="Extend"></i>
                             <i class="fa fa-times btn btn-danger" onclick="terminate_application()" title="Terminate"></i>
@@ -135,9 +135,9 @@ if(!$this->session->userdata('isLogin')){
                 }
             }
 
-            function edit_application(i, j){
+            function edit_application(i, j, k){
                 if(confirm("You will be submitting an edit request to the corresponding officer. Are you sure?")){
-                    window.location = "<?php echo base_url(); ?>index.php/history/edit_application/" + i + "/" + btoa(j);
+                    window.location = "<?php echo base_url(); ?>index.php/history/edit_application/" + i + "/" + btoa(j) + "/" + k;
                 }
             } */
 

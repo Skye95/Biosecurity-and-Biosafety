@@ -42,21 +42,20 @@ class history extends CI_Controller {
         $this->load->template('history_view', $data);
 	}
     
-    public function edit_application($id, $type)
+    public function edit_application($id, $type, $editable)
     {
         
         $id = $this->uri->segment(3);
         $type = $this->uri->segment(4);
+        $editable = $this->uri->segment(5);
         
         if($type =="ANNEX%202%20FORM"){
             
-            $value = $this->annex2_model->get_editable_value($id);
+            //$value = $this->annex2_model->get_editable_value($id);
+            //extract($value);
             
-            foreach($value as $row){
-                $data['editable'] = $row->editable;
-            }
-            
-            if($data['editable'] == 2){
+            if($editable == 2){
+                
                 $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );
             
                 $data['load'] = "true";
@@ -69,11 +68,13 @@ class history extends CI_Controller {
                 $data['retrieved'] = $this->annex2_model->get_form_by_id($id);
 
                 $this->load->template('annex2_view', $data);
-            }
-            else
-            {
+                
+            }else{
+                
                 $this->annex2_model->edit_request($id);
+                
             }
+            
             
             
             

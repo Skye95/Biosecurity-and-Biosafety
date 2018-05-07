@@ -22,9 +22,12 @@ SET time_zone = "+00:00";
 -- Database: `biosafety_and_biosecurity`
 --
 
+CREATE DATABASE IF NOT EXISTS biosafety_and_biosecurity;
+USE biosafety_and_biosecurity;
+
 -- --------------------------------------------------------
 
---
+--0
 -- Table structure for table `accounts`
 --
 
