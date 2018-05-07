@@ -125,17 +125,18 @@ if(!$this->session->userdata('isLogin')){
                                 <label for="unitname">Unit Name:</label>
                                 <input class="form-control" id="unitname" name="unit_name" placeholder="Enter unit name here." type="text" value="<?php echo set_value('unit_name', $form_unit_name); ?>" />
                             </div>
-
+                            
                             <div class="form-group col-md-6">
-                                <label for="experimenttitle">Experiment Title:</label>
-                                <input class="form-control" id="experimenttitle" name="experiment_title" placeholder="Enter experiment title here." type="text" value="<?php echo set_value('experiment_title', $form_experiment_title); ?>" />
+                                <label for="projecttitle">Project Title:</label>
+                                <input class="form-control" id="projecttitle" name="project_title" placeholder="Enter project title here." type="text" value="<?php echo set_value('project_title', $form_project_title); ?>" />
+                                <p style="font-size:11px;"></p>
                             </div>
                         </div>
                     
                         <div class="row">
                             <div class="form-group col-md-6">
-                                <label for="projecttitle">Project Title:</label>
-                                <input class="form-control" id="projecttitle" name="project_title" placeholder="Enter project title here." type="text" value="<?php echo set_value('project_title', $form_project_title); ?>" />
+                                <label for="experimenttitle">Experiment Title:</label>
+                                <input class="form-control" id="experimenttitle" name="experiment_title" placeholder="Enter experiment title here." type="text" value="<?php echo set_value('experiment_title', $form_experiment_title); ?>" />
                                 <p style="font-size:11px;"><em>* Please leave the Project Investigator section empty if this section is filled.</em></p>
                             </div>
 

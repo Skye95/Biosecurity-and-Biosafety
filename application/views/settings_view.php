@@ -74,9 +74,13 @@ if(!$this->session->userdata('isLogin')){
                     <div class="form-group">
                         <label for="type">Account Type:</label>
                         <select class="form-control" id="type" name="account_type" disabled="disabled">
-                            <option value="1">Applicant / PI</option>
-                            <option value="2">SSBC Chair / SSBC Members / BSO / HSO / Lab Officer</option>
-                            <option value="3">Students / Postgraduates</option>
+                            <option value="1">Applicant / Project Investigator</option>
+                            <option value="2">SSBC Chair</option>
+                            <option value="3">SSBC Member</option>
+                            <option value="4">Biosafety Officer</option>
+                            <option value="5">Health and Safety Officer</option>
+                            <option value="6">Lab Officer</option>
+                            <option value="7">Student & Postgraduate</option>
                         </select>
                     </div>
 

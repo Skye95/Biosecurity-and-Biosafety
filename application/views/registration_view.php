@@ -73,10 +73,12 @@ if($this->session->userdata('isLogin')){
                             <label for="type">Account Type:</label>
                             <select class="form-control" id="type" name="account_type" >
                                 <option value="1">Applicant / Project Investigator</option>
-                                <option value="2">SSBC Chair / SSBC Member</option>
-                                <option value="3">Student / Postgraduate</option>
+                                <option value="2">SSBC Chair</option>
+                                <option value="3">SSBC Member</option>
                                 <option value="4">Biosafety Officer</option>
-                                <option value="5">Health and Safety Officer / Lab Officer</option>
+                                <option value="5">Health and Safety Officer</option>
+                                <option value="6">Lab Officer</option>
+                                <option value="7">Student & Postgraduate</option>
                             </select>
                         </div>
 

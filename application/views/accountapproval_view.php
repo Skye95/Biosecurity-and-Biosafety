@@ -65,13 +65,19 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                         <td><?php echo $row->account_fullname; ?></td>
                         <td><?php 
                                         if($row->account_type == 1) {
-                                            echo "Applicant / PI";
+                                            echo "Applicant / Project Investigator";
                                         } elseif($row->account_type == 2) {
-                                            echo "SSBC Chair / SSBC Members";
+                                            echo "SSBC Chair";
                                         } elseif($row->account_type == 3) {
-                                            echo "Students / Postgraduates";
+                                            echo "SSBC Member";
                                         } elseif($row->account_type == 4) {
-                                            echo "BSO / HSO / Lab Officer";
+                                            echo "Biosafety Officer";
+                                        } elseif($row->account_type == 5) {
+                                            echo "Health and Safety Officer";
+                                        } elseif($row->account_type == 6) {
+                                            echo "Lab Officer";
+                                        } elseif($row->account_type == 7) {
+                                            echo "Student & Postgraduate";
                                         }
                             ?></td>
                         <td><?php echo $row->account_date; ?></td>
