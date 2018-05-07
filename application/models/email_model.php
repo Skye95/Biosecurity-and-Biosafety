@@ -17,16 +17,17 @@ class email_model extends CI_Model
             'smtp_user' => 'bbosswinburne@gmail.com',
             'smtp_pass' => 'swinburne',
             'mailtype'  => 'html', 
-            'charset'   => null
+            'charset'   => 'iso-8859-1'
         );
         $this->load->library('email', $config);
         $this->email->set_newline("\r\n");
+        $this->email->set_crlf("\r\n");
         
         // Set to, from, message, etc.
         $this->email->from('bbosswinburne@gmail.com', 'Swinburne BBOS');
-        $this->email->to($target);
-        $this->email->subject($title);
-        $this->email->message($msg);
+        $this->email->to( $target );
+        $this->email->subject( $title );
+        $this->email->message( $msg );
 
         $result = $this->email->send();
         
