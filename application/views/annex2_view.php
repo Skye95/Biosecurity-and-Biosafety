@@ -276,6 +276,10 @@ if(!$this->session->userdata('isLogin')){
                        </div>
                    </div>
                 
+                <div>
+                    <input type="hidden" name="appid" value="<?php if(isset($appID)){echo $appID;} ?>">
+                </div>
+                
                 
                    
                    <div class="row">

@@ -58,7 +58,7 @@ class editrequest_approval extends CI_Controller {
         $this->load->template('editrequest_approval_view', $data);
 	}
     
-    //Methods For Approving And Rejecting Requests
+    //Methods For Approving And Rejecting Annex 2 Requests
     public function approve($id)
     {
         $approver_id = $this->session->userdata('account_id');
@@ -73,7 +73,67 @@ class editrequest_approval extends CI_Controller {
         $approver_id = ' ';
         $id = $this->uri->segment(3);
         $msg = base64_decode($this->uri->segment(4));
-        $this->annualfinalreport_model->update_approval($id, 0, $approver_id);
+        $this->annex2_model->update_approval($id, 0, $approver_id);
+        
+        redirect('editrequest_approval/index');
+    }
+    
+    //Methods For Approving And Rejecting Annex 3 Requests
+    public function approve_annex3($id)
+    {
+        $approver_id = $this->session->userdata('account_id');
+        $id = $this->uri->segment(3);
+        $this->annex3_model->update_editable($id, 1, $approver_id);
+        
+        redirect('editrequest_approval/index');
+    }
+    
+    public function reject_annex3($id)
+    {
+        $approver_id = ' ';
+        $id = $this->uri->segment(3);
+        $msg = base64_decode($this->uri->segment(4));
+        $this->annex3_model->update_approval($id, 0, $approver_id);
+        
+        redirect('editrequest_approval/index');
+    }
+    
+    //Methods For Approving And Rejecting Annex 4 Requests
+    public function approve_annex4($id)
+    {
+        $approver_id = $this->session->userdata('account_id');
+        $id = $this->uri->segment(3);
+        $this->annex3_model->update_editable($id, 1, $approver_id);
+        
+        redirect('editrequest_approval/index');
+    }
+    
+    public function reject_annex4($id)
+    {
+        $approver_id = ' ';
+        $id = $this->uri->segment(3);
+        $msg = base64_decode($this->uri->segment(4));
+        $this->annex3_model->update_approval($id, 0, $approver_id);
+        
+        redirect('editrequest_approval/index');
+    }
+    
+    //Methods For Approving And Rejecting Annex 5 Requests
+    public function approve_annex5($id)
+    {
+        $approver_id = $this->session->userdata('account_id');
+        $id = $this->uri->segment(3);
+        $this->annex3_model->update_editable($id, 1, $approver_id);
+        
+        redirect('editrequest_approval/index');
+    }
+    
+    public function reject_annex5($id)
+    {
+        $approver_id = ' ';
+        $id = $this->uri->segment(3);
+        $msg = base64_decode($this->uri->segment(4));
+        $this->annex3_model->update_approval($id, 0, $approver_id);
         
         redirect('editrequest_approval/index');
     }

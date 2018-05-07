@@ -146,9 +146,9 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                         </td>
                         -->
                         <td class="text-center">
-                            <button class="btn btn-success" onclick="approve(<?php echo $row->account_id; ?>)" title="Approve"><i class="fa fa-check"></i></button>
+                            <button class="btn btn-success" onclick="approve_annex3(<?php echo $row->account_id; ?>)" title="Approve"><i class="fa fa-check"></i></button>
                             <hr/>
-                            <button class="btn btn-danger" onclick="reject(<?php echo $row->account_id; ?>)" title="Reject"><i class="fa fa-times"></i></button>
+                            <button class="btn btn-danger" onclick="reject_annex3(<?php echo $row->account_id; ?>)" title="Reject"><i class="fa fa-times"></i></button>
                         </td>
                     </tr>
                 <?php endforeach; ?>
@@ -206,9 +206,9 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                         </td>
                         -->
                         <td class="text-center">
-                            <button class="btn btn-success" onclick="approve(<?php echo $row->account_id; ?>)" title="Approve"><i class="fa fa-check"></i></button>
+                            <button class="btn btn-success" onclick="approve_annex4(<?php echo $row->account_id; ?>)" title="Approve"><i class="fa fa-check"></i></button>
                             <hr/>
-                            <button class="btn btn-danger" onclick="reject(<?php echo $row->account_id; ?>)" title="Reject"><i class="fa fa-times"></i></button>
+                            <button class="btn btn-danger" onclick="reject_annex4(<?php echo $row->account_id; ?>)" title="Reject"><i class="fa fa-times"></i></button>
                         </td>
                     </tr>
                 <?php endforeach; ?>
@@ -267,9 +267,9 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                         </td>
                         -->
                         <td class="text-center">
-                            <button class="btn btn-success" onclick="approve(<?php echo $row->account_id; ?>)" title="Approve"><i class="fa fa-check"></i></button>
+                            <button class="btn btn-success" onclick="approve_annex5(<?php echo $row->account_id; ?>)" title="Approve"><i class="fa fa-check"></i></button>
                             <hr/>
-                            <button class="btn btn-danger" onclick="reject(<?php echo $row->account_id; ?>)" title="Reject"><i class="fa fa-times"></i></button>
+                            <button class="btn btn-danger" onclick="reject_annex5(<?php echo $row->account_id; ?>)" title="Reject"><i class="fa fa-times"></i></button>
                         </td>
                     </tr>
                 <?php endforeach; ?>
@@ -1137,7 +1137,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
         });
     </script>
     
-    <!-- Request Approval and Reject Function -->
+    <!-- Request Approval and Reject Function for annex 2 -->
     <script>
         function approve(i){
             window.location = "<?php echo base_url(); ?>index.php/editrequest_approval/approve/" + i;
@@ -1147,6 +1147,39 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
             var j = prompt("Reason for Rejecting:", "Does not meet requirements");
             if (j != null) {
                 window.location = "<?php echo base_url(); ?>index.php/editrequest_approval/reject/" + i + "/" + btoa(j);
+            }
+        }
+        
+        function approve_annex3(i){
+            window.location = "<?php echo base_url(); ?>index.php/editrequest_approval/approve_annex3/" + i;
+        }
+        
+        function reject_annex3(i){
+            var j = prompt("Reason for Rejecting:", "Does not meet requirements");
+            if (j != null) {
+                window.location = "<?php echo base_url(); ?>index.php/editrequest_approval/approve_annex3/" + i + "/" + btoa(j);
+            }
+        }
+        
+        function approve_annex4(i){
+            window.location = "<?php echo base_url(); ?>index.php/editrequest_approval/approve_annex4/" + i;
+        }
+        
+        function reject_annex4(i){
+            var j = prompt("Reason for Rejecting:", "Does not meet requirements");
+            if (j != null) {
+                window.location = "<?php echo base_url(); ?>index.php/editrequest_approval/approve_annex4/" + i + "/" + btoa(j);
+            }
+        }
+        
+        function approve_annex5(i){
+            window.location = "<?php echo base_url(); ?>index.php/editrequest_approval/approve_annex5/" + i;
+        }
+        
+        function reject_annex5(i){
+            var j = prompt("Reason for Rejecting:", "Does not meet requirements");
+            if (j != null) {
+                window.location = "<?php echo base_url(); ?>index.php/editrequest_approval/approve_annex5/" + i + "/" + btoa(j);
             }
         }
     </script>
