@@ -62,10 +62,7 @@ if(!$this->session->userdata('isLogin')){
                         <br/>
                         <?php echo $this->session->flashdata('msg'); ?>
                     </div>
-                
-                <div>
-                    <?php echo $editable ; ?>
-                </div>
+
 
                    <div>
                        <h4><strong>IBC/AP/13/ANNEX 2</strong></h4>

@@ -52,8 +52,28 @@ class history extends CI_Controller {
             
             $value = $this->annex2_model->get_editable_value($id);
             
+            foreach($value as $row){
+                $data['editable'] = $row->editable;
+            }
             
+            if($data['editable'] == 2){
+                $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );
             
+                $data['load'] = "true";
+                $data['editload'] = "true";
+                //$data['disabled'] = "true";
+
+                //$id = '$this->session->userdata('account_id')';
+                //$id = $this->uri->segment(3);
+                //$id = $this->input->get('id');
+                $data['retrieved'] = $this->annex2_model->get_form_by_id($id);
+
+                $this->load->template('annex2_view', $data);
+            }
+            else
+            {
+                $this->annex2_model->edit_request($id);
+            }
             
             
             
