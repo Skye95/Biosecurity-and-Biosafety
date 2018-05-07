@@ -55,7 +55,7 @@ if(!$this->session->userdata('isLogin')){
             
             <div class="col-md-10">
                 
-                <?php echo form_open('annex2/index'); ?>
+                <?php if(isset($editload)) { echo form_open('annex2/update_form'); } else { echo form_open('annex2/index'); } ?>
                 <?php if(isset($disabled)){ echo "<fieldset disabled='disabled'>"; } ?>
                 
                     <div>
