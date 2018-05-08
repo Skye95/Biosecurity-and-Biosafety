@@ -62,6 +62,13 @@ class annex3_model extends CI_Model
 		return $query->result();
 	}
     
+    function update_applicant_data($id, $data)
+    {
+        $this->db->where('application_id', $id);
+		$this->db->update('annex3', $data);
+        return true;
+	}
+    
 	function insert_new_applicant_data($data)
     {
 		return $this->db->insert('annex3', $data);
@@ -121,6 +128,22 @@ class annex3_model extends CI_Model
         
         return true;
             
+    }
+    
+    function update_editable($id, $type, $approver_id)
+    {
+        if ($type == 0) {
+            
+            $data = array('editable' => 3, 'approver_id' => $approver_id );
+            $this->db->where('account_id', $id);
+            $this->db->update('annex3', $data);
+        } elseif ($type == 1) {
+            $data = array('editable' => 2, 'approver_id' => $approver_id);
+            $this->db->where('account_id', $id);
+            $this->db->update('annex3', $data);
+        }
+        return true;
+        
     }
     
     

@@ -8,14 +8,6 @@ class annex2_model extends CI_Model
         parent::__construct();
     }
     
-    function get_editable_value($id)
-    {
-        $this->db->select('editable');
-        $this->db->from('annex2');
-        $this->db->where('application_id', $id);
-        $query = $this->db->get();
-		return $query->result();
-    }
     
     function get_all_edit_request() 
     {

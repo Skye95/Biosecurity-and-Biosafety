@@ -73,7 +73,7 @@ class editrequest_approval extends CI_Controller {
         $approver_id = ' ';
         $id = $this->uri->segment(3);
         $msg = base64_decode($this->uri->segment(4));
-        $this->annex2_model->update_approval($id, 0, $approver_id);
+        $this->annex2_model->update_editable($id, 0, $approver_id);
         
         redirect('editrequest_approval/index');
     }
@@ -93,7 +93,7 @@ class editrequest_approval extends CI_Controller {
         $approver_id = ' ';
         $id = $this->uri->segment(3);
         $msg = base64_decode($this->uri->segment(4));
-        $this->annex3_model->update_approval($id, 0, $approver_id);
+        $this->annex3_model->update_editable($id, 0, $approver_id);
         
         redirect('editrequest_approval/index');
     }
@@ -113,7 +113,7 @@ class editrequest_approval extends CI_Controller {
         $approver_id = ' ';
         $id = $this->uri->segment(3);
         $msg = base64_decode($this->uri->segment(4));
-        $this->annex3_model->update_approval($id, 0, $approver_id);
+        $this->annex3_model->update_editable($id, 0, $approver_id);
         
         redirect('editrequest_approval/index');
     }
@@ -133,7 +133,7 @@ class editrequest_approval extends CI_Controller {
         $approver_id = ' ';
         $id = $this->uri->segment(3);
         $msg = base64_decode($this->uri->segment(4));
-        $this->annex3_model->update_approval($id, 0, $approver_id);
+        $this->annex3_model->update_editable($id, 0, $approver_id);
         
         redirect('editrequest_approval/index');
     }

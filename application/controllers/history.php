@@ -79,8 +79,25 @@ class history extends CI_Controller {
             
         }elseif($type =="ANNEX%203%20FORM"){
             
-            $this->annex3_model->edit_request($id);
-            redirect('history/index');
+            if($editable == 2){
+                
+                $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );
+            
+                $data['load'] = "true";
+                $data['editload'] = "true";
+                $data['appID'] = $id;
+
+                
+                $data['retrieved'] = $this->annex3_model->get_form_by_id($id);
+
+                $this->load->template('annex3_view', $data);
+                
+            }else{
+                
+                $this->annex3_model->edit_request($id);
+                redirect('history/index');
+                
+            }
             
         }elseif($type =="ANNEX%204%20FORM"){
             

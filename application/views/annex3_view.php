@@ -57,13 +57,12 @@ if(!$this->session->userdata('isLogin')){
             </div>
             
             <div class="col-md-9">
-                <?php echo form_open('annex3/index'); ?>
+                <?php if(isset($editload)) { echo form_open('annex3/update_form'); } else { echo form_open('annex3/index'); } ?>
                 <?php if(isset($disabled)){ echo "<fieldset disabled='disabled'>"; } ?>
                     <div>
                         <br/>
                         <?php echo $this->session->flashdata('msg'); ?>
                     </div>
-                
                 
                 
                    <div class="text-muted">
@@ -375,10 +374,18 @@ if(!$this->session->userdata('isLogin')){
                        </div>
                    </div>
                    <hr/>
+                
+                <div>
+                    <input type="hidden" name="appid" value="<?php if(isset($appID)){echo $appID;} ?>">
+                </div>
 				   
 
                   <div style="text-align: center">
+                       <?php if(isset($editload)){ ?>
+                       <button type="submit" name = 'annex3_update' value = 'Update' onclick="location.href='<?php echo site_url().'/annex3/update_form';?>'" class="btn btn-primary">Update</button>
+                       <?php }else{ ?>
                        <button name="submit" type="submit" class="btn btn-primary col-md-2">Submit</button>
+                       <?php } ?>
                    </div>
 				   
                 <?php if(isset($disabled)){ echo "</fieldset>"; } ?>
