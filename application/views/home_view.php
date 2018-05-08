@@ -42,10 +42,11 @@ if(!$this->session->userdata('isLogin')){
         <h2 class="my-4 text-center">Welcome, <?php echo $this->session->userdata('account_name'); ?> 
 			<div onclick="location.href='<?=base_url ()?>index.php/download/SSBC_Manualv2.1.pdf';" class="float-right">
 				<i class="hovicon small effect-1 sub-a icon-book" title="Click to Download SSBC User Manual"></i>
-				</br>
+				<br>
 				<a href="<?=base_url ()?>index.php/download/SSBC_Manualv2.1.pdf" id="texthover">User Manual</a>
-			</div></h2>
-			</br>
+			</div>
+        </h2>
+			<br>
 
         <div class="row">
             <div class="col-lg-3 col-md-4 col-sm-6 col-6 portfolio-item">
