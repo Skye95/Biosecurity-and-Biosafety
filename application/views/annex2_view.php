@@ -285,7 +285,7 @@ if(!$this->session->userdata('isLogin')){
                    <div class="row">
                        <span class="col-md-5"></span>
                        <?php if(isset($editload)){ ?>
-                       <button type="button" name = 'annex2_update' value = 'Update' onclick="location.href='<?php echo site_url().'/annex2/update_form';?>'" class="btn btn-primary">Update</button>
+                       <button type="submit" name = 'annex2_update' value = 'Update' onclick="location.href='<?php echo site_url().'/annex2/update_form';?>'" class="btn btn-primary">Update</button>
                        <?php }else{ ?>
                        <button name="submit" type="submit" class="btn btn-primary col-md-2">Submit</button>
                        <?php } ?>

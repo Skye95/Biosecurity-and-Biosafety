@@ -139,7 +139,7 @@ if(!$this->session->userdata('isLogin')){
                 if(confirm("You will be submitting an edit request to the corresponding officer. Are you sure?")){
                     window.location = "<?php echo base_url(); ?>index.php/history/edit_application/" + i + "/" + btoa(j) + "/" + k;
                 }
-            } */
+            } 
 
             function extend_application(){
                  window.location = "<?php echo base_url(); ?>index.php/annex5/";
