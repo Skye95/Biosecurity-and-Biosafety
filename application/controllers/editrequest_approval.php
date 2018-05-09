@@ -103,7 +103,7 @@ class editrequest_approval extends CI_Controller {
     {
         $approver_id = $this->session->userdata('account_id');
         $id = $this->uri->segment(3);
-        $this->annex3_model->update_editable($id, 1, $approver_id);
+        $this->annex4_model->update_editable($id, 1, $approver_id);
         
         redirect('editrequest_approval/index');
     }
@@ -113,7 +113,7 @@ class editrequest_approval extends CI_Controller {
         $approver_id = ' ';
         $id = $this->uri->segment(3);
         $msg = base64_decode($this->uri->segment(4));
-        $this->annex3_model->update_editable($id, 0, $approver_id);
+        $this->annex4_model->update_editable($id, 0, $approver_id);
         
         redirect('editrequest_approval/index');
     }
@@ -123,7 +123,7 @@ class editrequest_approval extends CI_Controller {
     {
         $approver_id = $this->session->userdata('account_id');
         $id = $this->uri->segment(3);
-        $this->annex3_model->update_editable($id, 1, $approver_id);
+        $this->annex5_model->update_editable($id, 1, $approver_id);
         
         redirect('editrequest_approval/index');
     }
@@ -133,7 +133,67 @@ class editrequest_approval extends CI_Controller {
         $approver_id = ' ';
         $id = $this->uri->segment(3);
         $msg = base64_decode($this->uri->segment(4));
-        $this->annex3_model->update_editable($id, 0, $approver_id);
+        $this->annex5_model->update_editable($id, 0, $approver_id);
+        
+        redirect('editrequest_approval/index');
+    }
+    
+    //Methods For Approving And Rejecting Annual Final Report Requests
+    public function approve_annual($id)
+    {
+        $approver_id = $this->session->userdata('account_id');
+        $id = $this->uri->segment(3);
+        $this->annualfinalreport_model->update_editable($id, 1, $approver_id);
+        
+        redirect('editrequest_approval/index');
+    }
+    
+    public function reject_annual($id)
+    {
+        $approver_id = ' ';
+        $id = $this->uri->segment(3);
+        $msg = base64_decode($this->uri->segment(4));
+        $this->annualfinalreport_model->update_editable($id, 0, $approver_id);
+        
+        redirect('editrequest_approval/index');
+    }
+    
+    //Methods For Approving And Rejecting Biohazard material Requests
+    public function approve_biohazard($id)
+    {
+        $approver_id = $this->session->userdata('account_id');
+        $id = $this->uri->segment(3);
+        $this->biohazard_model->update_editable($id, 1, $approver_id);
+        
+        redirect('editrequest_approval/index');
+    }
+    
+    public function reject_biohazard($id)
+    {
+        $approver_id = ' ';
+        $id = $this->uri->segment(3);
+        $msg = base64_decode($this->uri->segment(4));
+        $this->biohazard_model->update_editable($id, 0, $approver_id);
+        
+        redirect('editrequest_approval/index');
+    }
+    
+    //Methods For Approving And Rejecting Exempt Dealing form Requests
+    public function approve_exempt($id)
+    {
+        $approver_id = $this->session->userdata('account_id');
+        $id = $this->uri->segment(3);
+        $this->exempt_model->update_editable($id, 1, $approver_id);
+        
+        redirect('editrequest_approval/index');
+    }
+    
+    public function reject_exempt($id)
+    {
+        $approver_id = ' ';
+        $id = $this->uri->segment(3);
+        $msg = base64_decode($this->uri->segment(4));
+        $this->exempt_model->update_editable($id, 0, $approver_id);
         
         redirect('editrequest_approval/index');
     }

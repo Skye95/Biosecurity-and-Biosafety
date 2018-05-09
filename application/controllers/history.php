@@ -101,28 +101,113 @@ class history extends CI_Controller {
             
         }elseif($type =="ANNEX%204%20FORM"){
             
-            $this->annex4_model->edit_request($id);
-            redirect('history/index');
+            if($editable == 2){
+                
+                $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );
+            
+                $data['load'] = "true";
+                $data['editload'] = "true";
+                $data['appID'] = $id;
+
+                
+                $data['retrieved'] = $this->annex4_model->get_form_by_id($id);
+
+                $this->load->template('annex4_view', $data);
+                
+            }else{
+                
+                $this->annex4_model->edit_request($id);
+                redirect('history/index');
+                
+            }
             
         }elseif($type =="ANNEX%205%20FORM"){
             
-            $this->annex5_model->edit_request($id);
-            redirect('history/index');
+            if($editable == 2){
+                
+                $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );
+            
+                $data['load'] = "true";
+                $data['editload'] = "true";
+                $data['appID'] = $id;
+
+                
+                $data['retrieved'] = $this->annex5_model->get_form_by_id($id);
+
+                $this->load->template('annex5_view', $data);
+                
+            }else{
+                
+                $this->annex5_model->edit_request($id);
+                redirect('history/index');
+                
+            }
             
         }elseif($type =="SBC%20ANNUAL%20OR%20FINAL%20REPORT%20FOR%20USE%20OF%20BIOHAZARDOUS%20MATERIALS"){
             
-            $this->annualfinalreport_model->edit_request($id);
-            redirect('history/index');
+            if($editable == 2){
+                
+                $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );
+            
+                $data['load'] = "true";
+                $data['editload'] = "true";
+                $data['appID'] = $id;
+
+                
+                $data['retrieved'] = $this->annualfinalreport_model->get_form_by_id($id);
+
+                $this->load->template('annualfinalreport_view', $data);
+                
+            }else{
+                
+                $this->annualfinalreport_model->edit_request($id);
+                redirect('history/index');
+                
+            }
             
         }elseif($type =="APPLICATION%20FOR%20BIOSAFETY%20CLEARANCE%20FORM"){
             
-            $this->biohazard_model->edit_request($id);
-            redirect('history/index');
+            if($editable == 2){
+                
+                $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );
+            
+                $data['load'] = "true";
+                $data['editload'] = "true";
+                $data['appID'] = $id;
+
+                
+                $data['retrieved'] = $this->biohazard_model->get_form_by_id($id);
+
+                $this->load->template('biohazard_view', $data);
+                
+            }else{
+                
+                $this->biohazard_model->edit_request($id);
+                redirect('history/index');
+                
+            }
             
         }elseif($type =="APPLICATION%20FOR%20BIOSAFETY%20CLEARANCE%20EXEMPT%20DEALINGS%20FORM"){
             
-            $this->exempt_model->edit_request($id);
-            redirect('history/index');
+            if($editable == 2){
+                
+                $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );
+            
+                $data['load'] = "true";
+                $data['editload'] = "true";
+                $data['appID'] = $id;
+
+                
+                $data['retrieved'] = $this->exempt_model->get_form_by_id($id);
+
+                $this->load->template('exempt_view', $data);
+                
+            }else{
+                
+                $this->exempt_model->edit_request($id);
+                redirect('history/index');
+                
+            }
             
         }elseif($type =="FORM%20E"){
             

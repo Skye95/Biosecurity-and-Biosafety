@@ -56,6 +56,7 @@ class annex2_model extends CI_Model
     
     function update_applicant_data($id, $data)
     {
+        $this->db->set('application_approved', 'NULL', FALSE);
         $this->db->where('application_id', $id);
 		$this->db->update('annex2', $data);
         return true;

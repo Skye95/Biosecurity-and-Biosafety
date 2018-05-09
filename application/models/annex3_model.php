@@ -62,16 +62,18 @@ class annex3_model extends CI_Model
 		return $query->result();
 	}
     
-    function update_applicant_data($id, $data)
-    {
-        $this->db->where('application_id', $id);
-		$this->db->update('annex3', $data);
-        return true;
-	}
     
 	function insert_new_applicant_data($data)
     {
 		return $this->db->insert('annex3', $data);
+	}
+    
+    function update_applicant_data($id, $data)
+    {
+        $this->db->set('application_approved', 'NULL', FALSE);
+        $this->db->where('application_id', $id);
+		$this->db->update('annex3', $data);
+        return true;
 	}
     
     function update_approval($id, $type, $approver_id)

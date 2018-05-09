@@ -77,7 +77,7 @@ if(!$this->session->userdata('isLogin')){
         <div class="row">
             
             <div class="col-md-10">
-               <?php echo form_open('biohazard/index'); ?>
+               <?php if(isset($editload)) { echo form_open('biohazard/update_form'); } else { echo form_open('biohazard/index'); } ?>
                 <?php if(isset($disabled)){ echo "<fieldset disabled='disabled'>"; } ?>
                 
                    <h4 class="centering"><u>Swinburne Biosafety Commitee</u></h4>
@@ -445,8 +445,16 @@ if(!$this->session->userdata('isLogin')){
                        </tbody>
                    </table>
                 
+                <div>
+                    <input type="hidden" name="appid" value="<?php if(isset($appID)){echo $appID;} ?>">
+                </div>
+                
                    <div style="text-align: center">
+                       <?php if(isset($editload)){ ?>
+                       <button type="submit" name = 'biohazard_update' value = 'Update' onclick="location.href='<?php echo site_url().'/biohazard/update_form';?>'" class="btn btn-primary">Update</button>
+                       <?php }else{ ?>
                        <button name="submit" type="submit" class="btn btn-primary col-md-2">Submit</button>
+                       <?php } ?>
                    </div>
                <?php if(isset($disabled)){ echo "</fieldset>"; } ?>
                <?php echo form_close(); ?>

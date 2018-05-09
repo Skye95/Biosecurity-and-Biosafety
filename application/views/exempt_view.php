@@ -91,9 +91,13 @@ if(!$this->session->userdata('isLogin')){
         <div class="row">
             
             <div class="col-md-10">
-               <?php echo form_open('exempt/index'); ?>
+               <?php if(isset($editload)) { echo form_open('exempt/update_form'); } else { echo form_open('exempt/index'); } ?>
                 <?php if(isset($disabled)){ echo "<fieldset disabled='disabled'>"; } ?>
                 
+                <div>
+                        <br/>
+                        <?php echo $this->session->flashdata('msg'); ?>
+                    </div>
                 
                    <h4 class="centering"><u>Swinburne Biosafety Commitee</u></h4>
                    
@@ -210,7 +214,7 @@ if(!$this->session->userdata('isLogin')){
                                            <td colspan="3">Full postal address (including internal mail details): <input type="text" class="form-control" name="project_add_postal_address[0]" value="<?php if(isset($load)){echo set_value('project_add_postal_address[0]', $f[0]);}else{echo set_value('project_add_postal_address[0]');} ?>"></td>
                                        </tr>
                                        <tr>
-                                           <td colspan="2">Phone: <input type="tel" class="form-control" name="project_add_telephone[0]" value="<?php if(isset($load)){echo set_value('project_add_telephone[0]', $g[0]);}else{echo set_value('project_add_telephone[0]');} ?>"></td>
+                                           <td colspan="2">Phone: <input type="text" class="form-control" name="project_add_telephone[0]" value="<?php if(isset($load)){echo set_value('project_add_telephone[0]', $g[0]);}else{echo set_value('project_add_telephone[0]');} ?>"></td>
                                            
                                            <td>Fax: <input type="text" class="form-control" name="project_add_fax[0]" value="<?php if(isset($load)){echo set_value('project_add_fax[0]', $h[0]);}else{echo set_value('project_add_fax[0]');} ?>"></td>
                                        </tr>
@@ -242,7 +246,7 @@ if(!$this->session->userdata('isLogin')){
                                            <td colspan="3">Full postal address (including internal mail details): <input type="text" class="form-control" name="project_add_postal_address[1]" value="<?php if(isset($load)){echo set_value('project_add_postal_address[1]', $f[1]);}else{echo set_value('project_add_postal_address[1]');} ?>"></td>
                                        </tr>
                                        <tr>
-                                           <td colspan="2">Phone: <input type="tel" class="form-control" name="project_add_telephone[1]" value="<?php if(isset($load)){echo set_value('project_add_telephone[1]', $g[1]);}else{echo set_value('project_add_telephone[1]');} ?>"></td>
+                                           <td colspan="2">Phone: <input type="text" class="form-control" name="project_add_telephone[1]" value="<?php if(isset($load)){echo set_value('project_add_telephone[1]', $g[1]);}else{echo set_value('project_add_telephone[1]');} ?>"></td>
                                            
                                            <td>Fax: <input type="text" class="form-control" name="project_add_fax[1]" value="<?php if(isset($load)){echo set_value('project_add_fax[1]', $h[1]);}else{echo set_value('project_add_fax[1]');} ?>"></td>
                                        </tr>
@@ -379,7 +383,7 @@ if(!$this->session->userdata('isLogin')){
                        </thead>
                        <tbody>
                            <tr>
-                               <td colspan="2"><div class="form-group"><input type="file" name="project_SOP" ></div></td>
+                               <td colspan="2"><div class="form-group"><div class="form-group"><textarea class="form-control" name="project_SOP" rows="6"><?php if(isset($load)){echo set_value('project_SOP', $item->project_SOP);}else{echo set_value('project_SOP');} ?></textarea></div></div></td>
                            </tr>
                        </tbody>
                    </table>
@@ -457,8 +461,16 @@ if(!$this->session->userdata('isLogin')){
                        </tbody>
                    </table>
                 
+                <div>
+                    <input type="hidden" name="appid" value="<?php if(isset($appID)){echo $appID;} ?>">
+                </div>
+                
                 <div style="text-align: center">
+                       <?php if(isset($editload)){ ?>
+                       <button type="submit" name = 'exempt_update' value = 'Update' onclick="location.href='<?php echo site_url().'/exempt/update_form';?>'" class="btn btn-primary">Update</button>
+                       <?php }else{ ?>
                        <button name="submit" type="submit" class="btn btn-primary col-md-2">Submit</button>
+                       <?php } ?>
                 </div>
                <?php if(isset($disabled)){ echo "</fieldset>"; } ?>
                <?php echo form_close(); ?>
