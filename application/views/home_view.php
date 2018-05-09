@@ -87,7 +87,7 @@ if(!$this->session->userdata('isLogin')){
                     <a href="<?php echo base_url(); ?>index.php/inventory/index"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\LMO Biohazardous Mat.jpg') ?>" alt=""></a>
                     <div style="text-align: center" class="card-body">
                         <h6 class="card-title">
-                            <a href="<?php echo base_url(); ?>index.php/inventory/index">LMO and Biohazardous Materials Database</a>
+                            <a href="<?php echo base_url(); ?>index.php/inventory/index">LMO and Biohazardous Material Database</a>
                         </h6>
                         <p class="card-text"></p>
                     </div>
@@ -131,7 +131,7 @@ if(!$this->session->userdata('isLogin')){
                     <a href="<?php echo base_url(); ?>index.php/history"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\History.jpg') ?>" alt=""></a>
                     <div style="text-align: center" class="card-body">
                         <h6 class="card-title">
-                            <a href="<?php echo base_url(); ?>index.php/history">Submitted or Past Applications</a>
+                            <a href="<?php echo base_url(); ?>index.php/history">Submitted and Approved Applications</a>
                         </h6>
                         <p class="card-text"></p>
                     </div>

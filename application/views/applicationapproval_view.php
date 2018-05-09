@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 if(!$this->session->userdata('isLogin')){
     redirect('landing/index');
 }
-if($this->session->userdata('account_type') != 2 && $this->session->userdata('account_type') != 3 && $this->session->userdata('account_type') != 4 ){
+if($this->session->userdata('account_type') != 2 && $this->session->userdata('account_type') != 3 && $this->session->userdata('account_type') != 4 && $this->session->userdata('account_type') != 5 && $this->session->userdata('account_type') != 6 ){
     redirect('home/index');
 }
 ?>
@@ -65,15 +65,19 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                         <td><?php echo $row->account_fullname; ?></td>
                         <td><?php 
                                         if($row->account_type == 1) {
-                                            echo "Applicant / PI";
+                                            echo "Applicant / Project Investigator";
                                         } elseif($row->account_type == 2) {
-                                            echo "SSBC Chair / SSBC Members";
+                                            echo "SSBC Chair";
                                         } elseif($row->account_type == 3) {
-                                            echo "Students / Postgraduates";
+                                            echo "SSBC Members";
                                         } elseif($row->account_type == 4) {
-                                            echo "BSO";
+                                            echo "Biosafety Officer";
                                         } elseif($row->account_type == 5) {
-                                            echo "HSO / Lab Officer";
+                                            echo "Health and Safety Officer";
+                                        } elseif($row->account_type == 6) {
+                                            echo "Lab Officer";
+                                        } elseif($row->account_type == 7) {
+                                            echo "Student & Postgraduate";
                                         }
                             ?></td>
                         <td><button type="button" name = 'load' value = 'Load' onclick="location.href='<?php echo site_url().'/annex2/load_form?id='.$row->application_id;?>'" class="btn btn-primary">Load</button></td>
@@ -99,7 +103,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
         <?php } ?>
         
         <!-- IF current user is SSBC Chair/SSBC Members, then show applications that were approved by BSO -->
-        <?php if($this->session->userdata('account_type') == 2) { ?>
+        <?php if($this->session->userdata('account_type') == 2 || $this->session->userdata('account_type') == 3) { ?>
         <?php if(isset($all_annex2_SSBC)) { ?>
         
         <div class="table-responsive">
@@ -127,15 +131,19 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                         <td><?php echo $row->account_fullname; ?></td>
                         <td><?php 
                                         if($row->account_type == 1) {
-                                            echo "Applicant / PI";
+                                            echo "Applicant / Project Investigator";
                                         } elseif($row->account_type == 2) {
-                                            echo "SSBC Chair / SSBC Members";
+                                            echo "SSBC Chair";
                                         } elseif($row->account_type == 3) {
-                                            echo "Students / Postgraduates";
+                                            echo "SSBC Members";
                                         } elseif($row->account_type == 4) {
-                                            echo "BSO";
+                                            echo "Biosafety Officer";
                                         } elseif($row->account_type == 5) {
-                                            echo "HSO / Lab Officer";
+                                            echo "Health and Safety Officer";
+                                        } elseif($row->account_type == 6) {
+                                            echo "Lab Officer";
+                                        } elseif($row->account_type == 7) {
+                                            echo "Student & Postgraduate";
                                         }
                             ?></td>
                         <td><button type="button" name = 'load' value = 'Load' onclick="location.href='<?php echo site_url().'/annex2/load_form?id='.$row->application_id;?>'" class="btn btn-primary">Load</button></td>
@@ -185,15 +193,19 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                         <td><?php echo $row->account_fullname; ?></td>
                         <td><?php 
                                         if($row->account_type == 1) {
-                                            echo "Applicant / PI";
+                                            echo "Applicant / Project Investigator";
                                         } elseif($row->account_type == 2) {
-                                            echo "SSBC Chair / SSBC Members";
+                                            echo "SSBC Chair";
                                         } elseif($row->account_type == 3) {
-                                            echo "Students / Postgraduates";
+                                            echo "SSBC Members";
                                         } elseif($row->account_type == 4) {
-                                            echo "BSO";
+                                            echo "Biosafety Officer";
                                         } elseif($row->account_type == 5) {
-                                            echo "HSO / Lab Officer";
+                                            echo "Health and Safety Officer";
+                                        } elseif($row->account_type == 6) {
+                                            echo "Lab Officer";
+                                        } elseif($row->account_type == 7) {
+                                            echo "Student & Postgraduate";
                                         }
                             ?></td>
                         <td><button type="button" name = 'forme_load' value = 'Load' onclick="location.href='<?php echo site_url().'/forme/load_form?id='.$row->application_id;?>'" class="btn btn-primary">Load</button></td>
@@ -247,15 +259,19 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                         <td><?php echo $row->account_fullname; ?></td>
                         <td><?php 
                                         if($row->account_type == 1) {
-                                            echo "Applicant / PI";
+                                            echo "Applicant / Project Investigator";
                                         } elseif($row->account_type == 2) {
-                                            echo "SSBC Chair / SSBC Members";
+                                            echo "SSBC Chair";
                                         } elseif($row->account_type == 3) {
-                                            echo "Students / Postgraduates";
+                                            echo "SSBC Members";
                                         } elseif($row->account_type == 4) {
-                                            echo "BSO";
+                                            echo "Biosafety Officer";
                                         } elseif($row->account_type == 5) {
-                                            echo "HSO / Lab Officer";
+                                            echo "Health and Safety Officer";
+                                        } elseif($row->account_type == 6) {
+                                            echo "Lab Officer";
+                                        } elseif($row->account_type == 7) {
+                                            echo "Student & Postgraduate";
                                         }
                             ?></td>
                         <td><button type="button" name = 'forme_load' value = 'Load' onclick="location.href='<?php echo site_url().'/forme/load_form?id='.$row->application_id;?>'" class="btn btn-primary">Load</button></td>
@@ -311,15 +327,19 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                         <td><?php echo $row->account_fullname; ?></td>
                         <td><?php 
                                         if($row->account_type == 1) {
-                                            echo "Applicant / PI";
+                                            echo "Applicant / Project Investigator";
                                         } elseif($row->account_type == 2) {
-                                            echo "SSBC Chair / SSBC Members";
+                                            echo "SSBC Chair";
                                         } elseif($row->account_type == 3) {
-                                            echo "Students / Postgraduates";
+                                            echo "SSBC Members";
                                         } elseif($row->account_type == 4) {
-                                            echo "BSO";
+                                            echo "Biosafety Officer";
                                         } elseif($row->account_type == 5) {
-                                            echo "HSO / Lab Officer";
+                                            echo "Health and Safety Officer";
+                                        } elseif($row->account_type == 6) {
+                                            echo "Lab Officer";
+                                        } elseif($row->account_type == 7) {
+                                            echo "Student & Postgraduate";
                                         }
                             ?></td>
                         <td><button type="button" name = 'hirarc_load' value = 'Load' onclick="location.href='<?php echo site_url().'/hirarc/load_form?id='.$row->application_id;?>'" class="btn btn-primary">Load</button></td>
@@ -373,15 +393,19 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                         <td><?php echo $row->account_fullname; ?></td>
                         <td><?php 
                                         if($row->account_type == 1) {
-                                            echo "Applicant / PI";
+                                            echo "Applicant / Project Investigator";
                                         } elseif($row->account_type == 2) {
-                                            echo "SSBC Chair / SSBC Members";
+                                            echo "SSBC Chair";
                                         } elseif($row->account_type == 3) {
-                                            echo "Students / Postgraduates";
+                                            echo "SSBC Members";
                                         } elseif($row->account_type == 4) {
-                                            echo "BSO";
+                                            echo "Biosafety Officer";
                                         } elseif($row->account_type == 5) {
-                                            echo "HSO / Lab Officer";
+                                            echo "Health and Safety Officer";
+                                        } elseif($row->account_type == 6) {
+                                            echo "Lab Officer";
+                                        } elseif($row->account_type == 7) {
+                                            echo "Student & Postgraduate";
                                         }
                             ?></td>
                         <td><button type="button" name = 'hirarc_load' value = 'Load' onclick="location.href='<?php echo site_url().'/hirarc/load_form?id='.$row->application_id;?>'" class="btn btn-primary">Load</button></td>
@@ -437,15 +461,19 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                         <td><?php echo $row->account_fullname; ?></td>
                         <td><?php 
                                         if($row->account_type == 1) {
-                                            echo "Applicant / PI";
+                                            echo "Applicant / Project Investigator";
                                         } elseif($row->account_type == 2) {
-                                            echo "SSBC Chair / SSBC Members";
+                                            echo "SSBC Chair";
                                         } elseif($row->account_type == 3) {
-                                            echo "Students / Postgraduates";
+                                            echo "SSBC Members";
                                         } elseif($row->account_type == 4) {
-                                            echo "BSO";
+                                            echo "Biosafety Officer";
                                         } elseif($row->account_type == 5) {
-                                            echo "HSO / Lab Officer";
+                                            echo "Health and Safety Officer";
+                                        } elseif($row->account_type == 6) {
+                                            echo "Lab Officer";
+                                        } elseif($row->account_type == 7) {
+                                            echo "Student & Postgraduate";
                                         }
                             ?></td>
                         <td><button type="button" name = 'pc1_load' value = 'Load' onclick="location.href='<?php echo site_url().'/pc1/load_form?id='.$row->application_id;?>'" class="btn btn-primary">Load</button></td>
@@ -499,15 +527,19 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                         <td><?php echo $row->account_fullname; ?></td>
                         <td><?php 
                                         if($row->account_type == 1) {
-                                            echo "Applicant / PI";
+                                            echo "Applicant / Project Investigator";
                                         } elseif($row->account_type == 2) {
-                                            echo "SSBC Chair / SSBC Members";
+                                            echo "SSBC Chair";
                                         } elseif($row->account_type == 3) {
-                                            echo "Students / Postgraduates";
+                                            echo "SSBC Members";
                                         } elseif($row->account_type == 4) {
-                                            echo "BSO";
+                                            echo "Biosafety Officer";
                                         } elseif($row->account_type == 5) {
-                                            echo "HSO / Lab Officer";
+                                            echo "Health and Safety Officer";
+                                        } elseif($row->account_type == 6) {
+                                            echo "Lab Officer";
+                                        } elseif($row->account_type == 7) {
+                                            echo "Student & Postgraduate";
                                         }
                             ?></td>
                         <td><button type="button" name = 'pc1_load' value = 'Load' onclick="location.href='<?php echo site_url().'/pc1/load_form?id='.$row->application_id;?>'" class="btn btn-primary">Load</button></td>
@@ -563,15 +595,19 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                         <td><?php echo $row->account_fullname; ?></td>
                         <td><?php 
                                         if($row->account_type == 1) {
-                                            echo "Applicant / PI";
+                                            echo "Applicant / Project Investigator";
                                         } elseif($row->account_type == 2) {
-                                            echo "SSBC Chair / SSBC Members";
+                                            echo "SSBC Chair";
                                         } elseif($row->account_type == 3) {
-                                            echo "Students / Postgraduates";
+                                            echo "SSBC Members";
                                         } elseif($row->account_type == 4) {
-                                            echo "BSO";
+                                            echo "Biosafety Officer";
                                         } elseif($row->account_type == 5) {
-                                            echo "HSO / Lab Officer";
+                                            echo "Health and Safety Officer";
+                                        } elseif($row->account_type == 6) {
+                                            echo "Lab Officer";
+                                        } elseif($row->account_type == 7) {
+                                            echo "Student & Postgraduate";
                                         }
                             ?></td>
                         <td><button type="button" name = 'pc2_load' value = 'Load' onclick="location.href='<?php echo site_url().'/pc2/load_form?id='.$row->application_id;?>'" class="btn btn-primary">Load</button></td>
@@ -625,15 +661,19 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                         <td><?php echo $row->account_fullname; ?></td>
                         <td><?php 
                                         if($row->account_type == 1) {
-                                            echo "Applicant / PI";
+                                            echo "Applicant / Project Investigator";
                                         } elseif($row->account_type == 2) {
-                                            echo "SSBC Chair / SSBC Members";
+                                            echo "SSBC Chair";
                                         } elseif($row->account_type == 3) {
-                                            echo "Students / Postgraduates";
+                                            echo "SSBC Members";
                                         } elseif($row->account_type == 4) {
-                                            echo "BSO";
+                                            echo "Biosafety Officer";
                                         } elseif($row->account_type == 5) {
-                                            echo "HSO / Lab Officer";
+                                            echo "Health and Safety Officer";
+                                        } elseif($row->account_type == 6) {
+                                            echo "Lab Officer";
+                                        } elseif($row->account_type == 7) {
+                                            echo "Student & Postgraduate";
                                         }
                             ?></td>
                         <td><button type="button" name = 'pc2_load' value = 'Load' onclick="location.href='<?php echo site_url().'/pc2/load_form?id='.$row->application_id;?>'" class="btn btn-primary">Load</button></td>
@@ -690,15 +730,19 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                         <td><?php echo $row->account_fullname; ?></td>
                         <td><?php 
                                         if($row->account_type == 1) {
-                                            echo "Applicant / PI";
+                                            echo "Applicant / Project Investigator";
                                         } elseif($row->account_type == 2) {
-                                            echo "SSBC Chair / SSBC Members";
+                                            echo "SSBC Chair";
                                         } elseif($row->account_type == 3) {
-                                            echo "Students / Postgraduates";
+                                            echo "SSBC Members";
                                         } elseif($row->account_type == 4) {
-                                            echo "BSO";
+                                            echo "Biosafety Officer";
                                         } elseif($row->account_type == 5) {
-                                            echo "HSO / Lab Officer";
+                                            echo "Health and Safety Officer";
+                                        } elseif($row->account_type == 6) {
+                                            echo "Lab Officer";
+                                        } elseif($row->account_type == 7) {
+                                            echo "Student & Postgraduate";
                                         }
                             ?></td>
                         <td><button type="button" name = 'swp_load' value = 'Load' onclick="location.href='<?php echo site_url().'/swp/load_form?id='.$row->application_id;?>'" class="btn btn-primary">Load</button></td>
@@ -752,15 +796,19 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                         <td><?php echo $row->account_fullname; ?></td>
                         <td><?php 
                                         if($row->account_type == 1) {
-                                            echo "Applicant / PI";
+                                            echo "Applicant / Project Investigator";
                                         } elseif($row->account_type == 2) {
-                                            echo "SSBC Chair / SSBC Members";
+                                            echo "SSBC Chair";
                                         } elseif($row->account_type == 3) {
-                                            echo "Students / Postgraduates";
+                                            echo "SSBC Members";
                                         } elseif($row->account_type == 4) {
-                                            echo "BSO";
+                                            echo "Biosafety Officer";
                                         } elseif($row->account_type == 5) {
-                                            echo "HSO / Lab Officer";
+                                            echo "Health and Safety Officer";
+                                        } elseif($row->account_type == 6) {
+                                            echo "Lab Officer";
+                                        } elseif($row->account_type == 7) {
+                                            echo "Student & Postgraduate";
                                         }
                             ?></td>
                         <td><button type="button" name = 'swp_load' value = 'Load' onclick="location.href='<?php echo site_url().'/swp/load_form?id='.$row->application_id;?>'" class="btn btn-primary">Load</button></td>

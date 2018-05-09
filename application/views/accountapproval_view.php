@@ -69,7 +69,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                                         } elseif($row->account_type == 2) {
                                             echo "SSBC Chair";
                                         } elseif($row->account_type == 3) {
-                                            echo "SSBC Member";
+                                            echo "SSBC Members";
                                         } elseif($row->account_type == 4) {
                                             echo "Biosafety Officer";
                                         } elseif($row->account_type == 5) {

@@ -59,11 +59,11 @@ if(!$this->session->userdata('isLogin')){
                         <th>Program</th>
                         <th>Program Type</th>
                         <th>Unit Convenor / Project Investigator</th>
-                        <th>Unit Name / Experiment Title</th>
+                        <th>Unit Name & Experiment Title</th>
                         <th>Project Title & Project Reference No.</th>
                         <th>Type of Biohazard Material</th>
                         <th>Name of Biohazard Material</th>
-                        <th>Biohazard Material ID</th>
+                        <th>Given ID No.</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -80,7 +80,7 @@ if(!$this->session->userdata('isLogin')){
                         <td><?php echo $row->biohazard_name; ?></td>
                         <td><?php echo $row->biohazard_id; ?></td>
                         <td class="text-center">
-                            <?php if($this->session->userdata('account_id') == $row->account_id) { ?>
+                            <?php if($this->session->userdata('account_id') == $row->account_id || $this->session->userdata('account_type') == 4) { ?>
                             <i class="fa fa-bars btn btn-info" onclick="view_details(<?php echo $row->inventory_id; ?>)" title="Details"></i>
                             <hr/>
                             <i class="fa fa-edit btn btn-warning" onclick="edit_inventory_details(<?php echo $row->inventory_id; ?>)" title="Edit"></i>
@@ -129,7 +129,7 @@ if(!$this->session->userdata('isLogin')){
             }
 
             function delete_inventory_details(i){
-                var j = prompt("Reason for Deleting:", "Out of Stock");
+                var j = prompt("Reason for Deleting:", "Project Completion, will decontaminate and dispose");
                 if (j != null) {
                     window.location = "<?php echo base_url(); ?>index.php/inventory/delete/" + i + "/" + btoa(j);
                 }
@@ -143,11 +143,11 @@ if(!$this->session->userdata('isLogin')){
                 <thead>
                     <tr>
                         <th></th>
-                        <th>Biohazard Material ID</th>
-                        <th>Name of Biohazard Material</th>
+                        <th>ID No.</th>
+                        <th>Name of Biohazardous Material</th>
                         <th>Risk Group</th>
-                        <th>Location of Collection / Supplier</th>
-                        <th>Keeper</th>
+                        <th>Storage Location</th>
+                        <th>Keeper Name</th>
                         <th>Log In Personnel</th>
                         <th></th>
                     </tr>
@@ -176,8 +176,8 @@ if(!$this->session->userdata('isLogin')){
                     </tr>
                     <tr id="tr<?php echo $row->storage_id; ?>" style="display:none;">
                         <td colspan="10">
-                            <p>Location of Supplier / Supplier Name: <?php echo $row->location; ?></p>
-                            <p>Sourche of Biohazardous Material: <?php echo $row->biohazard_source; ?></p>
+                            <p>Location of Supplier / Company Name: <?php echo $row->location; ?></p>
+                            <p>Source of Biohazardous Material: <?php echo $row->biohazard_source; ?></p>
                             <p>Date Created: <?php echo $row->date_created; ?></p>
                         </td>
                     </tr>
@@ -212,7 +212,7 @@ if(!$this->session->userdata('isLogin')){
             }
 
             function delete_storage_details(i){
-                var j = prompt("Reason for Deleting:", "Out of Stock");
+                var j = prompt("Reason for Deleting:", "Project Completion, will decontaminate and dispose");
                 if (j != null) {
                     window.location = "<?php echo base_url(); ?>index.php/inventory/delete2/" + i + "/" + btoa(j);
                 }

@@ -46,7 +46,7 @@ if(!$this->session->userdata('isLogin')){
             }
         } else {
             $form_program = "";
-            $form_program_type = "";
+            $form_program_type = "Teaching";
             $form_unit_convenor = "";
             $form_project_investigator = "";
             $form_unit_name = "";
@@ -98,23 +98,29 @@ if(!$this->session->userdata('isLogin')){
                         <br/>
                         <div class="form-group">
                             <label for="programname">Program:</label>
-                            <input class="form-control" id="programname" name="program" placeholder="Enter program name here." type="text" value="<?php echo set_value('program', $form_program); ?>" />
+                            <input class="form-control" id="programname" name="program" placeholder="Enter program name here. i.e. Master of Science by Research, Biotechnology, Civil Engineering, Chemical Engineering, etc." type="text" value="<?php echo set_value('program', $form_program); ?>" />
                             <span class="text-danger"><?php echo form_error('program'); ?></span>
                         </div>
                     
                         <div class="form-group">
                             <label for="programtype">Program Type:</label>
-                            <input class="form-control" id="programtype" name="program_type" placeholder="Enter program type here." type="text" value="<?php echo set_value('program_type', $form_program_type); ?>" />
-                            <span class="text-danger"><?php echo form_error('program_type'); ?></span>
+                            <select class="form-control" id="programtype" name="program_type" >
+                                <option value="Teaching">Teaching</option>
+                                <option value="FYP">FYP</option>
+                                <option value="Research">Research</option>
+                                <option value="Others">Others</option>
+                            </select>
                         </div>
                     
                         <div class="row">
                             <div class="form-group col-md-6">
+                                <p style="font-size:11px;"><em>* Please fill in the Unit Convenor section if Teaching is selected.</em></p>
                                 <label for="unitconvenor">Unit Convenor:</label>
                                 <input class="form-control" id="unitconvenor" name="unit_convenor" placeholder="Enter the unit convenor here." type="text" value="<?php echo set_value('unit_convenor', $form_unit_convenor); ?>" />
                             </div>
 
                             <div class="form-group col-md-6">
+                                <p style="font-size:11px;"><em>* Please fill in the Project Investigator section if FYP / Research is selected.</em></p>
                                 <label for="projectinvestigator">Project Investigator:</label>
                                 <input class="form-control" id="projectinvestigator" name="project_investigator" placeholder="Enter the project investigator here." type="text" value="<?php echo set_value('project_investigator', $form_project_investigator); ?>" />
                             </div>
@@ -137,30 +143,28 @@ if(!$this->session->userdata('isLogin')){
                             <div class="form-group col-md-6">
                                 <label for="experimenttitle">Experiment Title:</label>
                                 <input class="form-control" id="experimenttitle" name="experiment_title" placeholder="Enter experiment title here." type="text" value="<?php echo set_value('experiment_title', $form_experiment_title); ?>" />
-                                <p style="font-size:11px;"><em>* Please leave the Project Investigator section empty if this section is filled.</em></p>
                             </div>
 
                             <div class="form-group col-md-6">
-                                <label for="referenceno">Project Reference No:</label>
+                                <label for="referenceno">Project Reference No.:</label>
                                 <input class="form-control" id="referenceno" name="project_reference_no" placeholder="Enter project reference number here." type="text" value="<?php echo set_value('project_reference_no', $form_project_reference_no); ?>" />
-                                <p style="font-size:11px;"><em>* Please leave the Unit Convenor section empty if this section is filled.</em></p>
                             </div>
                         </div>
                     
                         <div class="form-group">
-                            <label for="biohazardtype">Biohazard Type:</label>
+                            <label for="biohazardtype">Type of Biohazardous Material:</label>
                             <input class="form-control" id="biohazardtype" name="biohazard_type" placeholder="Enter the biohazard type here." type="text" value="<?php echo set_value('biohazard_type', $form_biohazard_type); ?>" />
                             <span class="text-danger"><?php echo form_error('biohazard_type'); ?></span>
                         </div>
                     
                         <div class="form-group">
-                            <label for="biohazardname">Biohazard Name:</label>
+                            <label for="biohazardname">Name of Biohazardous Material:</label>
                             <input class="form-control" id="biohazardname" name="biohazard_name" placeholder="Enter the biohazard name here." type="text" value="<?php echo set_value('biohazard_name', $form_biohazard_name); ?>" />
                             <span class="text-danger"><?php echo form_error('biohazard_name'); ?></span>
                         </div>
                     
                         <div class="form-group">
-                            <label for="biohazardid">Biohazard ID:</label>
+                            <label for="biohazardid">Given ID No.:</label>
                             <input class="form-control" id="biohazardid" name="biohazard_id" placeholder="Enter the biohazard ID here." type="text" value="<?php echo set_value('biohazard_id', $form_biohazard_id); ?>" />
                             <span class="text-danger"><?php echo form_error('biohazard_id'); ?></span>
                         </div>
@@ -177,14 +181,14 @@ if(!$this->session->userdata('isLogin')){
                         </div>
                     
                         <div class="form-group">
-                            <label for="keepername">Keeper's Name:</label>
+                            <label for="keepername">Keeper Name:</label>
                             <input class="form-control" id="keepername" name="keeper_name" placeholder="Enter the keeper's name here." type="text" value="<?php echo set_value('keeper_name', $form_keeper_name); ?>" />
                             <span class="text-danger"><?php echo form_error('keeper_name'); ?></span>
                         </div>
                     
                         <div class="form-group">
                             <label for="remark">Remarks:</label>
-                            <input class="form-control" id="remark" name="remarks" placeholder="Enter remarks here." type="text" value="<?php echo set_value('remarks', $form_remarks); ?>" />
+                            <input class="form-control" id="remark" name="remarks" placeholder="Enter remarks here, if any." type="text" value="<?php echo set_value('remarks', $form_remarks); ?>" />
                         </div>
                         
                         <div class="form-group text-center">
@@ -201,5 +205,9 @@ if(!$this->session->userdata('isLogin')){
             </div>
         <br/>
     </div>
+    
+    <script>
+        document.getElementById("programtype").value = "<?php echo $form_program_type; ?>";
+    </script>
 </body>
 </html>
