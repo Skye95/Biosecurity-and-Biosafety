@@ -32,7 +32,7 @@ class inventory extends CI_Controller {
         $data['details'] = $this->inventory_model->get_inventory_by_id($id);
         
         $this->form_validation->set_rules('program', 'Program', 'required');
-        $this->form_validation->set_rules('program_type', 'Program Type', 'required');
+        #$this->form_validation->set_rules('program_type', 'Program Type', 'required');
         $this->form_validation->set_rules('biohazard_type', 'Biohazard Type', 'required');
         $this->form_validation->set_rules('biohazard_name', 'Biohazard Name', 'required');
         $this->form_validation->set_rules('biohazard_id', 'Biohazard ID', 'required');

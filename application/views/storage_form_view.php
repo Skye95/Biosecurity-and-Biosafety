@@ -86,13 +86,13 @@ if(!$this->session->userdata('isLogin')){
                         <legend>New Storage Application</legend>
                         <br/>
                         <div class="form-group">
-                            <label for="biohazardid">Biohazard ID:</label>
+                            <label for="biohazardid">ID No.:</label>
                             <input class="form-control" id="biohazardid" name="biohazard_id" placeholder="Enter the biohazard id here." type="text" value="<?php echo set_value('biohazard_id', $form_biohazard_id); ?>" />
                             <span class="text-danger"><?php echo form_error('biohazard_id'); ?></span>
                         </div>
                     
                         <div class="form-group">
-                            <label for="biohazardname">Biohazard Name:</label>
+                            <label for="biohazardname">Name of Biohazardous Material:</label>
                             <input class="form-control" id="biohazardname" name="biohazard_name" placeholder="Enter the biohazard name here." type="text" value="<?php echo set_value('biohazard_name', $form_biohazard_name); ?>" />
                             <span class="text-danger"><?php echo form_error('biohazard_name'); ?></span>
                         </div>
@@ -110,7 +110,7 @@ if(!$this->session->userdata('isLogin')){
                         </div>
                     
                         <div class="form-group">
-                            <label for="biohazardsource">Biohazard Source:</label>
+                            <label for="biohazardsource">Source of Biohazardous Material:</label>
                             <input class="form-control" id="biohazardsource" name="biohazard_source" placeholder="Enter biohazard source here." type="text" value="<?php echo set_value('biohazard_source', $form_biohazard_source); ?>" />
                             <span class="text-danger"><?php echo form_error('biohazard_source'); ?></span>
                         </div>

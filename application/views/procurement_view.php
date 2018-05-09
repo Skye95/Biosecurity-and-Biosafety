@@ -783,7 +783,7 @@ if(!$this->session->userdata('isLogin')){
                 <div class="btn-group-vertical btn-sample">
                     <a href="#section_1" class="btn btn-success">Section 1</a>
                     <a href="#section_2" class="btn btn-success">Section 2</a>
-                    <a href="#section_2" class="btn btn-success">Section 3</a>
+                    <a href="#section_3" class="btn btn-success">Section 3</a>
                 </div>   
             </div>
         </div>

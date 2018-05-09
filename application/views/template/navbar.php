@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
         <?php if ($this->session->userdata('isLogin')){ ?>
-            <a class="navbar-brand" title="Swinburne Biosafety and Biosafety Online System Homepage"
+            <a class="navbar-brand" title="Swinburne Biosafety and Biosecurity Online System Homepage"
 			href="<?php echo base_url();?>index.php/home/index">Swinburne BBOS</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle Navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -20,7 +20,7 @@
                             <a class="nav-link" href="<?php echo base_url(); ?>index.php/notification/index"><i class="fa fa-bell fa-lg fa-fw"></i> Notifications</a>
                         <?php } ?>
                     </li>
-                    <?php if($this->session->userdata('account_type') == 2 || $this->session->userdata('account_type') == 4 || $this->session->userdata('account_type') == 5 ) { ?>
+                    <?php if($this->session->userdata('account_type') == 2 || $this->session->userdata('account_type') == 3 || $this->session->userdata('account_type') == 4 || $this->session->userdata('account_type') == 5 || $this->session->userdata('account_type') == 6 ) { ?>
                     <li class="nav-item">
                         <a class="nav-link" href="<?php echo base_url(); ?>index.php/adminpage/index"><i class="fa fa-tv fa-lg fa-fw"></i> Administrator Panel</a>
                     </li>
