@@ -25,6 +25,14 @@ class account_model extends CI_Model
 		return $query->result();
 	}
     
+    function recover_account($email)
+    {
+        $this->db->where('account_email', $email);
+        $this->db->where('account_approved', 1);
+        $query = $this->db->get('accounts');
+        return $query->result();
+    }
+    
     function get_account_type($id)
     {
         $this->db->select('account_type');

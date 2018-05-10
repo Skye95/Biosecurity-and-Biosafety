@@ -9,6 +9,7 @@ class landing extends CI_Controller {
         
         $this->load->database();
         $this->load->model('account_model');
+        $this->load->model('email_model');
         $this->load->model('notification_model');
     }
     
@@ -42,6 +43,35 @@ class landing extends CI_Controller {
             }
         }
 	}
+    
+    public function recovery()
+    {
+        $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );
+        
+        $account_email = $this->input->post('account_email');
+        
+        $this->form_validation->set_rules('account_email', 'Email', 'required');
+        
+        if($this->form_validation->run() == FALSE){
+            # validation fails
+            $this->load->template('recovery_view', $data);
+        } else {
+            # checks for account credentials
+            $result = $this->account_model->recover_account($account_email);
+            if (count($result) == 1)
+            {
+                $this->session->set_flashdata('msg', '<div class="alert alert-success text-center">Your account password has been sent to your Email Address!</div>');
+                
+                $this->email_model->send_email( $this->input->post('account_email'), "Email Recovery Details", "<p>Dear " . $result[0]->account_fullname . ", <br/><br/>Your current password used for the BBOS system is: <br/><br/>" . $result[0]->account_password . "<br/><br/>Please change your password under 'My Accounts' after your login.</p>");
+                redirect('landing/recovery');
+            }
+            else
+            {
+                $this->session->set_flashdata('msg', '<div class="alert alert-danger text-center">Email Address does not exist!</div>');
+                redirect('landing/recovery');
+            }
+        }
+    }
     
     function logout(){
         # destroys current session
