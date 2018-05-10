@@ -148,6 +148,14 @@ class incidentaccidentreport_model extends CI_Model
 		return $this->db->insert('incidentaccidentreport', $data);
 	}
     
+    function update_applicant_data($id, $data)
+    {
+        $this->db->set('application_approved', 'NULL', FALSE);
+        $this->db->where('application_id', $id);
+		$this->db->update('incidentaccidentreport', $data);
+        return true;
+	}
+    
     function update_approval($id, $type, $approver_id)
     {
         if ($type == 0) {
@@ -204,6 +212,21 @@ class incidentaccidentreport_model extends CI_Model
             
     }
     
+    function update_editable($id, $type, $approver_id)
+    {
+        if ($type == 0) {
+            
+            $data = array('editable' => 3, 'approver_id' => $approver_id );
+            $this->db->where('account_id', $id);
+            $this->db->update('incidentaccidentreport', $data);
+        } elseif ($type == 1) {
+            $data = array('editable' => 2, 'approver_id' => $approver_id);
+            $this->db->where('account_id', $id);
+            $this->db->update('incidentaccidentreport', $data);
+        }
+        return true;
+        
+    }
     
     
 }

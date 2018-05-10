@@ -44,7 +44,7 @@ class editrequest_approval extends CI_Controller {
         $data['all_biohazard'] = $this->biohazard_model->get_all_edit_request();
         $data['all_exempt'] = $this->exempt_model->get_all_edit_request();
         $data['all_forme'] = $this->forme_model->get_all_edit_request();
-        $data['all_formf'] = $this->forme_model->get_all_edit_request();
+        $data['all_formf'] = $this->formf_model->get_all_edit_request();
         $data['all_hirarc'] = $this->hirarc_model->get_all_edit_request();
         $data['all_incident'] = $this->incidentaccidentreport_model->get_all_edit_request();
         $data['all_notif_export'] = $this->notification_of_exporting_biological_material_model->get_all_edit_request();
@@ -198,6 +198,85 @@ class editrequest_approval extends CI_Controller {
         redirect('editrequest_approval/index');
     }
     
+    //Methods For Approving And Rejecting Form E Requests
+    public function approve_forme($id)
+    {
+        $approver_id = $this->session->userdata('account_id');
+        $id = $this->uri->segment(3);
+        $this->forme_model->update_editable($id, 1, $approver_id);
+        
+        redirect('editrequest_approval/index');
+    }
+    
+    public function reject_forme($id)
+    {
+        $approver_id = ' ';
+        $id = $this->uri->segment(3);
+        $msg = base64_decode($this->uri->segment(4));
+        $this->forme_model->update_editable($id, 0, $approver_id);
+        
+        redirect('editrequest_approval/index');
+    }
+    
+    //Methods For Approving And Rejecting Form F Requests
+    public function approve_formf($id)
+    {
+        $approver_id = $this->session->userdata('account_id');
+        $id = $this->uri->segment(3);
+        $this->formf_model->update_editable($id, 1, $approver_id);
+        
+        redirect('editrequest_approval/index');
+    }
+    
+    public function reject_formf($id)
+    {
+        $approver_id = ' ';
+        $id = $this->uri->segment(3);
+        $msg = base64_decode($this->uri->segment(4));
+        $this->formf_model->update_editable($id, 0, $approver_id);
+        
+        redirect('editrequest_approval/index');
+    }
+    
+    //Methods For Approving And Rejecting HIRARC form Requests
+    public function approve_hirarc($id)
+    {
+        $approver_id = $this->session->userdata('account_id');
+        $id = $this->uri->segment(3);
+        $this->hirarc_model->update_editable($id, 1, $approver_id);
+        
+        redirect('editrequest_approval/index');
+    }
+    
+    public function reject_hirarc($id)
+    {
+        $approver_id = ' ';
+        $id = $this->uri->segment(3);
+        $msg = base64_decode($this->uri->segment(4));
+        $this->hirarc_model->update_editable($id, 0, $approver_id);
+        
+        redirect('editrequest_approval/index');
+    }
+    
+    //Methods For Approving And Rejecting Incident Accident report form Requests
+    public function approve_incident($id)
+    {
+        $approver_id = $this->session->userdata('account_id');
+        $id = $this->uri->segment(3);
+        $this->incidentaccidentreport_model->update_editable($id, 1, $approver_id);
+        
+        redirect('editrequest_approval/index');
+    }
+    
+    public function reject_incident($id)
+    {
+        $approver_id = ' ';
+        $id = $this->uri->segment(3);
+        $msg = base64_decode($this->uri->segment(4));
+        $this->incidentaccidentreport_model->update_editable($id, 0, $approver_id);
+        
+        redirect('editrequest_approval/index');
+    }
     
 }
     

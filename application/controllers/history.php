@@ -211,23 +211,91 @@ class history extends CI_Controller {
             
         }elseif($type =="FORM%20E"){
             
-            $this->forme_model->edit_request($id);
-            redirect('history/index');
+            if($editable == 2){
+                
+                $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );
+            
+                $data['load'] = "true";
+                $data['editload'] = "true";
+                $data['appID'] = $id;
+
+                
+                $data['retrieved'] = $this->forme_model->get_form_by_id($id);
+
+                $this->load->template('forme_view', $data);
+                
+            }else{
+                
+                $this->forme_model->edit_request($id);
+                redirect('history/index');
+                
+            }
             
         }elseif($type =="FORM%20F"){
             
-            $this->formf_model->edit_request($id);
-            redirect('history/index');
+            if($editable == 2){
+                
+                $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );
+            
+                $data['load'] = "true";
+                $data['editload'] = "true";
+                $data['appID'] = $id;
+
+                
+                $data['retrieved'] = $this->formf_model->get_form_by_id($id);
+
+                $this->load->template('formf_view', $data);
+                
+            }else{
+                
+                $this->formf_model->edit_request($id);
+                redirect('history/index');
+                
+            }
             
         }elseif($type =="OHS-F-4.5.X%20HIRARC%20FORM"){
             
-            $this->hirarc_model->edit_request($id);
-            redirect('history/index');
+            if($editable == 2){
+                
+                $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );
+            
+                $data['load'] = "true";
+                $data['editload'] = "true";
+                $data['appID'] = $id;
+
+                
+                $data['retrieved'] = $this->hirarc_model->get_form_by_id($id);
+
+                $this->load->template('hirarc_view', $data);
+                
+            }else{
+                
+                $this->hirarc_model->edit_request($id);
+                redirect('history/index');
+                
+            }
             
         }elseif($type =="OHS-F-4.20.X%20INCIDENT%20ACCIDENT%20REPORT"){
             
-            $this->incidentaccidentreport_model->edit_request($id);
-            redirect('history/index');
+            if($editable == 2){
+                
+                $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );
+            
+                $data['load'] = "true";
+                $data['editload'] = "true";
+                $data['appID'] = $id;
+
+                
+                $data['retrieved'] = $this->incidentaccidentreport_model->get_form_by_id($id);
+
+                $this->load->template('incidentaccidentreport_view', $data);
+                
+            }else{
+                
+                $this->incidentaccidentreport_model->edit_request($id);
+                redirect('history/index');
+                
+            }
             
         }elseif($type =="SSBC%20NOTIFICATION%20OF%20EXPORTING%20LMO%20AND%20BIOHAZARDOUS%20MATERIAL"){
             

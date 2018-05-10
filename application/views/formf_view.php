@@ -50,7 +50,7 @@ if(!$this->session->userdata('isLogin')){
             </div>
             
             <div id="top" class="col-md-9">
-              <?php echo form_open('formf/index'); ?>
+              <?php if(isset($editload)) { echo form_open('formf/update_form'); } else { echo form_open('formf/index'); } ?>
                 <?php if(isset($disabled)){ echo "<fieldset disabled='disabled'>"; } ?>
                     <div>
                         <br/>
@@ -337,9 +337,19 @@ if(!$this->session->userdata('isLogin')){
              		</div>
 					
 					<hr>
-					<div style="text-align: center">
+                
+                
+					<div>
+                    <input type="hidden" name="appid" value="<?php if(isset($appID)){echo $appID;} ?>">
+                </div>
+                
+                   <div style="text-align: center">
+                       <?php if(isset($editload)){ ?>
+                       <button type="submit" name = 'formf_update' value = 'Update' onclick="location.href='<?php echo site_url().'/formf/update_form';?>'" class="btn btn-primary">Update</button>
+                       <?php }else{ ?>
                        <button name="submit" type="submit" class="btn btn-primary col-md-2">Submit</button>
-                    </div>
+                       <?php } ?>
+                   </div>
 
                 <?php if(isset($disabled)){ echo "</fieldset>"; } ?>
                <?php echo form_close(); ?>

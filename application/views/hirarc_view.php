@@ -95,7 +95,7 @@ if(!$this->session->userdata('isLogin')){
             
             
             <div class="col-md-10">
-               <?php echo form_open('hirarc/index'); ?>
+               <?php if(isset($editload)) { echo form_open('hirarc/update_form'); } else { echo form_open('hirarc/index'); } ?>
                 <?php if(isset($disabled)){ echo "<fieldset disabled='disabled'>"; } ?>
                    <div>
                        <h5><strong>PLEASE FILL OUT ALL INFORMATION REQUESTED</strong></h5>
@@ -303,7 +303,7 @@ if(!$this->session->userdata('isLogin')){
                        <span class="text-danger"><?php echo form_error('HIRARC_PIC[0]'); ?></span>
                    </div>
                 
-                <input type="hidden" value="<?php echo $hirarctype ?>" name="application_type" />
+                <input type="hidden" value="<?php if(isset($hirarctype)){echo $hirarctype;}  ?>" name="application_type" />
                    
                    <br>
                    
@@ -477,9 +477,19 @@ if(!$this->session->userdata('isLogin')){
                    </div>
                    
                    <br>
+                
+                
+                   <div>
+                    <input type="hidden" name="appid" value="<?php if(isset($appID)){echo $appID;} ?>">
+                </div>
+                
                    <div style="text-align: center">
+                       <?php if(isset($editload)){ ?>
+                       <button type="submit" name = 'hirarc_update' value = 'Update' onclick="location.href='<?php echo site_url().'/hirarc/update_form';?>'" class="btn btn-primary">Update</button>
+                       <?php }else{ ?>
                        <button name="submit" type="submit" class="btn btn-primary col-md-2">Submit</button>
-                    </div>
+                       <?php } ?>
+                   </div>
                <?php if(isset($disabled)){ echo "</fieldset>"; } ?>
                <?php echo form_close(); ?>
             </div>
