@@ -299,23 +299,91 @@ class history extends CI_Controller {
             
         }elseif($type =="SSBC%20NOTIFICATION%20OF%20EXPORTING%20LMO%20AND%20BIOHAZARDOUS%20MATERIAL"){
             
-            $this->notification_of_exporting_biological_material_model->edit_request($id);
-            redirect('history/index');
+            if($editable == 2){
+                
+                $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );
+            
+                $data['load'] = "true";
+                $data['editload'] = "true";
+                $data['appID'] = $id;
+
+                
+                $data['retrieved'] = $this->notification_of_exporting_biological_material_model->get_form_by_id($id);
+
+                $this->load->template('notification_of_exporting_biological_material_view', $data);
+                
+            }else{
+                
+                $this->notification_of_exporting_biological_material_model->edit_request($id);
+                redirect('history/index');
+                
+            }
             
         }elseif($type =="NOTIFICATION%20OF%20LMO%20AND%20BIOHAZARDOUS%20MATERIAL"){
             
-            $this->notification_of_LMO_and_BM_model->edit_request($id);
-            redirect('history/index');
+            if($editable == 2){
+                
+                $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );
+            
+                $data['load'] = "true";
+                $data['editload'] = "true";
+                $data['appID'] = $id;
+
+                
+                $data['retrieved'] = $this->notification_of_LMO_and_BM_model->get_form_by_id($id);
+
+                $this->load->template('notification_of_LMO_and_BM_view', $data);
+                
+            }else{
+                
+                $this->notification_of_LMO_and_BM_model->edit_request($id);
+                redirect('history/index');
+                
+            }
             
         }elseif($type =="APPLICATION%20FOR%20NLRDS%20SUITABLE%20FOR%20PC1%20FORM"){
             
-            $this->pc1_model->edit_request($id);
-            redirect('history/index');
+            if($editable == 2){
+                
+                $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );
+            
+                $data['load'] = "true";
+                $data['editload'] = "true";
+                $data['appID'] = $id;
+
+                
+                $data['retrieved'] = $this->pc1_model->get_form_by_id($id);
+
+                $this->load->template('pc1_view', $data);
+                
+            }else{
+                
+                $this->pc1_model->edit_request($id);
+                redirect('history/index');
+                
+            }
             
         }elseif($type =="APPLICATION%20FOR%20NLRDS%20SUITABLE%20FOR%20PC2%20FORM"){
             
-            $this->pc2_model->edit_request($id);
-            redirect('history/index');
+            if($editable == 2){
+                
+                $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );
+            
+                $data['load'] = "true";
+                $data['editload'] = "true";
+                $data['appID'] = $id;
+
+                
+                $data['retrieved'] = $this->pc2_model->get_form_by_id($id);
+
+                $this->load->template('pc2_view', $data);
+                
+            }else{
+                
+                $this->pc2_model->edit_request($id);
+                redirect('history/index');
+                
+            }
             
         }elseif($type =="OHS-F-4.18.X%20PRE-PURCHASE%20MATERIAL%20RISK%20ASSESSMENT"){
             

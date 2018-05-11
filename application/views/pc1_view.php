@@ -95,8 +95,12 @@ if(!$this->session->userdata('isLogin')){
         <hr>
         <div class="row">
      <div class="col-md-10">
-               <?php echo form_open_multipart('pc1/index'); ?>
-         <?php if(isset($disabled)){ echo "<fieldset disabled='disabled'>"; } ?>
+         
+               <?php if(isset($editload)) { echo form_open('pc1/update_form'); } else { echo form_open('pc1/index'); } ?>
+               <?php if(isset($disabled)){ echo "<fieldset disabled='disabled'>"; } ?>
+         
+         <?php if(isset($error)){echo $error;} ?>
+         
                    <h4 class="centering"><u>Swinburne Biosafety Commitee</u></h4>
                    
                    <h3 class="centering">Application for Notifiable Low Risk Dealings</h3>
@@ -583,9 +587,17 @@ if(!$this->session->userdata('isLogin')){
                    </table>
                    
                    
+                   <div>
+                    <input type="hidden" name="appid" value="<?php if(isset($appID)){echo $appID;} ?>">
+                   </div>
+                
                    <div style="text-align: center">
+                       <?php if(isset($editload)){ ?>
+                       <button type="submit" name = 'pc1_update' value = 'Update' onclick="location.href='<?php echo site_url().'/pc1/update_form';?>'" class="btn btn-primary">Update</button>
+                       <?php }else{ ?>
                        <button name="submit" type="submit" class="btn btn-primary col-md-2">Submit</button>
-                    </div>
+                       <?php } ?>
+                   </div>
                <?php if(isset($disabled)){ echo "</fieldset>"; } ?>
                <?php echo form_close(); ?>
             </div>
