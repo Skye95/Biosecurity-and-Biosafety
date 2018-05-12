@@ -388,6 +388,50 @@ class editrequest_approval extends CI_Controller {
         redirect('editrequest_approval/index');
     }
     
+    //Methods For Approving And Rejecting procurement form Requests
+    public function approve_procurement($id, $appid)
+    {
+        $approver_id = $this->session->userdata('account_id');
+        $id = $this->uri->segment(3);
+        $appid = $this->uri->segment(4);
+        $this->procurement_model->update_editable($id, 1, $approver_id, $appid);
+        
+        redirect('editrequest_approval/index');
+    }
+    
+    public function reject_procurement($id)
+    {
+        $approver_id = ' ';
+        $id = $this->uri->segment(3);
+        $appid = $this->uri->segment(4);
+        $msg = base64_decode($this->uri->segment(5));
+        $this->procurement_model->update_editable($id, 0, $approver_id, $appid);
+        
+        redirect('editrequest_approval/index');
+    }
+    
+    //Methods For Approving And Rejecting swp form Requests
+    public function approve_swp($id, $appid)
+    {
+        $approver_id = $this->session->userdata('account_id');
+        $id = $this->uri->segment(3);
+        $appid = $this->uri->segment(4);
+        $this->swp_model->update_editable($id, 1, $approver_id, $appid);
+        
+        redirect('editrequest_approval/index');
+    }
+    
+    public function reject_swp($id)
+    {
+        $approver_id = ' ';
+        $id = $this->uri->segment(3);
+        $appid = $this->uri->segment(4);
+        $msg = base64_decode($this->uri->segment(5));
+        $this->swp_model->update_editable($id, 0, $approver_id, $appid);
+        
+        redirect('editrequest_approval/index');
+    }
+    
 }
     
 ?>

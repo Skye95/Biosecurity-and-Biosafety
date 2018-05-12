@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 if(!$this->session->userdata('isLogin')){
     redirect('landing/index');
 }
-if($this->session->userdata('account_type') != 2 && $this->session->userdata('account_type') != 4 ){
+if($this->session->userdata('account_type') != 2 && $this->session->userdata('account_type') != 3 && $this->session->userdata('account_type') != 4 ){
     redirect('home/index');
 }
 ?>
@@ -45,16 +45,18 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                 <thead>
                     <tr>
                         <th colspan="6">
-                            Biohazard Material Forms
+                            Annual Final Report Forms
                         </th>
                     </tr>
                     <tr>
-                        <th></th>
+                        <th>No.</th>
                         <th>Account Email</th>
                         <th>Full Name</th>
                         <th>Account Type</th>
-                        <th></th>
-                        <th></th>
+                        <th>View Form</th>
+                        <th id="proceed1">Proceed/Ammend</th>
+                        <th id="issue" style="display:none;">Major Issues</th>
+                        <th id="approval" style="display:none;">Approval</th>
                     </tr>
                 </thead>
                 <tbody id="account">
@@ -67,16 +69,16 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                                         if($row->account_type == 1) {
                                             echo "Applicant / PI";
                                         } elseif($row->account_type == 2) {
-                                            echo "SSBC Chair / SSBC Members";
+                                            echo "SSBC Chair";
                                         } elseif($row->account_type == 3) {
-                                            echo "Students / Postgraduates";
+                                            echo "SSBC Members";
                                         } elseif($row->account_type == 4) {
                                             echo "BSO";
                                         } elseif($row->account_type == 5) {
                                             echo "HSO / Lab Officer";
                                         }
                             ?></td>
-                        <td><button type="button" name = 'biohazard_load' value = 'Load' onclick="location.href='<?php echo site_url().'/annualfinalreport/load_form?id='.$row->application_id;?>'" class="btn btn-primary">Load</button></td>
+                        <td><button type="button" name = 'annual_load' value = 'Load' onclick="location.href='<?php echo site_url().'/annualfinalreport/load_form?id='.$row->application_id;?>'" class="btn btn-primary">Load</button></td>
                         <!--
                         <td class="text-center">
                             <a class="btn btn-success" href="<?php echo base_url(); ?>index.php/accountapproval/approve/<?php echo $row->account_id; ?>" title="Approve"><i class="fa fa-check"></i></a>
@@ -84,10 +86,20 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                             <a class="btn btn-danger" href="<?php echo base_url(); ?>index.php/accountapproval/reject/<?php echo $row->account_id; ?>" title="Reject"><i class="fa fa-times"></i></a>
                         </td>
                         -->
-                        <td class="text-center">
-                            <button class="btn btn-success" onclick="approve(<?php echo $row->account_id; ?>)" title="Approve"><i class="fa fa-check"></i></button>
+                        <td id="proceed2" class="text-center">
+                            <button class="btn btn-success" onclick="proceed(<?php echo $row->account_id; ?>)" title="Approve"><i class="fa fa-check"></i></button>
                             <hr/>
-                            <button class="btn btn-danger" onclick="reject(<?php echo $row->account_id; ?>)" title="Reject"><i class="fa fa-times"></i></button>
+                            <button class="btn btn-danger" onclick="ammend(<?php echo $row->account_id; ?>)" title="Reject"><i class="fa fa-times"></i></button>
+                        </td>
+                        <td id="issuecell" style="display:none;">
+                            <button class="btn btn-success" onclick="approve(<?php echo $row->account_id; ?>)" title="Approve">Yes</button>
+                            <hr/>
+                            <button class="btn btn-danger" onclick="show_approval()" title="Reject">No</button>
+                        </td>
+                        <td id="approval_cell" style="display:none;">
+                            <button class="btn btn-success" onclick="approve_BSO(<?php echo $row->account_id; ?>)" title="Approve">Yes</button>
+                            <hr/>
+                            <button class="btn btn-danger" onclick="reject(<?php echo $row->account_id; ?>)" title="Reject">No</button>
                         </td>
                     </tr>
                 <?php endforeach; ?>
@@ -98,8 +110,8 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
         <?php } ?>
         <?php } ?>
         
-        <!-- IF current user is SSBC Chair/SSBC Members, then show applications that were approved by BSO -->
-        <?php if($this->session->userdata('account_type') == 2) { ?>
+        <!-- IF current user is SSBC Chair/SSBC Members, then show applications that BSO thinks has major issues -->
+        <?php if($this->session->userdata('account_type') == 3) { ?>
         <?php if(isset($all_annual_SSBC)) { ?>
         
         <div class="table-responsive">
@@ -107,7 +119,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                 <thead>
                     <tr>
                         <th colspan="6">
-                            Biohazard Material Forms
+                            Annual Final Report Forms
                         </th>
                     </tr>
                     <tr>
@@ -138,12 +150,68 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                                             echo "HSO / Lab Officer";
                                         }
                             ?></td>
-                        <td><button type="button" name = 'biohazard_load' value = 'Load' onclick="location.href='<?php echo site_url().'/exempt/load_form?id='.$row->application_id;?>'" class="btn btn-primary">Load</button></td>
+                        <td><button type="button" name = 'annual_load' value = 'Load' onclick="location.href='<?php echo site_url().'/annualfinalreport/load_form?id='.$row->application_id;?>'" class="btn btn-primary">Load</button></td>
                         
                         <td class="text-center">
                             <button class="btn btn-success" onclick="approve2(<?php echo $row->account_id; ?>)" title="Approve"><i class="fa fa-check"></i></button>
                             <hr/>
                             <button class="btn btn-danger" onclick="reject2(<?php echo $row->account_id; ?>)" title="Reject"><i class="fa fa-times"></i></button>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+        
+        <?php } ?>
+        <?php } ?>
+        
+        <!-- IF current user is SSBC Chair, then show applications that were approved by SSBC memebers -->
+        <?php if($this->session->userdata('account_type') == 2) { ?>
+        <?php if(isset($all_annual_Chair)) { ?>
+        
+        <div class="table-responsive">
+            <table class="table table-hover table-bordered">
+                <thead>
+                    <tr>
+                        <th colspan="6">
+                            Annual Final Report Forms
+                        </th>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <th>Account Email</th>
+                        <th>Full Name</th>
+                        <th>Account Type</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="account">
+                <?php $i=0; foreach($all_annual_Chair as $row): ?>
+                    <tr class="searchable">
+                        <td><?php echo $i = $i+1 ?></td>
+                        <td><?php echo $row->account_email; ?></td>
+                        <td><?php echo $row->account_fullname; ?></td>
+                        <td><?php 
+                                        if($row->account_type == 1) {
+                                            echo "Applicant / PI";
+                                        } elseif($row->account_type == 2) {
+                                            echo "SSBC Chair / SSBC Members";
+                                        } elseif($row->account_type == 3) {
+                                            echo "Students / Postgraduates";
+                                        } elseif($row->account_type == 4) {
+                                            echo "BSO";
+                                        } elseif($row->account_type == 5) {
+                                            echo "HSO / Lab Officer";
+                                        }
+                            ?></td>
+                        <td><button type="button" name = 'annual_load' value = 'Load' onclick="location.href='<?php echo site_url().'/annualfinalreport/load_form?id='.$row->application_id;?>'" class="btn btn-primary">Load</button></td>
+                        
+                        <td class="text-center">
+                            <button class="btn btn-success" onclick="approve3(<?php echo $row->account_id; ?>)" title="Approve"><i class="fa fa-check"></i></button>
+                            <hr/>
+                            <button class="btn btn-danger" onclick="reject3(<?php echo $row->account_id; ?>)" title="Reject"><i class="fa fa-times"></i></button>
                         </td>
                     </tr>
                 <?php endforeach; ?>
@@ -169,12 +237,14 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                         </th>
                     </tr>
                     <tr>
-                        <th></th>
+                        <th>No.</th>
                         <th>Account Email</th>
                         <th>Full Name</th>
                         <th>Account Type</th>
-                        <th></th>
-                        <th></th>
+                        <th>View Form</th>
+                        <th id="hirarc_proceed">Proceed/Ammend</th>
+                        <th id="hirarc_issue" style="display:none;">Major Issues</th>
+                        <th id="hirarc_approval" style="display:none;">Approval</th>
                     </tr>
                 </thead>
                 <tbody id="account">
@@ -204,10 +274,20 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                             <a class="btn btn-danger" href="<?php echo base_url(); ?>index.php/accountapproval/reject/<?php echo $row->account_id; ?>" title="Reject"><i class="fa fa-times"></i></a>
                         </td>
                         -->
-                        <td class="text-center">
-                            <button class="btn btn-success" onclick="approve_hirarc(<?php echo $row->account_id; ?>)" title="Approve"><i class="fa fa-check"></i></button>
+                        <td id="hirarc_proceed2" class="text-center">
+                            <button class="btn btn-success" onclick="hirarc_proceed(<?php echo $row->account_id; ?>)" title="Approve"><i class="fa fa-check"></i></button>
                             <hr/>
-                            <button class="btn btn-danger" onclick="reject_hirarc(<?php echo $row->account_id; ?>)" title="Reject"><i class="fa fa-times"></i></button>
+                            <button class="btn btn-danger" onclick="hirarc_ammend(<?php echo $row->account_id; ?>)" title="Reject"><i class="fa fa-times"></i></button>
+                        </td>
+                        <td id="hirarc_issuecell" style="display:none;">
+                            <button class="btn btn-success" onclick="approve_hirarc(<?php echo $row->account_id; ?>)" title="Approve">Yes</button>
+                            <hr/>
+                            <button class="btn btn-danger" onclick="hirarc_show_approval()" title="Reject">No</button>
+                        </td>
+                        <td id="hirarc_approval_cell" style="display:none;">
+                            <button class="btn btn-success" onclick="hirarc_approve_BSO(<?php echo $row->account_id; ?>)" title="Approve">Yes</button>
+                            <hr/>
+                            <button class="btn btn-danger" onclick="reject_hirarc(<?php echo $row->account_id; ?>)" title="Reject">No</button>
                         </td>
                     </tr>
                 <?php endforeach; ?>
@@ -218,8 +298,8 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
         <?php } ?>
         <?php } ?>
         
-        <!-- IF current user is SSBC Chair/SSBC Members, then show applications that were approved by BSO -->
-        <?php if($this->session->userdata('account_type') == 2) { ?>
+        <!-- IF current user is SSBC Members, then show applications that BSO thinks has major issues -->
+        <?php if($this->session->userdata('account_type') == 3) { ?>
         <?php if(isset($all_hirarc_SSBC)) { ?>
         
         <div class="table-responsive">
@@ -279,6 +359,68 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
         
         <?php } ?>
         <?php } ?>
+        
+        <!-- IF current user is SSBC Chair, then show applications that BSO thinks has major issues -->
+        <?php if($this->session->userdata('account_type') == 2) { ?>
+        <?php if(isset($all_hirarc_Chair)) { ?>
+        
+        <div class="table-responsive">
+            <table class="table table-hover table-bordered">
+                <thead>
+                    <tr>
+                        <th colspan="6">
+                            HIRARC Form 
+                        </th>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <th>Account Email</th>
+                        <th>Full Name</th>
+                        <th>Account Type</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="account">
+                <?php $i=0; foreach($all_hirarc_Chair as $row): ?>
+                    <tr class="searchable">
+                        <td><?php echo $i = $i+1 ?></td>
+                        <td><?php echo $row->account_email; ?></td>
+                        <td><?php echo $row->account_fullname; ?></td>
+                        <td><?php 
+                                        if($row->account_type == 1) {
+                                            echo "Applicant / PI";
+                                        } elseif($row->account_type == 2) {
+                                            echo "SSBC Chair / SSBC Members";
+                                        } elseif($row->account_type == 3) {
+                                            echo "Students / Postgraduates";
+                                        } elseif($row->account_type == 4) {
+                                            echo "BSO";
+                                        } elseif($row->account_type == 5) {
+                                            echo "HSO / Lab Officer";
+                                        }
+                            ?></td>
+                        <td><button type="button" name = 'hirarc_load' value = 'Load' onclick="location.href='<?php echo site_url().'/hirarc/load_form?id='.$row->application_id;?>'" class="btn btn-primary">Load</button></td>
+                        <!--
+                        <td class="text-center">
+                            <a class="btn btn-success" href="<?php echo base_url(); ?>index.php/accountapproval/approve/<?php echo $row->account_id; ?>" title="Approve"><i class="fa fa-check"></i></a>
+                            <hr/>
+                            <a class="btn btn-danger" href="<?php echo base_url(); ?>index.php/accountapproval/reject/<?php echo $row->account_id; ?>" title="Reject"><i class="fa fa-times"></i></a>
+                        </td>
+                        -->
+                        <td class="text-center">
+                            <button class="btn btn-success" onclick="approve_hirarc3(<?php echo $row->account_id;?>)" title="Approve"><i class="fa fa-check"></i></button>
+                            <hr/>
+                            <button class="btn btn-danger" onclick="reject_hirarc3(<?php echo $row->account_id; ?>)" title="Reject"><i class="fa fa-times"></i></button>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+        
+        <?php } ?>
+        <?php } ?>
         <!-- End Of HIRARC Form -->
         
         <!-- SWP Form  -->
@@ -295,12 +437,14 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                         </th>
                     </tr>
                     <tr>
-                        <th></th>
+                        <th>No.</th>
                         <th>Account Email</th>
                         <th>Full Name</th>
                         <th>Account Type</th>
-                        <th></th>
-                        <th></th>
+                        <th>View Form</th>
+                        <th id="swp_proceed">Proceed/Ammend</th>
+                        <th id="swp_issue" style="display:none;">Major Issues</th>
+                        <th id="swp_approval" style="display:none;">Approval</th>
                     </tr>
                 </thead>
                 <tbody id="account">
@@ -330,10 +474,20 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                             <a class="btn btn-danger" href="<?php echo base_url(); ?>index.php/accountapproval/reject/<?php echo $row->account_id; ?>" title="Reject"><i class="fa fa-times"></i></a>
                         </td>
                         -->
-                        <td class="text-center">
-                            <button class="btn btn-success" onclick="approve_swp(<?php echo $row->account_id; ?>)" title="Approve"><i class="fa fa-check"></i></button>
+                        <td id="swp_proceed2" class="text-center">
+                            <button class="btn btn-success" onclick="swp_proceed(<?php echo $row->account_id; ?>)" title="Approve"><i class="fa fa-check"></i></button>
                             <hr/>
-                            <button class="btn btn-danger" onclick="reject_swp(<?php echo $row->account_id; ?>)" title="Reject"><i class="fa fa-times"></i></button>
+                            <button class="btn btn-danger" onclick="swp_ammend(<?php echo $row->account_id; ?>)" title="Reject"><i class="fa fa-times"></i></button>
+                        </td>
+                        <td id="swp_issuecell" style="display:none;">
+                            <button class="btn btn-success" onclick="approve_swp(<?php echo $row->account_id; ?>)" title="Approve">Yes</button>
+                            <hr/>
+                            <button class="btn btn-danger" onclick="swp_show_approval()" title="Reject">No</button>
+                        </td>
+                        <td id="swp_approval_cell" style="display:none;">
+                            <button class="btn btn-success" onclick="swp_approve_BSO(<?php echo $row->account_id; ?>)" title="Approve">Yes</button>
+                            <hr/>
+                            <button class="btn btn-danger" onclick="reject_swp(<?php echo $row->account_id; ?>)" title="Reject">No</button>
                         </td>
                     </tr>
                 <?php endforeach; ?>
@@ -344,8 +498,8 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
         <?php } ?>
         <?php } ?>
         
-        <!-- IF current user is SSBC Chair/SSBC Members, then show applications that were approved by BSO -->
-        <?php if($this->session->userdata('account_type') == 2) { ?>
+        <!-- IF current user is SSBC Members, then show applications that BSO thinks has major issues -->
+        <?php if($this->session->userdata('account_type') == 3) { ?>
         <?php if(isset($all_swp_SSBC)) { ?>
         
         <div class="table-responsive">
@@ -357,12 +511,12 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                         </th>
                     </tr>
                     <tr>
-                        <th></th>
+                        <th>No.</th>
                         <th>Account Email</th>
                         <th>Full Name</th>
                         <th>Account Type</th>
-                        <th></th>
-                        <th></th>
+                        <th>View Form</th>
+                        <th>Approval</th>
                     </tr>
                 </thead>
                 <tbody id="account">
@@ -405,6 +559,68 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
         
         <?php } ?>
         <?php } ?>
+        
+        <!-- IF current user is SSBC Chair, then show applications that were approved by SSBC members -->
+        <?php if($this->session->userdata('account_type') == 2) { ?>
+        <?php if(isset($all_swp_Chair)) { ?>
+        
+        <div class="table-responsive">
+            <table class="table table-hover table-bordered">
+                <thead>
+                    <tr>
+                        <th colspan="6">
+                            SWP Form 
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>No.</th>
+                        <th>Account Email</th>
+                        <th>Full Name</th>
+                        <th>Account Type</th>
+                        <th>View Form</th>
+                        <th>Approval</th>
+                    </tr>
+                </thead>
+                <tbody id="account">
+                <?php $i=0; foreach($all_swp_Chair as $row): ?>
+                    <tr class="searchable">
+                        <td><?php echo $i = $i+1 ?></td>
+                        <td><?php echo $row->account_email; ?></td>
+                        <td><?php echo $row->account_fullname; ?></td>
+                        <td><?php 
+                                        if($row->account_type == 1) {
+                                            echo "Applicant / PI";
+                                        } elseif($row->account_type == 2) {
+                                            echo "SSBC Chair / SSBC Members";
+                                        } elseif($row->account_type == 3) {
+                                            echo "Students / Postgraduates";
+                                        } elseif($row->account_type == 4) {
+                                            echo "BSO";
+                                        } elseif($row->account_type == 5) {
+                                            echo "HSO / Lab Officer";
+                                        }
+                            ?></td>
+                        <td><button type="button" name = 'swp_load' value = 'Load' onclick="location.href='<?php echo site_url().'/swp/load_form?id='.$row->application_id;?>'" class="btn btn-primary">Load</button></td>
+                        <!--
+                        <td class="text-center">
+                            <a class="btn btn-success" href="<?php echo base_url(); ?>index.php/accountapproval/approve/<?php echo $row->account_id; ?>" title="Approve"><i class="fa fa-check"></i></a>
+                            <hr/>
+                            <a class="btn btn-danger" href="<?php echo base_url(); ?>index.php/accountapproval/reject/<?php echo $row->account_id; ?>" title="Reject"><i class="fa fa-times"></i></a>
+                        </td>
+                        -->
+                        <td class="text-center">
+                            <button class="btn btn-success" onclick="approve_swp_3(<?php echo $row->account_id;?>)" title="Approve"><i class="fa fa-check"></i></button>
+                            <hr/>
+                            <button class="btn btn-danger" onclick="reject_swp_3(<?php echo $row->account_id; ?>)" title="Reject"><i class="fa fa-times"></i></button>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+        
+        <?php } ?>
+        <?php } ?>
         <!-- End Of SWP Form -->
         
         <br/>
@@ -423,8 +639,45 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
     
     <!-- Annual & Final Report Approval and Reject Function -->
     <script>
+        function proceed(i){
+            //window.location = "<?php echo base_url(); ?>index.php/annualreport_approval/proceed/" + i;
+            
+            var u = document.getElementById("issue");
+            u.style.display = "block";
+            var v = document.getElementById("issuecell");
+            v.style.display = "block";
+            
+            var w = document.getElementById("proceed1");
+            w.style.display = "none";
+            var x = document.getElementById("proceed2");
+            x.style.display = "none";
+        }
+        
+        function ammend(i){
+            var j = prompt("Reason for Rejecting:", "Does not meet requirements");
+            if (j != null) {
+                window.location = "<?php echo base_url(); ?>index.php/annualreport_approval/ammend/" + i + "/" + btoa(j);
+            }
+        }
+        
+        function show_approval(){
+            var u = document.getElementById("issue");
+            u.style.display = "none";
+            var v = document.getElementById("issuecell");
+            v.style.display = "none";
+            
+            var w = document.getElementById("approval");
+            w.style.display = "block";
+            var x = document.getElementById("approval_cell");
+            x.style.display = "block";
+        }
+        
         function approve(i){
             window.location = "<?php echo base_url(); ?>index.php/annualreport_approval/approve/" + i;
+        }
+        
+        function approve_BSO(i){
+            window.location = "<?php echo base_url(); ?>index.php/annualreport_approval/approve_BSO/" + i;
         }
         
         function reject(i){
@@ -448,10 +701,59 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
         }
     </script>
     
+    <script>
+        function approve3(i){
+            window.location = "<?php echo base_url(); ?>index.php/annualreport_approval/approve3/" + i;
+        }
+        
+        function reject3(i){
+            var j = prompt("Reason for Rejecting:", "Does not meet requirements");
+            if (j != null) {
+                window.location = "<?php echo base_url(); ?>index.php/annualreport_approval/reject3/" + i + "/" + btoa(j);
+            }
+        }
+    </script>
+    
     <!-- HIRARC Approval and Reject Function -->
     <script>
+        function hirarc_proceed(i){
+            
+            var u = document.getElementById("hirarc_issue");
+            u.style.display = "block";
+            var v = document.getElementById("hirarc_issuecell");
+            v.style.display = "block";
+            
+            var w = document.getElementById("hirarc_proceed");
+            w.style.display = "none";
+            var x = document.getElementById("hirarc_proceed2");
+            x.style.display = "none";
+        }
+        
+        function hirarc_ammend(i){
+            var j = prompt("Reason for Rejecting:", "Does not meet requirements");
+            if (j != null) {
+                window.location = "<?php echo base_url(); ?>index.php/annualreport_approval/hirarc_ammend/" + i + "/" + btoa(j);
+            }
+        }
+        
+        function hirarc_show_approval(){
+            var u = document.getElementById("hirarc_issue");
+            u.style.display = "none";
+            var v = document.getElementById("hirarc_issuecell");
+            v.style.display = "none";
+            
+            var w = document.getElementById("hirarc_approval");
+            w.style.display = "block";
+            var x = document.getElementById("hirarc_approval_cell");
+            x.style.display = "block";
+        }
+        
         function approve_hirarc(i){
             window.location = "<?php echo base_url(); ?>index.php/annualreport_approval/approve_hirarc/" + i;
+        }
+        
+        function hirarc_approve_BSO(i){
+            window.location = "<?php echo base_url(); ?>index.php/annualreport_approval/hirarc_approve_BSO/" + i;
         }
         
         function reject_hirarc(i){
@@ -474,11 +776,61 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
             }
         }
     </script>
+    
+    <script>
+        function approve_hirarc3(i){
+            window.location = "<?php echo base_url(); ?>index.php/annualreport_approval/approve_hirarc3/" + i;
+        }
+        
+        function reject_hirarc3(i){
+            var j = prompt("Reason for Rejecting:", "Does not meet requirements");
+            if (j != null) {
+                window.location = "<?php echo base_url(); ?>index.php/annualreport_approval/reject_hirarc3/" + i + "/" + btoa(j);
+            }
+        }
+    </script>
     <!-- END of HIRARC -->
+    
     <!-- SWP Approval and Reject Function -->
     <script>
+        function swp_proceed(i){
+            
+            var u = document.getElementById("swp_issue");
+            u.style.display = "block";
+            var v = document.getElementById("swp_issuecell");
+            v.style.display = "block";
+            
+            var w = document.getElementById("swp_proceed");
+            w.style.display = "none";
+            var x = document.getElementById("swp_proceed2");
+            x.style.display = "none";
+        }
+        
+        function swp_ammend(i){
+            var j = prompt("Reason for Rejecting:", "Does not meet requirements");
+            if (j != null) {
+                window.location = "<?php echo base_url(); ?>index.php/annualreport_approval/swp_ammend/" + i + "/" + btoa(j);
+            }
+        }
+        
+        function swp_show_approval(){
+            var u = document.getElementById("swp_issue");
+            u.style.display = "none";
+            var v = document.getElementById("swp_issuecell");
+            v.style.display = "none";
+            
+            var w = document.getElementById("swp_approval");
+            w.style.display = "block";
+            var x = document.getElementById("swp_approval_cell");
+            x.style.display = "block";
+        }
+        
         function approve_swp(i){
             window.location = "<?php echo base_url(); ?>index.php/annualreport_approval/approve_swp/" + i;
+        }
+        
+        function swp_approve_BSO(i){
+            window.location = "<?php echo base_url(); ?>index.php/annualreport_approval/swp_approve_BSO/" + i;
         }
         
         function reject_swp(i){
@@ -498,6 +850,19 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
             var j = prompt("Reason for Rejecting:", "Does not meet requirements");
             if (j != null) {
                 window.location = "<?php echo base_url(); ?>index.php/annualreport_approval/reject_swp_2/" + i + "/" + btoa(j);
+            }
+        }
+    </script>
+    
+    <script>
+        function approve_swp_3(i){
+            window.location = "<?php echo base_url(); ?>index.php/annualreport_approval/approve_swp_3/" + i;
+        }
+        
+        function reject_swp_3(i){
+            var j = prompt("Reason for Rejecting:", "Does not meet requirements");
+            if (j != null) {
+                window.location = "<?php echo base_url(); ?>index.php/annualreport_approval/reject_swp_3/" + i + "/" + btoa(j);
             }
         }
     </script>

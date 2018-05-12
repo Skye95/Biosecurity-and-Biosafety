@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 if(!$this->session->userdata('isLogin')){
     redirect('landing/index');
 }
-if($this->session->userdata('account_type') != 2 && $this->session->userdata('account_type') != 4 && $this->session->userdata('account_type') != 5){
+if($this->session->userdata('account_type') != 2 && $this->session->userdata('account_type') != 3 && $this->session->userdata('account_type') != 4 && $this->session->userdata('account_type') != 5){
     redirect('home/index');
 }
 ?><!DOCTYPE html>
@@ -42,7 +42,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
         <!-- Page Heading -->
         <h2 class="my-4 text-center">Welcome to your Administrator Panel, <?php echo $this->session->userdata('account_name'); ?></h2>
         
-        <?php if($this->session->userdata('account_type') == 2 || $this->session->userdata('account_type') == 4 ) {  ?>
+        <?php if($this->session->userdata('account_type') == 2 || $this->session->userdata('account_type') == 3 || $this->session->userdata('account_type') == 4 ) {  ?>
         <div class="row">
             <div class="col-lg-3 col-md-4 col-sm-6 col-6 portfolio-item">
                 <div class="card card-block justify-content-center align-items-center">

@@ -92,7 +92,7 @@ if(!$this->session->userdata('isLogin')){
         <div class="row">
 
             <div class="col-md-10">
-               <?php echo form_open('procurement/index'); ?>
+               <?php if(isset($editload)) { echo form_open('procurement/update_form'); } else { echo form_open('procurement/index'); } ?>
                 <?php if(isset($disabled)){ echo "<fieldset disabled='disabled'>"; } ?>
                    
                    <div>
@@ -772,9 +772,19 @@ if(!$this->session->userdata('isLogin')){
                    <span class="text-danger"><?php echo form_error('Sec3_LO_date'); ?></span>
                    
                 <hr>
-                    <div style="text-align: center">
+                
+                
+                    <div>
+                    <input type="hidden" name="appid" value="<?php if(isset($appID)){echo $appID;} ?>">
+                </div>
+                
+                   <div style="text-align: center">
+                       <?php if(isset($editload)){ ?>
+                       <button type="submit" name = 'procurement_update' value = 'Update' onclick="location.href='<?php echo site_url().'/procurement/update_form';?>'" class="btn btn-primary">Update</button>
+                       <?php }else{ ?>
                        <button name="submit" type="submit" class="btn btn-primary col-md-2">Submit</button>
-                    </div>
+                       <?php } ?>
+                   </div>
                <?php if(isset($disabled)){ echo "</fieldset>"; } ?>
                <?php echo form_close(); ?>
             </div>

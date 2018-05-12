@@ -387,13 +387,47 @@ class history extends CI_Controller {
             
         }elseif($type =="OHS-F-4.18.X%20PRE-PURCHASE%20MATERIAL%20RISK%20ASSESSMENT"){
             
-            $this->procurement_model->edit_request($id);
-            redirect('history/index');
+            if($editable == 2){
+                
+                $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );
+            
+                $data['load'] = "true";
+                $data['editload'] = "true";
+                $data['appID'] = $id;
+
+                
+                $data['retrieved'] = $this->procurement_model->get_form_by_id($id);
+
+                $this->load->template('procurement_view', $data);
+                
+            }else{
+                
+                $this->procurement_model->edit_request($id);
+                redirect('history/index');
+                
+            }
             
         }elseif($type =="SSBC%20SAFE%20WORK%20PROCEDURE"){
             
-            $this->swp_model->edit_request($id);
-            redirect('history/index');
+            if($editable == 2){
+                
+                $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );
+            
+                $data['load'] = "true";
+                $data['editload'] = "true";
+                $data['appID'] = $id;
+
+                
+                $data['retrieved'] = $this->swp_model->get_form_by_id($id);
+
+                $this->load->template('swp_view', $data);
+                
+            }else{
+                
+                $this->swp_model->edit_request($id);
+                redirect('history/index');
+                
+            }
             
         }
         

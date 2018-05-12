@@ -106,6 +106,17 @@ class swp_model extends CI_Model
 		return $query->result();
     }
 	
+    function get_all_swp4_form3() 
+    {
+        $this->db->select('*');
+        $this->db->from('swp');
+        $this->db->join('accounts', 'swp.account_id = accounts.account_id');
+        $this->db->where('swp.application_approved', 2);
+        $this->db->where('swp.application_type', 4);
+        $query = $this->db->get();
+		return $query->result();
+    }
+    
 	function get_form_by_id($id)
 	{
 		$this->db->where('application_id', $id);
@@ -126,11 +137,34 @@ class swp_model extends CI_Model
 		return $this->db->insert('swp', $data);
 	}
     
+    function update_applicant_data($id, $data)
+    {
+        $this->db->set('application_approved', 'NULL', FALSE);
+        $this->db->where('application_id', $id);
+		$this->db->update('swp', $data);
+        return true;
+	}
+    
+    function proceed_ammend($id, $type, $approver_id)
+    {
+        if ($type == 0) {
+            
+            $data = array('application_approved' => 5, 'approver_id' => $approver_id );
+            $this->db->where('account_id', $id);
+            $this->db->update('swp', $data);
+        } elseif ($type == 1) {
+            $data = array('application_approved' => 0, 'approver_id' => $approver_id);
+            $this->db->where('account_id', $id);
+            $this->db->update('swp', $data);
+        }
+        return true;
+    }
+    
     function update_approval($id, $type, $approver_id)
     {
         if ($type == 0) {
             
-            $data = array('application_approved' => 3, 'approver_id' => $approver_id );
+            $data = array('application_approved' => 5, 'approver_id' => $approver_id );
             $this->db->where('account_id', $id);
             $this->db->update('swp', $data);
         } elseif ($type == 1) {
@@ -141,15 +175,45 @@ class swp_model extends CI_Model
         return true;
     }
     
+    function update_approval_BSO($id, $type, $approver_id)
+    {
+        if ($type == 0) {
+            
+            $data = array('application_approved' => 5, 'approver_id' => $approver_id );
+            $this->db->where('account_id', $id);
+            $this->db->update('swp', $data);
+        } elseif ($type == 1) {
+            $data = array('application_approved' => 4, 'approver_id' => $approver_id);
+            $this->db->where('account_id', $id);
+            $this->db->update('swp', $data);
+        }
+        return true;
+    }
+    
     function update_approval_SSBC($id, $type, $approver_id)
     {
         if ($type == 0) {
             
-            $data = array('application_approved' => 3, 'approver_id' => $approver_id );
+            $data = array('application_approved' => 5, 'approver_id' => $approver_id );
             $this->db->where('account_id', $id);
             $this->db->update('swp', $data);
         } elseif ($type == 1) {
             $data = array('application_approved' => 2, 'approver_id' => $approver_id);
+            $this->db->where('account_id', $id);
+            $this->db->update('swp', $data);
+        }
+        return true;
+    }
+    
+    function update_approval_Chair($id, $type, $approver_id)
+    {
+        if ($type == 0) {
+            
+            $data = array('application_approved' => 5, 'approver_id' => $approver_id );
+            $this->db->where('account_id', $id);
+            $this->db->update('swp', $data);
+        } elseif ($type == 1) {
+            $data = array('application_approved' => 3, 'approver_id' => $approver_id);
             $this->db->where('account_id', $id);
             $this->db->update('swp', $data);
         }
@@ -164,6 +228,24 @@ class swp_model extends CI_Model
         
         return true;
             
+    }
+    
+    function update_editable($id, $type, $approver_id, $appid)
+    {
+        if ($type == 0) {
+            
+            $data = array('editable' => 3, 'approver_id' => $approver_id );
+            $this->db->where('account_id', $id);
+            $this->db->where('application_id', $appid);
+            $this->db->update('swp', $data);
+        } elseif ($type == 1) {
+            $data = array('editable' => 2, 'approver_id' => $approver_id);
+            $this->db->where('account_id', $id);
+            $this->db->where('application_id', $appid);
+            $this->db->update('swp', $data);
+        }
+        return true;
+        
     }
     
 }
