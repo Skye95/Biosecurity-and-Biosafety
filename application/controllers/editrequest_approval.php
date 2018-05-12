@@ -50,7 +50,7 @@ class editrequest_approval extends CI_Controller {
         $data['all_notif_export'] = $this->notification_of_exporting_biological_material_model->get_all_edit_request();
         $data['all_notif_LMO'] = $this->notification_of_LMO_and_BM_model->get_all_edit_request();
         $data['all_pc1'] = $this->pc1_model->get_all_edit_request();
-        $data['all_pc2'] = $this->annex2_model->get_all_edit_request();
+        $data['all_pc2'] = $this->pc2_model->get_all_edit_request();
         $data['all_procurement'] = $this->procurement_model->get_all_edit_request();
         $data['all_swp'] = $this->swp_model->get_all_edit_request();
         
@@ -63,7 +63,8 @@ class editrequest_approval extends CI_Controller {
     {
         $approver_id = $this->session->userdata('account_id');
         $id = $this->uri->segment(3);
-        $this->annex2_model->update_editable($id, 1, $approver_id);
+        $appid = $this->uri->segment(4);
+        $this->annex2_model->update_editable($id, 1, $approver_id, $appid);
         
         redirect('editrequest_approval/index');
     }
@@ -72,8 +73,9 @@ class editrequest_approval extends CI_Controller {
     {
         $approver_id = ' ';
         $id = $this->uri->segment(3);
-        $msg = base64_decode($this->uri->segment(4));
-        $this->annex2_model->update_editable($id, 0, $approver_id);
+        $appid = $this->uri->segment(4);
+        $msg = base64_decode($this->uri->segment(5));
+        $this->annex2_model->update_editable($id, 0, $approver_id, $appid);
         
         redirect('editrequest_approval/index');
     }
@@ -83,7 +85,8 @@ class editrequest_approval extends CI_Controller {
     {
         $approver_id = $this->session->userdata('account_id');
         $id = $this->uri->segment(3);
-        $this->annex3_model->update_editable($id, 1, $approver_id);
+        $appid = $this->uri->segment(4);
+        $this->annex3_model->update_editable($id, 1, $approver_id, $appid);
         
         redirect('editrequest_approval/index');
     }
@@ -92,8 +95,9 @@ class editrequest_approval extends CI_Controller {
     {
         $approver_id = ' ';
         $id = $this->uri->segment(3);
-        $msg = base64_decode($this->uri->segment(4));
-        $this->annex3_model->update_editable($id, 0, $approver_id);
+        $appid = $this->uri->segment(4);
+        $msg = base64_decode($this->uri->segment(5));
+        $this->annex3_model->update_editable($id, 0, $approver_id, $appid);
         
         redirect('editrequest_approval/index');
     }
@@ -103,7 +107,8 @@ class editrequest_approval extends CI_Controller {
     {
         $approver_id = $this->session->userdata('account_id');
         $id = $this->uri->segment(3);
-        $this->annex4_model->update_editable($id, 1, $approver_id);
+        $appid = $this->uri->segment(4);
+        $this->annex4_model->update_editable($id, 1, $approver_id, $appid);
         
         redirect('editrequest_approval/index');
     }
@@ -112,8 +117,9 @@ class editrequest_approval extends CI_Controller {
     {
         $approver_id = ' ';
         $id = $this->uri->segment(3);
-        $msg = base64_decode($this->uri->segment(4));
-        $this->annex4_model->update_editable($id, 0, $approver_id);
+        $appid = $this->uri->segment(4);
+        $msg = base64_decode($this->uri->segment(5));
+        $this->annex4_model->update_editable($id, 0, $approver_id, $appid);
         
         redirect('editrequest_approval/index');
     }
@@ -123,7 +129,8 @@ class editrequest_approval extends CI_Controller {
     {
         $approver_id = $this->session->userdata('account_id');
         $id = $this->uri->segment(3);
-        $this->annex5_model->update_editable($id, 1, $approver_id);
+        $appid = $this->uri->segment(4);
+        $this->annex5_model->update_editable($id, 1, $approver_id, $appid);
         
         redirect('editrequest_approval/index');
     }
@@ -132,8 +139,9 @@ class editrequest_approval extends CI_Controller {
     {
         $approver_id = ' ';
         $id = $this->uri->segment(3);
-        $msg = base64_decode($this->uri->segment(4));
-        $this->annex5_model->update_editable($id, 0, $approver_id);
+        $appid = $this->uri->segment(4);
+        $msg = base64_decode($this->uri->segment(5));
+        $this->annex5_model->update_editable($id, 0, $approver_id, $appid);
         
         redirect('editrequest_approval/index');
     }
@@ -143,7 +151,8 @@ class editrequest_approval extends CI_Controller {
     {
         $approver_id = $this->session->userdata('account_id');
         $id = $this->uri->segment(3);
-        $this->annualfinalreport_model->update_editable($id, 1, $approver_id);
+        $appid = $this->uri->segment(4);
+        $this->annualfinalreport_model->update_editable($id, 1, $approver_id, $appid);
         
         redirect('editrequest_approval/index');
     }
@@ -152,8 +161,9 @@ class editrequest_approval extends CI_Controller {
     {
         $approver_id = ' ';
         $id = $this->uri->segment(3);
-        $msg = base64_decode($this->uri->segment(4));
-        $this->annualfinalreport_model->update_editable($id, 0, $approver_id);
+        $appid = $this->uri->segment(4);
+        $msg = base64_decode($this->uri->segment(5));
+        $this->annualfinalreport_model->update_editable($id, 0, $approver_id, $appid);
         
         redirect('editrequest_approval/index');
     }
@@ -163,7 +173,8 @@ class editrequest_approval extends CI_Controller {
     {
         $approver_id = $this->session->userdata('account_id');
         $id = $this->uri->segment(3);
-        $this->biohazard_model->update_editable($id, 1, $approver_id);
+        $appid = $this->uri->segment(4);
+        $this->biohazard_model->update_editable($id, 1, $approver_id, $appid);
         
         redirect('editrequest_approval/index');
     }
@@ -172,8 +183,9 @@ class editrequest_approval extends CI_Controller {
     {
         $approver_id = ' ';
         $id = $this->uri->segment(3);
-        $msg = base64_decode($this->uri->segment(4));
-        $this->biohazard_model->update_editable($id, 0, $approver_id);
+        $appid = $this->uri->segment(4);
+        $msg = base64_decode($this->uri->segment(5));
+        $this->biohazard_model->update_editable($id, 0, $approver_id, $appid);
         
         redirect('editrequest_approval/index');
     }
@@ -183,7 +195,8 @@ class editrequest_approval extends CI_Controller {
     {
         $approver_id = $this->session->userdata('account_id');
         $id = $this->uri->segment(3);
-        $this->exempt_model->update_editable($id, 1, $approver_id);
+        $appid = $this->uri->segment(4);
+        $this->exempt_model->update_editable($id, 1, $approver_id, $appid);
         
         redirect('editrequest_approval/index');
     }
@@ -192,8 +205,9 @@ class editrequest_approval extends CI_Controller {
     {
         $approver_id = ' ';
         $id = $this->uri->segment(3);
-        $msg = base64_decode($this->uri->segment(4));
-        $this->exempt_model->update_editable($id, 0, $approver_id);
+        $appid = $this->uri->segment(4);
+        $msg = base64_decode($this->uri->segment(5));
+        $this->exempt_model->update_editable($id, 0, $approver_id, $appid);
         
         redirect('editrequest_approval/index');
     }
@@ -203,7 +217,8 @@ class editrequest_approval extends CI_Controller {
     {
         $approver_id = $this->session->userdata('account_id');
         $id = $this->uri->segment(3);
-        $this->forme_model->update_editable($id, 1, $approver_id);
+        $appid = $this->uri->segment(4);
+        $this->forme_model->update_editable($id, 1, $approver_id, $appid);
         
         redirect('editrequest_approval/index');
     }
@@ -212,8 +227,9 @@ class editrequest_approval extends CI_Controller {
     {
         $approver_id = ' ';
         $id = $this->uri->segment(3);
-        $msg = base64_decode($this->uri->segment(4));
-        $this->forme_model->update_editable($id, 0, $approver_id);
+        $appid = $this->uri->segment(4);
+        $msg = base64_decode($this->uri->segment(5));
+        $this->forme_model->update_editable($id, 0, $approver_id, $appid);
         
         redirect('editrequest_approval/index');
     }
@@ -223,7 +239,8 @@ class editrequest_approval extends CI_Controller {
     {
         $approver_id = $this->session->userdata('account_id');
         $id = $this->uri->segment(3);
-        $this->formf_model->update_editable($id, 1, $approver_id);
+        $appid = $this->uri->segment(4);
+        $this->formf_model->update_editable($id, 1, $approver_id, $appid);
         
         redirect('editrequest_approval/index');
     }
@@ -232,8 +249,9 @@ class editrequest_approval extends CI_Controller {
     {
         $approver_id = ' ';
         $id = $this->uri->segment(3);
-        $msg = base64_decode($this->uri->segment(4));
-        $this->formf_model->update_editable($id, 0, $approver_id);
+        $appid = $this->uri->segment(4);
+        $msg = base64_decode($this->uri->segment(5));
+        $this->formf_model->update_editable($id, 0, $approver_id, $appid);
         
         redirect('editrequest_approval/index');
     }
@@ -243,7 +261,8 @@ class editrequest_approval extends CI_Controller {
     {
         $approver_id = $this->session->userdata('account_id');
         $id = $this->uri->segment(3);
-        $this->hirarc_model->update_editable($id, 1, $approver_id);
+        $appid = $this->uri->segment(4);
+        $this->hirarc_model->update_editable($id, 1, $approver_id, $appid);
         
         redirect('editrequest_approval/index');
     }
@@ -252,8 +271,9 @@ class editrequest_approval extends CI_Controller {
     {
         $approver_id = ' ';
         $id = $this->uri->segment(3);
-        $msg = base64_decode($this->uri->segment(4));
-        $this->hirarc_model->update_editable($id, 0, $approver_id);
+        $appid = $this->uri->segment(4);
+        $msg = base64_decode($this->uri->segment(5));
+        $this->hirarc_model->update_editable($id, 0, $approver_id, $appid);
         
         redirect('editrequest_approval/index');
     }
@@ -263,7 +283,8 @@ class editrequest_approval extends CI_Controller {
     {
         $approver_id = $this->session->userdata('account_id');
         $id = $this->uri->segment(3);
-        $this->incidentaccidentreport_model->update_editable($id, 1, $approver_id);
+        $appid = $this->uri->segment(4);
+        $this->incidentaccidentreport_model->update_editable($id, 1, $approver_id, $appid);
         
         redirect('editrequest_approval/index');
     }
@@ -272,8 +293,97 @@ class editrequest_approval extends CI_Controller {
     {
         $approver_id = ' ';
         $id = $this->uri->segment(3);
-        $msg = base64_decode($this->uri->segment(4));
-        $this->incidentaccidentreport_model->update_editable($id, 0, $approver_id);
+        $appid = $this->uri->segment(4);
+        $msg = base64_decode($this->uri->segment(5));
+        $this->incidentaccidentreport_model->update_editable($id, 0, $approver_id, $appid);
+        
+        redirect('editrequest_approval/index');
+    }
+    
+    //Methods For Approving And Rejecting Exporting form Requests
+    public function approve_export($id, $appid)
+    {
+        $approver_id = $this->session->userdata('account_id');
+        $id = $this->uri->segment(3);
+        $appid = $this->uri->segment(4);
+        $this->notification_of_exporting_biological_material_model->update_editable($id, 1, $approver_id, $appid);
+        
+        redirect('editrequest_approval/index');
+    }
+    
+    public function reject_export($id)
+    {
+        $approver_id = ' ';
+        $id = $this->uri->segment(3);
+        $appid = $this->uri->segment(4);
+        $msg = base64_decode($this->uri->segment(5));
+        $this->notification_of_exporting_biological_material_model->update_editable($id, 0, $approver_id, $appid);
+        
+        redirect('editrequest_approval/index');
+    }
+    
+    //Methods For Approving And Rejecting Notification form Requests
+    public function approve_notification($id, $appid)
+    {
+        $approver_id = $this->session->userdata('account_id');
+        $id = $this->uri->segment(3);
+        $appid = $this->uri->segment(4);
+        $this->notification_of_LMO_and_BM_model->update_editable($id, 1, $approver_id, $appid);
+        
+        redirect('editrequest_approval/index');
+    }
+    
+    public function reject_notification($id)
+    {
+        $approver_id = ' ';
+        $id = $this->uri->segment(3);
+        $appid = $this->uri->segment(4);
+        $msg = base64_decode($this->uri->segment(5));
+        $this->notification_of_LMO_and_BM_model->update_editable($id, 0, $approver_id, $appid);
+        
+        redirect('editrequest_approval/index');
+    }
+    
+    //Methods For Approving And Rejecting PC1 form Requests
+    public function approve_pc1($id, $appid)
+    {
+        $approver_id = $this->session->userdata('account_id');
+        $id = $this->uri->segment(3);
+        $appid = $this->uri->segment(4);
+        $this->pc1_model->update_editable($id, 1, $approver_id, $appid);
+        
+        redirect('editrequest_approval/index');
+    }
+    
+    public function reject_pc1($id)
+    {
+        $approver_id = ' ';
+        $id = $this->uri->segment(3);
+        $appid = $this->uri->segment(4);
+        $msg = base64_decode($this->uri->segment(5));
+        $this->pc1_model->update_editable($id, 0, $approver_id, $appid);
+        
+        redirect('editrequest_approval/index');
+    }
+    
+    //Methods For Approving And Rejecting PC2 form Requests
+    public function approve_pc2($id, $appid)
+    {
+        $approver_id = $this->session->userdata('account_id');
+        $id = $this->uri->segment(3);
+        $appid = $this->uri->segment(4);
+        $this->pc2_model->update_editable($id, 1, $approver_id, $appid);
+        
+        redirect('editrequest_approval/index');
+    }
+    
+    public function reject_pc2($id)
+    {
+        $approver_id = ' ';
+        $id = $this->uri->segment(3);
+        $appid = $this->uri->segment(4);
+        $msg = base64_decode($this->uri->segment(5));
+        $this->pc2_model->update_editable($id, 0, $approver_id, $appid);
         
         redirect('editrequest_approval/index');
     }

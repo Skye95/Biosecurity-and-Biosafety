@@ -85,7 +85,7 @@ if(!$this->session->userdata('isLogin')){
         <div class="row">
             
             <div class="col-md-10">
-               <?php echo form_open('notification_of_exporting_biological_material/index'); ?>
+               <?php if(isset($editload)) { echo form_open('notification_of_exporting_biological_material/update_form'); } else { echo form_open('notification_of_exporting_biological_material/index'); } ?>
                 <?php if(isset($disabled)){ echo "<fieldset disabled='disabled'>"; } ?>
                    <div>
                        <h5><strong>PLEASE FILL IN ALL INFORMATION REQUESTED</strong></h5>
@@ -351,7 +351,7 @@ if(!$this->session->userdata('isLogin')){
                                </tr>
                                <tr>
                                    <th>3.04   Contact Number: </th>
-                                   <td><input type="tel" class="form-control" name="importing_person_in_charge_telephone_no" value="<?php if(isset($load)){echo set_value('importing_person_in_charge_telephone_no', $item->importing_person_in_charge_telephone_no);}else{echo set_value('importing_person_in_charge_telephone_no');} ?>" ></td>
+                                   <td><input type="text" class="form-control" name="importing_person_in_charge_telephone_no" value="<?php if(isset($load)){echo set_value('importing_person_in_charge_telephone_no', $item->importing_person_in_charge_telephone_no);}else{echo set_value('importing_person_in_charge_telephone_no');} ?>" ></td>
                                </tr>                 
                            </tbody>
                        </table>
@@ -475,9 +475,19 @@ if(!$this->session->userdata('isLogin')){
 				   
 					
 					<hr>
-					<div style="text-align: center">
+                
+                
+					<div>
+                    <input type="hidden" name="appid" value="<?php if(isset($appID)){echo $appID;} ?>">
+                </div>
+                
+                   <div style="text-align: center">
+                       <?php if(isset($editload)){ ?>
+                       <button type="submit" name = 'notification_of_exporting_biological_material_update' value = 'Update' onclick="location.href='<?php echo site_url().'/notification_of_exporting_biological_material/update_form';?>'" class="btn btn-primary">Update</button>
+                       <?php }else{ ?>
                        <button name="submit" type="submit" class="btn btn-primary col-md-2">Submit</button>
-                    </div>
+                       <?php } ?>
+                   </div>
                <?php if(isset($disabled)){ echo "</fieldset>"; } ?>
                <?php echo form_close(); ?>
             </div>

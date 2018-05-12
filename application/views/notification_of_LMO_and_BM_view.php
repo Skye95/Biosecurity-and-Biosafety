@@ -74,7 +74,7 @@ if(!$this->session->userdata('isLogin')){
         <div class="row">
             
             <div class="col-md-10">
-               <?php echo form_open('notification_of_LMO_and_BM/index'); ?>
+               <?php if(isset($editload)) { echo form_open('notification_of_LMO_and_BM/update_form'); } else { echo form_open('notification_of_LMO_and_BM/index'); } ?>
                 <?php if(isset($disabled)){ echo "<fieldset disabled='disabled'>"; } ?>
                    <div>
                        <h5 class="dark_background">PLEASE FILL IN ALL INFORMATION REQUESTED</h5>
@@ -462,9 +462,20 @@ if(!$this->session->userdata('isLogin')){
                            </tr>
                        </tbody>
                    </table>
+                
+                
+                   <div>
+                    <input type="hidden" name="appid" value="<?php if(isset($appID)){echo $appID;} ?>">
+                   </div>
+                
                    <div style="text-align: center">
+                       <?php if(isset($editload)){ ?>
+                       <button type="submit" name = 'notification_of_LMO_and_BM_update' value = 'Update' onclick="location.href='<?php echo site_url().'/notification_of_LMO_and_BM/update_form';?>'" class="btn btn-primary">Update</button>
+                       <?php }else{ ?>
                        <button name="submit" type="submit" class="btn btn-primary col-md-2">Submit</button>
-                    </div>
+                       <?php } ?>
+                   </div>
+                
                <?php if(isset($disabled)){ echo "</fieldset>"; } ?>
                <?php echo form_close(); ?>
             </div>

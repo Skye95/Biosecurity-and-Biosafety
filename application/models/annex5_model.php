@@ -106,16 +106,18 @@ class annex5_model extends CI_Model
             
     }
     
-    function update_editable($id, $type, $approver_id)
+    function update_editable($id, $type, $approver_id, $appid)
     {
         if ($type == 0) {
             
             $data = array('editable' => 3, 'approver_id' => $approver_id );
             $this->db->where('account_id', $id);
+            $this->db->where('application_id', $appid);
             $this->db->update('annex5', $data);
         } elseif ($type == 1) {
             $data = array('editable' => 2, 'approver_id' => $approver_id);
             $this->db->where('account_id', $id);
+            $this->db->where('application_id', $appid);
             $this->db->update('annex5', $data);
         }
         return true;
