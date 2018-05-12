@@ -30,7 +30,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <!-- Page Content -->
     <div class="container">
         <!-- Page Heading -->
-        <h2 class="my-4 text-center">Living Modified Organism Form Page</h2>
+        <br>
         
         <div id='breadcrumb1'><?php echo $this->breadcrumbs->show(); ?></div>
 		
