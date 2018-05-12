@@ -316,24 +316,20 @@ if(!$this->session->userdata('isLogin')){
                            </tr>
                        </tbody>
                    </table>
-<<<<<<< HEAD
+
                    
                 <div>
                     <input type="hidden" name="appid" value="<?php if(isset($appID)){echo $appID;} ?>">
-=======
+
                 </div>
                 <div style="text-align: center">
-                       <button name="submit" type="submit" class="btn btn-primary col-md-2">Submit</button>
->>>>>>> d1b27ab072bd7cd40f5c4a8256f6991c4b530e58
-                </div>
-                
-                   <div style="text-align: center">
                        <?php if(isset($editload)){ ?>
                        <button type="submit" name = 'swp_update' value = 'Update' onclick="location.href='<?php echo site_url().'/swp/update_form';?>'" class="btn btn-primary">Update</button>
                        <?php }else{ ?>
                        <button name="submit" type="submit" class="btn btn-primary col-md-2">Submit</button>
                        <?php } ?>
-                   </div>
+                </div>
+                
                    
                <?php if(isset($disabled)){ echo "</fieldset>"; } ?>
                <?php echo form_close(); ?>
