@@ -47,6 +47,12 @@ if(!$this->session->userdata('isLogin')){
         .reddata{
             background-color: red;
         }
+        .sectiontarget::before {
+          content:"";
+          display:block;
+          height:60px; /* fixed header height*/
+          margin:-60px 0 0; /* negative fixed header height */
+        }
         
     </style>
 </head>    

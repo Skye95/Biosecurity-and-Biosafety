@@ -76,6 +76,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
               <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
               <li data-target="#carouselExampleIndicators" data-slide-to="6"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="7"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="8"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="9"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="10"></li>
+                
             </ol>
 			<div class="carousel-inner" role="listbox">
               <div class="carousel-item active">
@@ -98,6 +103,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			  </div>
                 <div class="carousel-item">
                 <img class="d-block img-fluid" src="<?php echo base_url('assets\images\4_biohazardousmaterials\bm7.jpg') ?>" alt="Second slide">
+			  </div>
+                <div class="carousel-item">
+                <img class="d-block img-fluid" src="<?php echo base_url('assets\images\4_biohazardousmaterials\bm8.jpg') ?>" alt="Second slide">
+			  </div>
+                <div class="carousel-item">
+                <img class="d-block img-fluid" src="<?php echo base_url('assets\images\4_biohazardousmaterials\bm9.jpg') ?>" alt="Second slide">
+			  </div>
+                <div class="carousel-item">
+                <img class="d-block img-fluid" src="<?php echo base_url('assets\images\4_biohazardousmaterials\bm10.jpg') ?>" alt="Second slide">
 			  </div>
             </div>
             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">

@@ -30,6 +30,13 @@ if(!$this->session->userdata('isLogin')){
             color: white;
             text-align: center;
         }
+        
+        .sectiontarget::before {
+          content:"";
+          display:block;
+          height:60px; /* fixed header height*/
+          margin:-60px 0 0; /* negative fixed header height */
+        }
     </style>
 </head>    
 <body>
@@ -117,11 +124,11 @@ if(!$this->session->userdata('isLogin')){
                            <span class="text-danger"><?php echo form_error('date'); ?></span>
                        </div>
                    
-                   <div>                      
+                   <div id="section_1" class="sectiontarget">                      
                        <table class="table table-bordered">
                            <thead>
                                 <tr>
-                                   <th class="tblTitle" colspan="10"><h8 id="section_1"><strong>PI/ LABORATORY PERSONEL INFORMATION</strong></h8></th>
+                                   <th class="tblTitle" colspan="10"><h8><strong>PI/ LABORATORY PERSONEL INFORMATION</strong></h8></th>
                                </tr>
                            </thead>
                            <tbody>
@@ -153,10 +160,11 @@ if(!$this->session->userdata('isLogin')){
                    </div>
 				   <hr>
 				   
-				   <table class="table table-bordered" id="section_2">
+                <div id="section_2" class="sectiontarget">
+				   <table class="table table-bordered">
                            <thead>
                                 <tr>
-                                   <th class="tblTitle" colspan="4"><h8 id="section_2"><strong>IDENTIFY THE DIRECT AND CONTRIBUTING CAUSES OF THE INCIDENT</strong></h8></th>
+                                   <th class="tblTitle" colspan="4"><h8><strong>IDENTIFY THE DIRECT AND CONTRIBUTING CAUSES OF THE INCIDENT</strong></h8></th>
                                </tr>
                            </thead>
                            <tbody>                               													   
@@ -290,7 +298,8 @@ if(!$this->session->userdata('isLogin')){
 							   </td>
                            </tr>
                            </tbody>
-                       </table>
+                    </table>
+                </div>
                 <span class="text-danger"><?php echo form_error('incident_description'); ?></span>
                 <span class="text-danger"><?php echo form_error('incident_contribution'); ?></span>
                 <span class="text-danger"><?php echo form_error('incident_personal_factors'); ?></span>
@@ -394,15 +403,9 @@ if(!$this->session->userdata('isLogin')){
             
             <div class="col-md-2">
                 <div class="btn-group-vertical btn-sample">
+                    <a href="#top" class="btn btn-success">Top</a>
                     <a href="#section_1" class="btn btn-success">Section 1</a>
                     <a href="#section_2" class="btn btn-success">Section 2</a>
-                    <a href="#part1" class="btn btn-success">Part 1</a>
-                    <a href="#part2" class="btn btn-success">Part 2</a>
-					<a href="#part3" class="btn btn-success">Part 3</a>
-					<a href="#part4" class="btn btn-success">Part 4</a>
-					<a href="#part5" class="btn btn-success">Part 5</a>
-					<a href="#part6" class="btn btn-success">Part 6</a>
-					<a href="#part7" class="btn btn-success">Part 7</a>
                 </div>   
             </div>
         </div>
