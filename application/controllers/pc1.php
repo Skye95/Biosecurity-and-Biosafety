@@ -16,7 +16,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		$this->breadcrumbs->push('Application','/applicationpage', true);
         $this->breadcrumbs->push('New Application','/newapplicationpage', true);
         $this->breadcrumbs->push('Living Modified Organism','/livingmodifiedorganismpage',true);
-        $this->breadcrumbs->push('Application for NLRDs suitable for PC1 Form', true);
+        $this->breadcrumbs->push('Application for NLRD suitable for PC1 Form', true);
     }
 		
 		public function index(){
