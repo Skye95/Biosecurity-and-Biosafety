@@ -1601,13 +1601,14 @@ if(!$this->session->userdata('isLogin')){
                 
                  <div class="col-md-1">
                      <div class="btn-group-vertical btn-sample">
-                         <a href="#part_a" class="btn btn-success">Part A</a>
-                         <a href="#part_b" class="btn btn-success">Part B</a>
-                         <a href="#part_c" class="btn btn-success">Part C</a>
-                         <a href="#part_d" class="btn btn-success">Part D</a>
-                         <a href="#part_e" class="btn btn-success">Part E</a>
-                         <a href="#part_f" class="btn btn-success">Part F</a>
-                         <a href="#part_g" class="btn btn-success">Part G</a>
+                         <a href="#top" class="btn btn-success">Top</a>
+                         <a href="#part_a" class="btn btn-success">Section 1</a>
+                         <a href="#part_b" class="btn btn-success">Section 2</a>
+                         <a href="#part_c" class="btn btn-success">Section 3</a>
+                         <a href="#part_d" class="btn btn-success">Section 4</a>
+                         <a href="#part_e" class="btn btn-success">Section 5</a>
+                         <a href="#part_f" class="btn btn-success">Section 6</a>
+                         <a href="#part_g" class="btn btn-success">Section 7</a>
                      </div>   
                  </div>
                 

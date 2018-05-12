@@ -128,10 +128,11 @@ if(!$this->session->userdata('isLogin')){
                        </tbody>
                    </table>
                    
+                <div id="section_1" class="sectiontarget">
                    <table class="table table-bordered" id="section_1">
                        <thead>
                            <tr>
-                               <th width="20px" class="reddata">1</th>
+                               <th width="10px" class="reddata">1</th>
                                <th>Title of Project</th>
                            </tr>
                        </thead>
@@ -142,46 +143,51 @@ if(!$this->session->userdata('isLogin')){
                        </tbody>
                    </table>
                 <span class="text-danger"><?php echo form_error('project_title'); ?></span>
-                   
+                </div>
+                
+                <div id="section_3" class="sectiontarget">
                    <table class="table table-bordered">
                        <thead>
                            <tr>
-                               <th width="10px" class="reddata" id="section_2">2</th>
-                               <th colspan="2">Researchers involved in the conduct of the project</th>
+                               <th width="10px" class="reddata" id="section_3">3</th>
+                               <th colspan="2">Additional people to be included in correspondence regarding this dealing<br>(e.g. Research Assistants, Biosafety Officer, Facility Managers)</th>
                            </tr>
                        </thead>
                        <tbody>
                            <tr>
-                              <td colspan="3">Project Supervisor (must be a Swinburne staff member)</td> 
-                           </tr>
-                           <tr>
-                               <td width="90px">Title: <input type="text" class="form-control" name="project_supervisor_title" value="<?php if(isset($load)){echo set_value('project_supervisor_title', $item->project_supervisor_title);}else{echo set_value('project_supervisor_title');} ?>"></td>
-                               
-                               <td>Name: <input type="text" class="form-control" name="project_supervisor_name" value="<?php if(isset($load)){echo set_value('project_supervisor_name', $item->project_supervisor_name);}else{echo set_value('project_supervisor_name');} ?>" ></td>
-                               
-                               <td>Current qualifications (please include all): <input type="text" class="form-control" name="project_supervisor_qualification" value="<?php if(isset($load)){echo set_value('project_supervisor_qualification', $item->project_supervisor_qualification);}else{echo set_value('project_supervisor_qualification');} ?>"></td>
-                           </tr>
-                           <tr>
-                               <td colspan="2">Department: <input type="text" class="form-control" name="project_supervisor_department" value="<?php if(isset($load)){echo set_value('project_supervisor_department', $item->project_supervisor_department);}else{echo set_value('project_supervisor_department');} ?>"></td>
-                               
-                               <td colspan="1">Campus: <input type="text" class="form-control" name="project_supervisor_campus" value="<?php if(isset($load)){echo set_value('project_supervisor_campus', $item->project_supervisor_campus);}else{echo set_value('project_supervisor_campus');} ?>"></td>
-                           </tr>
-                           <tr>
-                               <td colspan="3">Full postal address (including internal mail details): <input type="text" class="form-control" name="project_supervisor_postal_address" value="<?php if(isset($load)){echo set_value('project_supervisor_postal_address', $item->project_supervisor_postal_address);}else{echo set_value('project_supervisor_postal_address');} ?>"></td>
-                           </tr>
-                           <tr>
+                               <td colspan="2">
+                                   <table class="table table-bordered">
+                                       <tr>
+                                           <td width="100px">Title: <input type="text" class="form-control" name="project_supervisor_title" value="<?php if(isset($load)){echo set_value('project_supervisor_title', $item->project_supervisor_title);}else{echo set_value('project_supervisor_title');} ?>"></td>
+                                           
+                                           <td>Name: <input type="text" class="form-control" name="project_supervisor_name" value="<?php if(isset($load)){echo set_value('project_supervisor_name', $item->project_supervisor_name);}else{echo set_value('project_supervisor_name');} ?>" ></td>
+                                           
+                                           <td>Current qualifications (please include all): <input type="text" class="form-control" name="project_supervisor_qualification" value="<?php if(isset($load)){echo set_value('project_supervisor_qualification', $item->project_supervisor_qualification);}else{echo set_value('project_supervisor_qualification');} ?>"></td>
+                                       </tr>
+                                       <tr>
+                                           <td colspan="2">Department: <input type="text" class="form-control" name="project_supervisor_department" value="<?php if(isset($load)){echo set_value('project_supervisor_department', $item->project_supervisor_department);}else{echo set_value('project_supervisor_department');} ?>"></td>
+                                           
+                                           <td colspan="1">Campus: <input type="text" class="form-control" name="project_supervisor_campus" value="<?php if(isset($load)){echo set_value('project_supervisor_campus', $item->project_supervisor_campus);}else{echo set_value('project_supervisor_campus');} ?>"></td>
+                                       </tr>
+                                       <tr>
+                                           <td colspan="3">Full postal address (including internal mail details): <input type="text" class="form-control" name="project_supervisor_postal_address" value="<?php if(isset($load)){echo set_value('project_supervisor_postal_address', $item->project_supervisor_postal_address);}else{echo set_value('project_supervisor_postal_address');} ?>"></td>
+                                       </tr>
+                                       <tr>
                                <td colspan="2">Phone: 
                                    <input type="text" class="form-control" name="project_supervisor_telephone" value="<?php if(isset($load)){echo set_value('project_supervisor_telephone', $item->project_supervisor_telephone);}else{echo set_value('project_supervisor_telephone');} ?>">
                                </td>
                                
                                <td>Fax: <input type="text" class="form-control" name="project_supervisor_fax" value="<?php if(isset($load)){echo set_value('project_supervisor_fax', $item->project_supervisor_fax);}else{echo set_value('project_supervisor_fax');} ?>"></td>
                            </tr>
-                           <tr>
+                                       <tr>
                                <td colspan="3">Email (MUST be staff email address): <input type="email" class="form-control" name="project_supervisor_email_address" value="<?php if(isset($load)){echo set_value('project_supervisor_email_address', $item->project_supervisor_email_address);}else{echo set_value('project_supervisor_email_address');} ?>"></td>
+                           </tr>
+                                   </table>
+                               </td>
                            </tr>
                        </tbody>
                    </table>
-                <span class="text-danger"><?php echo form_error('project_supervisor_title'); ?></span>
+    <span class="text-danger"><?php echo form_error('project_supervisor_title'); ?></span>
                 <span class="text-danger"><?php echo form_error('project_supervisor_name'); ?></span>
                 <span class="text-danger"><?php echo form_error('project_supervisor_qualification'); ?></span>
                 <span class="text-danger"><?php echo form_error('project_supervisor_department'); ?></span>
@@ -190,7 +196,9 @@ if(!$this->session->userdata('isLogin')){
                 <span class="text-danger"><?php echo form_error('project_supervisor_telephone'); ?></span>
                 <span class="text-danger"><?php echo form_error('project_supervisor_fax'); ?></span>
                 <span class="text-danger"><?php echo form_error('project_supervisor_email_address'); ?></span>
-                   
+                </div>
+                
+                <div id="section_3" class="sectiontarget">
                    <table class="table table-bordered">
                        <thead>
                            <tr>
@@ -232,7 +240,7 @@ if(!$this->session->userdata('isLogin')){
                            </tr>
                        </tbody>
                    </table>
-                   
+                </div>
                    <table class="table table-bordered">
                                      <tr>
                                            <td width="90px">Title: <input type="text" class="form-control" name="project_add_title[1]" value="<?php if(isset($load)){echo set_value('project_add_title[1]', $a[1]);}else{echo set_value('project_add_title[1]');} ?>"></td>
@@ -260,7 +268,8 @@ if(!$this->session->userdata('isLogin')){
                                            <td colspan="3">Email (MUST be staff email address): <input type="email" class="form-control" name="project_add_email_address[1]" value="<?php if(isset($load)){echo set_value('project_add_email_address[1]', $i[1]);}else{echo set_value('project_add_email_address[1]');} ?>"></td>
                                        </tr>
                    </table>
-                   
+                    
+                   <div id="section_4" class="sectiontarget">
                    <table class="table table-bordered">
                        <thead>
                            <tr>
@@ -349,7 +358,9 @@ if(!$this->session->userdata('isLogin')){
                            </tr>
                        </tbody>
                    </table>
-                   
+                    </div>
+                    
+                    <div id="section_5" class="sectiontarget">
                    <table class="table table-bordered">
                        <thead>
                            <tr>
@@ -364,7 +375,9 @@ if(!$this->session->userdata('isLogin')){
                        </tbody>
                    </table>
                 <span class="text-danger"><?php echo form_error('project_summary'); ?></span>
-                   
+                    </div>
+                    
+                    <div id="section_6" class="sectiontarget">
                    <table class="table table-bordered">
                        <thead>
                            <tr>
@@ -379,7 +392,9 @@ if(!$this->session->userdata('isLogin')){
                        </tbody>
                    </table>
                 <span class="text-danger"><?php echo form_error('project_hazard'); ?></span>
-                   
+                    </div>
+                    
+                    <div id="section_7" class="sectiontarget">
                    <table class="table table-bordered">
                        <thead>
                            <tr>
@@ -393,7 +408,9 @@ if(!$this->session->userdata('isLogin')){
                            </tr>
                        </tbody>
                    </table>
-                   
+                    </div>
+                    
+                    <div id="section_8" class="sectiontarget">
                    <table class="table table-bordered">
                        <thead>
                            <tr>
@@ -424,7 +441,9 @@ if(!$this->session->userdata('isLogin')){
                 <span class="text-danger"><?php echo form_error('project_facilities_room_no'); ?></span>
                 <span class="text-danger"><?php echo form_error('project_facilities_containment_level'); ?></span>
                 <span class="text-danger"><?php echo form_error('project_facilities_certification_no'); ?></span>
-                   
+                    </div>
+                    
+                    <div id="section_9" class="sectiontarget">
                    <table class="table table-bordered">
                        <thead>
                            <tr>
@@ -466,6 +485,7 @@ if(!$this->session->userdata('isLogin')){
                            </tr>
                        </tbody>
                    </table>
+                    </div>
                 
                 <div>
                     <input type="hidden" name="appid" value="<?php if(isset($appID)){echo $appID;} ?>">
@@ -484,6 +504,7 @@ if(!$this->session->userdata('isLogin')){
             
             <div class="col-md-2">
                 <div class="btn-group-vertical btn-sample">
+                    <a href="#top" class="btn btn-success">Top</a>
                     <a href="#section_1" class="btn btn-success">Section 1</a>
                     <a href="#section_2" class="btn btn-success">Section 2</a>
                     <a href="#section_3" class="btn btn-success">Section 3</a>

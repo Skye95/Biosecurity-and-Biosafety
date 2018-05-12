@@ -126,8 +126,8 @@ if(!$this->session->userdata('isLogin')){
                        </thead>                       
                    </table>			   
 				   
-                   
-                   <table class="table table-bordered" id="section_1">
+                   <div id="section_1" class="sectiontarget">
+                   <table class="table table-bordered">
                        <thead>
                            <tr>
                                <th width="10px" class="cyandata">1</th>
@@ -143,8 +143,10 @@ if(!$this->session->userdata('isLogin')){
                        </tbody>
                    </table>
                 <span class="text-danger"><?php echo form_error('project_title'); ?></span>
-				   
-				   <table class="table table-bordered" id="section_2">
+                </div>
+                
+                <div id="section_2" class="sectiontarget">
+				   <table class="table table-bordered">
                        <thead>
                            <tr>
                                <th width="10px" class="cyandata">2</th>
@@ -160,11 +162,12 @@ if(!$this->session->userdata('isLogin')){
                        </tbody>
                    </table>
                 <span class="text-danger"><?php echo form_error('chief_investigator'); ?></span>
-                   
-                   <table class="table table-bordered">
+                </div>
+                <div id="section_3" class="sectiontarget">   
+                <table class="table table-bordered">
                        <thead>
                            <tr>
-                               <th width="10px" class="cyandata" id="section_3">3</th>
+                               <th width="10px" class="cyandata">3</th>
                                <th colspan="2">Personnel</th>
                            </tr>
                        </thead>
@@ -230,8 +233,10 @@ if(!$this->session->userdata('isLogin')){
                 <span class="text-danger"><?php echo form_error('personnel_extra_telephone'); ?></span>
                 <span class="text-danger"><?php echo form_error('personnel_extra_fax'); ?></span>
                 <span class="text-danger"><?php echo form_error('personnel_extra_email_address'); ?></span>
-                   
-                   <table class="table table-bordered" id="section_4">
+                </div>
+                
+                <div id="section_4" class="sectiontarget">
+                   <table class="table table-bordered">
                        <thead>
                            <tr>
                                <th width="10px" class="cyandata">4</th>
@@ -252,8 +257,10 @@ if(!$this->session->userdata('isLogin')){
                        </tbody>
 				   </table>
                    <span class="text-danger"><?php echo form_error('project_summary'); ?></span>
-				   
-				   <table class="table table-bordered" id="section_5">
+                </div>
+                
+                <div id="section_5" class="sectiontarget">
+				   <table class="table table-bordered">
                        <thead>
                            <tr>
                                <th width="10px" class="cyandata">5</th>
@@ -273,8 +280,10 @@ if(!$this->session->userdata('isLogin')){
                        </tbody>
 				   </table>
                 <span class="text-danger"><?php echo form_error('project_outline'); ?></span>
-				   
-				   <table class="table table-bordered" id="section_6">
+                </div>
+                
+                <div id="section_6" class="sectiontarget">
+				   <table class="table table-bordered">
                        <thead>
                            <tr>
                                <th width="10px" class="cyandata">6</th>
@@ -293,11 +302,12 @@ if(!$this->session->userdata('isLogin')){
                            </tr>
                        </tbody>
 				   </table>
-				   
+                </div>
+                <div id="section_7" class="sectiontarget">
 				   <table class="table table-bordered">
                        <thead>
                            <tr>
-                               <th width="10px" class="cyandata" id="section_7">7</th>
+                               <th width="10px" class="cyandata" >7</th>
                                <th colspan="2">Provide a list of the SOPs and Risk Assessments for the protocols to be used. (Attach all listed to application)</th>
                            </tr>
                        </thead>
@@ -309,8 +319,9 @@ if(!$this->session->userdata('isLogin')){
                            </tr>
                        </tbody>
                    </table>
-				   
-				   <table class="table table-bordered" id="section_8">
+                </div>
+                <div id="section_8" class="sectiontarget">
+				   <table class="table table-bordered">
                        <thead>
                            <tr>
                                <th width="10px" class="cyandata">8</th>
@@ -356,12 +367,14 @@ if(!$this->session->userdata('isLogin')){
                            </tr>
                        </tbody>
 				   </table>
-				   
+                </div>
+                
+                <div id="section_9" class="sectiontarget">
 				   <table class="table table-bordered">
                        <table class="table table-bordered">
                        <thead>
                            <tr>
-                               <th width="10px" class="cyandata" id="section_9">9</th>
+                               <th width="10px" class="cyandata">9</th>
                                <th>Sign-off</th>
                            </tr>
                        </thead>
@@ -383,7 +396,7 @@ if(!$this->session->userdata('isLogin')){
                        </tbody>
                    </table>
                    </table>
-                
+                </div>
                 <div>
                     <input type="hidden" name="appid" value="<?php if(isset($appID)){echo $appID;} ?>">
                 </div>
@@ -401,6 +414,7 @@ if(!$this->session->userdata('isLogin')){
             
             <div class="col-md-2">
                 <div class="btn-group-vertical btn-sample">
+                    <a href="#top" class="btn btn-success">Top</a>
                     <a href="#section_1" class="btn btn-success">Section 1</a>
                     <a href="#section_2" class="btn btn-success">Section 2</a>
                     <a href="#section_3" class="btn btn-success">Section 3</a>

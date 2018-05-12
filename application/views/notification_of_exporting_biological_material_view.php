@@ -108,6 +108,7 @@ if(!$this->session->userdata('isLogin')){
 				   
 				   <hr>
                    
+                <div id="section_1" class="sectiontarget">
                    <table class="table table-bordered" id="section_1">
                            <thead>
                                 <tr>
@@ -139,6 +140,7 @@ if(!$this->session->userdata('isLogin')){
 							   </tr>                              
                            </tbody>
                        </table>
+                </div>
                    
                    <span class="text-danger"><?php echo form_error('personnel_name'); ?></span>
                    <span class="text-danger"><?php echo form_error('personnel_staff_student_no'); ?></span>
@@ -148,7 +150,7 @@ if(!$this->session->userdata('isLogin')){
                    <span class="text-danger"><?php echo form_error('personnel_reference_no'); ?></span>
 					   
 					   <hr>
-                  <div>
+                  <div id="section_2" class="sectiontarget">
 				   <table class="table table-bordered" id="section_2" >
 				           <thead>
                                 <tr>
@@ -329,7 +331,7 @@ if(!$this->session->userdata('isLogin')){
                    </div>
                    
 				   <hr>                  
-				   <div>                      
+				   <div id="section_3" class="sectiontarget">                      
                        <table class="table table-bordered">
                            <thead>
                                 <tr>
@@ -362,7 +364,7 @@ if(!$this->session->userdata('isLogin')){
                 <span class="text-danger"><?php echo form_error('importing_person_in_charge_telephone_no'); ?></span>
                 
 				   
-				  
+				  <div id="section_4" class="sectiontarget">
                    <table  class="table table-bordered">
                        <thead>
                            <tr>
@@ -387,8 +389,10 @@ if(!$this->session->userdata('isLogin')){
                            </tr>
                        </tbody>
                    </table>
+                </div>
                    
 				   <hr>
+                <div id="section_5" class="sectiontarget">
                    <table  class="table table-bordered">
                        <thead>
                            <tr>
@@ -407,8 +411,10 @@ if(!$this->session->userdata('isLogin')){
                            </tr>
                        </tbody>
                    </table>
+                </div>
                    
 				   <hr>
+                <div id="section_6" class="sectiontarget">
                    <table width="920" class="table table-bordered">
                        <thead>
                            <tr>
@@ -449,9 +455,10 @@ if(!$this->session->userdata('isLogin')){
                            </tr>
                        </tbody>
                    </table>
+                </div>
 				   
 				   <hr>
-				   <div>                      
+				   <div id="section_7" class="sectiontarget">                     
                        <table class="table table-bordered">
                            <thead>
                                 <tr>
@@ -494,7 +501,8 @@ if(!$this->session->userdata('isLogin')){
             
             <div class="col-md-2">
                 <div class="btn-group-vertical btn-sample">
-                    <a href="#section_1" class="btn btn-success">Section 1</a>
+                    <a href="#top" class="btn btn-success">Top</a>
+                    <a href="#section_1" class="btn btn-success">Section 1</a> 
                     <a href="#section_2" class="btn btn-success">Section 2</a>
                     <a href="#section_3" class="btn btn-success">Section 3</a>
                     <a href="#section_4" class="btn btn-success">Section 4</a>

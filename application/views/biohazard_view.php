@@ -108,7 +108,8 @@ if(!$this->session->userdata('isLogin')){
                        </tbody>
                    </table>
                    
-                   <table class="table table-bordered" id="section_1">
+                <div id="section_1" class="sectiontarget">
+                   <table class="table table-bordered">
                        <thead>
                            <tr>
                                <th width="10px" class="reddata">1</th>
@@ -122,7 +123,9 @@ if(!$this->session->userdata('isLogin')){
                        </tbody>
                    </table>
                 <span class="text-danger"><?php echo form_error('project_title'); ?></span>
-                   
+                </div>
+                
+                <div id="section_2" class="sectiontarget">
                    <table class="table table-bordered">
                        <thead>
                            <tr>
@@ -145,7 +148,8 @@ if(!$this->session->userdata('isLogin')){
                 <span class="text-danger"><?php echo form_error('project_supervisor_name'); ?></span>
                 <span class="text-danger"><?php echo form_error('project_supervisor_department'); ?></span>
                 <span class="text-danger"><?php echo form_error('project_supervisor_email_address'); ?></span>
-                   
+                </div>
+                <div id="section_3" class="sectiontarget">
                    <table class="table table-bordered">
                        <thead>
                            <tr>
@@ -168,7 +172,8 @@ if(!$this->session->userdata('isLogin')){
                 <span class="text-danger"><?php echo form_error('project_alt_person'); ?></span>
                 <span class="text-danger"><?php echo form_error('project_alt_department'); ?></span>
                 <span class="text-danger"><?php echo form_error('project_alt_email'); ?></span>
-                   
+                </div>
+                <div id="section_4" class="sectiontarget">
                    <table class="table table-bordered">
                        <thead>
                            <tr>
@@ -208,7 +213,8 @@ if(!$this->session->userdata('isLogin')){
                    </table>
                 <span class="text-danger"><?php echo form_error('project_personnel_name[0]'); ?></span>
                 <span class="text-danger"><?php echo form_error('project_personnel_role[0]'); ?></span>
-                   
+                </div>
+                <div id="section_5" class="sectiontarget">
                    <table class="table table-bordered">
                        <thead>
                            <th width="10px" class="reddata" id="section_5">5</th>
@@ -273,7 +279,8 @@ if(!$this->session->userdata('isLogin')){
                            </tr>
                        </tbody>
                    </table>
-                   
+                </div>
+                <div id="section_6" class="sectiontarget">
                    <table class="table table-bordered">
                        <thead>
                            <th width="10px" class="reddata" id="section_6">6</th>
@@ -288,7 +295,8 @@ if(!$this->session->userdata('isLogin')){
                        </tbody>
                    </table>
                 <span class="text-danger"><?php echo form_error('project_summary'); ?></span>
-                   
+                </div>
+                <div id="section_7" class="sectiontarget">
                    <table class="table table-bordered">
                        <thead>
                            <th width="10px" class="reddata" id="section_7">7</th>
@@ -303,7 +311,8 @@ if(!$this->session->userdata('isLogin')){
                        </tbody>
                    </table>
                 <span class="text-danger"><?php echo form_error('project_activity'); ?></span>
-                   
+                </div>
+                <div id="section_8" class="sectiontarget">
                    <table class="table table-bordered">
                        <thead>
                            <th width="10px" class="reddata" id="section_8">8</th>
@@ -358,7 +367,8 @@ if(!$this->session->userdata('isLogin')){
                    </table>
                 <span class="text-danger"><?php echo form_error('project_SOP_title[0]'); ?></span>
                 <span class="text-danger"><?php echo form_error('project_SOP_risk_title[0]'); ?></span>
-                   
+                </div>
+                <div id="section_9" class="sectiontarget">
                    <table class="table table-bordered">
                        <thead>
                            <th width="10px" class="reddata" id="section_9">9</th>
@@ -399,7 +409,8 @@ if(!$this->session->userdata('isLogin')){
                    </table>
                 <span class="text-danger"><?php echo form_error('project_facilities_building[0]'); ?></span>
                 <span class="text-danger"><?php echo form_error('project_facilities_room[0]'); ?></span>
-                   
+                </div>
+                <div id="section_10" class="sectiontarget">
                    <table class="table table-bordered">
                        <thead>
                            <th width="10px" class="reddata" id="section_10">10</th>
@@ -423,7 +434,8 @@ if(!$this->session->userdata('isLogin')){
                            </tr>
                        </tbody>
                    </table>
-                   
+                </div>
+                
                    <table class="table table-bordered">
                        <thead>
                            <th width="10px" class="reddata" id="section_11">11</th>
@@ -467,6 +479,7 @@ if(!$this->session->userdata('isLogin')){
             
             <div class="col-md-2">
                 <div class="btn-group-vertical btn-sample">
+                    <a href="#top" class="btn btn-success">Top</a>    
                     <a href="#section_1" class="btn btn-success">Section 1</a>
                     <a href="#section_2" class="btn btn-success">Section 2</a>
                     <a href="#section_3" class="btn btn-success">Section 3</a>

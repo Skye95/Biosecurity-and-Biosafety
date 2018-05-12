@@ -83,6 +83,7 @@ if(!$this->session->userdata('isLogin')){
                        </tbody>
                    </table>
                    
+                <div id="section_1" class="sectiontarget">
                    <table class="table table-bordered" id="section_1">
                            <thead>
                                 <tr>
@@ -133,9 +134,11 @@ if(!$this->session->userdata('isLogin')){
                 <span class="text-danger"><?php echo form_error('SWP_unit_title'); ?></span>
                 <span class="text-danger"><?php echo form_error('SWP_project_title'); ?></span>
                 <span class="text-danger"><?php echo form_error('SWP_location'); ?></span>
-                   
+                </div>
+                
                    <br><input type="hidden" value="<?php echo $hirarctype ?>" name="application_type" />
                    
+                <div id="section_2" class="sectiontarget">
                    <table width="920" class="table table-bordered">
                        <thead>
                            <tr>
@@ -198,9 +201,10 @@ if(!$this->session->userdata('isLogin')){
                 <span class="text-danger"><?php echo form_error('SWP_postoperational'); ?></span>
                 <span class="text-danger"><?php echo form_error('SWP_risk'); ?></span>
                 <span class="text-danger"><?php echo form_error('SWP_control'); ?></span>
-                   
+                </div>
                    <br><br>
                    
+                <div id="section_3" class="sectiontarget">
                    <table width="920" class="table table-bordered">
                        <thead>
                            <tr>
@@ -222,7 +226,9 @@ if(!$this->session->userdata('isLogin')){
                    </table>
                 <span class="text-danger"><?php echo form_error('SWP_declaration_name'); ?></span>
                 <span class="text-danger"><?php echo form_error('SWP_declaration_date'); ?></span>
-                   
+                </div>
+                
+                <div id="section_4" class="sectiontarget">
                    <table width="920" class="table table-bordered">
                        <thead>
                            <tr>
@@ -250,7 +256,9 @@ if(!$this->session->userdata('isLogin')){
                 <span class="text-danger"><?php echo form_error('SWP_signature_PI'); ?></span>
                 <span class="text-danger"><?php echo form_error('SWP_signature_prepared_by_date'); ?></span>
                 <span class="text-danger"><?php echo form_error('SWP_signature_PI_date'); ?></span>
-                   
+                </div>
+                
+                <div id="section_5" class="sectiontarget">
                    <table width="920" class="table table-bordered">
                        <thead>
                            <tr>
@@ -302,7 +310,7 @@ if(!$this->session->userdata('isLogin')){
                            </tr>
                        </tbody>
                    </table>
-                   
+                </div>
                 <div style="text-align: center">
                        <button name="submit" type="submit" class="btn btn-primary col-md-2">Submit</button>
                 </div>
@@ -313,6 +321,7 @@ if(!$this->session->userdata('isLogin')){
             
             <div class="col-md-2">
                 <div class="btn-group-vertical btn-sample">
+                    <a href="#top" class="btn btn-success">Top</a>
                     <a href="#section_1" class="btn btn-success">Section 1</a>
                     <a href="#section_2" class="btn btn-success">Section 2</a>
                     <a href="#section_3" class="btn btn-success">Section 3</a>
