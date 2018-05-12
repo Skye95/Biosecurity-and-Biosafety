@@ -50,9 +50,12 @@ if(!$this->session->userdata('isLogin')){
         .colspace{
             width: 50px;
         }
-        
-        
-        
+        .sectiontarget::before {
+          content:"";
+          display:block;
+          height:60px; /* fixed header height*/
+          margin:-60px 0 0; /* negative fixed header height */
+        }
     </style>
 </head>    
 <body>
@@ -109,8 +112,7 @@ if(!$this->session->userdata('isLogin')){
                    
                    <br>
                    
-                   <div>
-                       
+                   <div id="section_1" class="sectiontarget">
                        <table class="table table-bordered" id="section_1">
                            <thead>
                                 <tr>
@@ -185,7 +187,7 @@ if(!$this->session->userdata('isLogin')){
                        </table>
                    </div>
                    
-                   <div>
+                   <div id="section_2" class="sectiontarget">
                        <table class="table table-bordered" id="hirarcTb">
                            <thead>
                                <tr>
@@ -496,8 +498,9 @@ if(!$this->session->userdata('isLogin')){
             
             <div class="col-md-2">
                 <div class="btn-group-vertical btn-sample">
+                    <a href="#top" class="btn btn-success">Top</a>
                     <a href="#section_1" class="btn btn-success">Section 1</a>
-                    <a href="#hirarcTb" class="btn btn-success">Section 2</a>
+                    <a href="#section_2" class="btn btn-success">Section 2</a>
                 </div>   
             </div>
         </div>

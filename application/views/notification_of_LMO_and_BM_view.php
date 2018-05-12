@@ -43,7 +43,12 @@ if(!$this->session->userdata('isLogin')){
         .right-side{
             text-align: right;
         }
-        
+        .sectiontarget::before {
+          content:"";
+          display:block;
+          height:60px; /* fixed header height*/
+          margin:-60px 0 0; /* negative fixed header height */
+        }
     </style>
 </head>    
 <body>
@@ -100,6 +105,7 @@ if(!$this->session->userdata('isLogin')){
                        </tbody>
                    </table>
                    
+                <div id="section_1" class="sectiontarget">
                    <table class="table table-bordered" id="section_1">
                            <thead>
                                 <tr>
@@ -148,7 +154,9 @@ if(!$this->session->userdata('isLogin')){
                 <span class="text-danger"><?php echo form_error('personnel_project_title'); ?></span>
                 <span class="text-danger"><?php echo form_error('personnel_storage'); ?></span>
                 <span class="text-danger"><?php echo form_error('personnel_keeper_name'); ?></span>
-                   
+                </div>
+                
+                <div id="section_2" class="sectiontarget">
                    <table class="table table-bordered">
                        <thead>
                            <tr>
@@ -367,7 +375,9 @@ if(!$this->session->userdata('isLogin')){
                            </tr>
                        </tbody>
                    </table>
+                </div>
                    
+                <div id="section_3" class="sectiontarget">
                    <table width="920" class="table table-bordered">
                        <thead>
                            <tr>
@@ -393,7 +403,9 @@ if(!$this->session->userdata('isLogin')){
                    </table>
                 <span class="text-danger"><?php echo form_error('declaration_name'); ?></span>
                 <span class="text-danger"><?php echo form_error('declaration_date'); ?></span>
-                   
+                </div>
+                
+                <div id="section_4" class="sectiontarget">
                    <table width="920" class="table table-bordered">
                        <thead>
                            <tr>
@@ -415,7 +427,9 @@ if(!$this->session->userdata('isLogin')){
                    </table>
                 <span class="text-danger"><?php echo form_error('signature_verified_by'); ?></span>
                 <span class="text-danger"><?php echo form_error('signature_verified_date'); ?></span>
-                   
+                </div>
+                
+                <div id="section_5" class="sectiontarget">
                    <table width="920" class="table table-bordered">
                        <thead>
                            <tr>
@@ -457,8 +471,7 @@ if(!$this->session->userdata('isLogin')){
                            </tr>
                        </tbody>
                    </table>
-                
-                
+                </div>
                    <div>
                     <input type="hidden" name="appid" value="<?php if(isset($appID)){echo $appID;} ?>">
                    </div>
@@ -477,7 +490,8 @@ if(!$this->session->userdata('isLogin')){
             
             <div class="col-md-2">
                 <div class="btn-group-vertical btn-sample">
-                    <a href="#section_1" class="btn btn-success">Section 1</a>
+                    <a href="#top" class="btn btn-success">Top</a>
+                    <a href="#section_1" class="btn btn-success">Section 1</a> 
                     <a href="#section_2" class="btn btn-success">Section 2</a>
                     <a href="#section_3" class="btn btn-success">Section 3</a>
                     <a href="#section_4" class="btn btn-success">Section 4</a>

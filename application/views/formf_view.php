@@ -23,6 +23,12 @@ if(!$this->session->userdata('isLogin')){
         .approve_section{
             display: none;
         }
+        .sectiontarget::before {
+          content:"";
+          display:block;
+          height:60px; /* fixed header height*/
+          margin:-60px 0 0; /* negative fixed header height */
+        }
     </style>
 </head>    
 <body>
@@ -49,7 +55,7 @@ if(!$this->session->userdata('isLogin')){
             <div class="col-md-1">
             </div>
             
-            <div id="top" class="col-md-9">
+            <div class="col-md-9">
               <?php if(isset($editload)) { echo form_open('formf/update_form'); } else { echo form_open('formf/index'); } ?>
                 <?php if(isset($disabled)){ echo "<fieldset disabled='disabled'>"; } ?>
                     <div>
@@ -174,7 +180,7 @@ if(!$this->session->userdata('isLogin')){
                    
                    <hr>
                     
-					<div>
+					<div id="section_1" class="sectiontarget">
                        <h6 id="part1"><strong>Part 1 Details of the Applicant (Exporter) </strong></h6>
                        <div class="form-group">
                            Organization: <input type="text" class="form-control" name="exporter_organization" value="<?php if(isset($load)){echo set_value('exporter_organization', $item->exporter_organization);}else{echo set_value('exporter_organization');} ?>">
@@ -212,7 +218,7 @@ if(!$this->session->userdata('isLogin')){
                     
 					<hr>
 					
-					<div>
+					<div id="section_2" class="sectiontarget">
                        <h6 id="part2"><strong>Part 2  Details of LMO to be exported</strong></h6>
                        <div class="form-group">
                            Description of LMO to be exported <input type="text" class="form-control" name="LMO_description" value="<?php if(isset($load)){echo set_value('LMO_description', $item->LMO_description);}else{echo set_value('LMO_description');} ?>">
@@ -262,7 +268,7 @@ if(!$this->session->userdata('isLogin')){
 
                     <hr>
                     
-					<div>
+					<div id="section_3" class="sectiontarget">
                        <h6 id="part3"><strong>Part 3  Importing Country</strong></h6>
                        <div class="form-group">
                            Name of importing country <input type="text" class="form-control" name="import_country_name" value="<?php if(isset($load)){echo set_value('import_country_name', $item->import_country_name);}else{echo set_value('import_country_name');} ?>">
@@ -277,7 +283,7 @@ if(!$this->session->userdata('isLogin')){
                    
 				    <hr>
                     
-					<div>
+					<div id="section_4" class="sectiontarget">
                        <h6 id="part4"><strong>Part 4 Confidential Business Information</strong></h6>
                        <div class="form-group">
                            Enter in this section any information required in Part 1-3 for which you are claiming confidentiality, together with full justification for that claim.
@@ -288,7 +294,7 @@ if(!$this->session->userdata('isLogin')){
 					
 				    <hr>
                     
-					<div>
+					<div id="section_5" class="sectiontarget">
                        <h6 id="part5"><strong>Part 5 Signatures and Statutory Declaration</strong></h6>
                        <div class="form-group">
                            We declare that all information and documents provided to the importing country are accurate and true and in compliance with the requirements of the 
@@ -358,11 +364,11 @@ if(!$this->session->userdata('isLogin')){
             <div class="col-md-2">
                 <div class="btn-group-vertical btn-sample">
 					<a href="#top" class="btn btn-success">Top</a>
-                    <a href="#part1" class="btn btn-success">Part 1</a>
-                    <a href="#part2" class="btn btn-success">Part 2</a>
-                    <a href="#part3" class="btn btn-success">Part 3</a>
-                    <a href="#part4" class="btn btn-success">Part 4</a>
-					<a href="#part5" class="btn btn-success">Part 5</a>
+                    <a href="#section_1" class="btn btn-success">Section 1</a> 
+                    <a href="#section_2" class="btn btn-success">Section 2</a>
+                    <a href="#section_3" class="btn btn-success">Section 3</a>
+                    <a href="#section_4" class="btn btn-success">Section 4</a>
+					<a href="#section_5" class="btn btn-success">Section 5</a>
                 </div>   
             </div>
         </div>

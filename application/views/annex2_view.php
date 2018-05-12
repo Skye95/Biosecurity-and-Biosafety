@@ -15,7 +15,7 @@ if(!$this->session->userdata('isLogin')){
         body {
             padding-top: 82px;
         }
-        
+
         .btn-sample{
             position: fixed;
             margin-left: 60px;
@@ -23,6 +23,13 @@ if(!$this->session->userdata('isLogin')){
         
         .approve_section{
             display: none;
+        }
+        
+        .sectiontarget::before {
+          content:"";
+          display:block;
+          height:60px; /* fixed header height*/
+          margin:-60px 0 0; /* negative fixed header height */
         }
     </style>
 </head>    
@@ -92,7 +99,7 @@ if(!$this->session->userdata('isLogin')){
                    <hr>
                    
                    <div>
-                       <h6 id="section_1"><strong>1.General Information</strong></h6>
+                       <h6 id="section_1" class="sectiontarget"><strong>1.General Information</strong></h6>
                        
                        <div class="form-group">
                            Name of applicant: 
@@ -121,7 +128,7 @@ if(!$this->session->userdata('isLogin')){
                    <hr>
                    
                    <div>
-                       <h6 id="section_2"><strong>2.Experimental Parameters</strong></h6>
+                       <h6 id="section_2" class="sectiontarget"><strong>2.Experimental Parameters</strong></h6>
                        <p>IBC assessment/recommendation on each of the following:</p>
                        
                        <div class="form-group">
@@ -178,7 +185,7 @@ if(!$this->session->userdata('isLogin')){
                    <hr>
                    
                    <div>
-                       <h6 id="section_3"><strong>3.Details of Principal Investigators(PI)</strong></h6>
+                       <h6 id="section_3" class="sectiontarget"><strong>3.Details of Principal Investigators(PI)</strong></h6>
                        
                        <div class="form-group">
                            Experience and expertise: <input type="text" class="form-control" name="PI_experience_and_expertise" value="<?php if(isset($load)){echo set_value('PI_experience_and_expertise', $item->PI_experience_and_expertise);}else{echo set_value('PI_experience_and_expertise');} ?>" >
@@ -204,7 +211,7 @@ if(!$this->session->userdata('isLogin')){
                    <hr>
                    
                    <div>
-                       <h6 id="section_4"><strong>4.List of all Personnel involved in Project</strong></h6>
+                       <h6 id="section_4" class="sectiontarget"><strong>4.List of all Personnel involved in Project</strong></h6>
                        <table class="table table-bordered">
                            <thead>
                                <tr>
@@ -303,6 +310,7 @@ if(!$this->session->userdata('isLogin')){
                 
                 
                 <div class="btn-group-vertical btn-sample">
+                    <a href="#top" class="btn btn-success">Top</a>
                     <a href="#section_1" class="btn btn-success">Section 1</a>
                     <a href="#section_2" class="btn btn-success">Section 2</a>
                     <a href="#section_3" class="btn btn-success">Section 3</a>

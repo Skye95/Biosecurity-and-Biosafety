@@ -27,6 +27,12 @@ if(!$this->session->userdata('isLogin')){
         .grey{
             background-color: grey;
         }
+        .sectiontarget::before {
+          content:"";
+          display:block;
+          height:60px; /* fixed header height*/
+          margin:-60px 0 0; /* negative fixed header height */
+        }
     </style>
 </head>    
 <body>
@@ -85,7 +91,7 @@ if(!$this->session->userdata('isLogin')){
                        <h5>Termination: If at any time you wish to terminate your modern biotechnology <br> activities, complete this form and submit it to the IBC.</h5>
                    </div>
                    
-                   <div id="section_1">
+                   <div class="sectiontarget" id="section_1">
                        <h4><strong>1. Identification</strong></h4>
                        <ol type="a">
                            <li>Name of Principal Investigator: 
@@ -139,7 +145,7 @@ if(!$this->session->userdata('isLogin')){
                        </ol>
                    </div>
                    
-                   <div id="section_2">
+                   <div class="sectiontarget" id="section_2">
                        <h4><strong>2. Request for Project Extension/Notice of Termination</strong></h4>
                        
                        <div class="radio">
@@ -164,7 +170,7 @@ if(!$this->session->userdata('isLogin')){
                        <span class="text-danger"><?php echo form_error('request_type'); ?></span>
                    </div>
                    
-                   <div id="section_3">
+                   <div class="sectiontarget" id="section_3">
                        <h4><strong>3. General Information</strong></h4>
                        
                        <ol type="a">
@@ -221,7 +227,7 @@ if(!$this->session->userdata('isLogin')){
                        
                    </div>
                    
-                   <div id="section_4">
+                   <div class="sectiontarget" id="section_4">
                        <h4><strong>4. Adverse Events</strong></h4>
                        
                        <ol type="a">
@@ -243,7 +249,7 @@ if(!$this->session->userdata('isLogin')){
                        </ol>
                    </div>
                    
-                   <div id="section_5">
+                   <div class="sectiontarget" id="section_5">
                        <h4><strong>5. Certification</strong></h4>
                        
                        <p>I certify that the above information accurately describes the current status of the modern biotechnology activities that was previously approved by the IBC. I understand that I must resubmit a new <strong>NBB/N/CU/10/ANNEX 5 </strong> (Notification for contained use and import for contained use activities for classes 1, 2, 3 and 4) form in the event my use of, or amount of LMO/rDNA materials changes, or if I have terminated my use /possession of LMO/rDNA and wish to begin modern biotechnology activity again.
@@ -348,6 +354,7 @@ if(!$this->session->userdata('isLogin')){
             
             <div class="col-md-2">
                 <div class="btn-group-vertical btn-sample">
+                    <a href="#top" class="btn btn-success">Top</a>
                     <a href="#section_1" class="btn btn-success">Section 1</a>
                     <a href="#section_2" class="btn btn-success">Section 2</a>
                     <a href="#section_3" class="btn btn-success">Section 3</a>

@@ -52,7 +52,12 @@ if(!$this->session->userdata('isLogin')){
             width: 50px;
         }
         
-        
+        .sectiontarget::before {
+          content:"";
+          display:block;
+          height:60px; /* fixed header height*/
+          margin:-60px 0 0; /* negative fixed header height */
+        }
         
     </style>
 </head>    
@@ -126,6 +131,7 @@ if(!$this->session->userdata('isLogin')){
                        </tbody>
                    </table>
                    
+                <div id="section_1" class="sectiontarget">
                    <table class="table table-bordered" id="section_1">
                        <thead>
                            <tr>
@@ -140,7 +146,7 @@ if(!$this->session->userdata('isLogin')){
                        </tbody>
                    </table>
                    <span class="text-danger"><?php echo form_error('project_title'); ?></span>
-                   
+                </div>
                    <table class="table table-bordered">
                        <thead>
                            <tr>
@@ -475,6 +481,7 @@ if(!$this->session->userdata('isLogin')){
                        </tbody>
                    </table>
                    
+                <div id="section_5" class="sectiontarget">
                    <table class="table table-bordered">
                        <thead>
                            <tr>
@@ -493,7 +500,7 @@ if(!$this->session->userdata('isLogin')){
                        </tbody>
                    </table>
                    <span class="text-danger"><?php echo form_error('project_summary'); ?></span>
-                   
+                </div>
                    <table class="table table-bordered">
                        <thead>
                            <tr>
@@ -609,6 +616,7 @@ if(!$this->session->userdata('isLogin')){
                    </table>
                    <span class="text-danger"><?php echo form_error('project_hazard_environment'); ?></span>
                    
+                <div id="section_10" class="sectiontarget">
                    <table class="table table-bordered">
                        <thead>
                            <tr>
@@ -627,7 +635,7 @@ if(!$this->session->userdata('isLogin')){
                        </tbody>
                    </table>
                    <span class="text-danger"><?php echo form_error('project_hazard_steps'); ?></span>
-                   
+                </div>
                    <table class="table table-bordered">
                        <thead>
                            <tr>
@@ -715,6 +723,7 @@ if(!$this->session->userdata('isLogin')){
                 <span class="text-danger"><?php echo form_error('project_facilities_containment_level'); ?></span>
                 <span class="text-danger"><?php echo form_error('project_facilities_certification_no'); ?></span>
                    
+                <div id="section_15" class="sectiontarget">
                    <table class="table table-bordered">
                        <table class="table table-bordered">
                        <thead>
@@ -758,7 +767,7 @@ if(!$this->session->userdata('isLogin')){
                        </tbody>
                    </table>
                    </table>
-                   
+                </div>
                    
                    <div>
                     <input type="hidden" name="appid" value="<?php if(isset($appID)){echo $appID;} ?>">
@@ -777,10 +786,11 @@ if(!$this->session->userdata('isLogin')){
             
             <div class="col-md-2">
                 <div class="btn-group-vertical btn-sample">
+                    <a href="#top" class="btn btn-success">Top</a>
                     <a href="#section_1" class="btn btn-success">Section 1</a>
-                    <a href="#section_5" class="btn btn-success">Section 5</a>
-                    <a href="#section_10" class="btn btn-success">Section 10</a>
-                    <a href="#section_15" class="btn btn-success">Section 15</a>
+                    <a href="#section_5" class="btn btn-success">Section 2</a>
+                    <a href="#section_10" class="btn btn-success">Section 3</a>
+                    <a href="#section_15" class="btn btn-success">Section 5</a>
                 </div>   
             </div>
         </div>

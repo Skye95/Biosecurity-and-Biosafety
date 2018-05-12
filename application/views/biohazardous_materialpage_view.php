@@ -29,7 +29,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <!-- Page Content -->
     <div class="container">
         <!-- Page Heading -->
-        <h2 class="my-4 text-center">Biohazardous Material Form Page</h2>
+        <br>
 
         <div id='breadcrumb1'><?php echo $this->breadcrumbs->show(); ?></div>
 		<hr>
@@ -38,7 +38,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="row">
             <a href="<?php echo base_url(); ?>index.php/biohazard">		
                     <div class="option1 card col-md-9 hover1" title="SBC - Application for Biosafety Clearance for use of Exempt Dealings">
-                        <h5><span>APPLICATION FOR BIOSAFETY CLEARANCE FOR USE OF BIOHAZARDOUS MATERIALS</span></h5>		
+                        <h5><span>SBC-APPLICATION FOR BIOSAFETY CLEARANCE FOR USE OF BIOHAZARDOUS MATERIALS</span></h5>		
                     </div>				
             </a>
 		</div>
@@ -76,6 +76,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
               <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
               <li data-target="#carouselExampleIndicators" data-slide-to="6"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="7"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="8"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="9"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="10"></li>
+                
             </ol>
 			<div class="carousel-inner" role="listbox">
               <div class="carousel-item active">
@@ -98,6 +103,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			  </div>
                 <div class="carousel-item">
                 <img class="d-block img-fluid" src="<?php echo base_url('assets\images\4_biohazardousmaterials\bm7.jpg') ?>" alt="Second slide">
+			  </div>
+                <div class="carousel-item">
+                <img class="d-block img-fluid" src="<?php echo base_url('assets\images\4_biohazardousmaterials\bm8.jpg') ?>" alt="Second slide">
+			  </div>
+                <div class="carousel-item">
+                <img class="d-block img-fluid" src="<?php echo base_url('assets\images\4_biohazardousmaterials\bm9.jpg') ?>" alt="Second slide">
+			  </div>
+                <div class="carousel-item">
+                <img class="d-block img-fluid" src="<?php echo base_url('assets\images\4_biohazardousmaterials\bm10.jpg') ?>" alt="Second slide">
 			  </div>
             </div>
             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">

@@ -64,7 +64,12 @@ if(!$this->session->userdata('isLogin')){
         .colspace{
             width: 50px;
         }
-        
+        .sectiontarget::before {
+          content:"";
+          display:block;
+          height:60px; /* fixed header height*/
+          margin:-60px 0 0; /* negative fixed header height */
+        }
         
         
     </style>
@@ -108,6 +113,7 @@ if(!$this->session->userdata('isLogin')){
                    
                    <p><strong>Note:</strong>Fill in the neccessary and related sections</p>
                    
+                <div id="section_1" class="sectiontarget">
                    <table class="table table-bordered" id="section_1">
                        <thead>
                            <tr>
@@ -147,7 +153,8 @@ if(!$this->session->userdata('isLogin')){
                            </tr>
                        </tbody>
                    </table>
-                   
+                </div>
+                <div id="section_2" class="sectiontarget">
                    <table class="table table-bordered" id="section_2">
                        <thead>
                            <th colspan="4" class="tblTitle">Section 2A - Details on Purchase
@@ -196,7 +203,8 @@ if(!$this->session->userdata('isLogin')){
                            </tr>
                        </tbody>
                    </table>
-                   
+                </div>
+                
                    <table class="table table-bordered">
                        <thead>
                            <th colspan="4" class="tblTitle">Section 2A2 – Description of work / activities / use</th>
@@ -791,6 +799,7 @@ if(!$this->session->userdata('isLogin')){
             
             <div class="col-md-2">
                 <div class="btn-group-vertical btn-sample">
+                    <a href="#top" class="btn btn-success">Top</a>
                     <a href="#section_1" class="btn btn-success">Section 1</a>
                     <a href="#section_2" class="btn btn-success">Section 2</a>
                     <a href="#section_3" class="btn btn-success">Section 3</a>

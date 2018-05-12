@@ -34,7 +34,12 @@ if(!$this->session->userdata('isLogin')){
         .tbheader1{
             background-color:  #95a5a6 ;
         }
-        
+        .sectiontarget::before {
+          content:"";
+          display:block;
+          height:60px; /* fixed header height*/
+          margin:-60px 0 0; /* negative fixed header height */
+        }
     </style>
 </head>    
 <body>
@@ -76,7 +81,8 @@ if(!$this->session->userdata('isLogin')){
 				   <hr>
                 <input type="hidden" value="<?php if(isset($hirarctype)){echo $hirarctype;} ?>" name="application_type" />
                    
-                   <table class="table table-bordered" id="section_1">
+                <div id="section_1" class="sectiontarget">   
+                <table class="table table-bordered" id="section_1">
                            <thead>
                                 <tr>
                                    <th class="tblTitle" colspan="4"><h8 id="section_1"><strong>SECTION 1 – Victim Personal Details (*Details required as per OSH (NADOPOD) Regulation 2004)</strong></h8></th>
@@ -117,9 +123,10 @@ if(!$this->session->userdata('isLogin')){
                                </tr>							   
                            </tbody>
                        </table>
-					   
+                </div>
 					   <hr>
-					   
+                
+				<div id="section_2" class="sectiontarget">
 					   <table class="table table-bordered" id="section_2">
                            <thead>
                                 <tr>
@@ -207,8 +214,10 @@ if(!$this->session->userdata('isLogin')){
                                </tr>                               
                            </tbody>
                        </table>
+                </div>
                    
-				   <hr>                  
+				   <hr>  
+                <div id="section_3" class="sectiontarget">
                    <table  class="table table-bordered" id="section_3">
                        <thead>
                            <tr>
@@ -238,8 +247,9 @@ if(!$this->session->userdata('isLogin')){
                            </tr>
                        </tbody>
                    </table>
-				   
+                </div>
 				   <hr>
+                <div id="section_4" class="sectiontarget">
                    <table class="table table-bordered" id="section_4">
                            <thead>
                                 <tr>
@@ -282,7 +292,7 @@ if(!$this->session->userdata('isLogin')){
                            </tr>
                            </tbody>
                        </table>
-                   
+                </div>
 				   <hr>
                    <table  class="table table-bordered">
                        <thead>
@@ -387,6 +397,7 @@ if(!$this->session->userdata('isLogin')){
             
             <div class="col-md-2">
                 <div class="btn-group-vertical btn-sample">
+                    <a href="#top" class="btn btn-success">Top</a>
                     <a href="#section_1" class="btn btn-success">Section 1</a>
                     <a href="#section_2" class="btn btn-success">Section 2</a>
                     <a href="#section_3" class="btn btn-success">Section 3</a>
