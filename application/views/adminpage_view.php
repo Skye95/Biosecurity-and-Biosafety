@@ -101,10 +101,10 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6 col-6 portfolio-item">
                 <div class="card card-block justify-content-center align-items-center">
-                    <a href="<?php echo base_url(); ?>index.php/annualreport_approval"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\Annual Report.jpg') ?>" alt=""></a>
-                    <div style="text-align: center" class="card-body">
+                    <a href="<?php echo base_url(); ?>index.php/incidentaccident_type"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\Incident Accident Reporting.jpg') ?>" alt=""></a>
+                    <div class="card-body">
                         <h6 class="card-title">
-                            <a href="<?php echo base_url(); ?>index.php/annualreport_approval">Annual or Final Report</a>
+                            <a href="<?php echo base_url(); ?>index.php/incidentaccident_type">Incident Accident Reporting</a>
                         </h6>
                         <p class="card-text"></p>
                     </div>
@@ -112,10 +112,10 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6 col-6 portfolio-item">
                 <div class="card card-block justify-content-center align-items-center">
-                    <a href="<?php echo base_url(); ?>index.php/incidentaccident_type"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\Incident Accident Reporting.jpg') ?>" alt=""></a>
-                    <div class="card-body">
+                    <a href="<?php echo base_url(); ?>index.php/annualreport_approval"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\Annual Report.jpg') ?>" alt=""></a>
+                    <div style="text-align: center" class="card-body">
                         <h6 class="card-title">
-                            <a href="<?php echo base_url(); ?>index.php/incidentaccident_type">Incident Accident Reporting</a>
+                            <a href="<?php echo base_url(); ?>index.php/annualreport_approval">Annual or Final Report</a>
                         </h6>
                         <p class="card-text"></p>
                     </div>
