@@ -39,7 +39,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
 
     <!-- Page Content -->
     <div class="container">
-        <br>
+        <h2 class="my-4 text-center">Welcome to your Administrator Panel, <?php echo $this->session->userdata('account_name'); ?></h2>
         
         <div class="row">
             <div class="col-lg-3 col-md-4 col-sm-6 col-6 portfolio-item">
@@ -75,6 +75,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                     </div>
                 </div>
             </div>
+            <!--
             <div class="col-lg-3 col-md-4 col-sm-6 col-6 portfolio-item">
                 <div class="card card-block justify-content-center align-items-center">
                     <a href="<?php echo base_url(); ?>index.php/extension_termination_approval/index"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\History.jpg') ?>" alt=""></a>
@@ -86,6 +87,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                     </div>
                 </div>
             </div>
+            -->
         </div>
     </div>
 </body>
