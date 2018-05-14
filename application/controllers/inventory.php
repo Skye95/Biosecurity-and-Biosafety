@@ -13,13 +13,22 @@ class inventory extends CI_Controller {
     }
     
     public function index() {
+			//breadcrumb
+            $this->breadcrumbs->unshift('Home', '/');	
+            $this->breadcrumbs->push('Inventory Database', true);
+			
         $data['inventory'] = $this->inventory_model->get_all_inventory();
         $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );
         $this->load->template('inventory_view', $data);
+		
     }
     
 	public function index2()
 	{
+		//breadcrumb
+            $this->breadcrumbs->unshift('Home', '/');	
+            $this->breadcrumbs->push('Storage Database', true);
+			
         $data['storage'] = $this->inventory_model->get_all_storage();
         $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );
         $this->load->template('inventory_view', $data);
@@ -158,9 +167,12 @@ class inventory extends CI_Controller {
         }
     }
     
-    public function new_inventory() {
+    public function new_inventory() {	
+//breadcrumb
+            $this->breadcrumbs->unshift('Home', '/');	
+            $this->breadcrumbs->push('New Inventory Application', true);	
         $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );
-        
+ 
         $this->form_validation->set_rules('program', 'Program', 'required');
         $this->form_validation->set_rules('program_type', 'Program Type', 'required');
         $this->form_validation->set_rules('biohazard_type', 'Biohazard Type', 'required');
@@ -204,6 +216,10 @@ class inventory extends CI_Controller {
 	}
     
     public function new_storage() {
+		//breadcrumb
+            $this->breadcrumbs->unshift('Home', '/');	
+            $this->breadcrumbs->push('New Storage Application', true);
+		
         $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );
         
         $this->form_validation->set_rules('biohazard_id', 'Biohazard ID', 'required');

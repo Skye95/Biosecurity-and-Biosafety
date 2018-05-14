@@ -110,7 +110,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
         <?php } ?>
         <?php } ?>
         
-        <!-- IF current user is SSBC Chair/SSBC Members, then show applications that BSO thinks has major issues -->
+        <!-- IF current user is SSBC Members, then show applications that BSO thinks has major issues -->
         <?php if($this->session->userdata('account_type') == 3) { ?>
         <?php if(isset($all_annual_SSBC)) { ?>
         
@@ -224,7 +224,11 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
         <!-- End Of Annual or Final Report Form -->
         
         
+
         
+        
+        
+
         
         <br/>
     </div>

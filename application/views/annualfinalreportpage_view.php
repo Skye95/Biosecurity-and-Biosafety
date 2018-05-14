@@ -44,6 +44,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </a>
 		</div>
         
+        <!--
         <div class="row">
             <a href="<?php echo base_url(); ?>index.php/hirarc?type=4">		
                     <div class="option1 card col-md-9 hover1" title="Hazard Identification, Risk Assessment, Risk Control (HIRARC) Form">
@@ -59,8 +60,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </div>				
             </a>
 		</div>				
-		
-		</div>
+		-->
+    </div>
 		
 		<div class="col-lg-7">
 			<div>		

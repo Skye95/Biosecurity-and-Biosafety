@@ -7,6 +7,7 @@ if(!$this->session->userdata('isLogin')){
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
+	<link rel="stylesheet" href="<?php echo base_url()?>assets/css/styles.css" type="text/css">
     <title>Swinburne Biosafety and Biosecurity Online System - Inventory Application</title>
     
     <style>
@@ -65,6 +66,8 @@ if(!$this->session->userdata('isLogin')){
     
     <!-- Page Content -->
     <div class="container">
+	<div id='breadcrumb1'><?php echo $this->breadcrumbs->show(); ?></div>
+	<hr>
         <div class="text-center row">
             <a href="<?php echo base_url(); ?>index.php/inventory/index" class="col-md-3"><button class="btn btn-info button_right">Inventory Database</button></a>
             <a href="<?php echo base_url(); ?>index.php/inventory/index2" class="col-md-3"><button class="btn btn-info button_right">Storage Database</button></a>
@@ -93,7 +96,7 @@ if(!$this->session->userdata('isLogin')){
                             echo form_open('inventory/new_inventory');
                         }
                     ?>
-                        <br/>
+                       
                         <legend>New Inventory Application</legend>
                         <br/>
                         <div class="form-group">

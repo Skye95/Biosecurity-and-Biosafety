@@ -42,7 +42,7 @@ class accountapproval extends CI_Controller {
         $msg = base64_decode($this->uri->segment(4));
         
         if($this->account_model->update_approval($id, 0)){
-            $this->notification_model->insert_new_notification($id, 1, "Registration Approved", "Your account has been rejected by: " . $this->session->userdata('account_name') . " due to " . $msg);
+            $this->notification_model->insert_new_notification($id, 1, "Registration Rejected", "Your account has been rejected by: " . $this->session->userdata('account_name') . " due to " . $msg);
             $this->session->set_flashdata('msg','<div class="alert alert-success text-center">You have successfully rejected the registration!</div>');
             redirect('accountapproval/index');
         } else {

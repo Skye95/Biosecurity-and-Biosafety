@@ -29,7 +29,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
 
     <!-- Page Content -->
     <div class="container">
-        <h5>Minor Biological Incident or Accident Form Approvals</h5>
+        <h5>Occupational Disease Or Exposure Approvals</h5>
         <br/>
         <input class="form-control" id="searchbar" type="text" placeholder="Search here">
         <div class="row">

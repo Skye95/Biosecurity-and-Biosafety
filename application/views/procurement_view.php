@@ -131,15 +131,27 @@ if(!$this->session->userdata('isLogin')){
                                    <table class="table table-bordered">
                                        <tr>
                                            <td>Chemical</td>
-                                           <td><div class="form-group"><input type="text" class="form-control" name="Sec1_chemical" value="<?php if(isset($load)){echo set_value('Sec1_chemical', $item->Sec1_chemical);}else{echo set_value('Sec1_chemical');} ?>" ></div></td>
+                                           <td>
+                                               <div class="checkbox">
+                                                   <label><input type="checkbox" value="1" name="Sec1_chemical" <?php echo  set_checkbox('Sec1_chemical', '1'); ?> <?php if(isset($load)){if($item->Sec1_chemical==1){echo "checked=checked";}}else{} ?> ></label>
+                                               </div>
+                                           </td>
                                        </tr>
                                        <tr>
                                            <td>Biological Material</td>
-                                           <td><div class="form-group"><input type="text" class="form-control" name="Sec1_biological_material" value="<?php if(isset($load)){echo set_value('Sec1_biological_material', $item->Sec1_biological_material);}else{echo set_value('Sec1_biological_material');} ?>" ></div></td>
+                                           <td>
+                                               <div class="checkbox">
+                                                   <label><input type="checkbox" value="1" name="Sec1_biological_material" <?php echo  set_checkbox('Sec1_biological_material', '1'); ?> <?php if(isset($load)){if($item->Sec1_biological_material==1){echo "checked=checked";}}else{} ?> ></label>
+                                               </div>
+                                           </td>
                                        </tr>
                                        <tr>
                                            <td>Equipment</td>
-                                           <td><div class="form-group"><input type="text" class="form-control" name="Sec1_equipment" value="<?php if(isset($load)){echo set_value('Sec1_equipment', $item->Sec1_equipment);}else{echo set_value('Sec1_equipment');} ?>" ></div></td>
+                                           <td>
+                                               <div class="checkbox">
+                                                   <label><input type="checkbox" value="1" name="Sec1_equipment" <?php echo  set_checkbox('Sec1_equipment', '1'); ?> <?php if(isset($load)){if($item->Sec1_equipment==1){echo "checked=checked";}}else{} ?> ></label>
+                                               </div>
+                                           </td>
                                        </tr>
                                    </table>
                                </td>

@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 if(!$this->session->userdata('isLogin')){
     redirect('landing/index');
 }
-if($this->session->userdata('account_type') != 2 && $this->session->userdata('account_type') != 4 && $this->session->userdata('account_type') != 5 ){
+if($this->session->userdata('account_type') != 3 && $this->session->userdata('account_type') != 4 && $this->session->userdata('account_type') != 5 ){
     redirect('home/index');
 }
 ?><!DOCTYPE html>
@@ -29,7 +29,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
 
     <!-- Page Content -->
     <div class="container">
-        <h5>Minor Biological Incident or Accident Form Approvals</h5>
+        <h5>Major Biological Incident or Accident Form Approvals</h5>
         <br/>
         <input class="form-control" id="searchbar" type="text" placeholder="Search here">
         <div class="row">

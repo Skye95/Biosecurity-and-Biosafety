@@ -57,7 +57,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6 col-6 portfolio-item">
                 <div class="card card-block justify-content-center align-items-center">
-                    <a href="<?php echo base_url(); ?>index.php/newapplication"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\History.jpg') ?>" alt=""></a>
+                    <a href="<?php echo base_url(); ?>index.php/newapplication"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\Application for Biosafety.jpg') ?>" alt=""></a>
                     <div style="text-align: center" class="card-body">
                         <h6 class="card-title">
                             <a href="<?php echo base_url(); ?>index.php/newapplication">New Application</a>
@@ -68,7 +68,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6 col-6 portfolio-item">
                 <div class="card card-block justify-content-center align-items-center">
-                    <a href="<?php echo base_url(); ?>index.php/procurementapproval"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\History.jpg') ?>" alt=""></a>
+                    <a href="<?php echo base_url(); ?>index.php/procurementapproval"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\Procurement of Biological Material.jpg') ?>" alt=""></a>
                     <div style="text-align: center" class="card-body">
                         <h6 class="card-title">
                             <a href="<?php echo base_url(); ?>index.php/procurementapproval">Procurement of Biological Material</a>
@@ -79,7 +79,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6 col-6 portfolio-item">
                 <div class="card card-block justify-content-center align-items-center">
-                    <a href="<?php echo base_url(); ?>index.php/notification_of_LMO_and_BM_approval"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\History.jpg') ?>" alt=""></a>
+                    <a href="<?php echo base_url(); ?>index.php/notification_of_LMO_and_BM_approval"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\Notification of LMO.jpg') ?>" alt=""></a>
                     <div style="text-align: center" class="card-body">
                         <h6 class="card-title">
                             <a href="<?php echo base_url(); ?>index.php/notification_of_LMO_and_BM_approval">Notification of LMO and Biohazardous Materials</a>
@@ -90,7 +90,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6 col-6 portfolio-item">
                 <div class="card card-block justify-content-center align-items-center">
-                    <a href="<?php echo base_url(); ?>index.php/exportingrequest"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\History.jpg') ?>" alt=""></a>
+                    <a href="<?php echo base_url(); ?>index.php/exportingrequest"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\Exporting of Biological Material.jpg') ?>" alt=""></a>
                     <div style="text-align: center" class="card-body">
                         <h6 class="card-title">
                             <a href="<?php echo base_url(); ?>index.php/exportingrequest">Exporting of Biological Material</a>
@@ -101,18 +101,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6 col-6 portfolio-item">
                 <div class="card card-block justify-content-center align-items-center">
-                    <a href="<?php echo base_url(); ?>index.php/annualreport_approval"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\History.jpg') ?>" alt=""></a>
-                    <div style="text-align: center" class="card-body">
-                        <h6 class="card-title">
-                            <a href="<?php echo base_url(); ?>index.php/annualreport_approval">Annual or Final Report</a>
-                        </h6>
-                        <p class="card-text"></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 col-6 portfolio-item">
-                <div class="card card-block justify-content-center align-items-center">
-                    <a href="<?php echo base_url(); ?>index.php/incidentaccident_type"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\History.jpg') ?>" alt=""></a>
+                    <a href="<?php echo base_url(); ?>index.php/incidentaccident_type"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\Incident Accident Reporting.jpg') ?>" alt=""></a>
                     <div class="card-body">
                         <h6 class="card-title">
                             <a href="<?php echo base_url(); ?>index.php/incidentaccident_type">Incident Accident Reporting</a>
@@ -123,10 +112,21 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6 col-6 portfolio-item">
                 <div class="card card-block justify-content-center align-items-center">
+                    <a href="<?php echo base_url(); ?>index.php/annualreport_approval"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\Annual Report.jpg') ?>" alt=""></a>
+                    <div style="text-align: center" class="card-body">
+                        <h6 class="card-title">
+                            <a href="<?php echo base_url(); ?>index.php/annualreport_approval">Annual or Final Report</a>
+                        </h6>
+                        <p class="card-text"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 col-6 portfolio-item">
+                <div class="card card-block justify-content-center align-items-center">
                     <a href="<?php echo base_url(); ?>index.php/editrequest_approval"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\History.jpg') ?>" alt=""></a>
                     <div class="card-body">
                         <h6 class="card-title">
-                            <a href="<?php echo base_url(); ?>index.php/editrequest_approval">Edit Form Request</a>
+                            <a href="<?php echo base_url(); ?>index.php/editrequest_approval">Modification & Extension Requests</a>
                         </h6>
                         <p class="card-text"></p>
                     </div>
