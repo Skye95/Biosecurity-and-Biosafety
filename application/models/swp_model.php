@@ -35,6 +35,18 @@ class swp_model extends CI_Model
         $this->db->from('swp');
         $this->db->join('accounts', 'swp.account_id = accounts.account_id');
         $this->db->where('swp.application_approved', 1);
+        $this->db->or_where('swp.application_approved', 3);
+        $this->db->where('swp.application_type', 1);
+        $query = $this->db->get();
+		return $query->result();
+    }
+    
+    function get_all_swp1_form3() 
+    {
+        $this->db->select('*');
+        $this->db->from('swp');
+        $this->db->join('accounts', 'swp.account_id = accounts.account_id');
+        $this->db->where('swp.application_approved', 2);
         $this->db->where('swp.application_type', 1);
         $query = $this->db->get();
 		return $query->result();
@@ -175,7 +187,56 @@ class swp_model extends CI_Model
         return true;
     }
     
-    function update_approval_BSO($id, $type, $approver_id)
+    function update_yes_issue($id, $type, $approver_id, $appID)
+    {
+        if ($type == 0) {
+            
+            $data = array('application_approved' => 5, 'approver_id' => $approver_id );
+            $this->db->where('account_id', $id);
+            $this->db->where('application_id', $appID);
+            $this->db->update('swp', $data);
+        } elseif ($type == 1) {
+            $data = array('application_approved' => 2, 'approver_id' => $approver_id);
+            $this->db->where('account_id', $id);
+            $this->db->where('application_id', $appID);
+            $this->db->update('swp', $data);
+        }
+        return true;
+    }
+    
+    function update_approval_SSBC($id, $type, $approver_id)
+    {
+        if ($type == 0) {
+            
+            $data = array('application_approved' => 5, 'approver_id' => $approver_id );
+            $this->db->where('account_id', $id);
+            $this->db->update('swp', $data);
+        } elseif ($type == 1) {
+            $data = array('application_approved' => 3, 'approver_id' => $approver_id);
+            $this->db->where('account_id', $id);
+            $this->db->update('swp', $data);
+        }
+        return true;
+    }
+    
+    function final_approval($id, $type, $approver_id, $appID)
+    {
+        if ($type == 0) {
+            
+            $data = array('application_approved' => 5, 'approver_id' => $approver_id );
+            $this->db->where('account_id', $id);
+            $this->db->where('application_id', $appID);
+            $this->db->update('swp', $data);
+        } elseif ($type == 1) {
+            $data = array('application_approved' => 4, 'approver_id' => $approver_id);
+            $this->db->where('account_id', $id);
+            $this->db->where('application_id', $appID);
+            $this->db->update('swp', $data);
+        }
+        return true;
+    }
+    
+    /*function update_approval_BSO($id, $type, $approver_id)
     {
         if ($type == 0) {
             
@@ -190,20 +251,6 @@ class swp_model extends CI_Model
         return true;
     }
     
-    function update_approval_SSBC($id, $type, $approver_id)
-    {
-        if ($type == 0) {
-            
-            $data = array('application_approved' => 5, 'approver_id' => $approver_id );
-            $this->db->where('account_id', $id);
-            $this->db->update('swp', $data);
-        } elseif ($type == 1) {
-            $data = array('application_approved' => 2, 'approver_id' => $approver_id);
-            $this->db->where('account_id', $id);
-            $this->db->update('swp', $data);
-        }
-        return true;
-    }
     
     function update_approval_Chair($id, $type, $approver_id)
     {
@@ -218,7 +265,7 @@ class swp_model extends CI_Model
             $this->db->update('swp', $data);
         }
         return true;
-    }
+    }*/
     
     function edit_request($id){
         

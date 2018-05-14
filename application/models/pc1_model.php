@@ -34,6 +34,17 @@ class pc1_model extends CI_Model
         $this->db->from('pc1');
         $this->db->join('accounts', 'pc1.account_id = accounts.account_id');
         $this->db->where('pc1.application_approved', 1);
+        $this->db->or_where('pc1.application_approved', 3);
+        $query = $this->db->get();
+		return $query->result();
+    }
+    
+    function get_all_form3() 
+    {
+        $this->db->select('*');
+        $this->db->from('pc1');
+        $this->db->join('accounts', 'pc1.account_id = accounts.account_id');
+        $this->db->where('pc1.application_approved', 2);
         $query = $this->db->get();
 		return $query->result();
     }
@@ -65,31 +76,69 @@ class pc1_model extends CI_Model
         return true;
 	}
     
-    function update_approval($id, $type, $approver_id)
+    function update_approval($id, $type, $approver_id, $appID)
     {
         if ($type == 0) {
             
-            $data = array('application_approved' => 3, 'approver_id' => $approver_id );
+            $data = array('application_approved' => 5, 'approver_id' => $approver_id );
             $this->db->where('account_id', $id);
+            $this->db->where('application_id', $appID);
             $this->db->update('pc1', $data);
         } elseif ($type == 1) {
             $data = array('application_approved' => 1, 'approver_id' => $approver_id);
             $this->db->where('account_id', $id);
+            $this->db->where('application_id', $appID);
             $this->db->update('pc1', $data);
         }
         return true;
     }
     
-    function update_approval_SSBC($id, $type, $approver_id)
+    function update_yes_issue($id, $type, $approver_id, $appID)
     {
         if ($type == 0) {
             
-            $data = array('application_approved' => 3, 'approver_id' => $approver_id );
+            $data = array('application_approved' => 5, 'approver_id' => $approver_id );
             $this->db->where('account_id', $id);
+            $this->db->where('application_id', $appID);
             $this->db->update('pc1', $data);
         } elseif ($type == 1) {
             $data = array('application_approved' => 2, 'approver_id' => $approver_id);
             $this->db->where('account_id', $id);
+            $this->db->where('application_id', $appID);
+            $this->db->update('pc1', $data);
+        }
+        return true;
+    }
+    
+    function update_approval_SSBC($id, $type, $approver_id, $appID)
+    {
+        if ($type == 0) {
+            
+            $data = array('application_approved' => 5, 'approver_id' => $approver_id );
+            $this->db->where('account_id', $id);
+            $this->db->where('application_id', $appID);
+            $this->db->update('pc1', $data);
+        } elseif ($type == 1) {
+            $data = array('application_approved' => 3, 'approver_id' => $approver_id);
+            $this->db->where('account_id', $id);
+            $this->db->where('application_id', $appID);
+            $this->db->update('pc1', $data);
+        }
+        return true;
+    }
+    
+    function final_approval($id, $type, $approver_id, $appID)
+    {
+        if ($type == 0) {
+            
+            $data = array('application_approved' => 5, 'approver_id' => $approver_id );
+            $this->db->where('account_id', $id);
+            $this->db->where('application_id', $appID);
+            $this->db->update('pc1', $data);
+        } elseif ($type == 1) {
+            $data = array('application_approved' => 4, 'approver_id' => $approver_id);
+            $this->db->where('account_id', $id);
+            $this->db->where('application_id', $appID);
             $this->db->update('pc1', $data);
         }
         return true;
