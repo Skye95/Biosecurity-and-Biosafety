@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 if(!$this->session->userdata('isLogin')){
     redirect('landing/index');
 }
-if($this->session->userdata('account_type') != 2 && $this->session->userdata('account_type') != 4){
+if($this->session->userdata('account_type') != 2 && $this->session->userdata('account_type') != 3 && $this->session->userdata('account_type') != 4){
     redirect('home/index');
 }
 ?><!DOCTYPE html>

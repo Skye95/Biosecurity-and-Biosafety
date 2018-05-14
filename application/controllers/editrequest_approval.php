@@ -59,7 +59,7 @@ class editrequest_approval extends CI_Controller {
 	}
     
     //Methods For Approving And Rejecting Annex 2 Requests
-    public function approve($id)
+    public function approve($id, $appid)
     {
         $approver_id = $this->session->userdata('account_id');
         $id = $this->uri->segment(3);
@@ -69,7 +69,7 @@ class editrequest_approval extends CI_Controller {
         redirect('editrequest_approval/index');
     }
     
-    public function reject($id)
+    public function reject($id, $appid)
     {
         $approver_id = ' ';
         $id = $this->uri->segment(3);
@@ -81,7 +81,7 @@ class editrequest_approval extends CI_Controller {
     }
     
     //Methods For Approving And Rejecting Annex 3 Requests
-    public function approve_annex3($id)
+    public function approve_annex3($id, $appid)
     {
         $approver_id = $this->session->userdata('account_id');
         $id = $this->uri->segment(3);
@@ -91,7 +91,7 @@ class editrequest_approval extends CI_Controller {
         redirect('editrequest_approval/index');
     }
     
-    public function reject_annex3($id)
+    public function reject_annex3($id, $appid)
     {
         $approver_id = ' ';
         $id = $this->uri->segment(3);
@@ -103,7 +103,7 @@ class editrequest_approval extends CI_Controller {
     }
     
     //Methods For Approving And Rejecting Annex 4 Requests
-    public function approve_annex4($id)
+    public function approve_annex4($id, $appid)
     {
         $approver_id = $this->session->userdata('account_id');
         $id = $this->uri->segment(3);
@@ -113,7 +113,7 @@ class editrequest_approval extends CI_Controller {
         redirect('editrequest_approval/index');
     }
     
-    public function reject_annex4($id)
+    public function reject_annex4($id, $appid)
     {
         $approver_id = ' ';
         $id = $this->uri->segment(3);
@@ -125,7 +125,7 @@ class editrequest_approval extends CI_Controller {
     }
     
     //Methods For Approving And Rejecting Annex 5 Requests
-    public function approve_annex5($id)
+    public function approve_annex5($id, $appid)
     {
         $approver_id = $this->session->userdata('account_id');
         $id = $this->uri->segment(3);
@@ -135,7 +135,7 @@ class editrequest_approval extends CI_Controller {
         redirect('editrequest_approval/index');
     }
     
-    public function reject_annex5($id)
+    public function reject_annex5($id, $appid)
     {
         $approver_id = ' ';
         $id = $this->uri->segment(3);
@@ -147,7 +147,7 @@ class editrequest_approval extends CI_Controller {
     }
     
     //Methods For Approving And Rejecting Annual Final Report Requests
-    public function approve_annual($id)
+    public function approve_annual($id, $appid)
     {
         $approver_id = $this->session->userdata('account_id');
         $id = $this->uri->segment(3);
@@ -157,7 +157,7 @@ class editrequest_approval extends CI_Controller {
         redirect('editrequest_approval/index');
     }
     
-    public function reject_annual($id)
+    public function reject_annual($id, $appid)
     {
         $approver_id = ' ';
         $id = $this->uri->segment(3);
@@ -169,7 +169,7 @@ class editrequest_approval extends CI_Controller {
     }
     
     //Methods For Approving And Rejecting Biohazard material Requests
-    public function approve_biohazard($id)
+    public function approve_biohazard($id, $appid)
     {
         $approver_id = $this->session->userdata('account_id');
         $id = $this->uri->segment(3);
@@ -179,7 +179,7 @@ class editrequest_approval extends CI_Controller {
         redirect('editrequest_approval/index');
     }
     
-    public function reject_biohazard($id)
+    public function reject_biohazard($id, $appid)
     {
         $approver_id = ' ';
         $id = $this->uri->segment(3);
@@ -191,7 +191,7 @@ class editrequest_approval extends CI_Controller {
     }
     
     //Methods For Approving And Rejecting Exempt Dealing form Requests
-    public function approve_exempt($id)
+    public function approve_exempt($id, $appid)
     {
         $approver_id = $this->session->userdata('account_id');
         $id = $this->uri->segment(3);
@@ -201,7 +201,7 @@ class editrequest_approval extends CI_Controller {
         redirect('editrequest_approval/index');
     }
     
-    public function reject_exempt($id)
+    public function reject_exempt($id, $appid)
     {
         $approver_id = ' ';
         $id = $this->uri->segment(3);
@@ -213,7 +213,7 @@ class editrequest_approval extends CI_Controller {
     }
     
     //Methods For Approving And Rejecting Form E Requests
-    public function approve_forme($id)
+    public function approve_forme($id, $appid)
     {
         $approver_id = $this->session->userdata('account_id');
         $id = $this->uri->segment(3);
@@ -223,7 +223,7 @@ class editrequest_approval extends CI_Controller {
         redirect('editrequest_approval/index');
     }
     
-    public function reject_forme($id)
+    public function reject_forme($id, $appid)
     {
         $approver_id = ' ';
         $id = $this->uri->segment(3);
@@ -235,7 +235,7 @@ class editrequest_approval extends CI_Controller {
     }
     
     //Methods For Approving And Rejecting Form F Requests
-    public function approve_formf($id)
+    public function approve_formf($id, $appid)
     {
         $approver_id = $this->session->userdata('account_id');
         $id = $this->uri->segment(3);
@@ -245,7 +245,7 @@ class editrequest_approval extends CI_Controller {
         redirect('editrequest_approval/index');
     }
     
-    public function reject_formf($id)
+    public function reject_formf($id, $appid)
     {
         $approver_id = ' ';
         $id = $this->uri->segment(3);
@@ -257,7 +257,7 @@ class editrequest_approval extends CI_Controller {
     }
     
     //Methods For Approving And Rejecting HIRARC form Requests
-    public function approve_hirarc($id)
+    public function approve_hirarc($id, $appid)
     {
         $approver_id = $this->session->userdata('account_id');
         $id = $this->uri->segment(3);
@@ -267,7 +267,7 @@ class editrequest_approval extends CI_Controller {
         redirect('editrequest_approval/index');
     }
     
-    public function reject_hirarc($id)
+    public function reject_hirarc($id, $appid)
     {
         $approver_id = ' ';
         $id = $this->uri->segment(3);
@@ -279,7 +279,7 @@ class editrequest_approval extends CI_Controller {
     }
     
     //Methods For Approving And Rejecting Incident Accident report form Requests
-    public function approve_incident($id)
+    public function approve_incident($id, $appid)
     {
         $approver_id = $this->session->userdata('account_id');
         $id = $this->uri->segment(3);
@@ -289,7 +289,7 @@ class editrequest_approval extends CI_Controller {
         redirect('editrequest_approval/index');
     }
     
-    public function reject_incident($id)
+    public function reject_incident($id, $appid)
     {
         $approver_id = ' ';
         $id = $this->uri->segment(3);
@@ -311,7 +311,7 @@ class editrequest_approval extends CI_Controller {
         redirect('editrequest_approval/index');
     }
     
-    public function reject_export($id)
+    public function reject_export($id, $appid)
     {
         $approver_id = ' ';
         $id = $this->uri->segment(3);
@@ -333,7 +333,7 @@ class editrequest_approval extends CI_Controller {
         redirect('editrequest_approval/index');
     }
     
-    public function reject_notification($id)
+    public function reject_notification($id, $appid)
     {
         $approver_id = ' ';
         $id = $this->uri->segment(3);
@@ -355,7 +355,7 @@ class editrequest_approval extends CI_Controller {
         redirect('editrequest_approval/index');
     }
     
-    public function reject_pc1($id)
+    public function reject_pc1($id, $appid)
     {
         $approver_id = ' ';
         $id = $this->uri->segment(3);
@@ -377,7 +377,7 @@ class editrequest_approval extends CI_Controller {
         redirect('editrequest_approval/index');
     }
     
-    public function reject_pc2($id)
+    public function reject_pc2($id, $appid)
     {
         $approver_id = ' ';
         $id = $this->uri->segment(3);
@@ -399,7 +399,7 @@ class editrequest_approval extends CI_Controller {
         redirect('editrequest_approval/index');
     }
     
-    public function reject_procurement($id)
+    public function reject_procurement($id, $appid)
     {
         $approver_id = ' ';
         $id = $this->uri->segment(3);
@@ -421,7 +421,7 @@ class editrequest_approval extends CI_Controller {
         redirect('editrequest_approval/index');
     }
     
-    public function reject_swp($id)
+    public function reject_swp($id, $appid)
     {
         $approver_id = ' ';
         $id = $this->uri->segment(3);

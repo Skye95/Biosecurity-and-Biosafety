@@ -218,10 +218,12 @@ class incidentaccidentreport_model extends CI_Model
             
             $data = array('editable' => 3, 'approver_id' => $approver_id );
             $this->db->where('account_id', $id);
+            $this->db->where('application_id', $appid);
             $this->db->update('incidentaccidentreport', $data);
         } elseif ($type == 1) {
             $data = array('editable' => 2, 'approver_id' => $approver_id);
             $this->db->where('account_id', $id);
+            $this->db->where('application_id', $appid);
             $this->db->update('incidentaccidentreport', $data);
         }
         return true;

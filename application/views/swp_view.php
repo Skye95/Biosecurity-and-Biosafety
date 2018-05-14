@@ -135,14 +135,9 @@ if(!$this->session->userdata('isLogin')){
                 <span class="text-danger"><?php echo form_error('SWP_unit_title'); ?></span>
                 <span class="text-danger"><?php echo form_error('SWP_project_title'); ?></span>
                 <span class="text-danger"><?php echo form_error('SWP_location'); ?></span>
-<<<<<<< HEAD
+
                    
                    <br><input type="hidden" value="<?php if(isset($hirarctype)){echo $hirarctype;} ?>" name="application_type" />
-=======
-                </div>
-                
-                   <br><input type="hidden" value="<?php echo $hirarctype ?>" name="application_type" />
->>>>>>> d1b27ab072bd7cd40f5c4a8256f6991c4b530e58
                    
                 <div id="section_2" class="sectiontarget">
                    <table width="920" class="table table-bordered">
