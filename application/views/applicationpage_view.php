@@ -3,8 +3,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
+<meta charset="utf-8">
+	<title>Welcome to CodeIgniter</title>
+	<script src="<?php echo base_url('assets/ckeditor/ckeditor.js'); ?>"></script>
+	<script src="<?php echo base_url('assets/ckfinder/ckfinder.js'); ?>"></script>
+	
     <link rel="stylesheet" href="<?php echo base_url()?>assets/css/styles.css" type="text/css">
-    
     <title>Swinburne Biosafety and Biosecurity Online System - Application</title>
 
     <style>
@@ -45,8 +49,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </div>				
             </a>
 		</div>
-				
-    
+
         <div class="row">
             <a href="<?php echo base_url(); ?>index.php/history">		
                     <div class="option1 card col-md-9 hover1" title="Modification of Approved Project">
@@ -54,7 +57,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </div>				
                 
             </a>
-			
 		</div>
         
         <div class="row">
@@ -64,40 +66,33 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <h5><span>EXTENSION OR TERMINATION OF APPROVED PROJECT</span></h5>						
                     </div>	            
             </a>
-			
         </div>
         <br/>
-	</div>
-		
-		<div class="col-lg-7">
-			<div>		
-				<h4>Announcements</h4>
-			</div>				
-			<div>		
-				<div class="row">
-					<div class="card my-4">
-						<h5 class="card-header">LMO Definition</h5>
-						<div class="card-body">
-						test test test 1131231231231231231231231231231212331121321321321213213213 test test test 1131231231231231231231231231231212331121321321321213213213 
-						test test test 1131231231231231231231231231231212331121321321321213213213 test test test 1131231231231231231231231231231212331121321321321213213213 
-						</div>
-					</div>				
-				</div>
-			</div>
-			<div>		
-				<div class="row">
-					<div class="card my-4">
-						<h5 class="card-header">Type of LMO</h5>
-						<div class="card-body">
-						test test test 1131231231231231231231231231231212331121321321321213213213 test test test 1131231231231231231231231231231212331121321321321213213213 
-						test test test 1131231231231231231231231231231212331121321321321213213213 test test test 1131231231231231231231231231231212331121321321321213213213 
-						</div>
-					</div>				
-				</div>
-			</div>
 		</div>
-	</div>					
+		<div class="col-lg-7">
+		<p><textarea name="editor1" id="editor1" rows="300" cols="2000"></textarea></p>
+		</div>
+		
 	</div>
+			
+ </div>
+
 <br/>
 </body>
+<script>
+    CKEDITOR.replace('editor1' ,{
+		filebrowserImageBrowseUrl : '<?php echo base_url('assets/ckfinder');?>'
+	});
+	 var editor = CKEDITOR.replace( 'newsContent', {
+        height:500,
+        removePlugins : 'resize',
+        filebrowserBrowseUrl        : '<?php echo base_url('assets/ckfinder/ckfinder.html'); ?>',
+        filebrowserImageBrowseUrl   : '<?php echo base_url('assets/ckfinder/ckfinder.html?type=Images'); ?>',
+        filebrowserFlashBrowseUrl   : '<?php echo base_url('assets/ckfinder/ckfinder.html?type=Flash'); ?>',
+        filebrowserUploadUrl        : '<?php echo base_url('assets/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files'); ?>',
+        filebrowserImageUploadUrl   : '<?php echo base_url('assets/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images'); ?>',
+        filebrowserFlashUploadUrl   : '<?php echo base_url('assets/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash'); ?>'
+    });
+    CKFinder.setupCKEditor( editor, '../' );
+</script>
 </html>
