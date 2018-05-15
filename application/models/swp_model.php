@@ -69,6 +69,18 @@ class swp_model extends CI_Model
         $this->db->from('swp');
         $this->db->join('accounts', 'swp.account_id = accounts.account_id');
         $this->db->where('swp.application_approved', 1);
+        $this->db->or_where('swp.application_approved', 3);
+        $this->db->where('swp.application_type', 2);
+        $query = $this->db->get();
+		return $query->result();
+    }
+    
+    function get_all_swp2_form3() 
+    {
+        $this->db->select('*');
+        $this->db->from('swp');
+        $this->db->join('accounts', 'swp.account_id = accounts.account_id');
+        $this->db->where('swp.application_approved', 2);
         $this->db->where('swp.application_type', 2);
         $query = $this->db->get();
 		return $query->result();
@@ -91,6 +103,18 @@ class swp_model extends CI_Model
         $this->db->from('swp');
         $this->db->join('accounts', 'swp.account_id = accounts.account_id');
         $this->db->where('swp.application_approved', 1);
+        $this->db->or_where('swp.application_approved', 3);
+        $this->db->where('swp.application_type', 3);
+        $query = $this->db->get();
+		return $query->result();
+    }
+    
+    function get_all_swp3_form3() 
+    {
+        $this->db->select('*');
+        $this->db->from('swp');
+        $this->db->join('accounts', 'swp.account_id = accounts.account_id');
+        $this->db->where('swp.application_approved', 2);
         $this->db->where('swp.application_type', 3);
         $query = $this->db->get();
 		return $query->result();

@@ -159,7 +159,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                             <button class="btn btn-danger" onclick="final_reject(<?php echo $row->account_id; ?>, <?php echo $row->application_id; ?>)" title="Reject"><i class="fa fa-times"></i></button>
                         </td>
                         <?php }elseif($row->application_approved == 3 ){ ?>
-                        <td id="annex2_Chair" class="text-center">
+                        <td class="text-center">
                             <button class="btn btn-success" onclick="final_approve(<?php echo $row->account_id; ?>, <?php echo $row->application_id; ?>)" title="Approve"><i class="fa fa-check"></i></button>
                             <hr/>
                             <button class="btn btn-danger" onclick="final_reject(<?php echo $row->account_id; ?>, <?php echo $row->application_id; ?>)" title="Reject"><i class="fa fa-times"></i></button>
