@@ -23,10 +23,11 @@ class procurementapproval extends CI_Controller {
         $this->load->template('procurementapproval_view', $data);
 	}
     
-    public function approve($id)
+    public function approve($id, $appID)
     {
         $approver_id = $this->session->userdata('account_id');
         $id = $this->uri->segment(3);
+        $appID = $this->uri->segment(4);
         $this->procurement_model->update_approval($id, 1, $approver_id);
         
         redirect('procurementapproval/index');
@@ -36,7 +37,8 @@ class procurementapproval extends CI_Controller {
     {
         $approver_id = ' ';
         $id = $this->uri->segment(3);
-        $msg = base64_decode($this->uri->segment(4));
+        $appID = $this->uri->segment(4);
+        $msg = base64_decode($this->uri->segment(5));
         $this->procurement_model->update_approval($id, 0, $approver_id);
         
         redirect('procurementapproval/index');
