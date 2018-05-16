@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 if(!$this->session->userdata('isLogin')){
     redirect('landing/index');
 }
-if($this->session->userdata('account_type') != 2 && $this->session->userdata('account_type') != 3 && $this->session->userdata('account_type') != 4 && $this->session->userdata('account_type') != 5){
+if($this->session->userdata('account_type') != 2 && $this->session->userdata('account_type') != 3 && $this->session->userdata('account_type') != 4 && $this->session->userdata('account_type') != 5 && $this->session->userdata('account_type') != 6){
     redirect('home/index');
 }
 ?><!DOCTYPE html>
@@ -155,6 +155,34 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                     <div class="card-body">
                         <h6 class="card-title">
                             <a href="<?php echo base_url(); ?>index.php/incidentaccident_type">Incident Accident Reporting</a>
+                        </h6>
+                        <p class="card-text"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <?php } ?>
+        
+        <?php if($this->session->userdata('account_type') == 6 ){ ?>
+        
+        <div class="row">
+            <div class="col-lg-3 col-md-4 col-sm-6 col-6 portfolio-item">
+                <div class="card card-block justify-content-center align-items-center">
+                    <a href="<?php echo base_url(); ?>index.php/procurementapproval"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\Procurement of Biological Material.jpg') ?>" alt=""></a>
+                    <div style="text-align: center" class="card-body">
+                        <h6 class="card-title">
+                            <a href="<?php echo base_url(); ?>index.php/procurementapproval">Procurement of Biological Material</a>
+                        </h6>
+                        <p class="card-text"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 col-6 portfolio-item">
+                <div class="card card-block justify-content-center align-items-center">
+                    <a href="<?php echo base_url(); ?>index.php/notification_of_LMO_and_BM_approval"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\Notification of LMO.jpg') ?>" alt=""></a>
+                    <div style="text-align: center" class="card-body">
+                        <h6 class="card-title">
+                            <a href="<?php echo base_url(); ?>index.php/notification_of_LMO_and_BM_approval">Notification of LMO and Biohazardous Materials</a>
                         </h6>
                         <p class="card-text"></p>
                     </div>

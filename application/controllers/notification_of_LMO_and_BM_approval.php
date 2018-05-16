@@ -23,21 +23,23 @@ class notification_of_LMO_and_BM_approval extends CI_Controller {
         $this->load->template('notification_of_LMO_and_BM_approval_view', $data);
 	}
     
-    public function approve($id)
+    public function approve($id, $appID)
     {
         $approver_id = $this->session->userdata('account_id');
         $id = $this->uri->segment(3);
-        $this->notification_of_LMO_and_BM_model->update_approval($id, 1, $approver_id);
+        $appID = $this->uri->segment(4);
+        $this->notification_of_LMO_and_BM_model->update_approval($id, 1, $approver_id, $appID);
         
         redirect('notification_of_LMO_and_BM_approval/index');
     }
     
-    public function reject($id)
+    public function reject($id, $appID)
     {
         $approver_id = ' ';
         $id = $this->uri->segment(3);
-        $msg = base64_decode($this->uri->segment(4));
-        $this->notification_of_LMO_and_BM_model->update_approval($id, 0, $approver_id);
+        $appID = $this->uri->segment(4);
+        $msg = base64_decode($this->uri->segment(5));
+        $this->notification_of_LMO_and_BM_model->update_approval($id, 0, $approver_id, $appID);
         
         redirect('notification_of_LMO_and_BM_approval/index');
     }

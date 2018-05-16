@@ -28,18 +28,18 @@ class procurementapproval extends CI_Controller {
         $approver_id = $this->session->userdata('account_id');
         $id = $this->uri->segment(3);
         $appID = $this->uri->segment(4);
-        $this->procurement_model->update_approval($id, 1, $approver_id);
+        $this->procurement_model->update_approval($id, 1, $approver_id, $appID);
         
         redirect('procurementapproval/index');
     }
     
-    public function reject($id)
+    public function reject($id, $appID)
     {
         $approver_id = ' ';
         $id = $this->uri->segment(3);
         $appID = $this->uri->segment(4);
         $msg = base64_decode($this->uri->segment(5));
-        $this->procurement_model->update_approval($id, 0, $approver_id);
+        $this->procurement_model->update_approval($id, 0, $approver_id, $appID);
         
         redirect('procurementapproval/index');
     }

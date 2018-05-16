@@ -73,15 +73,19 @@ if($this->session->userdata('account_type') != 4 && $this->session->userdata('ac
                         <td><?php echo $row->account_fullname; ?></td>
                         <td><?php 
                                         if($row->account_type == 1) {
-                                            echo "Applicant / PI";
+                                            echo "Applicant / Project Investigator";
                                         } elseif($row->account_type == 2) {
-                                            echo "SSBC Chair / SSBC Members";
+                                            echo "SSBC Chair";
                                         } elseif($row->account_type == 3) {
-                                            echo "Students / Postgraduates";
+                                            echo "SSBC Members";
                                         } elseif($row->account_type == 4) {
-                                            echo "BSO";
+                                            echo "Biosafety Officer";
                                         } elseif($row->account_type == 5) {
-                                            echo "HSO / Lab Officer";
+                                            echo "Health and Safety Officer";
+                                        } elseif($row->account_type == 6) {
+                                            echo "Lab Officer";
+                                        } elseif($row->account_type == 7) {
+                                            echo "Student & Postgraduate";
                                         }
                             ?></td>
                         <td><button type="button" name = 'procurement_load' value = 'Load' onclick="location.href='<?php echo site_url().'/procurement/load_form?id='.$row->application_id;?>'" class="btn btn-primary">Load</button></td>
@@ -129,15 +133,19 @@ if($this->session->userdata('account_type') != 4 && $this->session->userdata('ac
                         <td><?php echo $row->account_fullname; ?></td>
                         <td><?php 
                                         if($row->account_type == 1) {
-                                            echo "Applicant / PI";
+                                            echo "Applicant / Project Investigator";
                                         } elseif($row->account_type == 2) {
-                                            echo "SSBC Chair / SSBC Members";
+                                            echo "SSBC Chair";
                                         } elseif($row->account_type == 3) {
-                                            echo "Students / Postgraduates";
+                                            echo "SSBC Members";
                                         } elseif($row->account_type == 4) {
-                                            echo "BSO";
+                                            echo "Biosafety Officer";
                                         } elseif($row->account_type == 5) {
-                                            echo "HSO / Lab Officer";
+                                            echo "Health and Safety Officer";
+                                        } elseif($row->account_type == 6) {
+                                            echo "Lab Officer";
+                                        } elseif($row->account_type == 7) {
+                                            echo "Student & Postgraduate";
                                         }
                             ?></td>
                         <td><button type="button" name = 'procurement_load' value = 'Load' onclick="location.href='<?php echo site_url().'/procurement/load_form?id='.$row->application_id;?>'" class="btn btn-primary">Load</button></td>
@@ -191,15 +199,19 @@ if($this->session->userdata('account_type') != 4 && $this->session->userdata('ac
                         <td><?php echo $row->account_fullname; ?></td>
                         <td><?php 
                                         if($row->account_type == 1) {
-                                            echo "Applicant / PI";
+                                            echo "Applicant / Project Investigator";
                                         } elseif($row->account_type == 2) {
-                                            echo "SSBC Chair / SSBC Members";
+                                            echo "SSBC Chair";
                                         } elseif($row->account_type == 3) {
-                                            echo "Students / Postgraduates";
+                                            echo "SSBC Members";
                                         } elseif($row->account_type == 4) {
-                                            echo "BSO";
+                                            echo "Biosafety Officer";
                                         } elseif($row->account_type == 5) {
-                                            echo "HSO / Lab Officer";
+                                            echo "Health and Safety Officer";
+                                        } elseif($row->account_type == 6) {
+                                            echo "Lab Officer";
+                                        } elseif($row->account_type == 7) {
+                                            echo "Student & Postgraduate";
                                         }
                             ?></td>
                         <td><button type="button" name = 'procurement_load' value = 'Load' onclick="location.href='<?php echo site_url().'/procurement/load_form?id='.$row->application_id;?>'" class="btn btn-primary">Load</button></td>

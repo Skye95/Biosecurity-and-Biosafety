@@ -55,16 +55,18 @@ class notification_of_LMO_and_BM_model extends CI_Model
         return true;
 	}
     
-    function update_approval($id, $type, $approver_id)
+    function update_approval($id, $type, $approver_id, $appid)
     {
         if ($type == 0) {
             
             $data = array('application_approved' => 3, 'approver_id' => $approver_id );
             $this->db->where('account_id', $id);
+            $this->db->where('application_id', $appid);
             $this->db->update('notificationlmobiohazardousmaterial', $data);
         } elseif ($type == 1) {
             $data = array('application_approved' => 1, 'approver_id' => $approver_id);
             $this->db->where('account_id', $id);
+            $this->db->where('application_id', $appid);
             $this->db->update('notificationlmobiohazardousmaterial', $data);
         }
         return true;

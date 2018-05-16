@@ -32,122 +32,112 @@ class occupationaldisease_approval extends CI_Controller {
 	}
     
     //Methods For Approving And Rejecting Incident Accident Forms
-    public function approve($id)
+    public function approve($id, $appID)
     {
         $approver_id = $this->session->userdata('account_id');
         $id = $this->uri->segment(3);
-        $this->incidentaccidentreport_model->update_approval($id, 1, $approver_id);
+        $appID = $this->uri->segment(4);
+        $this->incidentaccidentreport_model->update_approval($id, 1, $approver_id, $appID);
         
         redirect('occupationaldisease_approval/index');
     }
     
-    public function reject($id)
+    public function reject($id, $appID)
     {
         $approver_id = ' ';
         $id = $this->uri->segment(3);
-        $msg = base64_decode($this->uri->segment(4));
-        $this->incidentaccidentreport_model->update_approval($id, 0, $approver_id);
+        $appID = $this->uri->segment(4);
+        $msg = base64_decode($this->uri->segment(5));
+        $this->incidentaccidentreport_model->update_approval($id, 0, $approver_id, $appID);
         
         redirect('occupationaldisease_approval/index');
     }
     
-    public function approve2($id)
+    public function approve2($id, $appID)
     {
         $approver_id = $this->session->userdata('account_id');
         $id = $this->uri->segment(3);
-        $this->incidentaccidentreport_model->update_approval_SSBC($id, 1, $approver_id);
+        $appID = $this->uri->segment(4);
+        $this->incidentaccidentreport_model->update_approval_SSBC($id, 1, $approver_id, $appID);
         
         redirect('occupationaldisease_approval/index');
     }
     
-    public function reject2($id)
+    public function reject2($id, $appID)
     {
         $approver_id = ' ';
         $id = $this->uri->segment(3);
-        $msg = base64_decode($this->uri->segment(4));
-        $this->incidentaccidentreport_model->update_approval_SSBC($id, 0, $approver_id);
+        $appID = $this->uri->segment(4);
+        $msg = base64_decode($this->uri->segment(5));
+        $this->incidentaccidentreport_model->update_approval_SSBC($id, 0, $approver_id, $appID);
         
         redirect('occupationaldisease_approval/index');
     }
     
-    public function approve3($id)
+    public function approve3($id, $appID)
     {
         $approver_id = $this->session->userdata('account_id');
         $id = $this->uri->segment(3);
-        $this->incidentaccidentreport_model->update_approval_HSO($id, 1, $approver_id);
+        $appID = $this->uri->segment(4);
+        $this->incidentaccidentreport_model->update_approval_HSO($id, 1, $approver_id, $appID);
         
         redirect('occupationaldisease_approval/index');
     }
     
-    public function reject3($id)
+    public function reject3($id, $appID)
     {
         $approver_id = ' ';
         $id = $this->uri->segment(3);
-        $msg = base64_decode($this->uri->segment(4));
-        $this->incidentaccidentreport_model->update_approval_HSO($id, 0, $approver_id);
+        $appID = $this->uri->segment(4);
+        $msg = base64_decode($this->uri->segment(5));
+        $this->incidentaccidentreport_model->update_approval_HSO($id, 0, $approver_id, $appID);
         
         redirect('occupationaldisease_approval/index');
     }
     
     
     //Methods For Approving And Rejecting Annex 4 Forms
-    public function approve_annex4($id)
+    public function approve_annex4($id, $appID)
     {
         $approver_id = $this->session->userdata('account_id');
         $id = $this->uri->segment(3);
-        $this->annex4_model->update_approval($id, 1, $approver_id);
+        $appID = $this->uri->segment(4);
+        $this->annex4_model->update_approval($id, 1, $approver_id, $appID);
         
         redirect('occupationaldisease_approval/index');
     }
     
-    public function reject_annex4($id)
+    public function reject_annex4($id, $appID)
     {
         $approver_id = ' ';
         $id = $this->uri->segment(3);
-        $msg = base64_decode($this->uri->segment(4));
-        $this->annex4_model->update_approval($id, 0, $approver_id);
+        $appID = $this->uri->segment(4);
+        $msg = base64_decode($this->uri->segment(5));
+        $this->annex4_model->update_approval($id, 0, $approver_id, $appID);
         
         redirect('occupationaldisease_approval/index');
     }
     
-    public function approve2_annex4($id)
+    public function approve2_annex4($id, $appID)
     {
         $approver_id = $this->session->userdata('account_id');
         $id = $this->uri->segment(3);
-        $this->annex4_model->update_approval_SSBC($id, 1, $approver_id);
+        $appID = $this->uri->segment(4);
+        $this->annex4_model->update_approval_SSBC($id, 1, $approver_id, $appID);
         
         redirect('occupationaldisease_approval/index');
     }
     
-    public function reject2_annex4($id)
+    public function reject2_annex4($id, $appID)
     {
         $approver_id = ' ';
         $id = $this->uri->segment(3);
-        $msg = base64_decode($this->uri->segment(4));
-        $this->annex4_model->update_approval_SSBC($id, 0, $approver_id);
+        $appID = $this->uri->segment(4);
+        $msg = base64_decode($this->uri->segment(5));
+        $this->annex4_model->update_approval_SSBC($id, 0, $approver_id, $appID);
         
         redirect('occupationaldisease_approval/index');
     }
-    
-    public function approve3_annex4($id)
-    {
-        $approver_id = $this->session->userdata('account_id');
-        $id = $this->uri->segment(3);
-        $this->annex4_model->update_approval_HSO($id, 1, $approver_id);
-        
-        redirect('occupationaldisease_approval/index');
-    }
-    
-    public function reject3_annex4($id)
-    {
-        $approver_id = ' ';
-        $id = $this->uri->segment(3);
-        $msg = base64_decode($this->uri->segment(4));
-        $this->annex4_model->update_approval_HSO($id, 0, $approver_id);
-        
-        redirect('occupationaldisease_approval/index');
-    }
-    
     
     
     
