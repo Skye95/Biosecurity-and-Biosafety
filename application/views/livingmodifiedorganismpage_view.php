@@ -80,7 +80,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="row">
             <a href="<?php echo base_url(); ?>index.php/swp?type=1">		
                     <div class="option1 card col-md-9 hover1" title="SSBC_001 Safe Work Procedure (SWP)">
-                        <h5><span>SSBC SAFE WORK PROCEDURE</span></h5>	
+                        <h5><span>SAFE WORK PROCEDURE</span></h5>	
                     </div>				
             </a>
 		</div>

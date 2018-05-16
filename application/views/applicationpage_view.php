@@ -3,11 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-	<title>Welcome to CodeIgniter</title>
-	<script src="<?php echo base_url('assets/ckeditor/ckeditor.js'); ?>"></script>
-	<script src="<?php echo base_url('assets/ckfinder/ckfinder.js'); ?>"></script>
-	
+<meta charset="utf-8">	
     <link rel="stylesheet" href="<?php echo base_url()?>assets/css/styles.css" type="text/css">
     <title>Swinburne Biosafety and Biosecurity Online System - Application</title>
 
@@ -33,8 +29,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <!-- Page Content -->
     <div class="container">
         <!-- Page Heading -->
-        <h2 class="my-4 text-center">Application Page</h2>
-		
+		<br>
 		<div id='breadcrumb1'><?php echo $this->breadcrumbs->show(); ?></div>
        	
 
@@ -70,29 +65,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <br/>
 		</div>
 		<div class="col-lg-7">
-		<p><textarea name="editor1" id="editor1" rows="300" cols="2000"></textarea></p>
+			<form action="" method="post">
+				<p><textarea name="editor1" id="editor1" rows="5" ></textarea></p>
+				<button name="submit" type="submit" class="btn btn-primary col-md-2">Submit</button>
+			</form>
 		</div>
-		
+
 	</div>
 			
  </div>
 
 <br/>
 </body>
-<script>
-    CKEDITOR.replace('editor1' ,{
-		filebrowserImageBrowseUrl : '<?php echo base_url('assets/ckfinder');?>'
-	});
-	 var editor = CKEDITOR.replace( 'newsContent', {
-        height:500,
-        removePlugins : 'resize',
-        filebrowserBrowseUrl        : '<?php echo base_url('assets/ckfinder/ckfinder.html'); ?>',
-        filebrowserImageBrowseUrl   : '<?php echo base_url('assets/ckfinder/ckfinder.html?type=Images'); ?>',
-        filebrowserFlashBrowseUrl   : '<?php echo base_url('assets/ckfinder/ckfinder.html?type=Flash'); ?>',
-        filebrowserUploadUrl        : '<?php echo base_url('assets/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files'); ?>',
-        filebrowserImageUploadUrl   : '<?php echo base_url('assets/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images'); ?>',
-        filebrowserFlashUploadUrl   : '<?php echo base_url('assets/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash'); ?>'
-    });
-    CKFinder.setupCKEditor( editor, '../' );
-</script>
+
 </html>

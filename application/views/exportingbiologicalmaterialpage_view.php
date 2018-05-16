@@ -39,7 +39,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="row">
             <a href="<?php echo base_url(); ?>index.php/formf">		
                     <div class="option1 card col-md-9 hover1" title="Living Modified Organism (LMO) Form">
-                        <h5><span>LIVING MODIFIED ORGANISM (LMO)- FORM F</span></h5>		
+                        <h5><span>LIVING MODIFIED ORGANISM (LMO)</span></h5>		
                     </div>				
             </a>
 		</div>

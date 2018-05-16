@@ -17,6 +17,33 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );
             
             $data['hirarctype']= $this->input->get('type');
+            if ($data['hirarctype']= $this->input->get('type') ==1) {
+                //breadcrumb page 1
+                $this->breadcrumbs->unshift('Home', '/');	
+                $this->breadcrumbs->push('Application','/applicationpage', true);
+                $this->breadcrumbs->push('New Application','/newapplicationpage', true);
+                $this->breadcrumbs->push('Living Modified Organism','/livingmodifiedorganismpage',true);
+                $this->breadcrumbs->push('SAFE WORK PROCEDURE', true);
+            }else if ($data['hirarctype']= $this->input->get('type') ==2){
+                //breadcrumb page 2
+                $this->breadcrumbs->unshift('Home', '/');	
+                $this->breadcrumbs->push('Application','/applicationpage', true);
+                $this->breadcrumbs->push('New Application','/newapplicationpage', true);
+                $this->breadcrumbs->push('Exempt Dealing','/exemptdealingpage',true);
+                $this->breadcrumbs->push('SAFE WORK PROCEDURE', true);
+                
+            }else if ($data['hirarctype']= $this->input->get('type') ==3){
+                //breadcrumb page 3
+                $this->breadcrumbs->unshift('Home', '/');	
+                $this->breadcrumbs->push('Application','/applicationpage', true);
+                $this->breadcrumbs->push('New Application','/newapplicationpage', true);
+                $this->breadcrumbs->push('Biohazardous Material','/biohazardous_materialpage',true);
+                $this->breadcrumbs->push('SAFE WORK PROCEDURE', true);
+            }else{
+                //breadcrumb page 4
+                $this->breadcrumbs->unshift('Home', '/');
+                $this->breadcrumbs->push('SAFE WORK PROCEDURE', true);
+            }
             
             $this->form_validation->set_rules('SWP_prepared_by', 'Staff/student_no', 'required');
             $this->form_validation->set_rules('SWP_staff_student_no', 'Staff/student_no', 'required');
