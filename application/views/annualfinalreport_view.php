@@ -314,7 +314,8 @@ if(!$this->session->userdata('isLogin')){
                        <tbody>
                            <tr>
                                <td colspan="2">
-                                   <div class="form-group"><input type="text" name="project_SOP" class="form-control" ></div>
+                                   <div class="form-group"><textarea rows="6" maxlength="500" class="form-control" name="project_SOP" ><?php if(isset($load)){echo set_value('project_SOP', $item->project_SOP);}else{echo set_value('project_SOP');} ?></textarea>
+                                   </div>
                                </td>
                            </tr>
                        </tbody>

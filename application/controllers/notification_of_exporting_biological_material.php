@@ -156,6 +156,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 
                 
                 $this->load->template('notification_of_exporting_biological_material_view', $data);
+                $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">Validation Error.</div>');
                 
             }else{
                 

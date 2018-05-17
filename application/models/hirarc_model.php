@@ -270,7 +270,7 @@ class hirarc_model extends CI_Model
     
     
     //Approval Methods For Annual Final Report Category Forms Only
-    function update_approval($id, $type, $approver_id)
+    /*function update_approval($id, $type, $approver_id)
     {
         if ($type == 0) {
             
@@ -344,7 +344,7 @@ class hirarc_model extends CI_Model
         }
         return true;
     }
-    //End Of Methods For Annual Final Report Categories
+    //End Of Methods For Annual Final Report Categories*/
     
     function edit_request($id){
         
@@ -356,7 +356,7 @@ class hirarc_model extends CI_Model
             
     }
     
-    function update_editable($id, $type, $approver_id)
+    function update_editable($id, $type, $approver_id, $appid)
     {
         if ($type == 0) {
             

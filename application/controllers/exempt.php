@@ -148,7 +148,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             
             $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );
             
-            $this->form_validation->set_rules('project_title', 'Project title', 'required');
+            $this->form_validation->set_rules('project_title', 'Project title', 'required|callback_fullname_check');
             $this->form_validation->set_rules('project_supervisor_title', 'Project supervisor title', 'required');
             $this->form_validation->set_rules('project_supervisor_name', 'Project supervisor name', 'required');
             $this->form_validation->set_rules('project_supervisor_qualification', 'Project supervisor qualification', 'required');
@@ -156,24 +156,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $this->form_validation->set_rules('project_supervisor_campus', 'Project supervisor campus', 'required');
             $this->form_validation->set_rules('project_supervisor_postal_address', 'Supervisor postal address', 'required');
             $this->form_validation->set_rules('project_supervisor_telephone', 'Supervisor telephone', 'required');
-            //$this->form_validation->set_rules('project_supervisor_fax', 'Supervisor fax', 'required');
-            //$this->form_validation->set_rules('project_supervisor_email_address', 'Supervisor email address', 'required');
+            $this->form_validation->set_rules('project_supervisor_fax', 'Supervisor fax', 'required');
+            $this->form_validation->set_rules('project_supervisor_email_address', 'Supervisor email address', 'required|valid_email');
             $this->form_validation->set_rules('project_summary', 'Project summary', 'required');
             $this->form_validation->set_rules('project_facilities_building_no', 'Building No', 'required');
             $this->form_validation->set_rules('project_facilities_room_no', 'Room no', 'required');
             $this->form_validation->set_rules('project_facilities_containment_level', 'Containment level', 'required');
             $this->form_validation->set_rules('project_facilities_certification_no', 'Certification no', 'required');
-            //$this->form_validation->set_rules('officer_name', 'Officer Name', 'required');
-            //$this->form_validation->set_rules('laboratory_manager', 'Laboratory manager', 'required');
+            $this->form_validation->set_rules('officer_name', 'Officer Name', 'required');
+            $this->form_validation->set_rules('laboratory_manager', 'Laboratory manager', 'required');
             
             
             
             if ($this->form_validation->run() == FALSE){
-                
-                //$data['load'] = "true";
-                //$id = 1;
-                //$data['retrieved'] = $this->annex2_model->get_form_by_id($id);
             
+                $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">Validation Error</div>');
                 
                 $this->load->template('exempt_view', $data);
                 
@@ -193,7 +190,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 
                 $data = array(
                     'account_id' => $this->session->userdata('account_id'),
-                    'date_received' => $this->input->post('date_received'),
+                    'date_received' => $this->input->post('date_received '),
                     'SBC_reference_no' => $this->input->post('SBC_reference_no'),
                     'project_title' => $this->input->post('project_title'),
                     'project_supervisor_title' => $this->input->post('project_supervisor_title'),
@@ -236,14 +233,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 
                 if($this->exempt_model->update_applicant_data($appID, $data)){
                     
-                   $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Success Has been achieved</div>', $data);
-                   redirect('history/index');
+                   $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Form Has Been Updated</div>', $data);
+                   redirect('exempt/index');
                     
                         
                 } else {
                     
                    $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">An error has occured. Please try again later.</div>');
-                   redirect('history/index');
+                   redirect('exempt/index');
                     
                     
                     

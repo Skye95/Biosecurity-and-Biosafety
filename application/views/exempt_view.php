@@ -211,29 +211,29 @@ if(!$this->session->userdata('isLogin')){
                                <td colspan="2">
                                    <table class="table table-bordered">
                                        <tr>
-                                           <td width="90px">Title: <input type="text" class="form-control" name="project_add_title[0]" value="<?php if(isset($load)){echo set_value('project_add_title[0]', $a[0]);}else{echo set_value('project_add_title[0]');} ?>"></td>
+                                           <td width="90px">Title: <input type="text" class="form-control" name="project_add_title[0]" value="<?php if(isset($load)){echo set_value('project_add_title[0]', $i[0]);}else{echo set_value('project_add_title[0]');} ?>"></td>
                                            
-                                           <td>Name: <input type="text" class="form-control" name="project_add_name[0]" value="<?php if(isset($load)){echo set_value('project_add_name[0]', $b[0]);}else{echo set_value('project_add_name[0]');} ?>"></td>
+                                           <td>Name: <input type="text" class="form-control" name="project_add_name[0]" value="<?php if(isset($load)){echo set_value('project_add_name[0]', $a[0]);}else{echo set_value('project_add_name[0]');} ?>"></td>
                                            
                                            <td>Current qualifications (please include all): 
-                                               <input type="text" class="form-control" name="project_add_qualification[0]" value="<?php if(isset($load)){echo set_value('project_add_qualification[0]', $c[0]);}else{echo set_value('project_add_qualification[0]');} ?>">
+                                               <input type="text" class="form-control" name="project_add_qualification[0]" value="<?php if(isset($load)){echo set_value('project_add_qualification[0]', $b[0]);}else{echo set_value('project_add_qualification[0]');} ?>">
                                            </td>
                                        </tr>
                                        <tr>
-                                           <td colspan="2">Department: <input type="text" class="form-control" name="project_add_department[0]" value="<?php if(isset($load)){echo set_value('project_add_department[0]', $d[0]);}else{echo set_value('project_add_department[0]');} ?>"></td>
+                                           <td colspan="2">Department: <input type="text" class="form-control" name="project_add_department[0]" value="<?php if(isset($load)){echo set_value('project_add_department[0]', $c[0]);}else{echo set_value('project_add_department[0]');} ?>"></td>
                                            
-                                           <td colspan="1">Campus: <input type="text" class="form-control" name="project_add_campus[0]" value="<?php if(isset($load)){echo set_value('project_add_campus[0]', $e[0]);}else{echo set_value('project_add_campus[0]');} ?>"></td>
+                                           <td colspan="1">Campus: <input type="text" class="form-control" name="project_add_campus[0]" value="<?php if(isset($load)){echo set_value('project_add_campus[0]', $d[0]);}else{echo set_value('project_add_campus[0]');} ?>"></td>
                                        </tr>
                                        <tr>
-                                           <td colspan="3">Full postal address (including internal mail details): <input type="text" class="form-control" name="project_add_postal_address[0]" value="<?php if(isset($load)){echo set_value('project_add_postal_address[0]', $f[0]);}else{echo set_value('project_add_postal_address[0]');} ?>"></td>
+                                           <td colspan="3">Full postal address (including internal mail details): <input type="text" class="form-control" name="project_add_postal_address[0]" value="<?php if(isset($load)){echo set_value('project_add_postal_address[0]', $e[0]);}else{echo set_value('project_add_postal_address[0]');} ?>"></td>
                                        </tr>
                                        <tr>
-                                           <td colspan="2">Phone: <input type="text" class="form-control" name="project_add_telephone[0]" value="<?php if(isset($load)){echo set_value('project_add_telephone[0]', $g[0]);}else{echo set_value('project_add_telephone[0]');} ?>"></td>
+                                           <td colspan="2">Phone: <input type="text" class="form-control" name="project_add_telephone[0]" value="<?php if(isset($load)){echo set_value('project_add_telephone[0]', $f[0]);}else{echo set_value('project_add_telephone[0]');} ?>"></td>
                                            
-                                           <td>Fax: <input type="text" class="form-control" name="project_add_fax[0]" value="<?php if(isset($load)){echo set_value('project_add_fax[0]', $h[0]);}else{echo set_value('project_add_fax[0]');} ?>"></td>
+                                           <td>Fax: <input type="text" class="form-control" name="project_add_fax[0]" value="<?php if(isset($load)){echo set_value('project_add_fax[0]', $g[0]);}else{echo set_value('project_add_fax[0]');} ?>"></td>
                                        </tr>
                                        <tr>
-                                           <td colspan="3">Email (MUST be staff email address): <input type="email" class="form-control" name="project_add_email_address[0]" value="<?php if(isset($load)){echo set_value('project_add_email_address[0]', $i[0]);}else{echo set_value('project_add_email_address[0]');} ?>"></td>
+                                           <td colspan="3">Email (MUST be staff email address): <input type="email" class="form-control" name="project_add_email_address[0]" value="<?php if(isset($load)){echo set_value('project_add_email_address[0]', $h[0]);}else{echo set_value('project_add_email_address[0]');} ?>"></td>
                                        </tr>
                                    </table>
                                </td>
