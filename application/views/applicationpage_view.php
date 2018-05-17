@@ -65,10 +65,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <br/>
 		</div>
 		<div class="col-lg-7">
-			<form action="" method="post">
-				<p><textarea name="editor1" id="editor1" rows="5" ></textarea></p>
-				<button name="submit" type="submit" class="btn btn-primary col-md-2">Submit</button>
-			</form>
+			<?php $this->load->template('announcement_view',$data);?>
 		</div>
 
 	</div>

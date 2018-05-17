@@ -9,6 +9,7 @@ class applicationpage extends CI_Controller {
         
         $this->load->database();
         $this->load->model('notification_model');
+		$this->load->model('announcement_model');
 
 		//breadcrum
 		$this->breadcrumbs->unshift('Home', '/');	

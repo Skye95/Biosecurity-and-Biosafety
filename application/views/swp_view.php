@@ -347,5 +347,7 @@ if(!$this->session->userdata('isLogin')){
         
         
     </div>
+	</div>
+	</div>
 </body>
 </html>
