@@ -105,7 +105,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 
                 if($this->annex4_model->insert_new_applicant_data($data)){
                     
-                    $this->notification_model->insert_new_notification(null, 4, "New Annex 4 Application", "The following user has submitted a new Annex 4 form: " . $this->input->post('applicant_name'));
+                    $this->notification_model->insert_new_notification(null, 4, "New Annex 4 Application", "The following user has submitted a new Annex 4 form: " . $this->session->userdata('account_name'));
                     
                     $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Form has been successfully submitted!</div>', $data);
                     
@@ -220,7 +220,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 
                 if($this->annex4_model->update_applicant_data($appID, $data)){
                     
-                    $this->notification_model->insert_new_notification(null, 4, "Annex 4 Application Updated", "The following user has updated an Annex 4 form: " . $this->input->post('applicant_name'));
+                    $this->notification_model->insert_new_notification(null, 4, "Annex 4 Application Updated", "The following user has updated an Annex 4 form: " . $this->session->userdata('account_name'));
                     
                     $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Form has been successfully updated!</div>', $data);
                     

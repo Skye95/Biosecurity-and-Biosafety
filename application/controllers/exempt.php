@@ -17,7 +17,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $this->breadcrumbs->push('Application','/applicationpage', true);
             $this->breadcrumbs->push('New Application','/newapplicationpage', true);
             $this->breadcrumbs->push('Exempt Dealing','/exemptdealingpage',true);
-            $this->breadcrumbs->push('Application for biosafety clearance Exempt dealings Form', true);
+            $this->breadcrumbs->push('Application for Biosafety Clearance Exempt Dealings Form', true);
         }
         
         public function index(){
@@ -109,7 +109,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 
                 if($this->exempt_model->insert_new_applicant_data($data)){
                     
-                   $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Success Has been achieved</div>', $data);
+                    $this->notification_model->insert_new_notification(null, 4, "New Application for Biosafety Clearance Exempt Dealings Form", "The following user has submitted a new Application for Biosafety Clearance Exempt Dealings Form: " . $this->session->userdata('account_name'));
+                    
+                    $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Form has been successfully submitted!</div>', $data);
+                    
                    redirect('exempt/index');
                     
                         
@@ -233,7 +236,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 
                 if($this->exempt_model->update_applicant_data($appID, $data)){
                     
-                   $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Form Has Been Updated</div>', $data);
+                    $this->notification_model->insert_new_notification(null, 4, "Application for Biosafety Clearance Exempt Dealings Form Updated", "The following user has updated an Application for Biosafety Clearance Exempt Dealings Form: " . $this->session->userdata('account_name'));
+                    
+                    $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Form has been successfully updated!</div>', $data);
                    redirect('exempt/index');
                     
                         

@@ -70,6 +70,7 @@ class history extends CI_Controller {
             }else{
                 
                 $this->annex2_model->edit_request($id);
+                $this->notification_model->insert_new_notification(null, 4, "Annex 2 Application Modification Request", "The following user has requested to edit an Annex 2 form: " . $this->session->userdata('account_name'));
                 redirect('history/index');
                 
             }
@@ -95,6 +96,7 @@ class history extends CI_Controller {
             }else{
                 
                 $this->annex3_model->edit_request($id);
+                $this->notification_model->insert_new_notification(null, 4, "Annex 3 Application Modification Request", "The following user has requested to edit an Annex 3 form: " . $this->session->userdata('account_name'));
                 redirect('history/index');
                 
             }
@@ -117,6 +119,7 @@ class history extends CI_Controller {
             }else{
                 
                 $this->annex4_model->edit_request($id);
+                $this->notification_model->insert_new_notification(null, 4, "Annex 4 Application Modification Request", "The following user has requested to edit an Annex 4 form: " . $this->session->userdata('account_name'));
                 redirect('history/index');
                 
             }
@@ -139,6 +142,7 @@ class history extends CI_Controller {
             }else{
                 
                 $this->annex5_model->edit_request($id);
+                $this->notification_model->insert_new_notification(null, 4, "Annex 5 Application Modification Request", "The following user has requested to edit an Annex 5 form: " . $this->session->userdata('account_name'));
                 redirect('history/index');
                 
             }
@@ -161,6 +165,7 @@ class history extends CI_Controller {
             }else{
                 
                 $this->annualfinalreport_model->edit_request($id);
+                $this->notification_model->insert_new_notification(null, 4, "Annual or Final Report Application Modification Request", "The following user has requested to edit an Annual or Final Report form: " . $this->session->userdata('account_name'));
                 redirect('history/index');
                 
             }
@@ -183,6 +188,7 @@ class history extends CI_Controller {
             }else{
                 
                 $this->biohazard_model->edit_request($id);
+                $this->notification_model->insert_new_notification(null, 4, "Application for Biosafety Clearance Form Modification Request", "The following user has requested to edit an Application for Biosafety Clearance form: " . $this->session->userdata('account_name'));
                 redirect('history/index');
                 
             }
@@ -205,6 +211,7 @@ class history extends CI_Controller {
             }else{
                 
                 $this->exempt_model->edit_request($id);
+                $this->notification_model->insert_new_notification(null, 4, "Application for Biosafety Clearance Exempt Dealings Form Modification Request", "The following user has requested to edit an Application for Biosafety Clearance Exempt Dealings form: " . $this->session->userdata('account_name'));
                 redirect('history/index');
                 
             }
@@ -227,6 +234,7 @@ class history extends CI_Controller {
             }else{
                 
                 $this->forme_model->edit_request($id);
+                $this->notification_model->insert_new_notification(null, 4, "Form E Modification Request", "The following user has requested to edit a Form E: " . $this->session->userdata('account_name'));
                 redirect('history/index');
                 
             }
@@ -249,6 +257,7 @@ class history extends CI_Controller {
             }else{
                 
                 $this->formf_model->edit_request($id);
+                $this->notification_model->insert_new_notification(null, 4, "Form F Modification Request", "The following user has requested to edit a Form F: " . $this->session->userdata('account_name'));
                 redirect('history/index');
                 
             }
@@ -271,6 +280,7 @@ class history extends CI_Controller {
             }else{
                 
                 $this->hirarc_model->edit_request($id);
+                $this->notification_model->insert_new_notification(null, 4, "HIRARC Form Modification Request", "The following user has requested to edit a HIRARC form: " . $this->session->userdata('account_name'));
                 redirect('history/index');
                 
             }
@@ -293,6 +303,7 @@ class history extends CI_Controller {
             }else{
                 
                 $this->incidentaccidentreport_model->edit_request($id);
+                $this->notification_model->insert_new_notification(null, 4, "Incident Accident Report Application Modification Request", "The following user has requested to edit an Incident Accident Report form: " . $this->session->userdata('account_name'));
                 redirect('history/index');
                 
             }
@@ -315,6 +326,7 @@ class history extends CI_Controller {
             }else{
                 
                 $this->notification_of_exporting_biological_material_model->edit_request($id);
+                $this->notification_model->insert_new_notification(null, 4, "SSBC Notification of LMO and Biohazardous Material Application Modification Request", "The following user has requested to edit a SSBC Notification of LMO and Biohazardous Material form: " . $this->session->userdata('account_name'));
                 redirect('history/index');
                 
             }
@@ -337,6 +349,7 @@ class history extends CI_Controller {
             }else{
                 
                 $this->notification_of_LMO_and_BM_model->edit_request($id);
+                $this->notification_model->insert_new_notification(null, 4, "SSBC Notification of LMO and Biohazardous Material Application Modification Request", "The following user has requested to edit a SSBC Notification of LMO and Biohazardous Material form: " . $this->session->userdata('account_name'));
                 redirect('history/index');
                 
             }
@@ -359,6 +372,7 @@ class history extends CI_Controller {
             }else{
                 
                 $this->pc1_model->edit_request($id);
+                $this->notification_model->insert_new_notification(null, 4, "PC1 Application Modification Request", "The following user has requested to edit a PC1 form: " . $this->session->userdata('account_name'));
                 redirect('history/index');
                 
             }
@@ -381,6 +395,7 @@ class history extends CI_Controller {
             }else{
                 
                 $this->pc2_model->edit_request($id);
+                $this->notification_model->insert_new_notification(null, 4, "PC2 Application Modification Request", "The following user has requested to edit a PC2 form: " . $this->session->userdata('account_name'));
                 redirect('history/index');
                 
             }
@@ -403,6 +418,7 @@ class history extends CI_Controller {
             }else{
                 
                 $this->procurement_model->edit_request($id);
+                $this->notification_model->insert_new_notification(null, 4, "Pre-purchase Material Risk Assessment Application Modification Request", "The following user has requested to edit a Pre-purchase Material Risk Assessment form: " . $this->session->userdata('account_name'));
                 redirect('history/index');
                 
             }
@@ -425,6 +441,7 @@ class history extends CI_Controller {
             }else{
                 
                 $this->swp_model->edit_request($id);
+                $this->notification_model->insert_new_notification(null, 4, "Safe Work Procedure Application Modification Request", "The following user has requested to edit a Safe Work Procedure form: " . $this->session->userdata('account_name'));
                 redirect('history/index');
                 
             }

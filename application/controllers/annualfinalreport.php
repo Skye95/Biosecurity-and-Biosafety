@@ -91,8 +91,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 
                 if($this->annualfinalreport_model->insert_new_applicant_data($data))
                     {
+                        $this->notification_model->insert_new_notification(null, 4, "New Annual or Final Report Application", "The following user has submitted a new Annual or Final Report application: " . $this->session->userdata('account_name'));
                     
-                       $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Your Form has been Submited</div>', $data);
+                        $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Form has been successfully submitted!</div>', $data);
+                    
                        redirect('annualfinalreport/index');
                      
                     } 
@@ -198,7 +200,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 if($this->annualfinalreport_model->update_applicant_data($appID, $data))
                     {
                     
-                       $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Your Form has been Submited</div>', $data);
+                        $this->notification_model->insert_new_notification(null, 4, "Annual or Final Report Application Updated", "The following user has updated an Annual or Final Report form: " . $this->session->userdata('account_name'));
+
+                        $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Form has been successfully updated!</div>', $data);
+                    
                        redirect('history/index');
                      
                     } 

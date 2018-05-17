@@ -91,7 +91,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     'import_evidence' => $this->input->post('import_evidence'),
                     'export_import_CBI' => $this->input->post('export_import_CBI'),
                     'applicant_signature_date' => $this->input->post('applicant_signature_date'),
-                    'applicant_name' => $this->input->post('applicant_name'),
+                    'applicant_name' => $this->session->userdata('account_name'),
                     'applicant_stamp' => $this->input->post('applicant_stamp'),
                     'representative_signature_date' => $this->input->post('representative_signature_date'),
                     'representative_name' => $this->input->post('representative_name'),
@@ -101,7 +101,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                  if($this->formf_model->insert_new_applicant_data($data))
                     {
                     
-                       $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Your Form has been Submited</div>', $data);
+                        $this->notification_model->insert_new_notification(null, 4, "New Form F Application", "The following user has submitted a new Form F: " . $this->session->userdata('account_name'));
+                    
+                        $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Form has been successfully submitted!</div>', $data);
                        redirect('formf/index');
                      
                     } 
@@ -203,7 +205,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     'import_evidence' => $this->input->post('import_evidence'),
                     'export_import_CBI' => $this->input->post('export_import_CBI'),
                     'applicant_signature_date' => $this->input->post('applicant_signature_date'),
-                    'applicant_name' => $this->input->post('applicant_name'),
+                    'applicant_name' => $this->session->userdata('account_name'),
                     'applicant_stamp' => $this->input->post('applicant_stamp'),
                     'representative_signature_date' => $this->input->post('representative_signature_date'),
                     'representative_name' => $this->input->post('representative_name'),
@@ -214,7 +216,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                  if($this->formf_model->update_applicant_data($appID, $data))
                     {
                     
-                       $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Your Form has been Submited</div>', $data);
+                        $this->notification_model->insert_new_notification(null, 4, "Form F Application Updated", "The following user has updated a Form F: " . $this->session->userdata('account_name'));
+                    
+                        $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Form has been successfully updated!</div>', $data);
+
                        redirect('history/index');
                      
                     } 
