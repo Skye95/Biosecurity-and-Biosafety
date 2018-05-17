@@ -113,8 +113,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 
                 if($this->annex3_model->insert_new_applicant_data($data)){
                     
-                   $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Success Has been achieved</div>', $data);
-                   redirect('annex3/index');
+                    $this->notification_model->insert_new_notification(null, 4, "New Annex 3 Application", "The following user has submitted a new Annex 3 form: " . $this->session->userdata('account_name'));
+                    
+                    $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Form has been successfully submitted!</div>', $data);
+                    redirect('annex3/index');
                     
                         
                 } else {
@@ -237,9 +239,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 
                 
                 if($this->annex3_model->update_applicant_data($appID, $data)){
+                
+                    $this->notification_model->insert_new_notification(null, 4, "Annex 3 Application Updated", "The following user has updated an Annex 3 form: " . $this->session->userdata('account_name'));
                     
-                   $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Success Has been achieved</div>', $data);
-                   redirect('history/index');
+                    $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Form has been successfully updated!</div>', $data);
+                    redirect('history/index');
                     
                         
                 } else {

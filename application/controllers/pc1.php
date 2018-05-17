@@ -130,7 +130,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 
                 if($this->pc1_model->insert_new_applicant_data($data)){
                     
-                   $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Success Has been achieved</div>', $data);
+                   $this->notification_model->insert_new_notification(null, 4, "New PC1 Application", "The following user has submitted a new PC1 form: " . $this->session->userdata('account_name'));
+                    
+                    $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Form has been successfully submitted!</div>', $data);
                    redirect('pc1/index');
                     
                         
@@ -273,7 +275,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 
                 if($this->pc1_model->update_applicant_data($appID, $data)){
                     
-                   $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Success Has been achieved</div>', $data);
+                   $this->notification_model->insert_new_notification(null, 4, "PC1 Application Updated", "The following user has updated a PC1 form: " . $this->session->userdata('account_name'));
+                    
+                    $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Form has been successfully updated!</div>', $data);
                    redirect('history/index');
                     
                         

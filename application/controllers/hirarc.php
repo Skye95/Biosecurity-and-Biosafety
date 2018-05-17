@@ -24,14 +24,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 $this->breadcrumbs->push('Application','/applicationpage', true);
                 $this->breadcrumbs->push('New Application','/newapplicationpage', true);
                 $this->breadcrumbs->push('Living Modified Organism','/livingmodifiedorganismpage',true);
-                $this->breadcrumbs->push('Annex 2', true);
+                $this->breadcrumbs->push('OHS-F-4.5.X HIRARC Form', true);
             }else if ($data['hirarctype']= $this->input->get('type') ==2){
                 //breadcrumb page 2
                 $this->breadcrumbs->unshift('Home', '/');	
                 $this->breadcrumbs->push('Application','/applicationpage', true);
                 $this->breadcrumbs->push('New Application','/newapplicationpage', true);
                 $this->breadcrumbs->push('Exempt Dealing','/exemptdealingpage',true);
-                $this->breadcrumbs->push('Application for biosafety clearance Exempt dealings Form', true);
+                $this->breadcrumbs->push('OHS-F-4.5.X HIRARC Form', true);
                 
             }else if ($data['hirarctype']= $this->input->get('type') ==3){
                 //breadcrumb page 3
@@ -39,11 +39,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 $this->breadcrumbs->push('Application','/applicationpage', true);
                 $this->breadcrumbs->push('New Application','/newapplicationpage', true);
                 $this->breadcrumbs->push('Biohazardous Material','/biohazardous_materialpage',true);
-                $this->breadcrumbs->push('Application for biosafety clearance Form', true);
+                $this->breadcrumbs->push('OHS-F-4.5.X HIRARC Form', true);
             }else{
                 //breadcrumb page 4
                 $this->breadcrumbs->unshift('Home', '/');
-                $this->breadcrumbs->push('Application for biosafety clearance Form', true);
+                $this->breadcrumbs->push('OHS-F-4.5.X HIRARC Form', true);
             }
                 
                 
@@ -121,7 +121,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 
                 if($this->hirarc_model->insert_new_applicant_data($data)){
                     
-                   $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Success Has been achieved</div>', $data);
+                   $this->notification_model->insert_new_notification(null, 4, "New HIRARC Form Application", "The following user has submitted a new HIRARC Form: " . $this->session->userdata('account_name'));
+                    
+                    $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Form has been successfully submitted!</div>', $data);
                    redirect('hirarc/index');
                     
                         
@@ -237,8 +239,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 
                 
                 if($this->hirarc_model->update_applicant_data($appID, $data)){
+                   $this->notification_model->insert_new_notification(null, 4, "HIRARC Form Application Updated", "The following user has updated a HIRARC Form: " . $this->session->userdata('account_name'));
                     
-                   $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Success Has been achieved</div>', $data);
+                    $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Form has been successfully updated!</div>', $data);
                    redirect('history/index');
                     
                         

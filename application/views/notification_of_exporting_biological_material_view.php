@@ -436,7 +436,7 @@ if(!$this->session->userdata('isLogin')){
                                </td>
                            </tr>
                            <tr>
-                               <td><input type="text" class="form-control" name="signature_verified_by" placeholder="Signature:" ></td>
+                               <td><input type="text" class="form-control" name="signature_notification_verified_by" placeholder="Signature:" ></td>
                                
 							   <td><input type="text" class="form-control" name="signature_notification_reviewed_by" placeholder="Signature:" ></td>
                            </tr>
