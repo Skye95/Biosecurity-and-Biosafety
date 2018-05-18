@@ -60,21 +60,21 @@ class applicationapproval extends CI_Controller {
         $appid = $this->uri->segment(4);
         $this->annex2_model->update_approval($id, 1, $approver_id, $appid);
         
-        $this->notification_model->insert_new_notification(null, 2, "Annex 2 Application Approved", "BSO has approved an Annex 2 Form ");
+        $this->notification_model->insert_new_notification(null, 2, "Annex 2 Application Approved", "BSO has approved an Annex 2 Form");
         
         redirect('applicationapproval/index');
     }
     
-    public function reject($id, $appid, $email)
+    public function reject($id, $appid)
     {
         $approver_id = ' ';
         $id = $this->uri->segment(3);
         $appid = $this->uri->segment(4);
         $msg = base64_decode($this->uri->segment(5));
-        $email = $this->uri->segment(6);
+        $result = $this->account_model->get_account_by_id($id);
         $this->annex2_model->update_approval($id, 0, $approver_id, $appid);
             
-        $this->email_model->send_email($email, "Annex 2 Submission Rejected", "<p>Your Annex 2 Form Submission Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Annex 2 Submission Rejected", "<p>Your Annex 2 Form Submission Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
         
         redirect('applicationapproval/index');
     }
@@ -111,9 +111,11 @@ class applicationapproval extends CI_Controller {
         $id = $this->uri->segment(3);
         $appID = $this->uri->segment(4);
         $msg = base64_decode($this->uri->segment(4));
+        $result = $this->account_model->get_account_by_id($id);
         $this->annex2_model->update_approval_SSBC($id, 0, $approver_id, $appID);
         
         //Send email to applicant let them know their form submission has been rejected
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Annex 2 Submission Rejected", "<p>Your Annex 2 Form Submission Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
         
         redirect('applicationapproval/index');
     }
@@ -123,9 +125,11 @@ class applicationapproval extends CI_Controller {
         $approver_id = $this->session->userdata('account_id');
         $id = $this->uri->segment(3);
         $appID = $this->uri->segment(4);
+        $result = $this->account_model->get_account_by_id($id);
         $this->annex2_model->final_approval($id, 1, $approver_id, $appID);
         
         //Send email to applicant let them know their form submission has been fully approved
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Annex 2 Submission Approved", "<p>Your Annex 2 Form Submission Has Been Approved.</p>");
         
         redirect('applicationapproval/index');
     }
@@ -136,9 +140,11 @@ class applicationapproval extends CI_Controller {
         $id = $this->uri->segment(3);
         $appID = $this->uri->segment(4);
         $msg = base64_decode($this->uri->segment(5));
+        $result = $this->account_model->get_account_by_id($id);
         $this->annex2_model->final_approval($id, 0, $approver_id, $appID);
         
         //Send email to applicant let them know their form submission has been rejected
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Annex 2 Submission Rejected", "<p>Your Annex 2 Form Submission Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
         
         
         redirect('applicationapproval/index');
@@ -166,9 +172,11 @@ class applicationapproval extends CI_Controller {
         $id = $this->uri->segment(3);
         $appID = $this->uri->segment(4);
         $msg = base64_decode($this->uri->segment(5));
+        $result = $this->account_model->get_account_by_id($id);
         $this->forme_model->update_approval($id, 0, $approver_id, $appID);
         
         //Send email to applicant let them know their form submission has been rejected
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Form E Submission Rejected", "<p>Your Form E Submission Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
         
         redirect('applicationapproval/index');
     }
@@ -205,9 +213,11 @@ class applicationapproval extends CI_Controller {
         $id = $this->uri->segment(3);
         $appID = $this->uri->segment(4);
         $msg = base64_decode($this->uri->segment(5));
+        $result = $this->account_model->get_account_by_id($id);
         $this->forme_model->update_approval_SSBC($id, 0, $approver_id, $appID);
         
         //Send email to applicant let them know their form submission has been rejected
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Form E Submission Rejected", "<p>Your Form E Submission Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
         
         redirect('applicationapproval/index');
     } 
@@ -217,9 +227,11 @@ class applicationapproval extends CI_Controller {
         $approver_id = $this->session->userdata('account_id');
         $id = $this->uri->segment(3);
         $appID = $this->uri->segment(4);
+        $result = $this->account_model->get_account_by_id($id);
         $this->forme_model->final_approval($id, 1, $approver_id, $appID);
         
         //Send email to applicant let them know their form submission has been fully approved
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Form E Submission Approved", "<p>Your Form E Submission Has Been Approved.</p>");
         
         redirect('applicationapproval/index');
     }
@@ -230,9 +242,11 @@ class applicationapproval extends CI_Controller {
         $id = $this->uri->segment(3);
         $appID = $this->uri->segment(4);
         $msg = base64_decode($this->uri->segment(5));
+        $result = $this->account_model->get_account_by_id($id);
         $this->forme_model->final_approval($id, 0, $approver_id, $appID);
         
         //Send email to applicant let them know their form submission has been rejected
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Form E Submission Rejected", "<p>Your Form E Submission Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
         
         redirect('applicationapproval/index');
     }
@@ -259,9 +273,11 @@ class applicationapproval extends CI_Controller {
         $id = $this->uri->segment(3);
         $appID = $this->uri->segment(4);
         $msg = base64_decode($this->uri->segment(5));
+        $result = $this->account_model->get_account_by_id($id);
         $this->hirarc_model->update_BSO($id, 0, $approver_id, $appID);
         
         //Send email to applicant let them know their form submission has been rejected
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>HIRARC Form Submission Rejected", "<p>Your HIRARC Form Submission Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
         
         redirect('applicationapproval/index');
     }
@@ -298,9 +314,11 @@ class applicationapproval extends CI_Controller {
         $id = $this->uri->segment(3);
         $appID = $this->uri->segment(4);
         $msg = base64_decode($this->uri->segment(5));
+        $result = $this->account_model->get_account_by_id($id);
         $this->hirarc_model->update_SSBC($id, 0, $approver_id, $appID);
         
         //Send email to applicant let them know their form submission has been rejected
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>HIRARC Form Submission Rejected", "<p>Your HIRARC Form Submission Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
         
         redirect('applicationapproval/index');
     }
@@ -310,7 +328,10 @@ class applicationapproval extends CI_Controller {
         $approver_id = $this->session->userdata('account_id');
         $id = $this->uri->segment(3);
         $appID = $this->uri->segment(4);
+        $result = $this->account_model->get_account_by_id($id);
         $this->hirarc_model->final_approval($id, 1, $approver_id, $appID);
+        
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>HIRARC Form Submission Approved", "<p>Your HIRARC Form Submission Has Been Approved. </p>");
         
         redirect('applicationapproval/index');
     }
@@ -321,9 +342,11 @@ class applicationapproval extends CI_Controller {
         $id = $this->uri->segment(3);
         $appID = $this->uri->segment(4);
         $msg = base64_decode($this->uri->segment(5));
+        $result = $this->account_model->get_account_by_id($id);
         $this->hirarc_model->final_approval($id, 0, $approver_id, $appID);
         
         //Send email to applicant let them know their form submission has been rejected
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>HIRARC Form Submission Rejected", "<p>Your HIRARC Form Submission Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
         
         redirect('applicationapproval/index');
     }
@@ -350,9 +373,11 @@ class applicationapproval extends CI_Controller {
         $id = $this->uri->segment(3);
         $appID = $this->uri->segment(4);
         $msg = base64_decode($this->uri->segment(5));
+        $result = $this->account_model->get_account_by_id($id);
         $this->pc1_model->update_approval($id, 0, $approver_id, $appID);
         
         //Send email to applicant let them know their form submission has been rejected
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>PC1 Form Submission Rejected", "<p>Your PC1 Form Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
         
         redirect('applicationapproval/index');
     }
@@ -388,9 +413,11 @@ class applicationapproval extends CI_Controller {
         $id = $this->uri->segment(3);
         $appID = $this->uri->segment(4);
         $msg = base64_decode($this->uri->segment(5));
+        $result = $this->account_model->get_account_by_id($id);
         $this->pc1_model->update_approval_SSBC($id, 0, $approver_id, $appID);
         
         //Send email to applicant let them know their form submission has been rejected
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>PC1 Form Submission Rejected", "<p>Your PC1 Form Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
         
         redirect('applicationapproval/index');
     } 
@@ -400,9 +427,11 @@ class applicationapproval extends CI_Controller {
         $approver_id = $this->session->userdata('account_id');
         $id = $this->uri->segment(3);
         $appID = $this->uri->segment(4);
+        $result = $this->account_model->get_account_by_id($id);
         $this->pc1_model->final_approval($id, 1, $approver_id, $appID);
         
         //Send email to applicant let them know their form submission has been fully approved
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>PC1 Form Submission Approved", "<p>Your PC1 Form Has Been Approved. </p>");
         
         redirect('applicationapproval/index');
     }
@@ -413,9 +442,11 @@ class applicationapproval extends CI_Controller {
         $id = $this->uri->segment(3);
         $appID = $this->uri->segment(4);
         $msg = base64_decode($this->uri->segment(5));
+        $result = $this->account_model->get_account_by_id($id);
         $this->pc1_model->final_approval($id, 0, $approver_id, $appID);
         
         //Send email to applicant let them know their form submission has been rejected
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>PC1 Form Submission Rejected", "<p>Your PC1 Form Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
         
         redirect('applicationapproval/index');
     }
@@ -441,9 +472,11 @@ class applicationapproval extends CI_Controller {
         $id = $this->uri->segment(3);
         $appID = $this->uri->segment(4);
         $msg = base64_decode($this->uri->segment(5));
+        $result = $this->account_model->get_account_by_id($id);
         $this->pc2_model->update_approval($id, 0, $approver_id, $appID);
         
         //Send email to applicant let them know their form submission has been rejected
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>PC2 Form Submission Rejected", "<p>Your PC2 Form Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
         
         redirect('applicationapproval/index');
     }
@@ -479,9 +512,11 @@ class applicationapproval extends CI_Controller {
         $id = $this->uri->segment(3);
         $appID = $this->uri->segment(4);
         $msg = base64_decode($this->uri->segment(5));
+        $result = $this->account_model->get_account_by_id($id);
         $this->pc2_model->update_approval_SSBC($id, 0, $approver_id, $appID);
         
         //Send email to applicant let them know their form submission has been rejected
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>PC2 Form Submission Rejected", "<p>Your PC2 Form Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
         
         redirect('applicationapproval/index');
     } 
@@ -491,7 +526,10 @@ class applicationapproval extends CI_Controller {
         $approver_id = $this->session->userdata('account_id');
         $id = $this->uri->segment(3);
         $appID = $this->uri->segment(4);
+        $result = $this->account_model->get_account_by_id($id);
         $this->pc2_model->final_approval($id, 1, $approver_id, $appID);
+        
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>PC2 Form Submission Approved", "<p>Your PC2 Form Has Been Approved</p>");
         
         redirect('applicationapproval/index');
     }
@@ -502,9 +540,11 @@ class applicationapproval extends CI_Controller {
         $id = $this->uri->segment(3);
         $appID = $this->uri->segment(4);
         $msg = base64_decode($this->uri->segment(5));
+        $result = $this->account_model->get_account_by_id($id);
         $this->pc2_model->final_approval($id, 0, $approver_id, $appID);
         
         //Send email to applicant let them know their form submission has been rejected
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>PC2 Form Submission Rejected", "<p>Your PC2 Form Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
         
         redirect('applicationapproval/index');
     }
@@ -530,9 +570,11 @@ class applicationapproval extends CI_Controller {
         $id = $this->uri->segment(3);
         $appID = $this->uri->segment(4);
         $msg = base64_decode($this->uri->segment(5));
+        $result = $this->account_model->get_account_by_id($id);
         $this->swp_model->update_approval($id, 0, $approver_id, $appID);
         
         //Send email to applicant let them know their form submission has been rejected
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Safety Work Procedure Form Submission Rejected", "<p>Your Safety Work Procedure Form Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
         
         redirect('applicationapproval/index');
     }
@@ -568,9 +610,11 @@ class applicationapproval extends CI_Controller {
         $id = $this->uri->segment(3);
         $appID = $this->uri->segment(4);
         $msg = base64_decode($this->uri->segment(5));
+        $result = $this->account_model->get_account_by_id($id);
         $this->swp_model->update_approval_SSBC($id, 0, $approver_id, $appID);
         
         //Send email to applicant let them know their form submission has been rejected
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Safety Work Procedure Form Submission Rejected", "<p>Your Safety Work Procedure Form Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
         
         redirect('applicationapproval/index');
     } 
@@ -580,9 +624,11 @@ class applicationapproval extends CI_Controller {
         $approver_id = $this->session->userdata('account_id');
         $id = $this->uri->segment(3);
         $appID = $this->uri->segment(4);
+        $result = $this->account_model->get_account_by_id($id);
         $this->swp_model->final_approval($id, 1, $approver_id, $appID);
         
         //Send email to applicant let them know their form submission has been fully approved
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Safety Work Procedure Form Submission Approved", "<p>Your Safety Work Procedure Form Has Been Approved. </p>");
         
         redirect('applicationapproval/index');
     }
@@ -593,9 +639,11 @@ class applicationapproval extends CI_Controller {
         $id = $this->uri->segment(3);
         $appID = $this->uri->segment(4);
         $msg = base64_decode($this->uri->segment(5));
+        $result = $this->account_model->get_account_by_id($id);
         $this->swp_model->final_approval($id, 0, $approver_id, $appID);
         
         //Send email to applicant let them know their form submission has been rejected
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Safety Work Procedure Form Submission Rejected", "<p>Your Safety Work Procedure Form Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
         
         redirect('applicationapproval/index');
     }

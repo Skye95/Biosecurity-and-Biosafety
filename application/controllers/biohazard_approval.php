@@ -54,9 +54,11 @@ class biohazard_approval extends CI_Controller {
         $id = $this->uri->segment(3);
         $appID = $this->uri->segment(4);
         $msg = base64_decode($this->uri->segment(5));
+        $result = $this->account_model->get_account_by_id($id);
         $this->biohazard_model->update_approval($id, 0, $approver_id, $appID);
         
         //Send email to applicant let them know their form submission has been rejected
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Biohazard Material Application Submission Rejected", "<p>Your Biohazard Material Form Submission Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
         
         redirect('biohazard_approval/index');
     }
@@ -93,9 +95,11 @@ class biohazard_approval extends CI_Controller {
         $id = $this->uri->segment(3);
         $appID = $this->uri->segment(4);
         $msg = base64_decode($this->uri->segment(5));
+        $result = $this->account_model->get_account_by_id($id);
         $this->biohazard_model->update_approval_SSBC($id, 0, $approver_id, $appID);
         
         //Send email to applicant let them know their form submission has been rejected
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Biohazard Material Application Submission Rejected", "<p>Your Biohazard Material Form Submission Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
         
         redirect('biohazard_approval/index');
     }
@@ -105,9 +109,11 @@ class biohazard_approval extends CI_Controller {
         $approver_id = $this->session->userdata('account_id');
         $id = $this->uri->segment(3);
         $appID = $this->uri->segment(4);
+        $result = $this->account_model->get_account_by_id($id);
         $this->biohazard_model->final_approval($id, 1, $approver_id, $appID);
         
         //Send email to applicant let them know their form submission has been fully approved
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Biohazard Material Application Submission Approved", "<p>Your Biohazard Material Form Submission Has Been Approved. </p>");
         
         redirect('biohazard_approval/index');
     }
@@ -118,9 +124,11 @@ class biohazard_approval extends CI_Controller {
         $id = $this->uri->segment(3);
         $appID = $this->uri->segment(4);
         $msg = base64_decode($this->uri->segment(5));
+        $result = $this->account_model->get_account_by_id($id);
         $this->biohazard_model->final_approval($id, 0, $approver_id, $appID);
         
         //Send email to applicant let them know their form submission has been rejected
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Biohazard Material Application Submission Rejected", "<p>Your Biohazard Material Form Submission Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
         
         redirect('biohazard_approval/index');
     }
@@ -144,9 +152,11 @@ class biohazard_approval extends CI_Controller {
         $id = $this->uri->segment(3);
         $appID = $this->uri->segment(4);
         $msg = base64_decode($this->uri->segment(5));
+        $result = $this->account_model->get_account_by_id($id);
         $this->hirarc_model->update_BSO($id, 0, $approver_id, $appID);
         
         //Send email to applicant let them know their form submission has been rejected
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>HIRARC Form Submission Rejected", "<p>Your HIRARC Form Submission Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
         
         redirect('biohazard_approval/index');
     }
@@ -183,9 +193,11 @@ class biohazard_approval extends CI_Controller {
         $id = $this->uri->segment(3);
         $appID = $this->uri->segment(4);
         $msg = base64_decode($this->uri->segment(5));
+        $result = $this->account_model->get_account_by_id($id);
         $this->hirarc_model->update_SSBC($id, 0, $approver_id, $appID);
         
         //Send email to applicant let them know their form submission has been rejected
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>HIRARC Form Submission Rejected", "<p>Your HIRARC Form Submission Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
         
         redirect('biohazard_approval/index');
     }
@@ -195,9 +207,10 @@ class biohazard_approval extends CI_Controller {
         $approver_id = $this->session->userdata('account_id');
         $id = $this->uri->segment(3);
         $appID = $this->uri->segment(4);
+        $result = $this->account_model->get_account_by_id($id);
         $this->hirarc_model->final_approval($id, 1, $approver_id, $appID);
         
-        //Send email to applicant let them know their form submission has been fully approved
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>HIRARC Form Submission Approved", "<p>Your HIRARC Form Submission Has Been Approved. </p>");
         
         redirect('biohazard_approval/index');
     }
@@ -208,9 +221,11 @@ class biohazard_approval extends CI_Controller {
         $id = $this->uri->segment(3);
         $appID = $this->uri->segment(4);
         $msg = base64_decode($this->uri->segment(5));
+        $result = $this->account_model->get_account_by_id($id);
         $this->hirarc_model->final_approval($id, 0, $approver_id, $appID);
         
         //Send email to applicant let them know their form submission has been rejected
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>HIRARC Form Submission Rejected", "<p>Your HIRARC Form Submission Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
         
         redirect('biohazard_approval/index');
     }
@@ -234,9 +249,11 @@ class biohazard_approval extends CI_Controller {
         $id = $this->uri->segment(3);
         $appID = $this->uri->segment(4);
         $msg = base64_decode($this->uri->segment(5));
+        $result = $this->account_model->get_account_by_id($id);
         $this->swp_model->update_approval($id, 0, $approver_id, $appID);
         
         //Send email to applicant let them know their form submission has been rejected
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Safety Work Procedure Form Submission Rejected", "<p>Your Safety Work Procedure Form Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
         
         redirect('biohazard_approval/index');
     }
@@ -272,9 +289,11 @@ class biohazard_approval extends CI_Controller {
         $id = $this->uri->segment(3);
         $appID = $this->uri->segment(4);
         $msg = base64_decode($this->uri->segment(5));
+        $result = $this->account_model->get_account_by_id($id);
         $this->swp_model->update_approval_SSBC($id, 0, $approver_id, $appID);
         
         //Send email to applicant let them know their form submission has been rejected
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Safety Work Procedure Form Submission Rejected", "<p>Your Safety Work Procedure Form Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
         
         redirect('biohazard_approval/index');
     } 
@@ -284,9 +303,11 @@ class biohazard_approval extends CI_Controller {
         $approver_id = $this->session->userdata('account_id');
         $id = $this->uri->segment(3);
         $appID = $this->uri->segment(4);
+        $result = $this->account_model->get_account_by_id($id);
         $this->swp_model->final_approval($id, 1, $approver_id, $appID);
         
         //Send email to applicant let them know their form submission has been fully approved
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Safety Work Procedure Form Submission Approved", "<p>Your Safety Work Procedure Form Has Been Approved. </p>");
         
         redirect('biohazard_approval/index');
     }
@@ -297,9 +318,11 @@ class biohazard_approval extends CI_Controller {
         $id = $this->uri->segment(3);
         $appID = $this->uri->segment(4);
         $msg = base64_decode($this->uri->segment(5));
+        $result = $this->account_model->get_account_by_id($id);
         $this->swp_model->final_approval($id, 0, $approver_id, $appID);
         
         //Send email to applicant let them know their form submission has been rejected
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Safety Work Procedure Form Submission Rejected", "<p>Your Safety Work Procedure Form Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
         
         redirect('biohazard_approval/index');
     }

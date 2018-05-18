@@ -59,7 +59,7 @@ class notification_of_LMO_and_BM_model extends CI_Model
     {
         if ($type == 0) {
             
-            $data = array('application_approved' => 3, 'approver_id' => $approver_id );
+            $data = array('application_approved' => 3);
             $this->db->where('account_id', $id);
             $this->db->where('application_id', $appid);
             $this->db->update('notificationlmobiohazardousmaterial', $data);
@@ -86,7 +86,7 @@ class notification_of_LMO_and_BM_model extends CI_Model
     {
         if ($type == 0) {
             
-            $data = array('editable' => 3, 'approver_id' => $approver_id );
+            $data = array('editable' => 3);
             $this->db->where('account_id', $id);
             $this->db->where('application_id', $appid);
             $this->db->update('notificationlmobiohazardousmaterial', $data);

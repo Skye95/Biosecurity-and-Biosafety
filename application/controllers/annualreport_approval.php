@@ -44,23 +44,27 @@ class annualreport_approval extends CI_Controller {
         
     }*/
     
-    public function ammend($id)
+    public function ammend($id, $appID)
     {
         $approver_id = ' ';
         $id = $this->uri->segment(3);
-        $msg = base64_decode($this->uri->segment(4));
-        $this->annualfinalreport_model->proceed_ammend($id, 0, $approver_id);
+        $appID = $this->uri->segment(4);
+        $msg = base64_decode($this->uri->segment(5));
+        $result = $this->account_model->get_account_by_id($id);
+        $this->annualfinalreport_model->proceed_ammend($id, 0, $approver_id, $appID);
         
         //Send email to Applicant notify them that their application has been rejected
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Annual Final Report Form Submission Rejected", "<p>Your Annual Final Report Form Submission Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
         
         redirect('annualreport_approval/index');
     }
     
-    public function approve($id)
+    public function approve($id, $appID)
     {
         $approver_id = $this->session->userdata('account_id');
         $id = $this->uri->segment(3);
-        $this->annualfinalreport_model->update_approval($id, 1, $approver_id);
+        $appID = $this->uri->segment(4);
+        $this->annualfinalreport_model->update_approval($id, 1, $approver_id, $appID);
         
         //Notify SSBC Members That BSO Has Approved A Form
         $this->notification_model->insert_new_notification(null, 3, "Annual Final Report Form Application Approved", "BSO has approved an Annual Final Report Form Application that requires additional input. ");
@@ -68,34 +72,41 @@ class annualreport_approval extends CI_Controller {
         redirect('annualreport_approval/index');
     }
     
-    public function approve_BSO($id)
+    public function approve_BSO($id, $appID)
     {
         $approver_id = $this->session->userdata('account_id');
         $id = $this->uri->segment(3);
-        $this->annualfinalreport_model->update_approval_BSO($id, 1, $approver_id);
+        $appID = $this->uri->segment(4);
+        $result = $this->account_model->get_account_by_id($id);
+        $this->annualfinalreport_model->update_approval_BSO($id, 1, $approver_id, $appID);
         
         //Send email to Applicant notify them that their application has been fully approved
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Annual Final Report Form Submission Approved", "<p>Your Annual Final Report Form Has Been Approved</p>");
         
         redirect('annualreport_approval/index');
     }
     
-    public function reject($id)
+    public function reject($id, $appID)
     {
         $approver_id = ' ';
         $id = $this->uri->segment(3);
-        $msg = base64_decode($this->uri->segment(4));
-        $this->annualfinalreport_model->update_approval($id, 0, $approver_id);
+        $appID = $this->uri->segment(4);
+        $msg = base64_decode($this->uri->segment(5));
+        $result = $this->account_model->get_account_by_id($id);
+        $this->annualfinalreport_model->update_approval($id, 0, $approver_id, $appID);
         
         //Send email to Applicant notify them that their application has been rejected
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>PC2 Form Submission Rejected", "<p>Your PC2 Form Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
         
         redirect('annualreport_approval/index');
     }
     
-    public function approve2($id)
+    public function approve2($id, $appID)
     {
         $approver_id = $this->session->userdata('account_id');
         $id = $this->uri->segment(3);
-        $this->annualfinalreport_model->update_approval_SSBC($id, 1, $approver_id);
+        $appID = $this->uri->segment(4);
+        $this->annualfinalreport_model->update_approval_SSBC($id, 1, $approver_id, $appID);
         
         //Notify SSBC Chair That SSBC members Have Approved a Form
         $this->notification_model->insert_new_notification(null, 2, "Annual Final Report Form Application Approved", "SSBC Members have approved an Annual Final Report Form Application. ");
@@ -103,37 +114,46 @@ class annualreport_approval extends CI_Controller {
         redirect('annualreport_approval/index');
     }
     
-    public function reject2($id)
+    public function reject2($id, $appID)
     {
         $approver_id = ' ';
         $id = $this->uri->segment(3);
-        $msg = base64_decode($this->uri->segment(4));
-        $this->annualfinalreport_model->update_approval_SSBC($id, 0, $approver_id);
+        $appID = $this->uri->segment(4);
+        $msg = base64_decode($this->uri->segment(5));
+        $result = $this->account_model->get_account_by_id($id);
+        $this->annualfinalreport_model->update_approval_SSBC($id, 0, $approver_id, $appID);
         
         //Send email to Applicant notify them that their application has been fully rejected
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>PC2 Form Submission Rejected", "<p>Your PC2 Form Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
         
         redirect('annualreport_approval/index');
     }
     
-    public function approve3($id)
+    public function approve3($id, $appID)
     {
         $approver_id = $this->session->userdata('account_id');
         $id = $this->uri->segment(3);
-        $this->annualfinalreport_model->update_approval_Chair($id, 1, $approver_id);
+        $appID = $this->uri->segment(4);
+        $result = $this->account_model->get_account_by_id($id);
+        $this->annualfinalreport_model->update_approval_Chair($id, 1, $approver_id, $appID);
         
         //Send email to Applicant notify them that their application has been fully approved
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Annual Final Report Form Submission Approved", "<p>Your Annual Final Report Form Has Been Approved</p>");
         
         redirect('annualreport_approval/index');
     }
     
-    public function reject3($id)
+    public function reject3($id, $appID)
     {
         $approver_id = ' ';
         $id = $this->uri->segment(3);
-        $msg = base64_decode($this->uri->segment(4));
-        $this->annualfinalreport_model->update_approval_Chair($id, 0, $approver_id);
+        $appID = $this->uri->segment(4);
+        $msg = base64_decode($this->uri->segment(5));
+        $result = $this->account_model->get_account_by_id($id);
+        $this->annualfinalreport_model->update_approval_Chair($id, 0, $approver_id, $appID);
         
         //Send email to Applicant notify them that their application has been fully rejected
+         $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>PC2 Form Submission Rejected", "<p>Your PC2 Form Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
         
         redirect('annualreport_approval/index');
     }

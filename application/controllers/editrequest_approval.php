@@ -64,9 +64,11 @@ class editrequest_approval extends CI_Controller {
         $approver_id = $this->session->userdata('account_id');
         $id = $this->uri->segment(3);
         $appid = $this->uri->segment(4);
+        $result = $this->account_model->get_account_by_id($id);
         $this->annex2_model->update_editable($id, 1, $approver_id, $appid);
         
-        
+        //Send email to applicant let them know their form submission has been fully approved
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Edit Request For Safety Work Procedure Form Approved", "<p>Your Request For Editing An Annex 2 Form Has Been Approved. </p>");
         
         redirect('editrequest_approval/index');
     }

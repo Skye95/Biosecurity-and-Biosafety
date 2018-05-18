@@ -186,7 +186,7 @@ class hirarc_model extends CI_Model
     {
         if ($type == 0) {
             
-            $data = array('application_approved' => 6, 'approver_id' => $approver_id );
+            $data = array('application_approved' => 5);
             $this->db->where('account_id', $id);
             $this->db->where('application_id', $appID);
             $this->db->update('hirarc', $data);
@@ -203,7 +203,7 @@ class hirarc_model extends CI_Model
     {
         if ($type == 0) {
             
-            $data = array('application_approved' => 6, 'approver_id' => $approver_id );
+            $data = array('application_approved' => 5);
             $this->db->where('account_id', $id);
             $this->db->where('application_id', $appID);
             $this->db->update('hirarc', $data);
@@ -220,7 +220,7 @@ class hirarc_model extends CI_Model
     {
         if ($type == 0) {
             
-            $data = array('application_approved' => 6, 'approver_id' => $approver_id );
+            $data = array('application_approved' => 5);
             $this->db->where('account_id', $id);
             $this->db->where('application_id', $appID);
             $this->db->update('hirarc', $data);
@@ -237,12 +237,12 @@ class hirarc_model extends CI_Model
     {
         if ($type == 0) {
             
-            $data = array('application_approved' => 6, 'approver_id' => $approver_id );
+            $data = array('application_approved' => 5);
             $this->db->where('account_id', $id);
             $this->db->where('application_id', $appID);
             $this->db->update('hirarc', $data);
         } elseif ($type == 1) {
-            $data = array('application_approved' => 4, 'approver_id' => $approver_id);
+            $data = array('application_approved' => 3, 'approver_id' => $approver_id);
             $this->db->where('account_id', $id);
             $this->db->where('application_id', $appID);
             $this->db->update('hirarc', $data);
@@ -254,12 +254,12 @@ class hirarc_model extends CI_Model
     {
         if ($type == 0) {
             
-            $data = array('application_approved' => 6, 'approver_id' => $approver_id );
+            $data = array('application_approved' => 5);
             $this->db->where('account_id', $id);
             $this->db->where('application_id', $appID);
             $this->db->update('hirarc', $data);
         } elseif ($type == 1) {
-            $data = array('application_approved' => 5, 'approver_id' => $approver_id);
+            $data = array('application_approved' => 4, 'approver_id' => $approver_id);
             $this->db->where('account_id', $id);
             $this->db->where('application_id', $appID);
             $this->db->update('hirarc', $data);
@@ -360,7 +360,7 @@ class hirarc_model extends CI_Model
     {
         if ($type == 0) {
             
-            $data = array('editable' => 3, 'approver_id' => $approver_id );
+            $data = array('editable' => 3);
             $this->db->where('account_id', $id);
             $this->db->where('application_id', $appid);
             $this->db->update('hirarc', $data);

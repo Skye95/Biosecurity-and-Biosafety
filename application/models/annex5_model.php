@@ -70,7 +70,7 @@ class annex5_model extends CI_Model
     {
         if ($type == 0) {
             
-            $data = array('application_approved' => 3, 'approver_id' => $approver_id );
+            $data = array('application_approved' => 3);
             $this->db->where('account_id', $id);
             $this->db->update('annex5', $data);
         } elseif ($type == 1) {
@@ -85,7 +85,7 @@ class annex5_model extends CI_Model
     {
         if ($type == 0) {
             
-            $data = array('application_approved' => 3, 'approver_id' => $approver_id );
+            $data = array('application_approved' => 3);
             $this->db->where('account_id', $id);
             $this->db->update('annex5', $data);
         } elseif ($type == 1) {
@@ -110,7 +110,7 @@ class annex5_model extends CI_Model
     {
         if ($type == 0) {
             
-            $data = array('editable' => 3, 'approver_id' => $approver_id );
+            $data = array('editable' => 3);
             $this->db->where('account_id', $id);
             $this->db->where('application_id', $appid);
             $this->db->update('annex5', $data);

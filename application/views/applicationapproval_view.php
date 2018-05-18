@@ -91,7 +91,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                         <td class="text-center">
                             <button class="btn btn-success" onclick="approve(<?php echo $row->account_id; ?>, <?php echo $row->application_id; ?>)" title="Approve"><i class="fa fa-check"></i></button>
                             <hr/>
-                            <button class="btn btn-danger" onclick="reject(<?php echo $row->account_id; ?>, <?php echo $row->application_id; ?>, <?php echo $row->account_email; ?>)" title="Reject"><i class="fa fa-times"></i></button>
+                            <button class="btn btn-danger" onclick="reject(<?php echo $row->account_id; ?>, <?php echo $row->application_id; ?>)" title="Reject"><i class="fa fa-times"></i></button>
                         </td>
                     </tr>
                 <?php endforeach; ?>
@@ -1269,10 +1269,10 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
             window.location = "<?php echo base_url(); ?>index.php/applicationapproval/approve/" + i + "/" + k;
         }
         
-        function reject(i,k,l){
+        function reject(i,k){
             var j = prompt("Reason for Rejecting:", "Does not meet requirements");
             if (j != null) {
-                window.location = "<?php echo base_url(); ?>index.php/applicationapproval/reject/" + i + "/" + k + "/" + btoa(j) + "/" + l;
+                window.location = "<?php echo base_url(); ?>index.php/applicationapproval/reject/" + i + "/" + k + "/" + btoa(j);
             }
         }
     </script>

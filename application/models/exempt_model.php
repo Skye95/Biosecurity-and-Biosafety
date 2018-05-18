@@ -81,7 +81,7 @@ class exempt_model extends CI_Model
     {
         if ($type == 0) {
             
-            $data = array('application_approved' => 5, 'approver_id' => $approver_id );
+            $data = array('application_approved' => 5);
             $this->db->where('account_id', $id);
             $this->db->where('application_id', $appID);
             $this->db->update('exemptdealing', $data);
@@ -98,7 +98,7 @@ class exempt_model extends CI_Model
     {
         if ($type == 0) {
             
-            $data = array('application_approved' => 5, 'approver_id' => $approver_id );
+            $data = array('application_approved' => 5);
             $this->db->where('account_id', $id);
             $this->db->where('application_id', $appID);
             $this->db->update('exemptdealing', $data);
@@ -115,7 +115,7 @@ class exempt_model extends CI_Model
     {
         if ($type == 0) {
             
-            $data = array('application_approved' => 5, 'approver_id' => $approver_id );
+            $data = array('application_approved' => 5);
             $this->db->where('account_id', $id);
             $this->db->where('application_id', $appID);
             $this->db->update('exemptdealing', $data);
@@ -132,7 +132,7 @@ class exempt_model extends CI_Model
     {
         if ($type == 0) {
             
-            $data = array('application_approved' => 5, 'approver_id' => $approver_id );
+            $data = array('application_approved' => 5);
             $this->db->where('account_id', $id);
             $this->db->where('application_id', $appID);
             $this->db->update('exemptdealing', $data);
@@ -159,7 +159,7 @@ class exempt_model extends CI_Model
     {
         if ($type == 0) {
             
-            $data = array('editable' => 3, 'approver_id' => $approver_id );
+            $data = array('editable' => 3);
             $this->db->where('account_id', $id);
             $this->db->where('application_id', $appid);
             $this->db->update('exemptdealing', $data);

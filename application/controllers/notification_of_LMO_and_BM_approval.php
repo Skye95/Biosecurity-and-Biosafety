@@ -28,9 +28,11 @@ class notification_of_LMO_and_BM_approval extends CI_Controller {
         $approver_id = $this->session->userdata('account_id');
         $id = $this->uri->segment(3);
         $appID = $this->uri->segment(4);
+        $result = $this->account_model->get_account_by_id($id);
         $this->notification_of_LMO_and_BM_model->update_approval($id, 1, $approver_id, $appID);
         
         //Send email to PI giving them the required ID number for the notified LMO/Biohazard Material
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Notification of LMO and Biohazardous Materials Form Submission Approved", "<p>Your Notification of LMO and Biohazardous Materials Form Has Been Approved. </p>");
         
         redirect('notification_of_LMO_and_BM_approval/index');
     }
@@ -41,9 +43,11 @@ class notification_of_LMO_and_BM_approval extends CI_Controller {
         $id = $this->uri->segment(3);
         $appID = $this->uri->segment(4);
         $msg = base64_decode($this->uri->segment(5));
+        $result = $this->account_model->get_account_by_id($id);
         $this->notification_of_LMO_and_BM_model->update_approval($id, 0, $approver_id, $appID);
         
         //Send email to PI that their form has been rejected
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Notification of LMO and Biohazardous Materials Form Submission Rejected", "<p>Your Notification of LMO and Biohazardous Materials Form Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
         
         redirect('notification_of_LMO_and_BM_approval/index');
     }
