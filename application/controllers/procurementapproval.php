@@ -30,6 +30,8 @@ class procurementapproval extends CI_Controller {
         $appID = $this->uri->segment(4);
         $this->procurement_model->update_approval($id, 1, $approver_id, $appID);
         
+        //Send email to Applicant requesting them to print out assessment sheets, QSF, and Pathogen data safety sheet. Tell them they can proceed to Notification of LMO and Biohazardous materials when the items arrived
+        
         redirect('procurementapproval/index');
     }
     
@@ -40,6 +42,8 @@ class procurementapproval extends CI_Controller {
         $appID = $this->uri->segment(4);
         $msg = base64_decode($this->uri->segment(5));
         $this->procurement_model->update_approval($id, 0, $approver_id, $appID);
+        
+        //Send email to Applicant telling them their form has been rejected
         
         redirect('procurementapproval/index');
     }

@@ -30,6 +30,8 @@ class incidentaccident_exempt extends CI_Controller {
         $id = $this->uri->segment(3);
         $this->incidentaccidentreport_model->update_approval($id, 1, $approver_id);
         
+        $this->notification_model->insert_new_notification(null, 3, "Minor Biological Incident/Accident Report Form Approved", "BSO has approved a Minor Biological Incident/Accident Form.");
+        
         redirect('incidentaccident_exempt/index');
     }
     
@@ -40,6 +42,8 @@ class incidentaccident_exempt extends CI_Controller {
         $msg = base64_decode($this->uri->segment(4));
         $this->incidentaccidentreport_model->update_approval($id, 0, $approver_id);
         
+        //No need to inform by email just continue with investigation
+        
         redirect('incidentaccident_exempt/index');
     }
     
@@ -48,6 +52,8 @@ class incidentaccident_exempt extends CI_Controller {
         $approver_id = $this->session->userdata('account_id');
         $id = $this->uri->segment(3);
         $this->incidentaccidentreport_model->update_approval_SSBC($id, 1, $approver_id);
+        
+        //Send email to victim or witnesses investigation outcomes
         
         redirect('incidentaccident_exempt/index');
     }

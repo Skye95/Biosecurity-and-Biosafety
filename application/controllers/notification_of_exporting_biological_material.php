@@ -37,10 +37,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             
             if ($this->form_validation->run() == FALSE){
                 
-                //$data['load'] = "true";
-                //$id = 1;
-                //$data['retrieved'] = $this->annex2_model->get_form_by_id($id);
-                $data['error'] = "Something is wrong";
+                $data['error'] = "Validation Error";
                 
                 $this->load->template('notification_of_exporting_biological_material_view', $data);
                 
@@ -128,7 +125,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $data['load'] = "true";
             $data['disabled'] = "true";
             
-            //$id = $this->uri->segment(3);
             $id = $this->input->get('id');
             $data['retrieved'] = $this->notification_of_exporting_biological_material_model->get_form_by_id($id);
             

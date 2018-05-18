@@ -29,6 +29,8 @@ class export_exempt_BM extends CI_Controller {
         $id = $this->uri->segment(3);
         $this->notification_of_exporting_biological_material_model->update_approval($id, 1, $approver_id);
         
+        //Send email to PI, remind them to inform BSO when the shipped exempt dealing or biohazardous material arrived in importing country
+        
         redirect('export_exempt_BM/index');
     }
     
@@ -38,6 +40,8 @@ class export_exempt_BM extends CI_Controller {
         $id = $this->uri->segment(3);
         $msg = base64_decode($this->uri->segment(4));
         $this->notification_of_exporting_biological_material_model->update_approval($id, 0, $approver_id);
+        
+        //Send email to PI notify them that their form has been rejected
         
         redirect('export_exempt_BM/index');
     }

@@ -51,6 +51,8 @@ class annualreport_approval extends CI_Controller {
         $msg = base64_decode($this->uri->segment(4));
         $this->annualfinalreport_model->proceed_ammend($id, 0, $approver_id);
         
+        //Send email to Applicant notify them that their application has been rejected
+        
         redirect('annualreport_approval/index');
     }
     
@@ -60,6 +62,9 @@ class annualreport_approval extends CI_Controller {
         $id = $this->uri->segment(3);
         $this->annualfinalreport_model->update_approval($id, 1, $approver_id);
         
+        //Notify SSBC Members That BSO Has Approved A Form
+        $this->notification_model->insert_new_notification(null, 3, "Annual Final Report Form Application Approved", "BSO has approved an Annual Final Report Form Application that requires additional input. ");
+        
         redirect('annualreport_approval/index');
     }
     
@@ -68,6 +73,8 @@ class annualreport_approval extends CI_Controller {
         $approver_id = $this->session->userdata('account_id');
         $id = $this->uri->segment(3);
         $this->annualfinalreport_model->update_approval_BSO($id, 1, $approver_id);
+        
+        //Send email to Applicant notify them that their application has been fully approved
         
         redirect('annualreport_approval/index');
     }
@@ -79,6 +86,8 @@ class annualreport_approval extends CI_Controller {
         $msg = base64_decode($this->uri->segment(4));
         $this->annualfinalreport_model->update_approval($id, 0, $approver_id);
         
+        //Send email to Applicant notify them that their application has been rejected
+        
         redirect('annualreport_approval/index');
     }
     
@@ -87,6 +96,9 @@ class annualreport_approval extends CI_Controller {
         $approver_id = $this->session->userdata('account_id');
         $id = $this->uri->segment(3);
         $this->annualfinalreport_model->update_approval_SSBC($id, 1, $approver_id);
+        
+        //Notify SSBC Chair That SSBC members Have Approved a Form
+        $this->notification_model->insert_new_notification(null, 2, "Annual Final Report Form Application Approved", "SSBC Members have approved an Annual Final Report Form Application. ");
         
         redirect('annualreport_approval/index');
     }
@@ -98,6 +110,8 @@ class annualreport_approval extends CI_Controller {
         $msg = base64_decode($this->uri->segment(4));
         $this->annualfinalreport_model->update_approval_SSBC($id, 0, $approver_id);
         
+        //Send email to Applicant notify them that their application has been fully rejected
+        
         redirect('annualreport_approval/index');
     }
     
@@ -106,6 +120,8 @@ class annualreport_approval extends CI_Controller {
         $approver_id = $this->session->userdata('account_id');
         $id = $this->uri->segment(3);
         $this->annualfinalreport_model->update_approval_Chair($id, 1, $approver_id);
+        
+        //Send email to Applicant notify them that their application has been fully approved
         
         redirect('annualreport_approval/index');
     }
@@ -117,164 +133,12 @@ class annualreport_approval extends CI_Controller {
         $msg = base64_decode($this->uri->segment(4));
         $this->annualfinalreport_model->update_approval_Chair($id, 0, $approver_id);
         
+        //Send email to Applicant notify them that their application has been fully rejected
+        
         redirect('annualreport_approval/index');
     }
     //End Of Annual Final Report Functions
     
-    //Methods For Approving And Rejecting HIRARC forms
-    public function hirarc_ammend($id)
-    {
-        $approver_id = ' ';
-        $id = $this->uri->segment(3);
-        $msg = base64_decode($this->uri->segment(4));
-        $this->hirarc_model->proceed_ammend($id, 0, $approver_id);
-        
-        redirect('annualreport_approval/index');
-    }
-    
-    public function approve_hirarc($id)
-    {
-        $approver_id = $this->session->userdata('account_id');
-        $id = $this->uri->segment(3);
-        $this->hirarc_model->update_approval($id, 1, $approver_id);
-        
-        redirect('annualreport_approval/index');
-    }
-    
-    public function hirarc_approve_BSO($id)
-    {
-        $approver_id = $this->session->userdata('account_id');
-        $id = $this->uri->segment(3);
-        $this->hirarc_model->update_approval_BSO($id, 1, $approver_id);
-        
-        redirect('annualreport_approval/index');
-    }
-    
-    public function reject_hirarc($id)
-    {
-        $approver_id = ' ';
-        $id = $this->uri->segment(3);
-        $msg = base64_decode($this->uri->segment(4));
-        $this->hirarc_model->update_approval($id, 0, $approver_id);
-        
-        redirect('annualreport_approval/index');
-    }
-    
-    public function approve_hirarc2($id)
-    {
-        $approver_id = $this->session->userdata('account_id');
-        $id = $this->uri->segment(3);
-        $this->hirarc_model->update_approval_SSBC($id, 1, $approver_id);
-        
-        redirect('annualreport_approval/index');
-    }
-    
-    public function reject_hirarc2($id)
-    {
-        $approver_id = ' ';
-        $id = $this->uri->segment(3);
-        $msg = base64_decode($this->uri->segment(4));
-        $this->hirarc_model->update_approval_SSBC($id, 0, $approver_id);
-        
-        redirect('annualreport_approval/index');
-    }
-    
-    public function approve_hirarc3($id)
-    {
-        $approver_id = $this->session->userdata('account_id');
-        $id = $this->uri->segment(3);
-        $this->hirarc_model->update_approval_Chair($id, 1, $approver_id);
-        
-        redirect('annualreport_approval/index');
-    }
-    
-    public function reject_hirarc3($id)
-    {
-        $approver_id = ' ';
-        $id = $this->uri->segment(3);
-        $msg = base64_decode($this->uri->segment(4));
-        $this->hirarc_model->update_approval_Chair($id, 0, $approver_id);
-        
-        redirect('annualreport_approval/index');
-    }
-    //End Of HIRARC Functions
-    
-    //Methods For Approving And Rejecting SWP forms
-    public function swp_ammend($id)
-    {
-        $approver_id = ' ';
-        $id = $this->uri->segment(3);
-        $msg = base64_decode($this->uri->segment(4));
-        $this->swp_model->proceed_ammend($id, 0, $approver_id);
-        
-        redirect('annualreport_approval/index');
-    }
-    
-    public function approve_swp($id)
-    {
-        $approver_id = $this->session->userdata('account_id');
-        $id = $this->uri->segment(3);
-        $this->swp_model->update_approval($id, 1, $approver_id);
-        
-        redirect('annualreport_approval/index');
-    }
-    
-    public function swp_approve_BSO($id)
-    {
-        $approver_id = $this->session->userdata('account_id');
-        $id = $this->uri->segment(3);
-        $this->swp_model->update_approval_BSO($id, 1, $approver_id);
-        
-        redirect('annualreport_approval/index');
-    }
-    
-    public function reject_swp($id)
-    {
-        $approver_id = ' ';
-        $id = $this->uri->segment(3);
-        $msg = base64_decode($this->uri->segment(4));
-        $this->swp_model->update_approval($id, 0, $approver_id);
-        
-        redirect('annualreport_approval/index');
-    }
-    
-    public function approve_swp_2($id)
-    {
-        $approver_id = $this->session->userdata('account_id');
-        $id = $this->uri->segment(3);
-        $this->swp_model->update_approval_SSBC($id, 1, $approver_id);
-        
-        redirect('annualreport_approval/index');
-    }
-    
-    public function reject_swp_2($id)
-    {
-        $approver_id = ' ';
-        $id = $this->uri->segment(3);
-        $msg = base64_decode($this->uri->segment(4));
-        $this->swp_model->update_approval_SSBC($id, 0, $approver_id);
-        
-        redirect('annualreport_approval/index');
-    } 
-    
-    public function approve_swp_3($id)
-    {
-        $approver_id = $this->session->userdata('account_id');
-        $id = $this->uri->segment(3);
-        $this->swp_model->update_approval_Chair($id, 1, $approver_id);
-        
-        redirect('annualreport_approval/index');
-    }
-    
-    public function reject_swp_3($id)
-    {
-        $approver_id = ' ';
-        $id = $this->uri->segment(3);
-        $msg = base64_decode($this->uri->segment(4));
-        $this->swp_model->update_approval_Chair($id, 0, $approver_id);
-        
-        redirect('annualreport_approval/index');
-    } 
     
 }
     

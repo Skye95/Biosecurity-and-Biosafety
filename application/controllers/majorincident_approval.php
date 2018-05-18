@@ -37,6 +37,10 @@ class majorincident_approval extends CI_Controller {
         $appID = $this->uri->segment(4);
         $this->incidentaccidentreport_model->update_approval($id, 1, $approver_id, $appID);
         
+        $this->notification_model->insert_new_notification(null, 3, "Minor Biological Incident/Accident Report Form Approved", "BSO has approved a Minor Biological Incident/Accident Form.");
+        
+        $this->notification_model->insert_new_notification(null, 5, "Minor Biological Incident/Accident Report Form Approved", "BSO has approved a Minor Biological Incident/Accident Form.");
+        
         redirect('majorincident_approval/index');
     }
     
@@ -48,6 +52,8 @@ class majorincident_approval extends CI_Controller {
         $msg = base64_decode($this->uri->segment(5));
         $this->incidentaccidentreport_model->update_approval($id, 0, $approver_id, $appID);
         
+        //no need to send email here just continue investigation
+        
         redirect('majorincident_approval/index');
     }
     
@@ -57,6 +63,8 @@ class majorincident_approval extends CI_Controller {
         $id = $this->uri->segment(3);
         $appID = $this->uri->segment(4);
         $this->incidentaccidentreport_model->update_approval_SSBC($id, 1, $approver_id, $appID);
+        
+        //send email to victim or witnesses for investigation outcomes
         
         redirect('majorincident_approval/index');
     }
@@ -69,26 +77,7 @@ class majorincident_approval extends CI_Controller {
         $msg = base64_decode($this->uri->segment(5));
         $this->incidentaccidentreport_model->update_approval_SSBC($id, 0, $approver_id, $appID);
         
-        redirect('majorincident_approval/index');
-    }
-    
-    public function approve3($id, $appID)
-    {
-        $approver_id = $this->session->userdata('account_id');
-        $id = $this->uri->segment(3);
-        $appID = $this->uri->segment(4);
-        $this->incidentaccidentreport_model->update_approval_HSO($id, 1, $approver_id, $appID);
-        
-        redirect('majorincident_approval/index');
-    }
-    
-    public function reject3($id, $appID)
-    {
-        $approver_id = ' ';
-        $id = $this->uri->segment(3);
-        $appID = $this->uri->segment(4);
-        $msg = base64_decode($this->uri->segment(5));
-        $this->incidentaccidentreport_model->update_approval_HSO($id, 0, $approver_id, $appID);
+        //no need email here just continue invstigation
         
         redirect('majorincident_approval/index');
     }
@@ -102,6 +91,10 @@ class majorincident_approval extends CI_Controller {
         $appID = $this->uri->segment(4);
         $this->annex3_model->update_approval($id, 1, $approver_id, $appID);
         
+        $this->notification_model->insert_new_notification(null, 3, "Annex 3 Form Approved", "BSO has approved an Annex 3 Form.");
+        
+        $this->notification_model->insert_new_notification(null, 5, "Annex 3 Form Approved", "BSO has approved an Annex 3 Form.");
+        
         redirect('majorincident_approval/index');
     }
     
@@ -113,6 +106,8 @@ class majorincident_approval extends CI_Controller {
         $msg = base64_decode($this->uri->segment(5));
         $this->annex3_model->update_approval($id, 0, $approver_id, $appID);
         
+        //no need email here just continue investigation
+        
         redirect('majorincident_approval/index');
     }
     
@@ -122,6 +117,8 @@ class majorincident_approval extends CI_Controller {
         $id = $this->uri->segment(3);
         $appID = $this->uri->segment(4);
         $this->annex3_model->update_approval_SSBC($id, 1, $approver_id, $appID);
+        
+        //send email to victim or witnesses for investigation outcomes
         
         redirect('majorincident_approval/index');
     }
@@ -134,30 +131,10 @@ class majorincident_approval extends CI_Controller {
         $msg = base64_decode($this->uri->segment(5));
         $this->annex3_model->update_approval_SSBC($id, 0, $approver_id, $appID);
         
-        redirect('majorincident_approval/index');
-    }
-    
-    public function approve3_annex3($id, $appID)
-    {
-        $approver_id = $this->session->userdata('account_id');
-        $id = $this->uri->segment(3);
-        $appID = $this->uri->segment(4);
-        $this->annex3_model->update_approval_HSO($id, 1, $approver_id, $appID);
+        //no need email here just continue investigation
         
         redirect('majorincident_approval/index');
     }
-    
-    public function reject3_annex3($id, $appID)
-    {
-        $approver_id = ' ';
-        $id = $this->uri->segment(3);
-        $appID = $this->uri->segment(4);
-        $msg = base64_decode($this->uri->segment(5));
-        $this->annex3_model->update_approval_HSO($id, 0, $approver_id, $appID);
-        
-        redirect('majorincident_approval/index');
-    }
-    
     
     
     

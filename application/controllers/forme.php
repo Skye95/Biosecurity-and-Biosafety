@@ -120,10 +120,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             if ($this->form_validation->run() == FALSE)
             {
                 
-                //$data['load'] = "true";
-                //$id = 1;
-                //$data['retrieved'] = $this->annex2_model->get_form_by_id($id);
-            
                 
                 $this->load->template('forme_view', $data);
                 

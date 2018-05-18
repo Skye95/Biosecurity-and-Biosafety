@@ -91,7 +91,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                         <td class="text-center">
                             <button class="btn btn-success" onclick="approve(<?php echo $row->account_id; ?>, <?php echo $row->application_id; ?>)" title="Approve"><i class="fa fa-check"></i></button>
                             <hr/>
-                            <button class="btn btn-danger" onclick="reject(<?php echo $row->account_id; ?>, <?php echo $row->application_id; ?>)" title="Reject"><i class="fa fa-times"></i></button>
+                            <button class="btn btn-danger" onclick="reject(<?php echo $row->account_id; ?>, <?php echo $row->application_id; ?>, <?php echo $row->account_email; ?>)" title="Reject"><i class="fa fa-times"></i></button>
                         </td>
                     </tr>
                 <?php endforeach; ?>
@@ -1269,17 +1269,15 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
             window.location = "<?php echo base_url(); ?>index.php/applicationapproval/approve/" + i + "/" + k;
         }
         
-        function reject(i,k){
+        function reject(i,k,l){
             var j = prompt("Reason for Rejecting:", "Does not meet requirements");
             if (j != null) {
-                window.location = "<?php echo base_url(); ?>index.php/applicationapproval/reject/" + i + "/" + k + "/" + btoa(j);
+                window.location = "<?php echo base_url(); ?>index.php/applicationapproval/reject/" + i + "/" + k + "/" + btoa(j) + "/" + l;
             }
         }
     </script>
     
-    <script>
-        //document.getElementById("show").onclick = annex2_show;
-        
+    <script> 
         function Chair_approve(i,k){
             window.location = "<?php echo base_url(); ?>index.php/applicationapproval/Chair_approve/" + i + "/" + k;
         }
@@ -1313,11 +1311,11 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
     </script>
     
     <script>
-        function approve2(i,k){
+        function approve_2(i,k){
             window.location = "<?php echo base_url(); ?>index.php/applicationapproval/approve2/" + i + "/" + k;
         }
         
-        function reject2(i,k){
+        function reject_2(i,k){
             var j = prompt("Reason for Rejecting:", "Does not meet requirements");
             if (j != null) {
                 window.location = "<?php echo base_url(); ?>index.php/applicationapproval/reject2/" + i + "/" + k + "/" + btoa(j);

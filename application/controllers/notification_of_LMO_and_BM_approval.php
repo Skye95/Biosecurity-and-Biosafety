@@ -30,6 +30,8 @@ class notification_of_LMO_and_BM_approval extends CI_Controller {
         $appID = $this->uri->segment(4);
         $this->notification_of_LMO_and_BM_model->update_approval($id, 1, $approver_id, $appID);
         
+        //Send email to PI giving them the required ID number for the notified LMO/Biohazard Material
+        
         redirect('notification_of_LMO_and_BM_approval/index');
     }
     
@@ -40,6 +42,8 @@ class notification_of_LMO_and_BM_approval extends CI_Controller {
         $appID = $this->uri->segment(4);
         $msg = base64_decode($this->uri->segment(5));
         $this->notification_of_LMO_and_BM_model->update_approval($id, 0, $approver_id, $appID);
+        
+        //Send email to PI that their form has been rejected
         
         redirect('notification_of_LMO_and_BM_approval/index');
     }

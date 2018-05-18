@@ -43,6 +43,8 @@ class exempt_approval extends CI_Controller {
         $id = $this->uri->segment(3);
         $this->exempt_model->update_approval($id, 1, $approver_id, $appID);
         
+        $this->notification_model->insert_new_notification(null, 2, "Exempt Dealing Application Approved", "BSO has approved an Exempt Dealing Form ");
+        
         redirect('exempt_approval/index');
     }
     
@@ -54,6 +56,8 @@ class exempt_approval extends CI_Controller {
         $msg = base64_decode($this->uri->segment(5));
         $this->exempt_model->update_approval($id, 0, $approver_id, $appID);
         
+        //Send email to applicant let them know their form submission has been rejected
+        
         redirect('exempt_approval/index');
     }
     
@@ -64,6 +68,8 @@ class exempt_approval extends CI_Controller {
         $appID = $this->uri->segment(4);
         $this->exempt_model->update_yes_issue($id, 1, $approver_id, $appID);
         
+        $this->notification_model->insert_new_notification(null, 3, "Exempt Dealing Application Approved", "SSBC Chair has approved an Exempt Dealing Form that requires additional input.");
+        
         redirect('exempt_approval/index');
     }
     
@@ -72,6 +78,8 @@ class exempt_approval extends CI_Controller {
         $approver_id = $this->session->userdata('account_id');
         $id = $this->uri->segment(3);
         $this->exempt_model->update_approval_SSBC($id, 1, $approver_id, $appID);
+        
+        $this->notification_model->insert_new_notification(null, 2, "Exempt Dealing Application Approved", "SSBC Member has approved an Exempt Dealing Form");
         
         redirect('exempt_approval/index');
     }
@@ -84,6 +92,8 @@ class exempt_approval extends CI_Controller {
         $msg = base64_decode($this->uri->segment(5));
         $this->exempt_model->update_approval_SSBC($id, 0, $approver_id, $appID);
         
+        //Send email to applicant let them know their form submission has been rejected
+        
         redirect('exempt_approval/index');
     }
     
@@ -93,6 +103,8 @@ class exempt_approval extends CI_Controller {
         $id = $this->uri->segment(3);
         $appID = $this->uri->segment(4);
         $this->exempt_model->final_approval($id, 1, $approver_id, $appID);
+        
+        //Send email to applicant let them know their form submission has been fully approved
         
         redirect('exempt_approval/index');
     }
@@ -105,6 +117,8 @@ class exempt_approval extends CI_Controller {
         $msg = base64_decode($this->uri->segment(5));
         $this->exempt_model->final_approval($id, 0, $approver_id, $appID);
         
+        //Send email to applicant let them know their form submission has been rejected
+        
         redirect('exempt_approval/index');
     }
     
@@ -114,6 +128,8 @@ class exempt_approval extends CI_Controller {
         $id = $this->uri->segment(3);
         $appID = $this->uri->segment(4);
         $this->hirarc_model->update_BSO($id, 1, $approver_id, $appID);
+        
+        $this->notification_model->insert_new_notification(null, 2, "HIRARC Form Application Approved", "BSO has approved a HIRARC Form ");
         
         redirect('exempt_approval/index');
     }
@@ -126,6 +142,8 @@ class exempt_approval extends CI_Controller {
         $msg = base64_decode($this->uri->segment(5));
         $this->hirarc_model->update_BSO($id, 0, $approver_id, $appID);
         
+        //Send email to applicant let them know their form submission has been rejected
+        
         redirect('exempt_approval/index');
     }
     
@@ -135,6 +153,8 @@ class exempt_approval extends CI_Controller {
         $id = $this->uri->segment(3);
         $appID = $this->uri->segment(4);
         $this->hirarc_model->update_yes_issue($id, 1, $approver_id, $appID);
+        
+        $this->notification_model->insert_new_notification(null, 3, "HIRARC Form Application Approved", "SSBC Chair has approved a HIRARC Form Application that requires additional input");
         
         redirect('exempt_approval/index');
     }
@@ -147,6 +167,9 @@ class exempt_approval extends CI_Controller {
         $appID = $this->uri->segment(4);
         $this->hirarc_model->update_SSBC($id, 1, $approver_id, $appID);
         
+        //Notify SSBC Chair that SSBC Members have reviewed and approved the form
+        $this->notification_model->insert_new_notification(null, 2, "HIRARC Form Application Approved", "SSBC members have approved a HIRARC Form Application.");
+        
         redirect('exempt_approval/index');
     }
     
@@ -158,6 +181,8 @@ class exempt_approval extends CI_Controller {
         $msg = base64_decode($this->uri->segment(5));
         $this->hirarc_model->update_SSBC($id, 0, $approver_id, $appID);
         
+        //Send email to applicant let them know their form submission has been rejected
+        
         redirect('exempt_approval/index');
     }
     
@@ -167,6 +192,8 @@ class exempt_approval extends CI_Controller {
         $id = $this->uri->segment(3);
         $appID = $this->uri->segment(4);
         $this->hirarc_model->final_approval($id, 1, $approver_id, $appID);
+        
+        //Send email to applicant let them know their form submission has been fully approved
         
         redirect('exempt_approval/index');
     }
@@ -179,6 +206,8 @@ class exempt_approval extends CI_Controller {
         $msg = base64_decode($this->uri->segment(5));
         $this->hirarc_model->final_approval($id, 0, $approver_id, $appID);
         
+        //Send email to applicant let them know their form submission has been rejected
+        
         redirect('exempt_approval/index');
     }
     
@@ -189,6 +218,8 @@ class exempt_approval extends CI_Controller {
         $id = $this->uri->segment(3);
         $appID = $this->uri->segment(4);
         $this->swp_model->update_approval($id, 1, $approver_id, $appID);
+        
+        $this->notification_model->insert_new_notification(null, 2, "Safety Work Procedure Form Application Approved", "BSO has approved a Safety Work Procedure Form Application.");
         
         redirect('exempt_approval/index');
     }
@@ -201,6 +232,8 @@ class exempt_approval extends CI_Controller {
         $msg = base64_decode($this->uri->segment(5));
         $this->swp_model->update_approval($id, 0, $approver_id, $appID);
         
+        //Send email to applicant let them know their form submission has been rejected
+        
         redirect('exempt_approval/index');
     }
     
@@ -211,6 +244,8 @@ class exempt_approval extends CI_Controller {
         $appID = $this->uri->segment(4);
         $this->swp_model->update_yes_issue($id, 1, $approver_id, $appID);
         
+        $this->notification_model->insert_new_notification(null, 3, "Safety Work Procedure Form Application Approved", "SSBC Chair has approved a Safety Work Procedure Form Application that requires additional input");
+        
         redirect('exempt_approval/index');
     }
     
@@ -220,6 +255,9 @@ class exempt_approval extends CI_Controller {
         $id = $this->uri->segment(3);
         $appID = $this->uri->segment(4);
         $this->swp_model->update_approval_SSBC($id, 1, $approver_id, $appID);
+        
+        //Notify SSBC Chair that SSBC Members have reviewed and approved the form
+        $this->notification_model->insert_new_notification(null, 2, "Safety Work Procedure Form Application Approved", "SSBC members have approved a Safety Work Procedure Form Application.");
         
         redirect('exempt_approval/index');
     }
@@ -232,6 +270,8 @@ class exempt_approval extends CI_Controller {
         $msg = base64_decode($this->uri->segment(5));
         $this->swp_model->update_approval_SSBC($id, 0, $approver_id, $appID);
         
+        //Send email to applicant let them know their form submission has been rejected
+        
         redirect('exempt_approval/index');
     } 
     
@@ -241,6 +281,8 @@ class exempt_approval extends CI_Controller {
         $id = $this->uri->segment(3);
         $appID = $this->uri->segment(4);
         $this->swp_model->final_approval($id, 1, $approver_id, $appID);
+        
+        //Send email to applicant let them know their form submission has been fully approved
         
         redirect('exempt_approval/index');
     }
@@ -252,6 +294,8 @@ class exempt_approval extends CI_Controller {
         $appID = $this->uri->segment(4);
         $msg = base64_decode($this->uri->segment(5));
         $this->swp_model->final_approval($id, 0, $approver_id, $appID);
+        
+        //Send email to applicant let them know their form submission has been rejected
         
         redirect('exempt_approval/index');
     }

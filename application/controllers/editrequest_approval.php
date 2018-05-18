@@ -66,6 +66,8 @@ class editrequest_approval extends CI_Controller {
         $appid = $this->uri->segment(4);
         $this->annex2_model->update_editable($id, 1, $approver_id, $appid);
         
+        
+        
         redirect('editrequest_approval/index');
     }
     

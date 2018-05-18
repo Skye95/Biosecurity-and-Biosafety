@@ -43,6 +43,8 @@ class biohazard_approval extends CI_Controller {
         $appID = $this->uri->segment(4);
         $this->biohazard_model->update_approval($id, 1, $approver_id, $appID);
         
+        $this->notification_model->insert_new_notification(null, 2, "Biohazard Materials Application Approved", "BSO has approved a Biohazard Materials Form ");
+        
         redirect('biohazard_approval/index');
     }
     
@@ -54,6 +56,8 @@ class biohazard_approval extends CI_Controller {
         $msg = base64_decode($this->uri->segment(5));
         $this->biohazard_model->update_approval($id, 0, $approver_id, $appID);
         
+        //Send email to applicant let them know their form submission has been rejected
+        
         redirect('biohazard_approval/index');
     }
     
@@ -64,6 +68,9 @@ class biohazard_approval extends CI_Controller {
         $appID = $this->uri->segment(4);
         $this->biohazard_model->update_yes_issue($id, 1, $approver_id, $appID);
         
+        //Notify All SSBC Members that SSBC Chair has approved a form but still requires their input
+        $this->notification_model->insert_new_notification(null, 3, "Biohazard Materials Application Approved", "SSBC Chair has approved a Biohazard Materials Application that requires additional input");
+        
         redirect('biohazard_approval/index');
     }
     
@@ -73,6 +80,9 @@ class biohazard_approval extends CI_Controller {
         $id = $this->uri->segment(3);
         $appID = $this->uri->segment(4);
         $this->biohazard_model->update_approval_SSBC($id, 1, $approver_id, $appID);
+        
+        //Notify SSBC Chair that SSBC Members have reviewed and approved the form
+        $this->notification_model->insert_new_notification(null, 2, "Biohazard Materials Application Approved", "SSBC members have approved a Biohazard Materials Application.");
         
         redirect('biohazard_approval/index');
     }
@@ -85,6 +95,8 @@ class biohazard_approval extends CI_Controller {
         $msg = base64_decode($this->uri->segment(5));
         $this->biohazard_model->update_approval_SSBC($id, 0, $approver_id, $appID);
         
+        //Send email to applicant let them know their form submission has been rejected
+        
         redirect('biohazard_approval/index');
     }
     
@@ -94,6 +106,8 @@ class biohazard_approval extends CI_Controller {
         $id = $this->uri->segment(3);
         $appID = $this->uri->segment(4);
         $this->biohazard_model->final_approval($id, 1, $approver_id, $appID);
+        
+        //Send email to applicant let them know their form submission has been fully approved
         
         redirect('biohazard_approval/index');
     }
@@ -106,6 +120,8 @@ class biohazard_approval extends CI_Controller {
         $msg = base64_decode($this->uri->segment(5));
         $this->biohazard_model->final_approval($id, 0, $approver_id, $appID);
         
+        //Send email to applicant let them know their form submission has been rejected
+        
         redirect('biohazard_approval/index');
     }
     
@@ -116,6 +132,8 @@ class biohazard_approval extends CI_Controller {
         $id = $this->uri->segment(3);
         $appID = $this->uri->segment(4);
         $this->hirarc_model->update_BSO($id, 1, $approver_id, $appID);
+        
+        $this->notification_model->insert_new_notification(null, 2, "HIRARC Form Application Approved", "BSO has approved a HIRARC Form ");
         
         redirect('biohazard_approval/index');
     }
@@ -128,6 +146,8 @@ class biohazard_approval extends CI_Controller {
         $msg = base64_decode($this->uri->segment(5));
         $this->hirarc_model->update_BSO($id, 0, $approver_id, $appID);
         
+        //Send email to applicant let them know their form submission has been rejected
+        
         redirect('biohazard_approval/index');
     }
     
@@ -137,6 +157,8 @@ class biohazard_approval extends CI_Controller {
         $id = $this->uri->segment(3);
         $appID = $this->uri->segment(4);
         $this->hirarc_model->update_yes_issue($id, 1, $approver_id, $appID);
+        
+        $this->notification_model->insert_new_notification(null, 3, "HIRARC Form Application Approved", "SSBC Chair has approved a HIRARC Form Application that requires additional input");
         
         redirect('biohazard_approval/index');
     }
@@ -149,6 +171,9 @@ class biohazard_approval extends CI_Controller {
         $appID = $this->uri->segment(4);
         $this->hirarc_model->update_SSBC($id, 1, $approver_id, $appID);
         
+        //Notify SSBC Chair that SSBC Members have reviewed and approved the form
+        $this->notification_model->insert_new_notification(null, 2, "HIRARC Form Application Approved", "SSBC members have approved a HIRARC Form Application.");
+        
         redirect('biohazard_approval/index');
     }
     
@@ -160,6 +185,8 @@ class biohazard_approval extends CI_Controller {
         $msg = base64_decode($this->uri->segment(5));
         $this->hirarc_model->update_SSBC($id, 0, $approver_id, $appID);
         
+        //Send email to applicant let them know their form submission has been rejected
+        
         redirect('biohazard_approval/index');
     }
     
@@ -169,6 +196,8 @@ class biohazard_approval extends CI_Controller {
         $id = $this->uri->segment(3);
         $appID = $this->uri->segment(4);
         $this->hirarc_model->final_approval($id, 1, $approver_id, $appID);
+        
+        //Send email to applicant let them know their form submission has been fully approved
         
         redirect('biohazard_approval/index');
     }
@@ -181,6 +210,8 @@ class biohazard_approval extends CI_Controller {
         $msg = base64_decode($this->uri->segment(5));
         $this->hirarc_model->final_approval($id, 0, $approver_id, $appID);
         
+        //Send email to applicant let them know their form submission has been rejected
+        
         redirect('biohazard_approval/index');
     }
     
@@ -191,6 +222,8 @@ class biohazard_approval extends CI_Controller {
         $id = $this->uri->segment(3);
         $appID = $this->uri->segment(4);
         $this->swp_model->update_approval($id, 1, $approver_id, $appID);
+        
+        $this->notification_model->insert_new_notification(null, 2, "Safety Work Procedure Form Application Approved", "BSO has approved a Safety Work Procedure Form Application.");
         
         redirect('biohazard_approval/index');
     }
@@ -203,6 +236,8 @@ class biohazard_approval extends CI_Controller {
         $msg = base64_decode($this->uri->segment(5));
         $this->swp_model->update_approval($id, 0, $approver_id, $appID);
         
+        //Send email to applicant let them know their form submission has been rejected
+        
         redirect('biohazard_approval/index');
     }
     
@@ -213,6 +248,8 @@ class biohazard_approval extends CI_Controller {
         $appID = $this->uri->segment(4);
         $this->swp_model->update_yes_issue($id, 1, $approver_id, $appID);
         
+         $this->notification_model->insert_new_notification(null, 3, "Safety Work Procedure Form Application Approved", "SSBC Chair has approved a Safety Work Procedure Form Application that requires additional input");
+        
         redirect('biohazard_approval/index');
     }
     
@@ -222,6 +259,9 @@ class biohazard_approval extends CI_Controller {
         $id = $this->uri->segment(3);
         $appID = $this->uri->segment(4);
         $this->swp_model->update_approval_SSBC($id, 1, $approver_id, $appID);
+        
+        //Notify SSBC Chair that SSBC Members have reviewed and approved the form
+        $this->notification_model->insert_new_notification(null, 2, "Safety Work Procedure Form Application Approved", "SSBC members have approved a Safety Work Procedure Form Application.");
         
         redirect('biohazard_approval/index');
     }
@@ -234,6 +274,8 @@ class biohazard_approval extends CI_Controller {
         $msg = base64_decode($this->uri->segment(5));
         $this->swp_model->update_approval_SSBC($id, 0, $approver_id, $appID);
         
+        //Send email to applicant let them know their form submission has been rejected
+        
         redirect('biohazard_approval/index');
     } 
     
@@ -243,6 +285,8 @@ class biohazard_approval extends CI_Controller {
         $id = $this->uri->segment(3);
         $appID = $this->uri->segment(4);
         $this->swp_model->final_approval($id, 1, $approver_id, $appID);
+        
+        //Send email to applicant let them know their form submission has been fully approved
         
         redirect('biohazard_approval/index');
     }
@@ -254,6 +298,8 @@ class biohazard_approval extends CI_Controller {
         $appID = $this->uri->segment(4);
         $msg = base64_decode($this->uri->segment(5));
         $this->swp_model->final_approval($id, 0, $approver_id, $appID);
+        
+        //Send email to applicant let them know their form submission has been rejected
         
         redirect('biohazard_approval/index');
     }

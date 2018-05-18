@@ -87,9 +87,9 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                         </td>
                         -->
                         <td id="proceed2" class="text-center">
-                            <button class="btn btn-success" onclick="proceed(<?php echo $row->account_id; ?>)" title="Approve"><i class="fa fa-check"></i></button>
+                            <button class="btn btn-success" onclick="proceed(<?php echo $row->account_id; ?>)" title="Proceed"><i class="fa fa-check"></i></button>
                             <hr/>
-                            <button class="btn btn-danger" onclick="ammend(<?php echo $row->account_id; ?>)" title="Reject"><i class="fa fa-times"></i></button>
+                            <button class="btn btn-danger" onclick="ammend(<?php echo $row->account_id; ?>)" title="Ammend"><i class="fa fa-times"></i></button>
                         </td>
                         <td id="issuecell" style="display:none;">
                             <button class="btn btn-success" onclick="approve(<?php echo $row->account_id; ?>)" title="Approve">Yes</button>
