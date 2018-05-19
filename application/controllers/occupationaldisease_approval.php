@@ -39,6 +39,10 @@ class occupationaldisease_approval extends CI_Controller {
         $appID = $this->uri->segment(4);
         $this->incidentaccidentreport_model->update_approval($id, 1, $approver_id, $appID);
         
+        $this->notification_model->insert_new_notification(null, 3, "Major Biological Incident/Accident Report Form Approved", "BSO has approved a Major Biological Incident/Accident Form.");
+        
+        $this->notification_model->insert_new_notification(null, 5, "Major Biological Incident/Accident Report Form Approved", "BSO has approved a Major Biological Incident/Accident Form.");
+        
         redirect('occupationaldisease_approval/index');
     }
     
@@ -58,7 +62,11 @@ class occupationaldisease_approval extends CI_Controller {
         $approver_id = $this->session->userdata('account_id');
         $id = $this->uri->segment(3);
         $appID = $this->uri->segment(4);
+        $result = $this->account_model->get_account_by_id($id);
         $this->incidentaccidentreport_model->update_approval_SSBC($id, 1, $approver_id, $appID);
+        
+        //send email to victim or witnesses for investigation outcomes
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Incident Accident Report Form Submission Processed", "<p>Your Incident Accident Report Form Submission Has Been Processed. (Investigations Outcomes Here)</p>");
         
         redirect('occupationaldisease_approval/index');
     }
@@ -104,6 +112,10 @@ class occupationaldisease_approval extends CI_Controller {
         $appID = $this->uri->segment(4);
         $this->annex4_model->update_approval($id, 1, $approver_id, $appID);
         
+        $this->notification_model->insert_new_notification(null, 3, "Annex 4 Form Approved", "BSO has approved an Annex 4 Form.");
+        
+        $this->notification_model->insert_new_notification(null, 5, "Annex 4 Form Approved", "BSO has approved an Annex 4 Form.");
+        
         redirect('occupationaldisease_approval/index');
     }
     
@@ -123,7 +135,11 @@ class occupationaldisease_approval extends CI_Controller {
         $approver_id = $this->session->userdata('account_id');
         $id = $this->uri->segment(3);
         $appID = $this->uri->segment(4);
+        $result = $this->account_model->get_account_by_id($id);
         $this->annex4_model->update_approval_SSBC($id, 1, $approver_id, $appID);
+        
+        //send email to victim or witnesses for investigation outcomes
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Annex 4 Form Submission Processed", "<p>Your Annex 4 Form Submission Has Been Processed. (Investigations Outcomes Here)</p>");
         
         redirect('occupationaldisease_approval/index');
     }

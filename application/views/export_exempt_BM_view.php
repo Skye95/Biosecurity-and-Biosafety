@@ -91,9 +91,9 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                         </td>
                         -->
                         <td class="text-center">
-                            <i class="btn btn-success fa fa-check" onclick="approve(<?php echo $row->account_id; ?>)" title="Approve"></i>
+                            <i class="btn btn-success fa fa-check" onclick="approve(<?php echo $row->account_id; ?>, <?php echo $row->application_id; ?>)" title="Approve"></i>
                             <hr/>
-                            <i class="btn btn-danger fa fa-times" onclick="reject(<?php echo $row->account_id; ?>)" title="Reject"></i>
+                            <i class="btn btn-danger fa fa-times" onclick="reject(<?php echo $row->account_id; ?>, <?php echo $row->application_id; ?>)" title="Reject"></i>
                         </td>
                     </tr>
                 <?php endforeach; ?>
@@ -118,14 +118,14 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
     </script>
     
     <script>
-        function approve(i){
-            window.location = "<?php echo base_url(); ?>index.php/export_exempt_BM/approve/" + i;
+        function approve(i,k){
+            window.location = "<?php echo base_url(); ?>index.php/export_exempt_BM/approve/" + i + "/" + k;
         }
         
-        function reject(i){
+        function reject(i,k){
             var j = prompt("Reason for Rejecting:", "Did not meet requirement");
             if (j != null) {
-                window.location = "<?php echo base_url(); ?>index.php/export_exempt_BM/reject/" + i + "/" + btoa(j);
+                window.location = "<?php echo base_url(); ?>index.php/export_exempt_BM/reject/" + i + "/" + k + "/" + btoa(j);
             }
         }
     </script>

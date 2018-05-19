@@ -37,9 +37,9 @@ class majorincident_approval extends CI_Controller {
         $appID = $this->uri->segment(4);
         $this->incidentaccidentreport_model->update_approval($id, 1, $approver_id, $appID);
         
-        $this->notification_model->insert_new_notification(null, 3, "Minor Biological Incident/Accident Report Form Approved", "BSO has approved a Minor Biological Incident/Accident Form.");
+        $this->notification_model->insert_new_notification(null, 3, "Major Biological Incident/Accident Report Form Approved", "BSO has approved a Major Biological Incident/Accident Form.");
         
-        $this->notification_model->insert_new_notification(null, 5, "Minor Biological Incident/Accident Report Form Approved", "BSO has approved a Minor Biological Incident/Accident Form.");
+        $this->notification_model->insert_new_notification(null, 5, "Major Biological Incident/Accident Report Form Approved", "BSO has approved a Major Biological Incident/Accident Form.");
         
         redirect('majorincident_approval/index');
     }
@@ -62,9 +62,11 @@ class majorincident_approval extends CI_Controller {
         $approver_id = $this->session->userdata('account_id');
         $id = $this->uri->segment(3);
         $appID = $this->uri->segment(4);
+        $result = $this->account_model->get_account_by_id($id);
         $this->incidentaccidentreport_model->update_approval_SSBC($id, 1, $approver_id, $appID);
         
         //send email to victim or witnesses for investigation outcomes
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Incident Accident Report Form Submission Processed", "<p>Your Incident Accident Report Form Submission Has Been Processed. (Investigations Outcomes Here)</p>");
         
         redirect('majorincident_approval/index');
     }
@@ -116,9 +118,11 @@ class majorincident_approval extends CI_Controller {
         $approver_id = $this->session->userdata('account_id');
         $id = $this->uri->segment(3);
         $appID = $this->uri->segment(4);
+        $result = $this->account_model->get_account_by_id($id);
         $this->annex3_model->update_approval_SSBC($id, 1, $approver_id, $appID);
         
         //send email to victim or witnesses for investigation outcomes
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Annex 3 Form Submission Processed", "<p>Your Annex 3 Form Submission Has Been Processed. (Investigations Outcomes Here)</p>");
         
         redirect('majorincident_approval/index');
     }
