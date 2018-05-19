@@ -1,4 +1,4 @@
-<?php echo form_open('announcement/save_edit') ?>
+<?php echo form_open('applicationpage/save_edit') ?>
 <?php echo form_hidden('announcement_id',$list_product['announcement_id']) ?>
 <table>
 	<tr>
@@ -15,4 +15,5 @@
 	</tr>
 </table>
 <?php echo form_submit('submit', 'Update Item!'); ?> <?php echo anchor('product','Back') ?>
+<a href="<?php echo base_url(); ?>index.php/applicationpage/save_edit" class="col-md-3"><button class="btn btn-primary button_right">Edit</button></a>
 <?php echo form_close(); ?>
