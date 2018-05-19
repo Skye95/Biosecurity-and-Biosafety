@@ -68,7 +68,7 @@ class editrequest_approval extends CI_Controller {
         $this->annex2_model->update_editable($id, 1, $approver_id, $appid);
         
         //Send email to applicant let them know their form submission has been fully approved
-        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Edit Request For Safety Work Procedure Form Approved", "<p>Your Request For Editing An Annex 2 Form Has Been Approved. </p>");
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Edit Request For Annex 2 Form Approved", "<p>Your Request For Editing An Annex 2 Form Has Been Approved. </p>");
         
         redirect('editrequest_approval/index');
     }
@@ -79,7 +79,10 @@ class editrequest_approval extends CI_Controller {
         $id = $this->uri->segment(3);
         $appid = $this->uri->segment(4);
         $msg = base64_decode($this->uri->segment(5));
+        $result = $this->account_model->get_account_by_id($id);
         $this->annex2_model->update_editable($id, 0, $approver_id, $appid);
+        
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Edit Request For Annex 2 Form Rejected", "<p>Your Request For Editing An Annex 2 Form Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
         
         redirect('editrequest_approval/index');
     }
@@ -90,7 +93,10 @@ class editrequest_approval extends CI_Controller {
         $approver_id = $this->session->userdata('account_id');
         $id = $this->uri->segment(3);
         $appid = $this->uri->segment(4);
+        $result = $this->account_model->get_account_by_id($id);
         $this->annex3_model->update_editable($id, 1, $approver_id, $appid);
+        
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Edit Request For Annex 3 Form Approved", "<p>Your Request For Editing An Annex 3 Form Has Been Approved. </p>");
         
         redirect('editrequest_approval/index');
     }
@@ -101,7 +107,10 @@ class editrequest_approval extends CI_Controller {
         $id = $this->uri->segment(3);
         $appid = $this->uri->segment(4);
         $msg = base64_decode($this->uri->segment(5));
+        $result = $this->account_model->get_account_by_id($id);
         $this->annex3_model->update_editable($id, 0, $approver_id, $appid);
+        
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Edit Request For Annex 3 Form Rejected", "<p>Your Request For Editing An Annex 3 Form Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
         
         redirect('editrequest_approval/index');
     }
@@ -112,7 +121,10 @@ class editrequest_approval extends CI_Controller {
         $approver_id = $this->session->userdata('account_id');
         $id = $this->uri->segment(3);
         $appid = $this->uri->segment(4);
+        $result = $this->account_model->get_account_by_id($id);
         $this->annex4_model->update_editable($id, 1, $approver_id, $appid);
+        
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Edit Request For Annex 4 Form Approved", "<p>Your Request For Editing An Annex 4 Form Has Been Approved. </p>");
         
         redirect('editrequest_approval/index');
     }
@@ -123,7 +135,10 @@ class editrequest_approval extends CI_Controller {
         $id = $this->uri->segment(3);
         $appid = $this->uri->segment(4);
         $msg = base64_decode($this->uri->segment(5));
+        $result = $this->account_model->get_account_by_id($id);
         $this->annex4_model->update_editable($id, 0, $approver_id, $appid);
+        
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Edit Request For Annex 4 Form Rejected", "<p>Your Request For Editing An Annex 4 Form Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
         
         redirect('editrequest_approval/index');
     }
@@ -134,7 +149,10 @@ class editrequest_approval extends CI_Controller {
         $approver_id = $this->session->userdata('account_id');
         $id = $this->uri->segment(3);
         $appid = $this->uri->segment(4);
+        $result = $this->account_model->get_account_by_id($id);
         $this->annex5_model->update_editable($id, 1, $approver_id, $appid);
+        
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Edit Request For Annex 5 Form Approved", "<p>Your Request For Editing An Annex 5 Form Has Been Approved. </p>");
         
         redirect('editrequest_approval/index');
     }
@@ -145,7 +163,10 @@ class editrequest_approval extends CI_Controller {
         $id = $this->uri->segment(3);
         $appid = $this->uri->segment(4);
         $msg = base64_decode($this->uri->segment(5));
+        $result = $this->account_model->get_account_by_id($id);
         $this->annex5_model->update_editable($id, 0, $approver_id, $appid);
+        
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Edit Request For Annex 5 Form Rejected", "<p>Your Request For Editing An Annex 5 Form Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
         
         redirect('editrequest_approval/index');
     }
@@ -156,7 +177,10 @@ class editrequest_approval extends CI_Controller {
         $approver_id = $this->session->userdata('account_id');
         $id = $this->uri->segment(3);
         $appid = $this->uri->segment(4);
+        $result = $this->account_model->get_account_by_id($id);
         $this->annualfinalreport_model->update_editable($id, 1, $approver_id, $appid);
+        
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Edit Request For Annual Final Report Form Approved", "<p>Your Request For Editing An Annual Final Report Form Has Been Approved. </p>");
         
         redirect('editrequest_approval/index');
     }
@@ -167,7 +191,10 @@ class editrequest_approval extends CI_Controller {
         $id = $this->uri->segment(3);
         $appid = $this->uri->segment(4);
         $msg = base64_decode($this->uri->segment(5));
+        $result = $this->account_model->get_account_by_id($id);
         $this->annualfinalreport_model->update_editable($id, 0, $approver_id, $appid);
+        
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Edit Request For Annual Final Report Form Rejected", "<p>Your Request For Editing An Annual Final Report Form Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
         
         redirect('editrequest_approval/index');
     }
@@ -178,7 +205,10 @@ class editrequest_approval extends CI_Controller {
         $approver_id = $this->session->userdata('account_id');
         $id = $this->uri->segment(3);
         $appid = $this->uri->segment(4);
+        $result = $this->account_model->get_account_by_id($id);
         $this->biohazard_model->update_editable($id, 1, $approver_id, $appid);
+        
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Edit Request For Biohazard Material Application Form Approved", "<p>Your Request For Editing A Biohazard Material Application Form Has Been Approved. </p>");
         
         redirect('editrequest_approval/index');
     }
@@ -189,7 +219,10 @@ class editrequest_approval extends CI_Controller {
         $id = $this->uri->segment(3);
         $appid = $this->uri->segment(4);
         $msg = base64_decode($this->uri->segment(5));
+        $result = $this->account_model->get_account_by_id($id);
         $this->biohazard_model->update_editable($id, 0, $approver_id, $appid);
+        
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Edit Request For Biohazard Material Application Form Rejected", "<p>Your Request For Editing A Biohazard Material Application Form Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
         
         redirect('editrequest_approval/index');
     }
@@ -200,7 +233,10 @@ class editrequest_approval extends CI_Controller {
         $approver_id = $this->session->userdata('account_id');
         $id = $this->uri->segment(3);
         $appid = $this->uri->segment(4);
+        $result = $this->account_model->get_account_by_id($id);
         $this->exempt_model->update_editable($id, 1, $approver_id, $appid);
+        
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Edit Request For Exempt Dealing Application Form Approved", "<p>Your Request For Editing An Exempt Dealing Application Form Has Been Approved. </p>");
         
         redirect('editrequest_approval/index');
     }
@@ -211,7 +247,10 @@ class editrequest_approval extends CI_Controller {
         $id = $this->uri->segment(3);
         $appid = $this->uri->segment(4);
         $msg = base64_decode($this->uri->segment(5));
+        $result = $this->account_model->get_account_by_id($id);
         $this->exempt_model->update_editable($id, 0, $approver_id, $appid);
+        
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Edit Request For Exempt Dealing Application Form Rejected", "<p>Your Request For Editing An Exempt Dealing Application Form Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
         
         redirect('editrequest_approval/index');
     }
@@ -222,7 +261,10 @@ class editrequest_approval extends CI_Controller {
         $approver_id = $this->session->userdata('account_id');
         $id = $this->uri->segment(3);
         $appid = $this->uri->segment(4);
+        $result = $this->account_model->get_account_by_id($id);
         $this->forme_model->update_editable($id, 1, $approver_id, $appid);
+        
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Edit Request For Form E Application Form Approved", "<p>Your Request For Editing A Form E Application Form Has Been Approved. </p>");
         
         redirect('editrequest_approval/index');
     }
@@ -233,7 +275,10 @@ class editrequest_approval extends CI_Controller {
         $id = $this->uri->segment(3);
         $appid = $this->uri->segment(4);
         $msg = base64_decode($this->uri->segment(5));
+        $result = $this->account_model->get_account_by_id($id);
         $this->forme_model->update_editable($id, 0, $approver_id, $appid);
+        
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Edit Request For Form E Application Form Rejected", "<p>Your Request For Editing A Form E Application Form Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
         
         redirect('editrequest_approval/index');
     }
@@ -244,7 +289,10 @@ class editrequest_approval extends CI_Controller {
         $approver_id = $this->session->userdata('account_id');
         $id = $this->uri->segment(3);
         $appid = $this->uri->segment(4);
+        $result = $this->account_model->get_account_by_id($id);
         $this->formf_model->update_editable($id, 1, $approver_id, $appid);
+        
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Edit Request For Form F Application Form Approved", "<p>Your Request For Editing A Form F Application Form Has Been Approved. </p>");
         
         redirect('editrequest_approval/index');
     }
@@ -255,7 +303,10 @@ class editrequest_approval extends CI_Controller {
         $id = $this->uri->segment(3);
         $appid = $this->uri->segment(4);
         $msg = base64_decode($this->uri->segment(5));
+        $result = $this->account_model->get_account_by_id($id);
         $this->formf_model->update_editable($id, 0, $approver_id, $appid);
+        
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Edit Request For Form F Application Form Rejected", "<p>Your Request For Editing A Form F Application Form Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
         
         redirect('editrequest_approval/index');
     }
@@ -266,7 +317,10 @@ class editrequest_approval extends CI_Controller {
         $approver_id = $this->session->userdata('account_id');
         $id = $this->uri->segment(3);
         $appid = $this->uri->segment(4);
+        $result = $this->account_model->get_account_by_id($id);
         $this->hirarc_model->update_editable($id, 1, $approver_id, $appid);
+        
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Edit Request For HIRARC Form Approved", "<p>Your Request For Editing A HIRARC Form Has Been Approved. </p>");
         
         redirect('editrequest_approval/index');
     }
@@ -277,7 +331,10 @@ class editrequest_approval extends CI_Controller {
         $id = $this->uri->segment(3);
         $appid = $this->uri->segment(4);
         $msg = base64_decode($this->uri->segment(5));
+        $result = $this->account_model->get_account_by_id($id);
         $this->hirarc_model->update_editable($id, 0, $approver_id, $appid);
+        
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Edit Request For HIRARC Form Rejected", "<p>Your Request For Editing A HIRARC Form Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
         
         redirect('editrequest_approval/index');
     }
@@ -288,7 +345,10 @@ class editrequest_approval extends CI_Controller {
         $approver_id = $this->session->userdata('account_id');
         $id = $this->uri->segment(3);
         $appid = $this->uri->segment(4);
+        $result = $this->account_model->get_account_by_id($id);
         $this->incidentaccidentreport_model->update_editable($id, 1, $approver_id, $appid);
+        
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Edit Request For Incident Accident Report Form Approved", "<p>Your Request For Editing A Incident Accident Report Form Has Been Approved. </p>");
         
         redirect('editrequest_approval/index');
     }
@@ -299,7 +359,10 @@ class editrequest_approval extends CI_Controller {
         $id = $this->uri->segment(3);
         $appid = $this->uri->segment(4);
         $msg = base64_decode($this->uri->segment(5));
+        $result = $this->account_model->get_account_by_id($id);
         $this->incidentaccidentreport_model->update_editable($id, 0, $approver_id, $appid);
+        
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Edit Request For Incident Accident Report Form Rejected", "<p>Your Request For Editing A Incident Accident Report Form Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
         
         redirect('editrequest_approval/index');
     }
@@ -310,7 +373,10 @@ class editrequest_approval extends CI_Controller {
         $approver_id = $this->session->userdata('account_id');
         $id = $this->uri->segment(3);
         $appid = $this->uri->segment(4);
+        $result = $this->account_model->get_account_by_id($id);
         $this->notification_of_exporting_biological_material_model->update_editable($id, 1, $approver_id, $appid);
+        
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Edit Request For Notification of Exporting of Biological Material Form Approved", "<p>Your Request For Editing A Notification of Exporting of Biological Material Form Has Been Approved. </p>");
         
         redirect('editrequest_approval/index');
     }
@@ -321,7 +387,10 @@ class editrequest_approval extends CI_Controller {
         $id = $this->uri->segment(3);
         $appid = $this->uri->segment(4);
         $msg = base64_decode($this->uri->segment(5));
+        $result = $this->account_model->get_account_by_id($id);
         $this->notification_of_exporting_biological_material_model->update_editable($id, 0, $approver_id, $appid);
+        
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Edit Request For Notification of Exporting of Biological Material Form Rejected", "<p>Your Request For Notification of Exporting of Biological Material Form Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
         
         redirect('editrequest_approval/index');
     }
@@ -332,7 +401,10 @@ class editrequest_approval extends CI_Controller {
         $approver_id = $this->session->userdata('account_id');
         $id = $this->uri->segment(3);
         $appid = $this->uri->segment(4);
+        $result = $this->account_model->get_account_by_id($id);
         $this->notification_of_LMO_and_BM_model->update_editable($id, 1, $approver_id, $appid);
+        
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Edit Request For Notification of LMO and Biohazardous Material Form Approved", "<p>Your Request For Editing A Notification of LMO and Biohazardous Material Form Has Been Approved. </p>");
         
         redirect('editrequest_approval/index');
     }
@@ -343,7 +415,10 @@ class editrequest_approval extends CI_Controller {
         $id = $this->uri->segment(3);
         $appid = $this->uri->segment(4);
         $msg = base64_decode($this->uri->segment(5));
+        $result = $this->account_model->get_account_by_id($id);
         $this->notification_of_LMO_and_BM_model->update_editable($id, 0, $approver_id, $appid);
+        
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Edit Request For Notification of LMO and Biohazardous Material Form Rejected", "<p>Your Request For Editing Notification of LMO and Biohazardous Material Form Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
         
         redirect('editrequest_approval/index');
     }
@@ -354,7 +429,10 @@ class editrequest_approval extends CI_Controller {
         $approver_id = $this->session->userdata('account_id');
         $id = $this->uri->segment(3);
         $appid = $this->uri->segment(4);
+        $result = $this->account_model->get_account_by_id($id);
         $this->pc1_model->update_editable($id, 1, $approver_id, $appid);
+        
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Edit Request For PC1 Application Form Approved", "<p>Your Request For Editing A PC1 Application Form Has Been Approved. </p>");
         
         redirect('editrequest_approval/index');
     }
@@ -365,7 +443,10 @@ class editrequest_approval extends CI_Controller {
         $id = $this->uri->segment(3);
         $appid = $this->uri->segment(4);
         $msg = base64_decode($this->uri->segment(5));
+        $result = $this->account_model->get_account_by_id($id);
         $this->pc1_model->update_editable($id, 0, $approver_id, $appid);
+        
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Edit Request For PC1 Form Rejected", "<p>Your Request For Editing PC1 Form Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
         
         redirect('editrequest_approval/index');
     }
@@ -376,7 +457,10 @@ class editrequest_approval extends CI_Controller {
         $approver_id = $this->session->userdata('account_id');
         $id = $this->uri->segment(3);
         $appid = $this->uri->segment(4);
+        $result = $this->account_model->get_account_by_id($id);
         $this->pc2_model->update_editable($id, 1, $approver_id, $appid);
+        
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Edit Request For PC2 Application Form Approved", "<p>Your Request For Editing A PC2 Application Form Has Been Approved. </p>");
         
         redirect('editrequest_approval/index');
     }
@@ -387,7 +471,10 @@ class editrequest_approval extends CI_Controller {
         $id = $this->uri->segment(3);
         $appid = $this->uri->segment(4);
         $msg = base64_decode($this->uri->segment(5));
+        $result = $this->account_model->get_account_by_id($id);
         $this->pc2_model->update_editable($id, 0, $approver_id, $appid);
+        
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Edit Request For PC2 Form Rejected", "<p>Your Request For Editing PC2 Form Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
         
         redirect('editrequest_approval/index');
     }
@@ -398,7 +485,10 @@ class editrequest_approval extends CI_Controller {
         $approver_id = $this->session->userdata('account_id');
         $id = $this->uri->segment(3);
         $appid = $this->uri->segment(4);
+        $result = $this->account_model->get_account_by_id($id);
         $this->procurement_model->update_editable($id, 1, $approver_id, $appid);
+        
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Edit Request For Pre-purchase Material Risk Assessment Form Approved", "<p>Your Request For Editing A Pre-purchase Material Risk Assessment Form Has Been Approved. </p>");
         
         redirect('editrequest_approval/index');
     }
@@ -409,7 +499,10 @@ class editrequest_approval extends CI_Controller {
         $id = $this->uri->segment(3);
         $appid = $this->uri->segment(4);
         $msg = base64_decode($this->uri->segment(5));
+        $result = $this->account_model->get_account_by_id($id);
         $this->procurement_model->update_editable($id, 0, $approver_id, $appid);
+        
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Edit Request For Pre-purchase Material Risk Assessment Form Rejected", "<p>Your Request For Editing Pre-purchase Material Risk Assessment Form Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
         
         redirect('editrequest_approval/index');
     }
@@ -420,7 +513,10 @@ class editrequest_approval extends CI_Controller {
         $approver_id = $this->session->userdata('account_id');
         $id = $this->uri->segment(3);
         $appid = $this->uri->segment(4);
+        $result = $this->account_model->get_account_by_id($id);
         $this->swp_model->update_editable($id, 1, $approver_id, $appid);
+        
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Edit Request For Safety Work Procedure Form Approved", "<p>Your Request For Editing A Edit Request For Safety Work Procedure Form Has Been Approved. </p>");
         
         redirect('editrequest_approval/index');
     }
@@ -431,7 +527,10 @@ class editrequest_approval extends CI_Controller {
         $id = $this->uri->segment(3);
         $appid = $this->uri->segment(4);
         $msg = base64_decode($this->uri->segment(5));
+        $result = $this->account_model->get_account_by_id($id);
         $this->swp_model->update_editable($id, 0, $approver_id, $appid);
+        
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Edit Request For Safety Work Procedure Form Rejected", "<p>Your Request For Editing Safety Work Procedure Form Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
         
         redirect('editrequest_approval/index');
     }
