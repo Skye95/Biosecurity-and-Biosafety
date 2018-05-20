@@ -881,15 +881,7 @@ if(!$this->session->userdata('isLogin')){
                                         
                                         <td><input type="text" class="form-control" name="LMO_desc_trait[0]" value="<?php if(isset($load)){echo set_value('LMO_desc_trait[0]', $k[0]);}else{echo set_value('LMO_desc_trait[0]');} ?>" ></td>
                                         
-                                        <td>
-                                            <div class="file-input-wrapper">
-                                                  <button class="btn-file-input">Attach report</button>
-                                                  <input type="file" name="premise_certification_report" id="image" value="" />      
-                                                </div>
-                                                <span id="img_text" style="float: right;
-                                                margin-right: -80px;
-                                                margin-top: -14px;"></span>
-                                        </td>
+                                        <td><input type="text" class="form-control" name="premise_certification_report[0]" value="<?php if(isset($load)){echo set_value('premise_certification_report[0]', $item->premise_certification_report);}else{echo set_value('premise_certification_report[0]');} ?>" ></td>
                                         
                                         <td><input type="text" class="form-control" name="LMO_desc_genes_function[0]" value="<?php if(isset($load)){echo set_value('LMO_desc_genes_function[0]', $l[0]);}else{echo set_value('LMO_desc_genes_function[0]');} ?>"></td>
                                     </tr>
@@ -905,15 +897,7 @@ if(!$this->session->userdata('isLogin')){
                                         
                                         <td><input type="text" class="form-control" name="LMO_desc_trait[1]" value="<?php if(isset($load)){echo set_value('LMO_desc_trait[1]', $k[1]);}else{echo set_value('LMO_desc_trait[1]');} ?>" ></td>
                                         
-                                        <td>
-                                            <div class="file-input-wrapper">
-                                                  <button class="btn-file-input">Attach report</button>
-                                                  <input type="file" name="premise_certification_report" id="image" value="" />      
-                                                </div>
-                                                <span id="img_text" style="float: right;
-                                                margin-right: -80px;
-                                                margin-top: -14px;"></span>
-                                        </td>
+                                        <td><input type="text" class="form-control" name="premise_certification_report[1]" value="<?php if(isset($load)){echo set_value('premise_certification_report[1]', $item->premise_certification_report);}else{echo set_value('premise_certification_report[1]');} ?>" ></td>
                                         
                                         <td><input type="text" class="form-control" name="LMO_desc_genes_function[1]" value="<?php if(isset($load)){echo set_value('LMO_desc_genes_function[1]', $l[1]);}else{echo set_value('LMO_desc_genes_function[1]');} ?>"></td>
                                     </tr>
@@ -929,15 +913,7 @@ if(!$this->session->userdata('isLogin')){
                                         
                                         <td><input type="text" class="form-control" name="LMO_desc_trait[2]" value="<?php if(isset($load)){echo set_value('LMO_desc_trait[2]', $k[2]);}else{echo set_value('LMO_desc_trait[2]');} ?>" ></td>
                                         
-                                        <td>
-                                            <div class="file-input-wrapper">
-                                                  <button class="btn-file-input">Attach report</button>
-                                                  <input type="file" name="premise_certification_report" id="image" value="" />      
-                                                </div>
-                                                <span id="img_text" style="float: right;
-                                                margin-right: -80px;
-                                                margin-top: -14px;"></span>
-                                        </td>
+                                        <td><input type="text" class="form-control" name="premise_certification_report[2]" value="<?php if(isset($load)){echo set_value('premise_certification_report[2]', $item->premise_certification_report);}else{echo set_value('premise_certification_report[2]');} ?>" ></td>
                                         
                                         <td><input type="text" class="form-control" name="LMO_desc_genes_function[2]" value="<?php if(isset($load)){echo set_value('LMO_desc_genes_function[2]', $l[2]);}else{echo set_value('LMO_desc_genes_function[2]');} ?>"></td>
                                     </tr>
@@ -1247,52 +1223,32 @@ if(!$this->session->userdata('isLogin')){
                                                 
                                                 <input type="text" class="form-control" name="premise_certification_no[0]" placeholder="certificate no" value="<?php if(isset($load)){echo set_value('premise_certification_no[0]', $ai[0]);}else{echo set_value('premise_certification_no[0]');} ?>"><br>
                                                 
-                                                <div class="file-input-wrapper">
-                                                  <button class="btn-file-input">Attach report</button>
-                                                  <input type="file" name="premise_certification_report" id="image" value="" />      
-                                                </div>
-                                                <span id="img_text" style="float: right;
-                                                margin-right: -80px;
-                                                margin-top: -14px;"></span>
+                                                <input type="text" class="form-control" name="premise_certification_report[0]" value="<?php if(isset($load)){echo set_value('premise_certification_report[0]', $item->premise_certification_report);}else{echo set_value('premise_certification_report[0]');} ?>" >
+                                                
                                             </td>
                                             <td>
                                                 <input type="text" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" name="premise_certification_date[1]" placeholder="date" value="<?php if(isset($load)){echo set_value('premise_certification_date[1]', $ah[1]);}else{echo set_value('premise_certification_date[1]');} ?>"><br>
                                                 
                                                 <input type="text" class="form-control" name="premise_certification_no[1]" placeholder="certificate no" value="<?php if(isset($load)){echo set_value('premise_certification_no[1]', $ai[1]);}else{echo set_value('premise_certification_no[1]');} ?>"><br>
                                                 
-                                                <div class="file-input-wrapper">
-                                                  <button class="btn-file-input">Attach report</button>
-                                                  <input type="file" name="premise_certification_report" id="image" value="" />      
-                                                </div>
-                                                <span id="img_text" style="float: right;
-                                                margin-right: -80px;
-                                                margin-top: -14px;"></span>
+                                                <input type="text" class="form-control" name="premise_certification_report[1]" value="<?php if(isset($load)){echo set_value('premise_certification_report[1]', $item->premise_certification_report);}else{echo set_value('premise_certification_report[1]');} ?>" >
+                                                
                                             </td>
                                             <td>
                                                 <input type="text" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" name="premise_certification_date[2]" placeholder="date" value="<?php if(isset($load)){echo set_value('premise_certification_date[2]', $ah[2]);}else{echo set_value('premise_certification_date[2]');} ?>"><br>
                                                 
                                                 <input type="text" class="form-control" name="premise_certification_no[2]" placeholder="certificate no" value="<?php if(isset($load)){echo set_value('premise_certification_no[2]', $ai[2]);}else{echo set_value('premise_certification_no[2]');} ?>"><br>
                                                 
-                                                <div class="file-input-wrapper">
-                                                  <button class="btn-file-input">Attach report</button>
-                                                  <input type="file" name="premise_certification_report" id="image" value="" />      
-                                                </div>
-                                                <span id="img_text" style="float: right;
-                                                margin-right: -80px;
-                                                margin-top: -14px;"></span>
+                                                <input type="text" class="form-control" name="premise_certification_report[2]" value="<?php if(isset($load)){echo set_value('premise_certification_report[2]', $item->premise_certification_report);}else{echo set_value('premise_certification_report[2]');} ?>" >
+                                                
                                             </td>
                                             <td>
                                                 <input type="text" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" name="premise_certification_date[3]" placeholder="date" value="<?php if(isset($load)){echo set_value('premise_certification_date[3]', $ah[3]);}else{echo set_value('premise_certification_date[3]');} ?>"><br>
                                                 
                                                 <input type="text" class="form-control" name="premise_certification_no[3]" placeholder="certificate no" value="<?php if(isset($load)){echo set_value('premise_certification_no[3]', $ai[3]);}else{echo set_value('premise_certification_no[3]');} ?>"><br>
                                                 
-                                                <div class="file-input-wrapper">
-                                                  <button class="btn-file-input">Attach report</button>
-                                                  <input type="file" name="premise_certification_report" id="image" value="" />      
-                                                </div>
-                                                <span id="img_text" style="float: right;
-                                                margin-right: -80px;
-                                                margin-top: -14px;"></span>
+                                                <input type="text" class="form-control" name="premise_certification_report[3]" value="<?php if(isset($load)){echo set_value('premise_certification_report[3]', $item->premise_certification_report);}else{echo set_value('premise_certification_report[3]');} ?>" >
+                                                
                                             </td>
                                         </tr>
                                         <tr>
