@@ -29,7 +29,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <!-- Navigation -->
     <?php include_once 'template/navbar.php' ?>
     <!-- Page Content -->
-    <div class="container">
+<div class="container">
         <!-- Page Heading -->
 <br>
 <h2>Announcement Testing Page</h2>
@@ -49,7 +49,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			</div>
 		</div>
 		<?php echo anchor('announcement/edit/'.$list->announcement_id,'Edit') ?>
-		<button name="submit" type="submit" onclick="location.href='<?php echo site_url().'announcement/edit/'; ?>'"class="btn btn-primary col-md-2">Edit</button>	
+		<a href="<?php echo base_url(); ?>index.php/announcement/edit" class="col-md-3"><button class="btn btn-primary button_right">Edit</button></a>
  </div>
 
 <br/>
