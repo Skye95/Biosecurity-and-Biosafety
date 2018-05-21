@@ -68,6 +68,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                     </div>
                 </div>
             </div>
+            <?php if($this->session->userdata('account_type') == 4 ) {  ?>
             <div class="col-lg-3 col-md-4 col-sm-6 col-6 portfolio-item">
                 <div class="card card-block justify-content-center align-items-center">
                     <a href="<?php echo base_url(); ?>index.php/procurementapproval"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\Procurement of Biological Material2.jpg') ?>" alt=""></a>
@@ -90,6 +91,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                     </div>
                 </div>
             </div>
+            <?php }  ?>
             <div class="col-lg-3 col-md-4 col-sm-6 col-6 portfolio-item">
                 <div class="card card-block justify-content-center align-items-center">
                     <a href="<?php echo base_url(); ?>index.php/exportingrequest"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\Exporting of Biological Material2.jpg') ?>" alt=""></a>
