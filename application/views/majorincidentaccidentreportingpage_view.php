@@ -65,7 +65,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					</div>	
 				<?php } ?>
 			</div>
-				<?php if($this->session->userdata('account_type') == 2) {?>
+				<?php if($this->session->userdata('account_type') == 4) {?>
 				<a href="<?php echo base_url(); ?>index.php/majorincidentaccidentreportingpage/edit" class="col-md-3"><button class="btn btn-primary button_right">Edit</button></a>	
 				<?php }else{ ?>
 				 
