@@ -280,6 +280,18 @@ CREATE TABLE `announcement` (
   `announcement_page` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `announcement`
+--
+
+INSERT INTO `announcement` (`announcement_id`, `account_id`, `announcement_description`, `announcement_date`, `announcement_page`) VALUES
+(1, 1, '<h3>PURPOSE</h3>
+<b>The Swinburne Biosafety Committee (SBC) </b>functions to ensure that Swinburne activities and facilities involving hazardous biological agents meet safety, ethical and professional standards as well as compliance with relevant Australian law and other regulatory regimes within the scope of this law. <br><br>The SBC also functions to regularly review and approve standard operating procedures (SOPs) for the Neuroimaging facilities in accordance with relevant Swinburne policies and external regulatory regimes.<br><br>
+Explanatory Note: SBC responsibility does not extend to general laboratory risks and procedures involving the use of chemicals which are otherwise covered by Swinburne Occupational Health and Safety Policies or Procedures. <br><br>
+
+<a target="_blank" href="http://www.swinburne.edu.au/research/ethics/biosafety/ ">Click Here For More Info</a>
+', '2018-05-09 00:00:00', '');
+
 -- --------------------------------------------------------
 
 --
