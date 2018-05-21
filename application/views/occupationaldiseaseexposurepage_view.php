@@ -55,31 +55,36 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		</div>
 		
 		<div class="col-lg-7">
+		<?php if(isset($product_list)) { ?>		
 			<div>		
-				<h4>Fun Fact</h4>
-			</div>				
-			<div>		
-				<div class="row">
+				<?php foreach ($product_list as $list) { ?>
 					<div class="card my-4">
-						<h5 class="card-header">Did you know? The human saliva</h5>
+						<h5 class="card-header">Announcements</h5>
 						<div class="card-body">
-						<img class="img-fluid rounded mb-3 mb-md-0" src="<?php echo base_url('assets\images\announcement\funfact1.png') ?>" 
-						alt="" title="The human saliva"> 
+						<?php echo $list->announcement_description ?> 
 						</div>
-					</div>				
-				</div>
+					</div>	
+				<?php } ?>
 			</div>
-			<div>		
-				<div class="row">
-					<div class="card my-4">
-						<h5 class="card-header">Reminder</h5>
-						<div class="card-body">
-						test test test 1131231231231231231231231231231212331121321321321213213213 test test test 1131231231231231231231231231231212331121321321321213213213 
-						test test test 1131231231231231231231231231231212331121321321321213213213 test test test 1131231231231231231231231231231212331121321321321213213213 
-						</div>
-					</div>				
-				</div>
-			</div>
+				
+				<a href="<?php echo base_url(); ?>index.php/occupationaldiseaseexposurepage/edit" class="col-md-3"><button class="btn btn-primary button_right">Edit</button></a>	
+				
+			<?php } else { ?>
+				
+				 <?php echo form_open('occupationaldiseaseexposurepage/save_edit') ?>
+				 <?php echo form_hidden('announcement_id',$list_product['announcement_id']) ?>
+
+			<div class="card my-4">
+								<h5 class="card-header">Announcements Edit</h5>
+								<div class="card-body">
+								<?php echo form_textarea('announcement_description',$list_product['announcement_description'],array('placeholder'=>'Note','style'=>'width:100%')) ?>  
+								</div>
+			</div>	
+
+
+				<a href="<?php echo base_url(); ?>index.php/occupationaldiseaseexposurepage/save_edit" class="col-md-3"><button class="btn btn-primary button_right">Save</button></a>
+				<?php echo form_close(); ?>
+			<?php } ?>
 		</div>
 	</div>					
 	</div>

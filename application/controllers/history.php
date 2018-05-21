@@ -10,6 +10,9 @@ class history extends CI_Controller {
         $this->load->database();
         $this->load->model('notification_model');
         $this->load->model('history_model');
+		//breadcrum
+		$this->breadcrumbs->unshift('Home', '/');	
+        $this->breadcrumbs->push('Modification of Approved Project', true);
         
         //Form Models
         $this->load->model('annex2_model');

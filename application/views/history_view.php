@@ -7,6 +7,7 @@ if(!$this->session->userdata('isLogin')){
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
+<link rel="stylesheet" href="<?php echo base_url()?>assets/css/styles.css" type="text/css">
     <title>Swinburne Biosafety and Biosecurity Online System - Past Applications</title>
     
     <style>
@@ -34,6 +35,8 @@ if(!$this->session->userdata('isLogin')){
     <!-- Page Content -->
     <div class="container">
         <!-- Page Heading -->
+		<div id='breadcrumb1'><?php echo $this->breadcrumbs->show(); ?></div>
+		<hr>
         <h5>Submitted or Past Applications</h5>
         <br/>
         <input class="form-control" id="searchbar" type="text" placeholder="Search here">
