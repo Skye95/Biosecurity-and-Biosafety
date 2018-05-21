@@ -141,7 +141,7 @@ class inventory extends CI_Controller {
         
         if( $this->inventory_model->delete_item($id, 1) ){
             $this->notification_model->insert_new_notification($this->session->userdata('account_id'), 2, "Inventory Deleted", "Inventory has been deleted by: " . $this->session->userdata('account_name') . ", due to: " . $msg);
-            $this->session->set_flashdata('msg','<div class="alert alert-success text-center">You have successfully approved the registration!</div>');
+            $this->session->set_flashdata('msg','<div class="alert alert-success text-center">You have successfully deleted the inventory item!</div>');
             redirect('inventory/index');
         } else {
             $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">An error has occured. Please try again later.</div>');
@@ -159,7 +159,7 @@ class inventory extends CI_Controller {
         
         if( $this->inventory_model->delete_item($id, 2) ){
             $this->notification_model->insert_new_notification($this->session->userdata('account_id'), 2, "Storage Deleted", "Storage has been deleted by: " . $this->session->userdata('account_name') . ", due to: " . $msg);
-            $this->session->set_flashdata('msg','<div class="alert alert-success text-center">You have successfully approved the registration!</div>');
+            $this->session->set_flashdata('msg','<div class="alert alert-success text-center">You have successfully deleted the storage item!</div>');
             redirect('inventory/index2');
         } else {
             $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">An error has occured. Please try again later.</div>');
