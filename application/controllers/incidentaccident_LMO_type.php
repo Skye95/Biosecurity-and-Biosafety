@@ -9,6 +9,11 @@ class incidentaccident_LMO_type extends CI_Controller {
         
         $this->load->database();
         $this->load->model('notification_model');
+		
+		//breadcrum
+		$this->breadcrumbs->unshift('Administrator Panel', '/index.php/adminpage');	
+		$this->breadcrumbs->push('Incident Accident Reporting','/incidentaccident_type',true);
+		$this->breadcrumbs->push('Living Modified Organisms (LMO)', true);
     }
     
 	public function index()

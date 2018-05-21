@@ -9,6 +9,10 @@ class newapplication extends CI_Controller {
         
         $this->load->database();
         $this->load->model('notification_model');
+		
+		//breadcrum
+		$this->breadcrumbs->unshift('Administrator Panel', '/index.php/adminpage');	
+		$this->breadcrumbs->push('New Application', true);
     }
     
 	public function index()

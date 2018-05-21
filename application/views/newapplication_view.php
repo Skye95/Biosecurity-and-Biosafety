@@ -10,6 +10,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
+	<link rel="stylesheet" href="<?php echo base_url()?>assets/css/styles.css" type="text/css">
     <title>Swinburne Biosafety and Biosecurity Online System - New Application</title>
     
     <style>
@@ -39,15 +40,16 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
 
     <!-- Page Content -->
     <div class="container">
-        <h2 class="my-4 text-center">Welcome to your Administrator Panel, <?php echo $this->session->userdata('account_name'); ?></h2>
-        
+        <br>
+		<div id='breadcrumb1'><?php echo $this->breadcrumbs->show(); ?></div>
+        <hr>
         <div class="row">
             <div class="col-lg-3 col-md-4 col-sm-6 col-6 portfolio-item">
                 <div class="card card-block justify-content-center align-items-center">
                     <a href="<?php echo base_url(); ?>index.php/applicationapproval/index"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\History.jpg') ?>" alt=""></a>
                     <div class="card-body">
-                        <h6 class="card-title">
-                            <a href="<?php echo base_url(); ?>index.php/applicationapproval/index">LMO</a>
+                        <h6 style="text-align: center" class="card-title">
+                            <a href="<?php echo base_url(); ?>index.php/applicationapproval/index">Living Modified Organisms (LMO)</a>
                         </h6>
                         <p class="card-text"></p>
                     </div>

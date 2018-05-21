@@ -13,6 +13,11 @@ class biohazard_approval extends CI_Controller {
         $this->load->model('biohazard_model');
         $this->load->model('hirarc_model');
         $this->load->model('swp_model');
+		
+		//breadcrum
+		$this->breadcrumbs->unshift('Administrator Panel', '/index.php/adminpage');	
+		$this->breadcrumbs->push('New Application','/newapplication',true);
+		$this->breadcrumbs->push('Biohazardous Material', true);
     }
     
 	public function index()

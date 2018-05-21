@@ -9,6 +9,10 @@ class incidentaccident_type extends CI_Controller {
         
         $this->load->database();
         $this->load->model('notification_model');
+		
+		//breadcrum
+		$this->breadcrumbs->unshift('Administrator Panel', '/index.php/adminpage');	
+		$this->breadcrumbs->push('Incident Accident Reporting', true);
     }
     
 	public function index()

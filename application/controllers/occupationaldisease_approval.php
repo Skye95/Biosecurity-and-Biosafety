@@ -13,6 +13,11 @@ class occupationaldisease_approval extends CI_Controller {
         $this->load->model('incidentaccidentreport_model');
         $this->load->model('annex4_model');
         
+		//breadcrum
+		$this->breadcrumbs->unshift('Administrator Panel', '/index.php/adminpage');	
+		$this->breadcrumbs->push('Incident Accident Reporting','/incidentaccident_type',true);
+		$this->breadcrumbs->push('LMO','/incidentaccident_LMO_type', true);
+		$this->breadcrumbs->push('Occupational Disease Or Exposure', true);
     }
     
 	public function index()
