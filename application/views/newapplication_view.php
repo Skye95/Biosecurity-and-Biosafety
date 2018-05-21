@@ -58,7 +58,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                     <a href="<?php echo base_url(); ?>index.php/exempt_approval/index"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\History.jpg') ?>" alt=""></a>
                     <div class="card-body">
                         <h6 class="card-title">
-                            <a href="<?php echo base_url(); ?>index.php/exempt_approval/index">Exempt Dealing</a>
+                            <a href="<?php echo base_url(); ?>index.php/exempt_approval/index">Exempt Dealing Approvals</a>
                         </h6>
                         <p class="card-text"></p>
                     </div>
@@ -69,7 +69,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                     <a href="<?php echo base_url(); ?>index.php/biohazard_approval/index"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\History.jpg') ?>" alt=""></a>
                     <div class="card-body">
                         <h6 class="card-title">
-                            <a href="<?php echo base_url(); ?>index.php/biohazard_approval/index">Biohazardous Materials</a>
+                            <a href="<?php echo base_url(); ?>index.php/biohazard_approval/index">Biohazardous Material</a>
                         </h6>
                         <p class="card-text"></p>
                     </div>

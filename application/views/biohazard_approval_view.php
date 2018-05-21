@@ -45,7 +45,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                 <thead>
                     <tr>
                         <th colspan="6">
-                            Biohazard Material Forms
+                            Biohazard Material 
                         </th>
                     </tr>
                     <tr>
@@ -101,7 +101,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                 <thead>
                     <tr>
                         <th colspan="6">
-                            Biohazard Material Forms
+                            Biohazard Material 
                         </th>
                     </tr>
                     <tr>
@@ -170,7 +170,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                 <thead>
                     <tr>
                         <th colspan="6">
-                            Biohazard Material Forms
+                            Biohazard Material 
                         </th>
                     </tr>
                     <tr>
@@ -228,7 +228,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                 <thead>
                     <tr>
                         <th colspan="6">
-                            HIRARC Form
+                            HIRARC 
                         </th>
                     </tr>
                     <tr>
@@ -288,7 +288,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                 <thead>
                     <tr>
                         <th colspan="7">
-                            HIRARC Form
+                            HIRARC 
                         </th>
                     </tr>
                     <tr>
@@ -363,7 +363,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                 <thead>
                     <tr>
                         <th colspan="6">
-                            HIRARC Form
+                            HIRARC 
                         </th>
                     </tr>
                     <tr>
@@ -425,7 +425,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                 <thead>
                     <tr>
                         <th colspan="6">
-                            SWP Form
+                            SWP 
                         </th>
                     </tr>
                     <tr>
@@ -485,7 +485,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                 <thead>
                     <tr>
                         <th colspan="6">
-                            SWP Form
+                            SWP 
                         </th>
                     </tr>
                     <tr>
@@ -560,7 +560,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                 <thead>
                     <tr>
                         <th colspan="6">
-                            SWP Form 
+                            SWP 
                         </th>
                     </tr>
                     <tr>

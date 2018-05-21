@@ -30,7 +30,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
 
     <!-- Page Content -->
     <div class="container">
-        <h5>Exempt Dealing Approvals</h5>
+        <h5>Exempt Dealing</h5>
         <br/>
         <input class="form-control" id="searchbar" type="text" placeholder="Search here">
         <br/>
@@ -45,7 +45,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                 <thead>
                     <tr>
                         <th colspan="6">
-                            Exempt Dealing Forms
+                            Exempt Dealing
                         </th>
                     </tr>
                     <tr>
@@ -111,7 +111,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                 <thead>
                     <tr>
                         <th colspan="6">
-                            Exempt Dealing Forms
+                            Exempt Dealing
                         </th>
                     </tr>
                     <tr>
@@ -184,7 +184,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                 <thead>
                     <tr>
                         <th colspan="6">
-                            Exempt Dealing Forms
+                            Exempt Dealing
                         </th>
                     </tr>
                     <tr>
@@ -252,7 +252,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                 <thead>
                     <tr>
                         <th colspan="6">
-                            HIRARC Form
+                            HIRARC
                         </th>
                     </tr>
                     <tr>
@@ -312,7 +312,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                 <thead>
                     <tr>
                         <th colspan="7">
-                            HIRARC Form
+                            HIRARC
                         </th>
                     </tr>
                     <tr>
@@ -387,7 +387,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                 <thead>
                     <tr>
                         <th colspan="6">
-                            HIRARC Form
+                            HIRARC 
                         </th>
                     </tr>
                     <tr>
@@ -449,7 +449,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                 <thead>
                     <tr>
                         <th colspan="6">
-                            SWP Form
+                            SWP 
                         </th>
                     </tr>
                     <tr>
@@ -509,7 +509,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                 <thead>
                     <tr>
                         <th colspan="6">
-                            SWP Form
+                            SWP 
                         </th>
                     </tr>
                     <tr>
@@ -584,7 +584,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                 <thead>
                     <tr>
                         <th colspan="6">
-                            SWP Form 
+                            SWP 
                         </th>
                     </tr>
                     <tr>

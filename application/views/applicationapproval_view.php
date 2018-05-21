@@ -435,202 +435,6 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
         <?php } ?>
         <!-- End Of Form E -->
         
-        <!-- HIRARC Form  -->
-        <!-- IF current user is BSO, then show applications that have not been approved -->
-        <?php if($this->session->userdata('account_type') == 4) { ?>
-        <?php if(isset($all_hirarc)) { ?>
-        
-        <div class="table-responsive">
-            <table class="table table-hover table-bordered">
-                <thead>
-                    <tr>
-                        <th colspan="6">
-                            HIRARC Form
-                        </th>
-                    </tr>
-                    <tr>
-                        <th>No.</th>
-                        <th>Account Email</th>
-                        <th>Full Name</th>
-                        <th>Account Type</th>
-                        <th>View Form</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody id="account">
-                <?php $i=0; foreach($all_hirarc as $row): ?>
-                    <tr class="searchable">
-                        <td><?php echo $i = $i+1 ?></td>
-                        <td><?php echo $row->account_email; ?></td>
-                        <td><?php echo $row->account_fullname; ?></td>
-                        <td><?php 
-                                        if($row->account_type == 1) {
-                                            echo "Applicant / Project Investigator";
-                                        } elseif($row->account_type == 2) {
-                                            echo "SSBC Chair";
-                                        } elseif($row->account_type == 3) {
-                                            echo "SSBC Members";
-                                        } elseif($row->account_type == 4) {
-                                            echo "Biosafety Officer";
-                                        } elseif($row->account_type == 5) {
-                                            echo "Health and Safety Officer";
-                                        } elseif($row->account_type == 6) {
-                                            echo "Lab Officer";
-                                        } elseif($row->account_type == 7) {
-                                            echo "Student & Postgraduate";
-                                        }
-                            ?></td>
-                        <td><button type="button" name = 'hirarc_load' value = 'Load' onclick="location.href='<?php echo site_url().'/hirarc/load_form?id='.$row->application_id;?>'" class="btn btn-primary">Load</button></td>
-        
-                        <td class="text-center">
-                            <button class="btn btn-success" onclick="approve_hirarc(<?php echo $row->account_id; ?>, <?php echo $row->application_id; ?>)" title="Approve"><i class="fa fa-check"></i></button>
-                            <hr/>
-                            <button class="btn btn-danger" onclick="reject_hirarc(<?php echo $row->account_id; ?>, <?php echo $row->application_id; ?>)" title="Reject"><i class="fa fa-times"></i></button>
-                        </td>
-                    </tr>
-                <?php endforeach; ?>
-                </tbody>
-            </table>
-        </div>
-        
-        <?php } ?>
-        <?php } ?>
-        
-        <!-- IF current user is SSBC Chair, then show applications that were approved by BSO -->
-        <?php if($this->session->userdata('account_type') == 2) { ?>
-        <?php if(isset($all_hirarc_Chair)) { ?>
-        
-        <div class="table-responsive">
-            <table class="table table-hover table-bordered">
-                <thead>
-                    <tr>
-                        <th colspan="7">
-                            HIRARC Form
-                        </th>
-                    </tr>
-                    <tr>
-                        <th>No.</th>
-                        <th>Account Email</th>
-                        <th>Full Name</th>
-                        <th>Account Type</th>
-                        <th>View Form</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody id="account">
-                    <?php $i=0; foreach($all_hirarc_Chair as $row): ?>
-                    <tr class="searchable">
-                        <td><?php echo $i = $i+1 ?></td>
-                        <td><?php echo $row->account_email; ?></td>
-                        <td><?php echo $row->account_fullname; ?></td>
-                        <td><?php 
-                                        if($row->account_type == 1) {
-                                            echo "Applicant / Project Investigator";
-                                        } elseif($row->account_type == 2) {
-                                            echo "SSBC Chair";
-                                        } elseif($row->account_type == 3) {
-                                            echo "SSBC Members";
-                                        } elseif($row->account_type == 4) {
-                                            echo "Biosafety Officer";
-                                        } elseif($row->account_type == 5) {
-                                            echo "Health and Safety Officer";
-                                        } elseif($row->account_type == 6) {
-                                            echo "Lab Officer";
-                                        } elseif($row->account_type == 7) {
-                                            echo "Student & Postgraduate";
-                                        }
-                            ?></td>
-                        <td><button type="button" name = 'forme_load' value = 'Load' onclick="location.href='<?php echo site_url().'/hirarc/load_form?id='.$row->application_id;?>'" class="btn btn-primary">Load</button></td>
-                        
-                        <?php if($row->application_approved == 1){ ?>
-                        <td id="hirarc_issue" class="text-center">
-                            <button class="btn btn-success" onclick="Chair_approve_hirarc(<?php echo $row->account_id; ?>, <?php echo $row->application_id; ?>)" title="There's issue">Yes</button>
-                            <hr/>
-                            <button class="btn btn-danger" onclick="hirarc_show()" title="No Issue">No</button>
-                        </td>
-                        
-            
-                        <td id="hirarc_proceed" style="display:none;" class="text-center">
-                            <button class="btn btn-success" onclick="final_approve_hirarc(<?php echo $row->account_id; ?>, <?php echo $row->application_id; ?>)" title="Approve"><i class="fa fa-check"></i></button>
-                            <hr/>
-                            <button class="btn btn-danger" onclick="final_reject_hirarc(<?php echo $row->account_id; ?>, <?php echo $row->application_id; ?>)" title="Reject"><i class="fa fa-times"></i></button>
-                        </td>
-                        <?php }elseif($row->application_approved == 3){ ?>
-                        <td id="hirarc_proceed" class="text-center">
-                            <button class="btn btn-success" onclick="final_approve_hirarc(<?php echo $row->account_id; ?>, <?php echo $row->application_id; ?>)" title="Approve"><i class="fa fa-check"></i></button>
-                            <hr/>
-                            <button class="btn btn-danger" onclick="final_reject_hirarc(<?php echo $row->account_id; ?>, <?php echo $row->application_id; ?>)" title="Reject"><i class="fa fa-times"></i></button>
-                        </td>
-                        <?php } ?>
-                    </tr>
-                <?php endforeach; ?>
-                </tbody>
-            </table>
-        </div>
-        
-        <?php } ?>
-        <?php } ?>
-        
-        <!-- IF current user is SSBC members, then show applications that SSBC Chair thinks has major issue -->
-        <?php if($this->session->userdata('account_type') == 3) { ?>
-        <?php if(isset($all_hirarc_SSBC)) { ?>
-        
-        <div class="table-responsive">
-            <table class="table table-hover table-bordered">
-                <thead>
-                    <tr>
-                        <th colspan="6">
-                            HIRARC Form
-                        </th>
-                    </tr>
-                    <tr>
-                        <th>No.</th>
-                        <th>Account Email</th>
-                        <th>Full Name</th>
-                        <th>Account Type</th>
-                        <th>View Form</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody id="account">
-                <?php $i=0; foreach($all_hirarc_SSBC as $row): ?>
-                    <tr class="searchable">
-                        <td><?php echo $i = $i+1 ?></td>
-                        <td><?php echo $row->account_email; ?></td>
-                        <td><?php echo $row->account_fullname; ?></td>
-                        <td><?php 
-                                        if($row->account_type == 1) {
-                                            echo "Applicant / Project Investigator";
-                                        } elseif($row->account_type == 2) {
-                                            echo "SSBC Chair";
-                                        } elseif($row->account_type == 3) {
-                                            echo "SSBC Members";
-                                        } elseif($row->account_type == 4) {
-                                            echo "Biosafety Officer";
-                                        } elseif($row->account_type == 5) {
-                                            echo "Health and Safety Officer";
-                                        } elseif($row->account_type == 6) {
-                                            echo "Lab Officer";
-                                        } elseif($row->account_type == 7) {
-                                            echo "Student & Postgraduate";
-                                        }
-                            ?></td>
-                        <td><button type="button" name = 'hirarc_load' value = 'Load' onclick="location.href='<?php echo site_url().'/hirarc/load_form?id='.$row->application_id;?>'" class="btn btn-primary">Load</button></td>
-        
-                        <td class="text-center">
-                            <button class="btn btn-success" onclick="approve_hirarc2(<?php echo $row->account_id; ?>, <?php echo $row->application_id; ?>)" title="Approve"><i class="fa fa-check"></i></button>
-                            <hr/>
-                            <button class="btn btn-danger" onclick="reject_hirarc2(<?php echo $row->account_id; ?>, <?php echo $row->application_id; ?>)" title="Reject"><i class="fa fa-times"></i></button>
-                        </td>
-                    </tr>
-                <?php endforeach; ?>
-                </tbody>
-            </table>
-        </div>
-        
-        <?php } ?>
-        <?php } ?>
-        <!-- End Of HIRARC Form -->
         
         <!-- PC1 Form  -->
         <!-- IF current user is BSO, then show applications that have not been approved -->
@@ -1050,6 +854,203 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
         <?php } ?>
         <!-- End Of PC2 Form -->
         
+        <!-- HIRARC Form  -->
+        <!-- IF current user is BSO, then show applications that have not been approved -->
+        <?php if($this->session->userdata('account_type') == 4) { ?>
+        <?php if(isset($all_hirarc)) { ?>
+        
+        <div class="table-responsive">
+            <table class="table table-hover table-bordered">
+                <thead>
+                    <tr>
+                        <th colspan="6">
+                            HIRARC Form
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>No.</th>
+                        <th>Account Email</th>
+                        <th>Full Name</th>
+                        <th>Account Type</th>
+                        <th>View Form</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="account">
+                <?php $i=0; foreach($all_hirarc as $row): ?>
+                    <tr class="searchable">
+                        <td><?php echo $i = $i+1 ?></td>
+                        <td><?php echo $row->account_email; ?></td>
+                        <td><?php echo $row->account_fullname; ?></td>
+                        <td><?php 
+                                        if($row->account_type == 1) {
+                                            echo "Applicant / Project Investigator";
+                                        } elseif($row->account_type == 2) {
+                                            echo "SSBC Chair";
+                                        } elseif($row->account_type == 3) {
+                                            echo "SSBC Members";
+                                        } elseif($row->account_type == 4) {
+                                            echo "Biosafety Officer";
+                                        } elseif($row->account_type == 5) {
+                                            echo "Health and Safety Officer";
+                                        } elseif($row->account_type == 6) {
+                                            echo "Lab Officer";
+                                        } elseif($row->account_type == 7) {
+                                            echo "Student & Postgraduate";
+                                        }
+                            ?></td>
+                        <td><button type="button" name = 'hirarc_load' value = 'Load' onclick="location.href='<?php echo site_url().'/hirarc/load_form?id='.$row->application_id;?>'" class="btn btn-primary">Load</button></td>
+        
+                        <td class="text-center">
+                            <button class="btn btn-success" onclick="approve_hirarc(<?php echo $row->account_id; ?>, <?php echo $row->application_id; ?>)" title="Approve"><i class="fa fa-check"></i></button>
+                            <hr/>
+                            <button class="btn btn-danger" onclick="reject_hirarc(<?php echo $row->account_id; ?>, <?php echo $row->application_id; ?>)" title="Reject"><i class="fa fa-times"></i></button>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+        
+        <?php } ?>
+        <?php } ?>
+        
+        <!-- IF current user is SSBC Chair, then show applications that were approved by BSO -->
+        <?php if($this->session->userdata('account_type') == 2) { ?>
+        <?php if(isset($all_hirarc_Chair)) { ?>
+        
+        <div class="table-responsive">
+            <table class="table table-hover table-bordered">
+                <thead>
+                    <tr>
+                        <th colspan="7">
+                            HIRARC Form
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>No.</th>
+                        <th>Account Email</th>
+                        <th>Full Name</th>
+                        <th>Account Type</th>
+                        <th>View Form</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="account">
+                    <?php $i=0; foreach($all_hirarc_Chair as $row): ?>
+                    <tr class="searchable">
+                        <td><?php echo $i = $i+1 ?></td>
+                        <td><?php echo $row->account_email; ?></td>
+                        <td><?php echo $row->account_fullname; ?></td>
+                        <td><?php 
+                                        if($row->account_type == 1) {
+                                            echo "Applicant / Project Investigator";
+                                        } elseif($row->account_type == 2) {
+                                            echo "SSBC Chair";
+                                        } elseif($row->account_type == 3) {
+                                            echo "SSBC Members";
+                                        } elseif($row->account_type == 4) {
+                                            echo "Biosafety Officer";
+                                        } elseif($row->account_type == 5) {
+                                            echo "Health and Safety Officer";
+                                        } elseif($row->account_type == 6) {
+                                            echo "Lab Officer";
+                                        } elseif($row->account_type == 7) {
+                                            echo "Student & Postgraduate";
+                                        }
+                            ?></td>
+                        <td><button type="button" name = 'forme_load' value = 'Load' onclick="location.href='<?php echo site_url().'/hirarc/load_form?id='.$row->application_id;?>'" class="btn btn-primary">Load</button></td>
+                        
+                        <?php if($row->application_approved == 1){ ?>
+                        <td id="hirarc_issue" class="text-center">
+                            <button class="btn btn-success" onclick="Chair_approve_hirarc(<?php echo $row->account_id; ?>, <?php echo $row->application_id; ?>)" title="There's issue">Yes</button>
+                            <hr/>
+                            <button class="btn btn-danger" onclick="hirarc_show()" title="No Issue">No</button>
+                        </td>
+                        
+            
+                        <td id="hirarc_proceed" style="display:none;" class="text-center">
+                            <button class="btn btn-success" onclick="final_approve_hirarc(<?php echo $row->account_id; ?>, <?php echo $row->application_id; ?>)" title="Approve"><i class="fa fa-check"></i></button>
+                            <hr/>
+                            <button class="btn btn-danger" onclick="final_reject_hirarc(<?php echo $row->account_id; ?>, <?php echo $row->application_id; ?>)" title="Reject"><i class="fa fa-times"></i></button>
+                        </td>
+                        <?php }elseif($row->application_approved == 3){ ?>
+                        <td id="hirarc_proceed" class="text-center">
+                            <button class="btn btn-success" onclick="final_approve_hirarc(<?php echo $row->account_id; ?>, <?php echo $row->application_id; ?>)" title="Approve"><i class="fa fa-check"></i></button>
+                            <hr/>
+                            <button class="btn btn-danger" onclick="final_reject_hirarc(<?php echo $row->account_id; ?>, <?php echo $row->application_id; ?>)" title="Reject"><i class="fa fa-times"></i></button>
+                        </td>
+                        <?php } ?>
+                    </tr>
+                <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+        
+        <?php } ?>
+        <?php } ?>
+        
+        <!-- IF current user is SSBC members, then show applications that SSBC Chair thinks has major issue -->
+        <?php if($this->session->userdata('account_type') == 3) { ?>
+        <?php if(isset($all_hirarc_SSBC)) { ?>
+        
+        <div class="table-responsive">
+            <table class="table table-hover table-bordered">
+                <thead>
+                    <tr>
+                        <th colspan="6">
+                            HIRARC Form
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>No.</th>
+                        <th>Account Email</th>
+                        <th>Full Name</th>
+                        <th>Account Type</th>
+                        <th>View Form</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="account">
+                <?php $i=0; foreach($all_hirarc_SSBC as $row): ?>
+                    <tr class="searchable">
+                        <td><?php echo $i = $i+1 ?></td>
+                        <td><?php echo $row->account_email; ?></td>
+                        <td><?php echo $row->account_fullname; ?></td>
+                        <td><?php 
+                                        if($row->account_type == 1) {
+                                            echo "Applicant / Project Investigator";
+                                        } elseif($row->account_type == 2) {
+                                            echo "SSBC Chair";
+                                        } elseif($row->account_type == 3) {
+                                            echo "SSBC Members";
+                                        } elseif($row->account_type == 4) {
+                                            echo "Biosafety Officer";
+                                        } elseif($row->account_type == 5) {
+                                            echo "Health and Safety Officer";
+                                        } elseif($row->account_type == 6) {
+                                            echo "Lab Officer";
+                                        } elseif($row->account_type == 7) {
+                                            echo "Student & Postgraduate";
+                                        }
+                            ?></td>
+                        <td><button type="button" name = 'hirarc_load' value = 'Load' onclick="location.href='<?php echo site_url().'/hirarc/load_form?id='.$row->application_id;?>'" class="btn btn-primary">Load</button></td>
+        
+                        <td class="text-center">
+                            <button class="btn btn-success" onclick="approve_hirarc2(<?php echo $row->account_id; ?>, <?php echo $row->application_id; ?>)" title="Approve"><i class="fa fa-check"></i></button>
+                            <hr/>
+                            <button class="btn btn-danger" onclick="reject_hirarc2(<?php echo $row->account_id; ?>, <?php echo $row->application_id; ?>)" title="Reject"><i class="fa fa-times"></i></button>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+        
+        <?php } ?>
+        <?php } ?>
+        <!-- End Of HIRARC Form -->
+        
         
         <!-- SWP Form  -->
         <!-- IF current user is BSO, then show applications that have not been approved -->
@@ -1283,13 +1284,11 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
         }
         
         function annex2_show(){
-            var u = document.getElementById("annex2_major");
-            u.style.display = "none";
+        
             var v = document.getElementById("annex2_issue");
             v.style.display = "none";
             
-            var w = document.getElementById("annex2_approval");
-            w.style.display = "block";
+            
             var x = document.getElementById("annex2_Chair");
             x.style.display = "block";
         }
@@ -1343,13 +1342,11 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
         }
         
         function forme_show(){
-            var u = document.getElementById("forme_major");
-            u.style.display = "none";
+            
             var v = document.getElementById("forme_issue");
             v.style.display = "none";
             
-            var w = document.getElementById("forme_approval");
-            w.style.display = "block";
+           
             var x = document.getElementById("forme_proceed");
             x.style.display = "block";
         }
@@ -1401,13 +1398,11 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
     
     <script>
         function hirarc_show(){
-            var u = document.getElementById("hirarc_major");
-            u.style.display = "none";
+            
             var v = document.getElementById("hirarc_issue");
             v.style.display = "none";
             
-            var w = document.getElementById("hirarc_approval");
-            w.style.display = "block";
+            
             var x = document.getElementById("hirarc_proceed");
             x.style.display = "block";
         }
