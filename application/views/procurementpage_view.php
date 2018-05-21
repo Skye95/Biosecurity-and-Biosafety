@@ -86,5 +86,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</div>
 		
     </div>
+	<br/>
 </body>
 </html>

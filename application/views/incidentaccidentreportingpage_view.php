@@ -87,17 +87,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </a>
           </div>				
 				</div>
-			<div>		
-				<div class="row">
-					<div class="card my-4">
-						<h5 class="card-header">Reminder</h5>
-						<div class="card-body">
-						test test test 1131231231231231231231231231231212331121321321321213213213 test test test 1131231231231231231231231231231212331121321321321213213213 
-						test test test 1131231231231231231231231231231212331121321321321213213213 test test test 1131231231231231231231231231231212331121321321321213213213 
-						</div>
-					</div>				
-				</div>
-			</div>
+		
 		</div>
 	</div>					
 <br/>
