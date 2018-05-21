@@ -49,6 +49,7 @@ if(!$this->session->userdata('isLogin')){
 			<br>
 
         <div class="row">
+            <?php if($this->session->userdata('account_type') != 5 && $this->session->userdata('account_type') != 6 && $this->session->userdata('account_type') != 7) { ?>
             <div class="col-lg-3 col-md-4 col-sm-6 col-6 portfolio-item">
                 <div class="card card-block justify-content-center align-items-center">
                     <a href="<?php echo base_url(); ?>index.php/applicationpage"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\Application for Biosafety.jpg') ?>" alt=""></a>
@@ -82,6 +83,7 @@ if(!$this->session->userdata('isLogin')){
                     </div>
                 </div>
             </div>
+            <?php } ?>
             <div class="col-lg-3 col-md-4 col-sm-6 col-6 portfolio-item">
                 <div class="card card-block justify-content-center align-items-center">
                     <a href="<?php echo base_url(); ?>index.php/inventory/index"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\LMO Biohazardous Mat.jpg') ?>" alt=""></a>
@@ -93,6 +95,7 @@ if(!$this->session->userdata('isLogin')){
                     </div>
                 </div>
             </div>
+            <?php if($this->session->userdata('account_type') != 5 && $this->session->userdata('account_type') != 6 && $this->session->userdata('account_type') != 7) { ?>
             <div class="col-lg-3 col-md-4 col-sm-6 col-6 portfolio-item">
                 <div class="card card-block justify-content-center align-items-center">
                     <a href="<?php echo base_url(); ?>index.php/exportingbiologicalmaterialpage"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\Exporting of Biological Material.jpg') ?>" alt=""></a>
@@ -137,6 +140,7 @@ if(!$this->session->userdata('isLogin')){
                     </div>
                 </div>
             </div>
+            <?php } ?>
         </div>
 	</div>
 </body>
