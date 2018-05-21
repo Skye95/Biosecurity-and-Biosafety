@@ -46,7 +46,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                 <div class="card card-block justify-content-center align-items-center">
                     <a href="<?php echo base_url(); ?>index.php/export_LMO_approval/index"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\History.jpg') ?>" alt=""></a>
                     <div class="card-body">
-                        <h6 class="card-title">
+                        <h6 style="text-align: center" class="card-title">
                             <a href="<?php echo base_url(); ?>index.php/export_LMO_approval/index">Living Modified Organisms (LMO)</a>
                         </h6>
                         <p class="card-text"></p>
@@ -57,7 +57,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                 <div class="card card-block justify-content-center align-items-center">
                     <a href="<?php echo base_url(); ?>index.php/export_exempt_BM/index"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\History.jpg') ?>" alt=""></a>
                     <div class="card-body">
-                        <h6 class="card-title">
+                        <h6 style="text-align: center" class="card-title">
                             <a href="<?php echo base_url(); ?>index.php/export_exempt_BM/index">Exempt Dealing or Biohazardous Material</a>
                         </h6>
                         <p class="card-text"></p>

@@ -62,7 +62,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                     <a href="<?php echo base_url(); ?>index.php/newapplication"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\Application for Biosafety2.jpg') ?>" alt=""></a>
                     <div style="text-align: center" class="card-body">
                         <h6 class="card-title">
-                            <a href="<?php echo base_url(); ?>index.php/newapplication">New Application</a>
+                            <a href="<?php echo base_url(); ?>index.php/newapplication">New Application<br> <br></a>
                         </h6>
                         <p class="card-text"></p>
                     </div>
@@ -108,7 +108,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                     <a href="<?php echo base_url(); ?>index.php/incidentaccident_type"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\Incident Accident Reporting2.jpg') ?>" alt=""></a>
                     <div class="card-body">
                         <h6 class="card-title">
-                            <a href="<?php echo base_url(); ?>index.php/incidentaccident_type">Incident Accident Reporting</a>
+                            <a href="<?php echo base_url(); ?>index.php/incidentaccident_type">Incident Accident Reporting <br> <br></a>
                         </h6>
                         <p class="card-text"></p>
                     </div>
@@ -119,7 +119,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                     <a href="<?php echo base_url(); ?>index.php/annualreport_approval"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\Annual Report2.jpg') ?>" alt=""></a>
                     <div style="text-align: center" class="card-body">
                         <h6 class="card-title">
-                            <a href="<?php echo base_url(); ?>index.php/annualreport_approval">Annual or Final Report</a>
+                            <a href="<?php echo base_url(); ?>index.php/annualreport_approval">Annual or Final Report<br> <br></a>
                         </h6>
                         <p class="card-text"></p>
                     </div>
@@ -129,7 +129,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                 <div class="card card-block justify-content-center align-items-center">
                     <a href="<?php echo base_url(); ?>index.php/editrequest_approval"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\History2.jpg') ?>" alt=""></a>
                     <div class="card-body">
-                        <h6 class="card-title">
+                        <h6 style="text-align: center" class="card-title">
                             <a href="<?php echo base_url(); ?>index.php/editrequest_approval">Modification & Extension Requests</a>
                         </h6>
                         <p class="card-text"></p>
