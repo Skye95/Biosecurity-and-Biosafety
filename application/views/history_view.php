@@ -64,7 +64,7 @@ if(!$this->session->userdata('isLogin')){
                         <td class="text-center"><?php echo $i = $i + 1; ?></td>
                         <td><?php echo $row['type']; ?></td>
                         <td class="text-center"><?php 
-                            if($row['approval'] < 3 || $row['approval'] == null){
+                            if($row['approval'] != 4 || $row['approval'] == null){
                                 echo "Awaiting Approval";
                             } else {
                                 echo "Approved";

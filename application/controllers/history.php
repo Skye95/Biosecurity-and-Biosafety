@@ -51,8 +51,7 @@ class history extends CI_Controller {
         
         if($type =="ANNEX%202%20FORM"){
             
-            //$value = $this->annex2_model->get_editable_value($id);
-            //extract($value);
+            
             
             if($editable == 2){
                 
