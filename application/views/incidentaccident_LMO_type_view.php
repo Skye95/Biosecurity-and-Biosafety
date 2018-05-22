@@ -10,6 +10,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
+<link rel="stylesheet" href="<?php echo base_url()?>assets/css/styles.css" type="text/css">
     <title>Swinburne Biosafety and Biosecurity Online System - New Application</title>
     
     <style>
@@ -40,14 +41,15 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
     <!-- Page Content -->
     <div class="container">
         <br>
-        
+        <div id='breadcrumb1'><?php echo $this->breadcrumbs->show(); ?></div>
+        <hr>
         <?php if($this->session->userdata('account_type') == 2 || $this->session->userdata('account_type') == 3){ ?>
         <div class="row">
             <div class="col-lg-3 col-md-4 col-sm-6 col-6 portfolio-item">
                 <div class="card card-block justify-content-center align-items-center">
                     <a href="<?php echo base_url(); ?>index.php/majorincident_approval/index"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\History.jpg') ?>" alt=""></a>
                     <div class="card-body">
-                        <h6 class="card-title">
+                        <h6 style="text-align: center" class="card-title">
                             <a href="<?php echo base_url(); ?>index.php/majorincident_approval/index">Major Biological Incident or Accident Form Approvals</a>
                         </h6>
                         <p class="card-text"></p>
@@ -58,7 +60,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                 <div class="card card-block justify-content-center align-items-center">
                     <a href="<?php echo base_url(); ?>index.php/occupationaldisease_approval/index"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\History.jpg') ?>" alt=""></a>
                     <div class="card-body">
-                        <h6 class="card-title">
+                        <h6 style="text-align: center" class="card-title">
                             <a href="<?php echo base_url(); ?>index.php/occupationaldisease_approval/index">Occupational Disease Or Exposure</a>
                         </h6>
                         <p class="card-text"></p>

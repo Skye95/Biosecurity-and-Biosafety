@@ -29,6 +29,10 @@ class editrequest_approval extends CI_Controller {
         $this->load->model('pc2_model');
         $this->load->model('procurement_model');
         $this->load->model('swp_model');
+		
+		//breadcrum
+		$this->breadcrumbs->unshift('Administrator Panel', '/index.php/adminpage');	
+		$this->breadcrumbs->push('Modification & Extension Requests', true);
     }
     
 	public function index()

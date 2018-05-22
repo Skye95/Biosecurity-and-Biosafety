@@ -12,6 +12,12 @@ class majorincident_approval extends CI_Controller {
         $this->load->model('account_model');
         $this->load->model('incidentaccidentreport_model');
         $this->load->model('annex3_model');
+		
+		//breadcrum
+		$this->breadcrumbs->unshift('Administrator Panel', '/index.php/adminpage');	
+		$this->breadcrumbs->push('Incident Accident Reporting','/incidentaccident_type',true);
+		$this->breadcrumbs->push('LMO','/incidentaccident_LMO_type', true);
+		$this->breadcrumbs->push('Major Biological Incident or Accident Form Approvals', true);
         
     }
     

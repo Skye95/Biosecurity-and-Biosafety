@@ -17,6 +17,11 @@ class applicationapproval extends CI_Controller {
         $this->load->model('pc1_model');
         $this->load->model('pc2_model');
         $this->load->model('swp_model');
+		
+		//breadcrum
+		$this->breadcrumbs->unshift('Administrator Panel', '/index.php/adminpage');	
+		$this->breadcrumbs->push('New Application','/newapplication',true);
+		$this->breadcrumbs->push('Living Modified Organisms (LMO)', true);
     }
     
 	public function index()

@@ -75,9 +75,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					</div>	
 				<?php } ?>
 			</div>
-				
+				<?php if($this->session->userdata('account_type') == 4) {?>
 				<a href="<?php echo base_url(); ?>index.php/annualfinalreportpage/edit" class="col-md-3"><button class="btn btn-primary button_right">Edit</button></a>	
-				
+				<?php }else{ ?>
+				 
+				 <?php } ?>
 			<?php } else { ?>
 				
 				 <?php echo form_open('annualfinalreportpage/save_edit') ?>
@@ -97,5 +99,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		</div>
 	</div>					
 	</div>
+	<br/>
 </body>
 </html>
