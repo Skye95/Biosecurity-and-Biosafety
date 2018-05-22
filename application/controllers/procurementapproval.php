@@ -12,6 +12,9 @@ class procurementapproval extends CI_Controller {
         $this->load->model('account_model');
         $this->load->model('procurement_model');
         
+		//breadcrum
+		$this->breadcrumbs->unshift('Administrator Panel', '/index.php/adminpage');	
+		$this->breadcrumbs->push('Procurement of Biological Material', true);
     }
     
 	public function index()
