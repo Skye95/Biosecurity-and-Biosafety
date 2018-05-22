@@ -166,7 +166,7 @@ if(!$this->session->userdata('isLogin')){
                         <td><?php echo $row->keeper_name; ?></td>
                         <td><?php echo $row->log_in_personnel; ?></td>
                         <td class="text-center">
-                            <?php if($this->session->userdata('account_id') == $row->account_id) { ?>
+                            <?php if($this->session->userdata('account_id') == $row->account_id || $this->session->userdata('account_type') == 4) { ?>
                             <i class="fa fa-bars btn btn-info" onclick="view_details(<?php echo $row->storage_id; ?>)" title="Details"></i>
                             <hr/>
                             <i class="fa fa-edit btn btn-warning" onclick="edit_storage_details(<?php echo $row->storage_id; ?>)" title="Edit"></i>
