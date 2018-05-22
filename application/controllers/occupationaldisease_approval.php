@@ -12,6 +12,7 @@ class occupationaldisease_approval extends CI_Controller {
         $this->load->model('account_model');
         $this->load->model('incidentaccidentreport_model');
         $this->load->model('annex4_model');
+        $this->load->model('email_model');
         
 		//breadcrum
 		$this->breadcrumbs->unshift('Administrator Panel', '/index.php/adminpage');	

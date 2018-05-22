@@ -11,6 +11,7 @@ class incidentaccident_exempt extends CI_Controller {
         $this->load->model('notification_model');
         $this->load->model('account_model');
         $this->load->model('incidentaccidentreport_model');
+        $this->load->model('email_model');
     }
     
 	public function index()

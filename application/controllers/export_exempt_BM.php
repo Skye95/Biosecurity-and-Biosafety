@@ -8,6 +8,7 @@ class export_exempt_BM extends CI_Controller {
         parent::__construct();
         
         $this->load->database();
+        $this->load->model('email_model');
         $this->load->model('notification_model');
         $this->load->model('account_model');
         $this->load->model('notification_of_exporting_biological_material_model');

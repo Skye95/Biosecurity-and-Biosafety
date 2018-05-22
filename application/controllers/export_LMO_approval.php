@@ -11,6 +11,7 @@ class export_LMO_approval extends CI_Controller {
         $this->load->model('notification_model');
         $this->load->model('account_model');
         $this->load->model('formf_model');
+        $this->load->model('email_model');
 		
 		//breadcrum
 		$this->breadcrumbs->unshift('Administrator Panel', '/index.php/adminpage');	

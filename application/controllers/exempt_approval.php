@@ -13,6 +13,7 @@ class exempt_approval extends CI_Controller {
         $this->load->model('exempt_model');
         $this->load->model('hirarc_model');
         $this->load->model('swp_model');
+        $this->load->model('email_model');
 		
 		//breadcrum
 		$this->breadcrumbs->unshift('Administrator Panel', '/index.php/adminpage');	

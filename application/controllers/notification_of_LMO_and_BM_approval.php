@@ -11,6 +11,7 @@ class notification_of_LMO_and_BM_approval extends CI_Controller {
         $this->load->model('notification_model');
         $this->load->model('account_model');
         $this->load->model('notification_of_LMO_and_BM_model');
+        $this->load->model('email_model');
 		
 		//breadcrum
 		$this->breadcrumbs->unshift('Administrator Panel', '/index.php/adminpage');	

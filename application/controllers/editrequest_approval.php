@@ -10,6 +10,7 @@ class editrequest_approval extends CI_Controller {
         $this->load->database();
         $this->load->model('notification_model');
         $this->load->model('account_model');
+        $this->load->model('email_model');
         
         //Form Models
         $this->load->model('annex2_model');
