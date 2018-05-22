@@ -47,7 +47,7 @@ class export_LMO_approval extends CI_Controller {
         $this->formf_model->update_approval($id, 0, $approver_id, $appID);
         
         //Send email notify PI that their form has been rejected
-        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Notification For Exporting LMO Form Submission Rejected", "<p>Your Notification For Exporting LMO Form Submission Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
+        $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", Notification For Exporting LMO Form Submission Rejected", "<p>Your Notification For Exporting LMO Form Submission Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
         
         redirect('export_LMO_approval/index');
     }
@@ -74,7 +74,7 @@ class export_LMO_approval extends CI_Controller {
         $this->formf_model->update_approval_SSBC($id, 0, $approver_id, $appID);
         
          //Send email notify PI that their form has been rejected
-         $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Notification For Exporting LMO Form Submission Rejected", "<p>Your Notification For Exporting LMO Form Submission Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
+         $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", Notification For Exporting LMO Form Submission Rejected", "<p>Your Notification For Exporting LMO Form Submission Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
         
         redirect('export_LMO_approval/index');
     }
@@ -88,7 +88,7 @@ class export_LMO_approval extends CI_Controller {
         $this->formf_model->update_approval_Chair($id, 1, $approver_id, $appID);
         
         //Send email to PI, remind them to inform BSO when LMO will arrive to importing country
-         $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Notification For Exporting LMO Form Submission Approved", "<p>Your Notification For Exporting LMO Form Submission Has Been Approved. Please Be sure to inform BSO when the shipped LMO had arrive to importing country</p>");
+         $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", Notification For Exporting LMO Form Submission Approved", "<p>Your Notification For Exporting LMO Form Submission Has Been Approved. Please Be sure to inform BSO when the shipped LMO had arrive to importing country</p>");
         
         redirect('export_LMO_approval/index');
     }
@@ -103,7 +103,7 @@ class export_LMO_approval extends CI_Controller {
         $this->formf_model->update_approval_Chair($id, 0, $approver_id, $appID);
         
          //Send email notify PI that their form has been rejected
-        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Notification For Exporting LMO Form Submission Rejected", "<p>Your Notification For Exporting LMO Form Submission Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
+        $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", Notification For Exporting LMO Form Submission Rejected", "<p>Your Notification For Exporting LMO Form Submission Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
         
         redirect('export_LMO_approval/index');
     }

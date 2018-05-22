@@ -56,7 +56,7 @@ class minorincident_approval extends CI_Controller {
         $this->incidentaccidentreport_model->update_approval_SSBC($id, 1, $approver_id, $appID);
         
         //Send email to victim or witnesses investigation outcomes
-        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Incident Accident Report Form Submission Processed", "<p>Your Incident Accident Report Form Submission Has Been Processed. (Investigations Outcomes Here)</p>");
+        $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", Incident Accident Report Form Submission Processed", "<p>Your Incident Accident Report Form Submission Has Been Processed. (Investigations Outcomes Here)</p>");
         
         redirect('minorincident_approval/index');
     }

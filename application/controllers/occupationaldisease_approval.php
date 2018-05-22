@@ -66,7 +66,7 @@ class occupationaldisease_approval extends CI_Controller {
         $this->incidentaccidentreport_model->update_approval_SSBC($id, 1, $approver_id, $appID);
         
         //send email to victim or witnesses for investigation outcomes
-        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Incident Accident Report Form Submission Processed", "<p>Your Incident Accident Report Form Submission Has Been Processed. (Investigations Outcomes Here)</p>");
+        $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", Incident Accident Report Form Submission Processed", "<p>Your Incident Accident Report Form Submission Has Been Processed. (Investigations Outcomes Here)</p>");
         
         redirect('occupationaldisease_approval/index');
     }
@@ -139,7 +139,7 @@ class occupationaldisease_approval extends CI_Controller {
         $this->annex4_model->update_approval_SSBC($id, 1, $approver_id, $appID);
         
         //send email to victim or witnesses for investigation outcomes
-        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Annex 4 Form Submission Processed", "<p>Your Annex 4 Form Submission Has Been Processed. (Investigations Outcomes Here)</p>");
+        $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", Annex 4 Form Submission Processed", "<p>Your Annex 4 Form Submission Has Been Processed. (Investigations Outcomes Here)</p>");
         
         redirect('occupationaldisease_approval/index');
     }

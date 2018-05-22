@@ -58,7 +58,7 @@ class exempt_approval extends CI_Controller {
         $this->exempt_model->update_approval($id, 0, $approver_id, $appID);
         
         //Send email to applicant let them know their form submission has been rejected
-        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Exempt Dealing Application Form Submission Rejected", "<p>Your Exempt Dealing Application Form Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
+        $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", Exempt Dealing Application Form Submission Rejected", "<p>Your Exempt Dealing Application Form Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
         
         redirect('exempt_approval/index');
     }
@@ -96,7 +96,7 @@ class exempt_approval extends CI_Controller {
         $this->exempt_model->update_approval_SSBC($id, 0, $approver_id, $appID);
         
         //Send email to applicant let them know their form submission has been rejected
-        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Exempt Dealing Application Form Submission Rejected", "<p>Your Exempt Dealing Application Form Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
+        $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", Exempt Dealing Application Form Submission Rejected", "<p>Your Exempt Dealing Application Form Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
         
         redirect('exempt_approval/index');
     }
@@ -110,7 +110,7 @@ class exempt_approval extends CI_Controller {
         $this->exempt_model->final_approval($id, 1, $approver_id, $appID);
         
         //Send email to applicant let them know their form submission has been fully approved
-        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Exempt Dealing Application Form Submission Approved", "<p>Your Exempt Dealing Application Form Has Been Approved. </p>");
+        $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", Exempt Dealing Application Form Submission Approved", "<p>Your Exempt Dealing Application Form Has Been Approved. </p>");
         
         redirect('exempt_approval/index');
     }
@@ -125,7 +125,7 @@ class exempt_approval extends CI_Controller {
         $this->exempt_model->final_approval($id, 0, $approver_id, $appID);
         
         //Send email to applicant let them know their form submission has been rejected
-        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Exempt Dealing Application Form Submission Rejected", "<p>Your Exempt Dealing Application Form Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
+        $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", Exempt Dealing Application Form Submission Rejected", "<p>Your Exempt Dealing Application Form Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
         
         redirect('exempt_approval/index');
     }
@@ -152,7 +152,7 @@ class exempt_approval extends CI_Controller {
         $this->hirarc_model->update_BSO($id, 0, $approver_id, $appID);
         
         //Send email to applicant let them know their form submission has been rejected
-        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>HIRARC Form Submission Rejected", "<p>Your HIRARC Form Submission Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
+        $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", HIRARC Form Submission Rejected", "<p>Your HIRARC Form Submission Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
         
         redirect('exempt_approval/index');
     }
@@ -193,7 +193,7 @@ class exempt_approval extends CI_Controller {
         $this->hirarc_model->update_SSBC($id, 0, $approver_id, $appID);
         
         //Send email to applicant let them know their form submission has been rejected
-        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>HIRARC Form Submission Rejected", "<p>Your HIRARC Form Submission Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
+        $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", HIRARC Form Submission Rejected", "<p>Your HIRARC Form Submission Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
         
         redirect('exempt_approval/index');
     }
@@ -206,7 +206,7 @@ class exempt_approval extends CI_Controller {
         $result = $this->account_model->get_account_by_id($id);
         $this->hirarc_model->final_approval($id, 1, $approver_id, $appID);
         
-        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>HIRARC Form Submission Approved", "<p>Your HIRARC Form Submission Has Been Approved. </p>");
+        $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", HIRARC Form Submission Approved", "<p>Your HIRARC Form Submission Has Been Approved. </p>");
         
         redirect('exempt_approval/index');
     }
@@ -221,7 +221,7 @@ class exempt_approval extends CI_Controller {
         $this->hirarc_model->final_approval($id, 0, $approver_id, $appID);
         
         //Send email to applicant let them know their form submission has been rejected
-        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>HIRARC Form Submission Rejected", "<p>Your HIRARC Form Submission Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
+        $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", HIRARC Form Submission Rejected", "<p>Your HIRARC Form Submission Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
         
         redirect('exempt_approval/index');
     }
@@ -249,7 +249,7 @@ class exempt_approval extends CI_Controller {
         $this->swp_model->update_approval($id, 0, $approver_id, $appID);
         
         //Send email to applicant let them know their form submission has been rejected
-        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Safety Work Procedure Form Submission Rejected", "<p>Your Safety Work Procedure Form Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
+        $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", Safety Work Procedure Form Submission Rejected", "<p>Your Safety Work Procedure Form Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
         
         redirect('exempt_approval/index');
     }
@@ -289,7 +289,7 @@ class exempt_approval extends CI_Controller {
         $this->swp_model->update_approval_SSBC($id, 0, $approver_id, $appID);
         
         //Send email to applicant let them know their form submission has been rejected
-        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Safety Work Procedure Form Submission Rejected", "<p>Your Safety Work Procedure Form Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
+        $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", Safety Work Procedure Form Submission Rejected", "<p>Your Safety Work Procedure Form Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
         
         redirect('exempt_approval/index');
     } 
@@ -303,7 +303,7 @@ class exempt_approval extends CI_Controller {
         $this->swp_model->final_approval($id, 1, $approver_id, $appID);
         
         //Send email to applicant let them know their form submission has been fully approved
-        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Safety Work Procedure Form Submission Approved", "<p>Your Safety Work Procedure Form Has Been Approved. </p>");
+        $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", Safety Work Procedure Form Submission Approved", "<p>Your Safety Work Procedure Form Has Been Approved. </p>");
         
         redirect('exempt_approval/index');
     }
@@ -318,7 +318,7 @@ class exempt_approval extends CI_Controller {
         $this->swp_model->final_approval($id, 0, $approver_id, $appID);
         
         //Send email to applicant let them know their form submission has been rejected
-        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Safety Work Procedure Form Submission Rejected", "<p>Your Safety Work Procedure Form Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
+        $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", Safety Work Procedure Form Submission Rejected", "<p>Your Safety Work Procedure Form Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
         
         redirect('exempt_approval/index');
     }

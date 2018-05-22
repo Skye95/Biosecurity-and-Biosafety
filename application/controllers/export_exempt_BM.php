@@ -47,7 +47,7 @@ class export_exempt_BM extends CI_Controller {
         $this->notification_of_exporting_biological_material_model->update_approval($id, 0, $approver_id, $appID);
         
         //Send email to PI notify them that their form has been rejected
-        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Notification For Exporting Biohazardous Materials Form Submission Rejected", "<p>Your Notification For Exporting Biohazardous Materials Form Submission Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
+        $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", Notification For Exporting Biohazardous Materials Form Submission Rejected", "<p>Your Notification For Exporting Biohazardous Materials Form Submission Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
         
         redirect('export_exempt_BM/index');
     }
